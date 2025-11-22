@@ -1,0 +1,683 @@
+/* Цвета */
+:root {
+  --primary: #f34b4b;
+  --text-main: #2c2c2c;
+  --bg-soft: #f9faf5;
+
+  --accent-yellow: #ffd766;
+  --accent-mint: #c7f0e9;
+  --accent-peach: #ffe5d4;
+  --accent-lilac: #e9d7ff;
+  --accent-blue: #cde8ff;
+}
+
+/* HEADER */
+
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0e6e0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 96px;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo__img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* logo__text можно оставить, но ты его не используешь */
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.logo__text span:last-child {
+  color: var(--primary);
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+.nav a {
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.2s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 24px; /* чуть левее от правого края */
+}
+
+/* ===========================
+   HEADER (ДОПОЛНЕНИЯ)
+   =========================== */
+
+/* Кнопка "Главная" (увеличенная) */
+.btn--main {
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: 999px;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Контейнер для дропдауна */
+.dropdown {
+  position: relative;
+}
+
+/* Выпадающее меню */
+.dropdown__menu {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 8px 0;
+  min-width: 220px;
+  display: none;
+  z-index: 30;
+}
+
+/* Пункты меню */
+.dropdown__menu a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #111;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown__menu a:hover {
+  background-color: #f3f4f6;
+}
+
+/* Активное состояние дропдауна */
+.dropdown--open .dropdown__menu {
+  display: block;
+}
+
+
+/* Кнопки */
+
+.btn {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  background-color: transparent;
+  white-space: nowrap;
+}
+
+.btn--ghost {
+  border-color: #d1d5db;
+  background-color: #ffffff;
+}
+
+.btn--small {
+  padding: 6px 12px;
+  font-size: 11px;
+}
+
+.btn--primary {
+  background-color: #ffd766;      /* жёлтая заливка */
+  color: #000000;
+  border-color: #1d9bf0;          /* синяя обводка */
+  box-shadow: 0 4px 0 #e2b640;    /* лёгкая тень вниз */
+}
+
+
+.btn--primary:hover {
+  filter: brightness(0.97);
+}
+
+.btn--outline {
+  border-color: #d1d5db;
+  background-color: transparent;
+}
+.hero__arrow {
+  position: absolute;
+  width: 70px;       /* маленькая стрелка */
+  left: 40px;        /* сдвиг ближе к тексту */
+  top: 200px;        /* ниже под кнопкой */
+  opacity: 0.9;
+}
+
+
+
+/* HERO */
+
+.hero {
+  padding: 0 0 40px;
+  background-color: var(--bg-soft);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: center;
+
+  /* карточка как в фигме */
+  background-color: #f4f4f4;
+  border-radius: 32px;
+  padding: 24px 56px 40px;
+}
+
+.hero__content {
+  position: relative; /* чтобы стрелка позиционировалась внутри текста */
+}
+
+.hero__label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00a6b5;
+  margin-bottom: 10px;
+}
+
+.hero__title {
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.hero__title-top {
+  font-size: 46px;
+  color: #00a6b5;
+  font-weight: 800;
+}
+
+.hero__title-main {
+  font-size: 46px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.hero__text {
+  margin-top: 10px;
+  font-size: 15px;
+  max-width: 380px;
+}
+
+.hero__btn {
+  margin-top: 60px;
+}
+
+/* стрелка под текстом */
+.hero__arrow {
+  position: absolute;
+  width: 70px;      /* размер стрелки */
+  left: 190px;      /* сдвиг вправо от текста */
+  top: 155px;       /* сдвиг вниз от верхнего края hero__content */
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hero__image-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__image {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 32px;
+  object-fit: contain;
+}
+
+/* ОБЩИЕ СЕКЦИИ */
+
+.section {
+  padding: 48px 0;
+  background-color: var(--bg-soft);
+}
+
+.section--white {
+  background-color: #ffffff;
+}
+
+.section--soft {
+  background-color: var(--bg-soft);
+}
+
+.section__title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.section__title--left {
+  text-align: left;
+}
+
+.section__title-accent {
+  color: var(--primary);
+}
+
+.section__title-accent--blue {
+  color: #6ec4d8;
+}
+
+/* Цели */
+
+.goal-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.goal-card {
+  padding: 18px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+}
+
+.goal-card h3 {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.goal-card--peach {
+  background-color: var(--accent-peach);
+}
+
+.goal-card--mint {
+  background-color: var(--accent-mint);
+}
+
+.goal-card--blue {
+  background-color: var(--accent-blue);
+}
+
+.about-text {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  font-size: 15px;
+  margin-bottom: 34px;
+}
+
+/* Преподаватели */
+
+.teachers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.teacher-card {
+  text-align: center;
+}
+
+.teacher-card__photo {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.teacher-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teacher-card__name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.teacher-card__subject {
+  font-size: 13px;
+  color: var(--primary);
+  margin-top: 2px;
+}
+
+.teacher-card__exam {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.teacher-card__exp {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Форматы */
+
+.formats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.format-card {
+  padding: 16px 18px;
+  border-radius: 24px;
+  border: 1px solid #f0e6e0;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+}
+
+.format-card p {
+  margin-bottom: 10px;
+}
+
+.format-card--soft {
+  background-color: #ffffff;
+}
+
+.format-card--peach {
+  background-color: var(--accent-peach);
+}
+
+.format-card--mint {
+  background-color: var(--accent-mint);
+}
+
+.format-card--lilac {
+  background-color: var(--accent-lilac);
+}
+
+/* Направления */
+
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.track-card {
+  background-color: #ffffff;
+  border-radius: 22px;
+  border: 1px solid #f0e6e0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-card__image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.track-card__body {
+  padding: 14px 16px 18px;
+  font-size: 14px;
+}
+
+.track-card__body h3 {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.track-card__body p {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Блок контактов + форма */
+
+.contact-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.contact-block__p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+.contact-block__subtitle {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Соцсети */
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials__item {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #d1d5db;
+}
+
+.socials__item--vk {
+  background-color: #4c75a3;
+}
+.socials__item--tg {
+  background-color: #34aadf;
+}
+.socials__item--mail {
+  background-color: #f6c453;
+}
+
+/* Форма */
+
+.form {
+  background-color: #fbe9e9;
+  padding: 22px 24px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form__title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.form__field input,
+.form__field textarea {
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 8px 10px;
+  font: inherit;
+  resize: none;
+}
+
+.form__field input:focus,
+.form__field textarea:focus {
+  outline: 2px solid rgba(243, 75, 75, 0.3);
+  outline-offset: 0;
+}
+
+.form__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.form__checkbox input {
+  margin-top: 3px;
+}
+
+.form__submit {
+  margin-top: 4px;
+}
+
+/* FOOTER */
+
+.footer {
+  border-top: 1px solid #f0e6e0;
+  background-color: #ffffff;
+  padding: 16px 0;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #4b5563;
+}
+
+.footer__nav a:hover {
+  color: var(--primary);
+}
+
+.footer__policy {
+  color: #6b7280;
+}
+
+/* АДАПТИВ */
+
+@media (max-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__image-wrap {
+    order: -1;
+  }
+
+  .goal-cards,
+  .about-text,
+  .teachers,
+  .formats,
+  .tracks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-block {
+    grid-template-columns: 1fr;
+  }
+
+  .header__inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto;
+    padding: 8px 0;
+  }
+
+  .nav {
+    order: 2;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .goal-cards,
+  .about-text,
+  .teachers,
+  .formats,
+  .tracks {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__inner {
+    gap: 24px;
+    padding: 24px 20px;
+  }
+
+  .section {
+    padding: 28px 0;
+  }
+
+  .section__title {
+    font-size: 20px;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
