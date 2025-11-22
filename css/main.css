@@ -839,7 +839,14 @@
 }
 
 @media (max-width: 640px) {
+.hero__arrow {
+    width: 64vw;
+    bottom: -160px;  /* глубже, потому что экраны высокие */
+  }
 
+  .hero {
+    padding-bottom: 230px; /* даём место стрелке */
+  }
   .goal-cards,
   .about-text,
   .teachers,
@@ -884,6 +891,7 @@
     bottom: -140px;
   }
 }
+
 
 
 
