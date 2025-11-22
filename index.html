@@ -336,7 +336,10 @@
     const header = document.getElementById('siteHeader');
     const burger = document.getElementById('burgerToggle');
 
-    // Дропдаун "Главная" (десктоп)
+    const navMainGroup = document.querySelector('.nav-main-group');
+    const navMainToggle = document.querySelector('.nav-main-toggle');
+
+    // Дропдаун "Главная" (правый в шапке — десктоп)
     if (dropdown && mainToggle) {
       mainToggle.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -352,18 +355,29 @@
       });
     }
 
-    // Клик вне элементов закрывает и dropdown, и бургер-меню
+    // "Главная" внутри бургера (подпункты)
+    if (navMainGroup && navMainToggle) {
+      navMainToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navMainGroup.classList.toggle('nav-main-group--open');
+      });
+    }
+
+    // Клик вне элементов закрывает всё
     document.addEventListener('click', function () {
       if (dropdown) dropdown.classList.remove('dropdown--open');
       if (header) header.classList.remove('header--mobile-open');
+      if (navMainGroup) navMainGroup.classList.remove('nav-main-group--open');
     });
   });
 </script>
 
 
 
+
 </body>
 </html>
+
 
 
 
