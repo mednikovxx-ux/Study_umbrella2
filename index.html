@@ -340,7 +340,7 @@
     const navMainGroup = document.querySelector('.nav-main-group');
     const navMainToggle = document.querySelector('.nav-main-toggle');
 
-    // Дропдаун "Главная" (правый в шапке — десктоп)
+    // Справа кнопка "Главная" (десктоп)
     if (dropdown && mainToggle) {
       mainToggle.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -348,7 +348,7 @@
       });
     }
 
-    // Бургер-меню (мобильная версия)
+    // Бургер (мобилка)
     if (header && burger) {
       burger.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -356,7 +356,7 @@
       });
     }
 
-    // "Главная" внутри бургера (подпункты)
+    // "Главная" внутри мобильного меню
     if (navMainGroup && navMainToggle) {
       navMainToggle.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -364,7 +364,7 @@
       });
     }
 
-    // Клик вне элементов закрывает всё
+    // Клик вне — закрываем всё
     document.addEventListener('click', function () {
       if (dropdown) dropdown.classList.remove('dropdown--open');
       if (header) header.classList.remove('header--mobile-open');
@@ -376,8 +376,10 @@
 
 
 
+
 </body>
 </html>
+
 
 
 
