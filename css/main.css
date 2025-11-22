@@ -727,6 +727,7 @@
     left: 200px;
     top: 150px;
   }
+
   .hero__inner {
     grid-template-columns: 1fr;
   }
@@ -762,13 +763,24 @@
     padding-bottom: 8px;
   }
 }
-/* МОБИЛЬНОЕ МЕНЮ + БУРГЕР */
+
+/* МОБИЛЬНОЕ МЕНЮ + БУРГЕР И СТРЕЛКА */
 @media (max-width: 768px) {
+  /* даём место под стрелку, чтобы её не обрезало */
+  .hero {
+    padding-bottom: 140px;
+  }
+
+  /* стрелка выходит из-под кнопки и уходит в блок ниже */
   .hero__arrow {
-    width: 34vw;       /* стрелка сама адаптируется по ширине экрана */
-    right: 24px;       /* теперь привязка к правому краю */
-    left: auto;        /* отключаем левую привязку */
-    top: 180px;      
+    width: 60vw;
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: -95px;
+    transform: translateX(-35%);
+  }
+
   .header__inner {
     height: 64px;
     flex-wrap: nowrap;
@@ -799,11 +811,13 @@
     display: none;  /* по умолчанию скрыто */
     z-index: 25;
   }
-  /* Показываем "Главная" только в мобильном меню */
+
+  /* "Главная" только в мобильном меню, в самом верху списка */
   .nav-main-group {
     display: block;
     width: 100%;
-    margin-top: 8px;
+    order: -1;
+    margin-bottom: 8px;
   }
 
   .nav-main-toggle {
@@ -852,7 +866,6 @@
     align-items: flex-start;
   }
 
-  /* 🔥 ЭТИ стили должны быть внутри @media */
   .hero__title-top,
   .hero__title-main {
     font-size: 32px;
@@ -864,14 +877,15 @@
   }
 }
 
-
 @media (max-width: 480px) {
+  /* чуть подправим стрелку на очень маленьких экранах */
   .hero__arrow {
-    width: 40vw;
-    right: 16px;
-    top: 190px;
+    width: 68vw;
+    bottom: -90px;
   }
 }
+
+
 
 
 
