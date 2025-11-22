@@ -41,22 +41,11 @@
   object-fit: contain;
 }
 
-/* logo__text можно оставить, но ты его не используешь */
-.logo__text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.logo__text span:last-child {
-  color: var(--primary);
-}
-
+/* Горизонтальное меню на десктопе */
 .nav {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 32px;
   font-size: 14px;
   font-weight: 500;
   color: #444;
@@ -64,32 +53,6 @@
 
 .nav a {
   position: relative;
-}
-/* Группа "Главная" внутри меню (бургер) */
-.nav-main-group {
-  position: relative;
-  display: none; /* на десктопе не показываем */
-}
-
-.nav-main-toggle {
-  font-size: 14px;
-  font-weight: 500;
-  color: #444;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-/* Подменю для "Главная" */
-.nav-main-submenu {
-  display: none;
-  margin-top: 6px;
-}
-
-/* Активное состояние — показываем подменю */
-.nav-main-group--open .nav-main-submenu {
-  display: block;
 }
 
 .nav a::after {
@@ -111,11 +74,57 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: 24px; /* чуть левее от правого края */
+  margin-right: 24px;
 }
-/* БУРГЕР-КНОПКА (по умолчанию скрыта) */
+
+/* Кнопка "Главная" справа (десктоп) */
+.btn--main {
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: 999px;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Выпадающее меню справа (десктоп) */
+.dropdown {
+  position: relative;
+}
+
+.dropdown__menu {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 8px 0;
+  min-width: 220px;
+  display: none;
+  z-index: 30;
+}
+
+.dropdown__menu a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #111;
+  text-decoration: none;
+}
+
+.dropdown__menu a:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown--open .dropdown__menu {
+  display: block;
+}
+
+/* Бургер по умолчанию скрыт (только для мобилки) */
 .burger {
-  display: none;          /* покажем только на мобильных */
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -136,57 +145,97 @@
   border-radius: 999px;
 }
 
-/* ===========================
-   HEADER (ДОПОЛНЕНИЯ)
-   =========================== */
+/* "Главная" для мобильного меню — по умолчанию скрыта (только моб) */
+.nav-main-group {
+  position: relative;
+  display: none;       /* важное: на десктопе не показываем */
+}
 
-/* Кнопка "Главная" (увеличенная) */
-.btn--main {
-  padding: 10px 24px;
+.nav-main-toggle {
   font-size: 14px;
-  border-radius: 999px;
-  border: 1px solid #d6d6d6;
-  background: #fff;
+  font-weight: 500;
+  color: #444;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
 
-/* Контейнер для дропдауна */
-.dropdown {
-  position: relative;
-}
-
-/* Выпадающее меню */
-.dropdown__menu {
-  position: absolute;
-  right: 0;
-  top: 110%;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  padding: 8px 0;
-  min-width: 220px;
+.nav-main-submenu {
   display: none;
-  z-index: 30;
+  margin-top: 6px;
 }
 
-/* Пункты меню */
-.dropdown__menu a {
+.nav-main-submenu a {
   display: block;
-  padding: 10px 16px;
+  padding: 4px 0;
   font-size: 14px;
-  color: #111;
-  text-decoration: none;
-  white-space: nowrap;
 }
 
-.dropdown__menu a:hover {
-  background-color: #f3f4f6;
-}
-
-/* Активное состояние дропдауна */
-.dropdown--open .dropdown__menu {
+.nav-main-group--open .nav-main-submenu {
   display: block;
+}
+
+/* ===== АДАПТИВ ШАПКИ ===== */
+
+@media (max-width: 768px) {
+  .header__inner {
+    height: 64px;
+  }
+
+  /* показываем бургер */
+  .burger {
+    display: flex;
+  }
+
+  /* убираем правую кнопку "Главная" на мобилке */
+  .header__right {
+    display: none;
+  }
+
+  /* перестраиваем меню в выпадающий список под шапкой */
+  .nav {
+    position: absolute;
+    top: 64px; /* высота шапки */
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px 16px;
+    border-bottom: 1px solid #f0e6e0;
+    display: none;          /* по умолчанию скрыто */
+    z-index: 25;
+  }
+
+  /* когда хедер в состоянии mobile-open — показываем меню */
+  .header--mobile-open .nav {
+    display: flex;
+  }
+
+  /* "Главная" в мобильном меню */
+  .nav-main-group {
+    display: block;    /* теперь показываем */
+    width: 100%;
+    order: -1;         /* именно это поднимает её НА САМО ВЕРХУ */
+    margin-bottom: 8px;
+  }
+
+  .nav-main-toggle {
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-main-submenu {
+    margin-top: 4px;
+    padding-left: 16px;
+  }
+
+  .nav-main-submenu a {
+    padding: 4px 0;
+  }
 }
 
 
@@ -793,5 +842,6 @@
   .hero__btn {
     margin-top: 32px;
   }
+
 
 
