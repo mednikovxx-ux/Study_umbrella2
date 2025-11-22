@@ -408,6 +408,19 @@
 .section__title-accent--blue {
   color: #6ec4d8;
 }
+/* Текстовые блоки под секцией "В ЧЕМ НАША ЦЕЛЬ?" */
+
+.about-line {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 600;
+  max-width: 580px;
+}
+
+.about-line .accent {
+  color: var(--primary); /* красный */
+  font-weight: 700;
+}
 
 /* Цели */
 
@@ -876,6 +889,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
