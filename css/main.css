@@ -292,7 +292,7 @@
 
 .hero {
   padding: 0 0 40px;
-  background-color: var(--bg-soft);
+  background-color: #EDEDED;
 }
 
 .hero__inner {
@@ -876,6 +876,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
