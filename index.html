@@ -320,24 +320,37 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const dropdown = document.getElementById('mainDropdown');
-    const toggle = document.getElementById('mainMenuToggle');
+    const mainToggle = document.getElementById('mainMenuToggle');
+    const header = document.getElementById('siteHeader');
+    const burger = document.getElementById('burgerToggle');
 
-    if (!dropdown || !toggle) return;
+    // Дропдаун "Главная" (десктоп)
+    if (dropdown && mainToggle) {
+      mainToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('dropdown--open');
+      });
+    }
 
-    // Открываем/закрываем по клику на кнопке
-    toggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      dropdown.classList.toggle('dropdown--open');
-    });
+    // Бургер-меню (мобильная версия)
+    if (header && burger) {
+      burger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        header.classList.toggle('header--mobile-open');
+      });
+    }
 
-    // Клик вне меню закрывает его
+    // Клик вне элементов закрывает и dropdown, и бургер-меню
     document.addEventListener('click', function () {
-      dropdown.classList.remove('dropdown--open');
+      if (dropdown) dropdown.classList.remove('dropdown--open');
+      if (header) header.classList.remove('header--mobile-open');
     });
   });
 </script>
 
 
+
 </body>
 </html>
+
 
