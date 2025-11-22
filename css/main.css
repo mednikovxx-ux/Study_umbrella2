@@ -418,8 +418,8 @@
 }
 
 .about-line .accent {
-  color: var(--primary); /* красный */
-  font-weight: 700;
+  color: var(--primary) !important;
+  font-weight: 700 !important;
 }
 
 /* Цели */
@@ -889,6 +889,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
