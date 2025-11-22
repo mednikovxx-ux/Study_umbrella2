@@ -65,6 +65,32 @@
 .nav a {
   position: relative;
 }
+/* Группа "Главная" внутри меню (бургер) */
+.nav-main-group {
+  position: relative;
+  display: none; /* на десктопе не показываем */
+}
+
+.nav-main-toggle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Подменю для "Главная" */
+.nav-main-submenu {
+  display: none;
+  margin-top: 6px;
+}
+
+/* Активное состояние — показываем подменю */
+.nav-main-group--open .nav-main-submenu {
+  display: block;
+}
 
 .nav a::after {
   content: "";
@@ -707,6 +733,24 @@
     display: none;  /* по умолчанию скрыто */
     z-index: 25;
   }
+  /* Показываем "Главная" только в мобильном меню */
+  .nav-main-group {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .nav-main-toggle {
+    padding: 8px 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-main-submenu a {
+    display: block;
+    padding: 4px 0 4px 16px;
+    font-size: 14px;
+  }
 
   /* когда шапка в состоянии "открыто" — показываем меню */
   .header--mobile-open .nav {
@@ -749,4 +793,5 @@
   .hero__btn {
     margin-top: 32px;
   }
+
 
