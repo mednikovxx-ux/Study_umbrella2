@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Umbrella — онлайн школа</title>
+
+  <link rel="stylesheet" href="css/globals.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+<header class="header">
+  <div class="container header__inner">
+
+    <!-- ЛОГОТИП -->
+    <a href="#" class="logo">
+      <img src="img/logo.png" class="logo__img" alt="Логотип">
+    </a>
+
+    <!-- МЕНЮ -->
+    <nav class="nav">
+      <a href="#about">О нас</a>
+      <a href="#courses">Наши курсы</a>
+      <a href="#teachers">Наши преподаватели</a>
+      <a href="#offers">Наши предложения</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <!-- ПРАВАЯ ЧАСТЬ: КНОПКА С ВЫПАДАЮЩИМ СПИСКОМ -->
+    <div class="header__right">
+      <div class="dropdown" id="mainDropdown">
+        <button class="btn btn--ghost btn--main" id="mainMenuToggle">
+          Главная ▾
+        </button>
+
+        <div class="dropdown__menu" id="mainMenu">
+          <a href="language-school.html">Языковая школа</a>
+          <a href="humanities-school.html">Гуманитарная школа</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__inner">
+
+    <div class="hero__content">
+     
+
+      <h1 class="hero__title">
+        <span class="hero__title-top">ОНЛАЙН ШКОЛА</span><br>
+        <span class="hero__title-main">STUDY UMBRELLA</span>
+      </h1>
+
+      <p class="hero__text">
+        Все знания под единым, надёжным зонтом!<br>
+        Запишитесь на первое занятие уже сегодня.
+      </p>
+
+      <button class="btn btn--primary hero__btn">
+        Запишись на первое занятие!
+      </button>
+
+      <!-- ❗ ОСТАВЛЯЕМ ТОЛЬКО ЭТУ ОДНУ СТРЕЛКУ -->
+      <img src="img/hero-arrow.png" alt="" class="hero__arrow">
+    </div>
+
+    <div class="hero__image-wrap">
+      <img src="img/hero-main.png" alt="Онлайн обучение" class="hero__image">
+    </div>
+
+  </div>
+</section>
+
+  <!-- НАША ЦЕЛЬ -->
+  <section class="section" id="about">
+    <div class="container">
+
+      <h2 class="section__title">
+        В ЧЕМ <span class="section__title-accent">НАША ЦЕЛЬ?</span>
+      </h2>
+
+      <div class="goal-cards">
+
+        <article class="goal-card goal-card--peach">
+          <h3>Поддержать студентов</h3>
+          <p>Поддержать студентов на каждом этапе обучения.</p>
+        </article>
+
+        <article class="goal-card goal-card--mint">
+          <h3>Разделить уникальный опыт</h3>
+          <p>Разделить уникальный опыт и знания наших учителей с учениками.</p>
+        </article>
+
+        <article class="goal-card goal-card--blue">
+          <h3>Расширить мировоззрение</h3>
+          <p>Расширить мировоззрение наших учеников.</p>
+        </article>
+
+      </div>
+
+      <div class="about-text">
+        <p>
+          Осваивайте любые предметы легко и интересно, с опытными преподавателями,
+          которым можно доверять.
+        </p>
+        <p>
+          Мы предлагаем комфортные занятия и максимальную эффективность, а также
+          свободный график и интересные домашние задания.
+        </p>
+      </div>
+
+      <!-- ПРЕПОДАВАТЕЛИ -->
+      <div class="teachers" id="teachers">
+
+        <article class="teacher-card">
+          <div class="teacher-card__photo">
+            <img src="img/teacher-1.jpg" alt="">
+          </div>
+          <h3 class="teacher-card__name">Колобова Дарья</h3>
+          <p class="teacher-card__subject">История</p>
+          <p class="teacher-card__exam">ЕГЭ — 98</p>
+          <p class="teacher-card__exp">Опыт преподавания: 2 года</p>
+        </article>
+
+        <article class="teacher-card">
+          <div class="teacher-card__photo">
+            <img src="img/teacher-2.jpg" alt="">
+          </div>
+          <h3 class="teacher-card__name">Антон Бердечевский</h3>
+          <p class="teacher-card__subject">Обществознание</p>
+          <p class="teacher-card__exam">ЕГЭ — 99</p>
+          <p class="teacher-card__exp">Опыт преподавания: 3 года</p>
+        </article>
+
+        <article class="teacher-card">
+          <div class="teacher-card__photo">
+            <img src="img/teacher-3.jpg" alt="">
+          </div>
+          <h3 class="teacher-card__name">Железнякова Ульяна</h3>
+          <p class="teacher-card__subject">Обществознание</p>
+          <p class="teacher-card__exam">ЕГЭ — 98</p>
+          <p class="teacher-card__exp">Опыт преподавания: 3 года</p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ПРОГРАММЫ И ФОРМАТЫ -->
+  <section class="section section--white" id="courses">
+    <div class="container">
+
+      <h2 class="section__title">
+        НАШИ ПРОГРАММЫ
+        <span class="section__title-accent section__title-accent--blue">
+          И ФОРМАТЫ
+        </span>
+      </h2>
+
+      <div class="formats">
+        <article class="format-card format-card--soft">
+          <p>Курсы, подходящие для любого уровня языка.</p>
+          <button class="btn btn--outline">Записаться</button>
+        </article>
+
+        <article class="format-card format-card--peach">
+          <p>Курсы для специалистов и профессионалов.</p>
+          <button class="btn btn--outline">Записаться</button>
+        </article>
+
+        <article class="format-card format-card--mint">
+          <p>Индивидуальные занятия с преподавателем.</p>
+          <button class="btn btn--outline">Записаться</button>
+        </article>
+
+        <article class="format-card format-card--lilac">
+          <p>Занятия в мини-группах от 2 до 4 человек.</p>
+          <button class="btn btn--outline">Записаться</button>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- НАПРАВЛЕНИЯ -->
+  <section class="section section--soft">
+    <div class="container">
+
+      <h2 class="section__title">ДОСТУПНЫЕ НАПРАВЛЕНИЯ:</h2>
+
+      <div class="tracks">
+
+        <article class="track-card">
+          <img src="img/track-1.jpg" alt="" class="track-card__image">
+          <div class="track-card__body">
+            <h3>Языковая школа</h3>
+            <p>Индивидуальные занятия и мини-группы.</p>
+          </div>
+        </article>
+
+        <article class="track-card">
+          <img src="img/track-2.jpg" alt="" class="track-card__image">
+          <div class="track-card__body">
+            <h3>Гуманитарная школа</h3>
+            <p>История, обществознание, русский язык.</p>
+          </div>
+        </article>
+
+        <article class="track-card">
+          <img src="img/track-3.jpg" alt="" class="track-card__image">
+          <div class="track-card__body">
+            <h3>Подготовка к экзаменам</h3>
+            <p>ЕГЭ, ОГЭ и другие экзамены.</p>
+          </div>
+        </article>
+
+        <article class="track-card">
+          <img src="img/track-4.jpg" alt="" class="track-card__image">
+          <div class="track-card__body">
+            <h3>Дополнительные курсы</h3>
+            <p>Авторские программы и спецкурсы.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ФОРМА -->
+  <section class="section section--white" id="offers">
+    <div class="container contact-block">
+
+      <div class="contact-block__text">
+        <h2 class="section__title section__title--left">
+          Запишитесь на вводный <span class="section__title-accent">бесплатный урок</span>
+        </h2>
+
+        <p class="contact-block__p">
+          Мы всегда рады пообщаться с вами, ответить на любые ваши вопросы
+          и записать вас на пробный урок!
+        </p>
+        <p class="contact-block__p">
+          Свяжитесь с нами или оставьте заявку в форме обратной связи.
+        </p>
+
+        <p class="contact-block__subtitle">Свяжитесь с нами!</p>
+
+        <div class="socials">
+          <a href="#" class="socials__item socials__item--vk"></a>
+          <a href="#" class="socials__item socials__item--tg"></a>
+          <a href="#" class="socials__item socials__item--mail"></a>
+        </div>
+      </div>
+
+      <form class="form" id="contacts">
+        <h3 class="form__title">Форма обратной связи</h3>
+
+        <label class="form__field">
+          <span>Ваше имя</span>
+          <input type="text">
+        </label>
+
+        <label class="form__field">
+          <span>Номер телефона</span>
+          <input type="tel">
+        </label>
+
+        <label class="form__field">
+          <span>Комментарий</span>
+          <textarea rows="3"></textarea>
+        </label>
+
+        <label class="form__checkbox">
+          <input type="checkbox">
+          <span>Соглашаюсь с политикой конфиденциальности и даю согласие на обработку персональных данных.</span>
+        </label>
+
+        <button class="btn btn--primary form__submit" type="submit">Отправить</button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__logo">
+        <img src="img/logo.png" alt="">
+        <span>Study Umbrella</span>
+      </div>
+
+      <nav class="footer__nav">
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#courses">Начать заниматься</a>
+      </nav>
+
+      <div class="footer__policy">Политика конфиденциальности</div>
+
+    </div>
+  </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdown = document.getElementById('mainDropdown');
+    const toggle = document.getElementById('mainMenuToggle');
+
+    if (!dropdown || !toggle) return;
+
+    // Открываем/закрываем по клику на кнопке
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      dropdown.classList.toggle('dropdown--open');
+    });
+
+    // Клик вне меню закрывает его
+    document.addEventListener('click', function () {
+      dropdown.classList.remove('dropdown--open');
+    });
+  });
+</script>
+
+
+</body>
+</html>
