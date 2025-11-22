@@ -768,7 +768,7 @@
 @media (max-width: 768px) {
   /* даём место под стрелку, чтобы её не обрезало */
   .hero {
-    padding-bottom: 140px;
+    padding-bottom: 210px;
   }
 
   /* стрелка выходит из-под кнопки и уходит в блок ниже */
@@ -777,7 +777,7 @@
     left: 50%;
     right: auto;
     top: auto;
-    bottom: -95px;
+    bottom: -150px;
     transform: translateX(-35%);
   }
 
@@ -881,9 +881,10 @@
   /* чуть подправим стрелку на очень маленьких экранах */
   .hero__arrow {
     width: 68vw;
-    bottom: -90px;
+    bottom: -140px;
   }
 }
+
 
 
 
