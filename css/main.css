@@ -2,7 +2,7 @@
 :root {
   --primary: #f34b4b;
   --text-main: #2c2c2c;
-  --bg-soft: #f9faf5;
+  --bg-soft: #EDEDED;
 
   --accent-yellow: #ffd766;
   --accent-mint: #c7f0e9;
@@ -378,7 +378,7 @@
 /* ОБЩИЕ СЕКЦИИ */
 
 .section {
-  padding: 48px 0;
+  padding: 12px 0;
   background-color: var(--bg-soft);
 }
 
@@ -874,6 +874,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
