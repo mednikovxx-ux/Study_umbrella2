@@ -292,7 +292,7 @@
 
 .hero {
   padding: 0 0 40px;
-  background-color: #EDEDED;
+  background-color: var(--bg-soft);
 }
 
 .hero__inner {
@@ -302,7 +302,7 @@
   align-items: center;
 
   /* карточка как в фигме */
-  background-color: #f4f4f4;
+  background-color: #EDEDED;
   border-radius: 32px;
   padding: 24px 56px 40px;
 }
@@ -876,6 +876,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
