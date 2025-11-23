@@ -558,150 +558,96 @@
 /* НАШИ ПРОГРАММЫ И ФОРМАТЫ */
 
 
-/* Заголовок по центру для блока "Почему выбирают нас" */
-.section__title--center {
-  text-align: center;
-}
-
-/* Карточки "Почему выбирают нас?" */
-.formats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.format-card {
-  padding: 20px 20px 18px;
-  border-radius: 24px;
-  font-size: 14px;
-  border: none;
-  position: relative;
-}
-
-/* "Плашка"-заголовок внутри карточки */
-.format-card__label {
-  display: inline-block;
-  padding: 6px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.7);
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 12px;
-  background-color: #fff;
-}
-
-/* Текст в карточках */
-.format-card p {
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Цвета карточек, как и были */
-.format-card--soft {
-  background-color: #DC3D4B;
-}
-
-.format-card--peach {
-  background-color: #FFC143;
-}
-
-.format-card--mint {
-  background-color: #499A9B;
-}
-
-.format-card--lilac {
-  background-color: #CA8A3C;
-}
 /* === ПОЧЕМУ ВЫБИРАЮТ НАС === */
 
-/* Фон секции и шрифт */
+/* Фон секции и общий отступ */
 .section--why {
-  background-color: #F9FAF5; /* мягкий фон как в макете */
+  background-color: #F9FAF5;             /* фон блока как в макете */
   font-family: "Onest", sans-serif;
   padding: 60px 0;
 }
 
-/* Заголовок */
-.section--why .section__title--center {
+/* Две строки заголовка */
+.why-title-main {
   text-align: center;
-  color: #e54545;        /* красный из фигмы */
   font-size: 32px;
   font-weight: 800;
-  margin-bottom: 40px;
+  color: #E54545;                        /* красный */
+  margin-bottom: 4px;
 }
 
-/* Сетка карточек */
-.formats {
+.why-title-sub {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #000;                           /* чёрный */
+  margin-bottom: 32px;
+}
+
+/* Сетка карточек внутри секции */
+.section--why .formats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
   margin-top: 10px;
 }
 
-/* Карточки */
-.format-card {
-  padding: 22px 22px;
+/* Карточка */
+.section--why .format-card {
+  padding: 22px 24px;
   border-radius: 26px;
   font-size: 15px;
   line-height: 1.45;
   border: none;
+  color: #2b2626;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08); /* лёгкая тень */
 }
 
-/* Внутренняя плашка */
-.format-card__label {
+/* Внутренняя плашка-заголовок (Современно, Доступно и т.п.) */
+.section--why .format-card__label {
   display: inline-block;
-  padding: 6px 18px;
+  padding: 7px 26px;
   border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.6);
-  background-color: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(0, 0, 0, 0.8);
+  background: transparent;              /* фон = фон карточки */
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 14px;
 }
 
-/* Цвета карточек в стиле фигмы */
-.format-card--soft {
-  background-color: #f7b7c2;
+/* Текст в карточке */
+.section--why .format-card p {
+  margin: 0;
 }
-.format-card--peach {
-  background-color: #ffe3bb;
+
+/* ЯРКИЕ цвета карточек (как в макете) */
+.section--why .format-card--soft {
+  background-color: #F26D7D;            /* розовый */
 }
-.format-card--mint {
-  background-color: #d8f2ee;
+
+.section--why .format-card--peach {
+  background-color: #FFC143;            /* жёлтый/оранжевый */
 }
-.format-card--lilac {
-  background-color: #e8ddff;
+
+.section--why .format-card--mint {
+  background-color: #65C6C7;            /* мятный */
+}
+
+.section--why .format-card--lilac {
+  background-color: #CA8A3C;            /* лиловый */
 }
 
 /* Адаптив */
 @media (max-width: 1024px) {
-  .formats {
-    grid-template-columns: repeat(2, 1fr);
+  .section--why .formats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-@media (max-width: 640px) {
-  .formats {
-    grid-template-columns: 1fr;
-  }
-}
-/* Заголовки блока "Почему выбирают нас" */
-.why-title-main {
-  text-align: center;
-  font-family: "Onest", sans-serif;
-  font-size: 32px;
-  font-weight: 800;
-  color: #E54545; /* красный */
-  margin-bottom: 8px;
 }
 
-.why-title-sub {
-  text-align: center;
-  font-family: "Onest", sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: #000; /* черный */
-  margin-bottom: 32px;
+@media (max-width: 640px) {
+  .section--why .formats {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -1041,6 +987,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
