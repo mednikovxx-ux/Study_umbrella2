@@ -685,6 +685,24 @@
     grid-template-columns: 1fr;
   }
 }
+/* Заголовки блока "Почему выбирают нас" */
+.why-title-main {
+  text-align: center;
+  font-family: "Onest", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #E54545; /* красный */
+  margin-bottom: 8px;
+}
+
+.why-title-sub {
+  text-align: center;
+  font-family: "Onest", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #000; /* черный */
+  margin-bottom: 32px;
+}
 
 
 /* Направления */
@@ -1023,6 +1041,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
