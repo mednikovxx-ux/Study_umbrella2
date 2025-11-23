@@ -614,33 +614,73 @@
 .format-card--lilac {
   background-color: var(--accent-lilac);
 }
-/* Фон и шрифт для секции "Почему выбирают нас" */
+/* === ПОЧЕМУ ВЫБИРАЮТ НАС === */
+
+/* Фон секции и шрифт */
 .section--why {
-  background-color: #f7f5f5;              /* отдельный фон для всего блока */
-  font-family: "Onest", system-ui, sans-serif;
-  padding: 48px 0;
+  background-color: #faf9f7; /* мягкий фон как в макете */
+  font-family: "Onest", sans-serif;
+  padding: 60px 0;
 }
 
-/* Заголовок блока */
+/* Заголовок */
 .section--why .section__title--center {
-  color: #e54545;                         /* как в макете */
+  text-align: center;
+  color: #e54545;        /* красный из фигмы */
   font-size: 32px;
   font-weight: 800;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
-/* Немного крупнее текст внутри карточек */
-.section--why .format-card {
+/* Сетка карточек */
+.formats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 10px;
+}
+
+/* Карточки */
+.format-card {
+  padding: 22px 22px;
+  border-radius: 26px;
   font-size: 15px;
+  line-height: 1.45;
+  border: none;
 }
 
-/* Чтобы сетка нормально сжималась на планшетах/телефонах */
+/* Внутренняя плашка */
+.format-card__label {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.55);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* Цвета карточек в стиле фигмы */
+.format-card--soft {
+  background-color: #f7b7c2;
+}
+.format-card--peach {
+  background-color: #ffe3bb;
+}
+.format-card--mint {
+  background-color: #d8f2ee;
+}
+.format-card--lilac {
+  background-color: #e8ddff;
+}
+
+/* Адаптив */
 @media (max-width: 1024px) {
   .formats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 640px) {
   .formats {
     grid-template-columns: 1fr;
@@ -984,6 +1024,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
