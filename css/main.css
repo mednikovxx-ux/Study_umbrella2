@@ -622,19 +622,19 @@
 
 /* ЯРКИЕ цвета карточек (как в макете) */
 .section--why .format-card--soft {
-  background-color: #F26D7D;            /* розовый */
+  background-color: rgba(220, 61, 75, 50);            /* розовый */
 }
 
 .section--why .format-card--peach {
-  background-color: #FFC143;            /* жёлтый/оранжевый */
+  background-color: rgba(255, 193, 67, 50);            /* жёлтый/оранжевый */
 }
 
 .section--why .format-card--mint {
-  background-color: #65C6C7;            /* мятный */
+  background-color: rgba(73, 154, 155, 50);            /* мятный */
 }
 
 .section--why .format-card--lilac {
-  background-color: #CA8A3C;            /* лиловый */
+  background-color: rgba(202, 138, 60, 50);            /* лиловый */
 }
 
 /* Адаптив */
@@ -987,6 +987,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
