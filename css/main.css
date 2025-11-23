@@ -437,7 +437,6 @@
   padding: 20px 22px;
   border-radius: 24px;
   font-size: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .goal-card h3 {
@@ -447,15 +446,15 @@
 }
 
 .goal-card--peach {
-  background-color: rgba(255, 193, 67, 0.5;
+  background-color: var(--accent-peach);
 }
 
 .goal-card--mint {
-  background-color: rgba(73, 154, 155, 0.5);
+  background-color: var(--accent-mint);
 }
 
 .goal-card--blue {
-  background-color: rgba(220, 61, 75, 0.5);
+  background-color: var(--accent-blue);
 }
 
 .about-text {
@@ -988,9 +987,6 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
-
-
-
 
 
 
