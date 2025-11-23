@@ -451,15 +451,15 @@
 
 /* НОВЫЕ ЦВЕТА карточек */
 .goal-card--peach {
-  background-color: #FFE1C4; /* мягкий персиковый */
+  background-color: rgba(255, 193, 67, 0.5); /* мягкий персиковый */
 }
 
 .goal-card--mint {
-  background-color: #CFF2EF; /* мягкий мятный */
+  background-color: rgba(73, 154, 155, 0.5); /* мягкий мятный */
 }
 
 .goal-card--blue {
-  background-color: #D4E7FF; /* мягкий голубой */
+  background-color: rgba(220, 61, 75, 0.5); /* мягкий голубой */
 }
 
 .about-text {
@@ -993,6 +993,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
