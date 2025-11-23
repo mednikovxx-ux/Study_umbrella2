@@ -475,36 +475,35 @@
 
 /* ===== СЛАЙДЕР ПРЕПОДАВАТЕЛЕЙ ===== */
 
-/* Обёртка всего слайдера */
 .teachers-slider {
   position: relative;
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-top: 32px;
 }
 
-/* Окно, в котором “виден” слайдер */
 .teachers-slider__viewport {
   overflow: hidden;
   width: 100%;
 }
 
-/* Лента с карточками (бывший .teachers grid) */
-.teachers {
+/* Лента с учителями */
+.teachers-slider__track {
   --gap: 26px;
-  --per-view: 3; /* JS будет менять это значение */
+  --per-view: 3; /* по умолчанию 3 на десктопе, JS будет менять */
   display: flex;
   gap: var(--gap);
   transition: transform 0.4s ease;
 }
 
-/* Каждая карточка займёт 1/3, 1/4 или 1/2 ширины — в зависимости от per-view */
+/* ОДНА КАРТОЧКА: ширина зависит от per-view */
 .teacher-card {
   flex: 0 0 calc((100% - var(--gap) * (var(--per-view) - 1)) / var(--per-view));
   text-align: center;
 }
 
-/* Кнопки вперёд/назад */
+/* Кнопки перелистывания */
 .teachers-slider__btn {
   border: none;
   background: #ffffff;
@@ -531,7 +530,7 @@
   box-shadow: 0 6px 14px rgba(15, 23, 42, 0.16);
 }
 
-/* Дотсы-пагинация */
+/* Точки-пагинация */
 .teachers-slider__dots {
   margin-top: 18px;
   display: flex;
@@ -552,10 +551,10 @@
 
 .teachers-slider__dot.is-active {
   width: 22px;
-  background-color: var(--primary); /* твой фирменный цвет */
+  background-color: var(--primary);
 }
 
-/* Адаптив: на планшетах показываем 4 учителя, на телефонах — 2 */
+/* Адаптив – размеры кнопок и т.п. */
 @media (max-width: 1024px) {
   .teachers-slider__btn {
     width: 34px;
@@ -584,6 +583,7 @@
     right: 4px;
   }
 }
+
 
 
 .teacher-card {
@@ -1099,6 +1099,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
