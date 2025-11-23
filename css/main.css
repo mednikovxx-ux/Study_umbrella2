@@ -478,11 +478,18 @@
   text-align: center;
 }
 
-.teacher-card__photo {
+/* ФОТО + БЕЙДЖ */
+
+.teacher-card__photo-wrap {
   position: relative;
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 16px;
+  width: 280px;          /* кружок чуть больше */
+  height: 280px;
+  margin: 0 auto 24px;
+}
+
+.teacher-card__photo {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -493,26 +500,24 @@
   object-fit: cover;
   display: block;
 }
+
+/* маленький кружок-бейдж */
 .teacher-card__badge {
   position: absolute;
-  top: -8px;
-  right: 16px;
-  width: 62px;
-  height: 62px;
+  top: 0;
+  right: 20px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  overflow: hidden;
-  background-color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .teacher-card__badge img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
 }
+
 
 .teacher-card__name {
   font-size: 15px;
@@ -528,8 +533,6 @@
   font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-}
-
 .teacher-card__exam {
   font-size: 12px;
   color: #6b7280;
@@ -541,7 +544,17 @@
   font-weight: 500;
   margin-top: 2px;
 }
+.teacher-card__subject--history {
+  color: #ff5b5b;        /* красный для Истории */
+}
 
+.teacher-card__subject--social-blue {
+  color: #1a9bb8;        /* бирюзовый/синий */
+}
+
+.teacher-card__subject--social-orange {
+  color: #f28a2a;        /* оранжевый */
+}
 /* Форматы */
 
 .formats {
@@ -918,6 +931,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
