@@ -544,16 +544,16 @@
   font-weight: 500;
   margin-top: 2px;
 }
-.teacher-card__subject--history {
-  color: #ff5b5b;        /* красный для Истории */
+.teacher-card__subject--english {
+  color: #D65655;        /* красный для Истории */
 }
 
-.teacher-card__subject--social-blue {
+.teacher-card__subject--chines {
   color: #1a9bb8;        /* бирюзовый/синий */
 }
 
-.teacher-card__subject--social-orange {
-  color: #f28a2a;        /* оранжевый */
+.teacher-card__subject--spanes {
+  color: #FFC143;        /* оранжевый */
 }
 /* Форматы */
 
@@ -931,6 +931,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
