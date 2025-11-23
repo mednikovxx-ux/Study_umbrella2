@@ -505,9 +505,9 @@
 .teacher-card__badge {
   position: absolute;
   top: 0;
-  right: 20px;
-  width: 90px;
-  height: 90px;
+  right: 30px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
 }
 
@@ -931,6 +931,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
