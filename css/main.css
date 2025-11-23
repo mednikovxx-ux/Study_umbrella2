@@ -479,9 +479,10 @@
 }
 
 .teacher-card__photo {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 12px;
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 16px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -490,6 +491,25 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+.teacher-card__badge {
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
 }
 
 .teacher-card__name {
@@ -498,9 +518,14 @@
 }
 
 .teacher-card__subject {
-  font-size: 13px;
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 800;
   color: var(--primary);
-  margin-top: 2px;
+  letter-spacing: 0.03em;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 }
 
 .teacher-card__exam {
@@ -891,6 +916,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
