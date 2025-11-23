@@ -446,15 +446,15 @@
 }
 
 .goal-card--peach {
-  background-color: var(--accent-peach);
+  background-color: rgba(255, 193, 67, 0.5;
 }
 
 .goal-card--mint {
-  background-color: var(--accent-mint);
+  background-color: rgba(73, 154, 155, 0.5);
 }
 
 .goal-card--blue {
-  background-color: var(--accent-blue);
+  background-color: rgba(220, 61, 75, 0.5);
 }
 
 .about-text {
@@ -987,6 +987,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
