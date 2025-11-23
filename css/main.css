@@ -473,11 +473,118 @@
 
 /* Преподаватели */
 
-.teachers {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 26px;
+/* ===== СЛАЙДЕР ПРЕПОДАВАТЕЛЕЙ ===== */
+
+/* Обёртка всего слайдера */
+.teachers-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
+
+/* Окно, в котором “виден” слайдер */
+.teachers-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Лента с карточками (бывший .teachers grid) */
+.teachers {
+  --gap: 26px;
+  --per-view: 3; /* JS будет менять это значение */
+  display: flex;
+  gap: var(--gap);
+  transition: transform 0.4s ease;
+}
+
+/* Каждая карточка займёт 1/3, 1/4 или 1/2 ширины — в зависимости от per-view */
+.teacher-card {
+  flex: 0 0 calc((100% - var(--gap) * (var(--per-view) - 1)) / var(--per-view));
+  text-align: center;
+}
+
+/* Кнопки вперёд/назад */
+.teachers-slider__btn {
+  border: none;
+  background: #ffffff;
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.teachers-slider__btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.22);
+}
+
+.teachers-slider__btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.16);
+}
+
+/* Дотсы-пагинация */
+.teachers-slider__dots {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.teachers-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background-color: #d4d4d8;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.teachers-slider__dot.is-active {
+  width: 22px;
+  background-color: var(--primary); /* твой фирменный цвет */
+}
+
+/* Адаптив: на планшетах показываем 4 учителя, на телефонах — 2 */
+@media (max-width: 1024px) {
+  .teachers-slider__btn {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teachers-slider {
+    gap: 8px;
+  }
+
+  .teachers-slider__btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .teachers-slider__btn--prev {
+    left: 4px;
+  }
+
+  .teachers-slider__btn--next {
+    right: 4px;
+  }
+}
+
 
 .teacher-card {
   text-align: center;
@@ -992,6 +1099,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
