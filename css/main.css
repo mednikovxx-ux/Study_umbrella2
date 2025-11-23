@@ -599,19 +599,19 @@
 
 /* Цвета карточек, как и были */
 .format-card--soft {
-  background-color: #ffd7df;
+  background-color: #DC3D4B;
 }
 
 .format-card--peach {
-  background-color: var(--accent-peach);
+  background-color: #FFC143;
 }
 
 .format-card--mint {
-  background-color: var(--accent-mint);
+  background-color: #499A9B;
 }
 
 .format-card--lilac {
-  background-color: var(--accent-lilac);
+  background-color: #CA8A3C;
 }
 /* === ПОЧЕМУ ВЫБИРАЮТ НАС === */
 
@@ -1023,6 +1023,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
