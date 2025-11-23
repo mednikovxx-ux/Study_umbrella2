@@ -497,19 +497,21 @@
   position: absolute;
   top: -8px;
   right: 16px;
-  width: 60px;
-  height: 60px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
+  overflow: hidden;
   background-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--primary);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
+.teacher-card__badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .teacher-card__name {
@@ -916,6 +918,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
