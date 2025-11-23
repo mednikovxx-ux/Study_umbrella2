@@ -137,57 +137,93 @@
         </p>
       </div>
 
-      <!-- ПРЕПОДАВАТЕЛИ -->
-     <div class="teachers" id="teachers">
+     <section class="section" id="teachers">
+  <div class="container">
 
-  <article class="teacher-card">
-  <div class="teacher-card__photo-wrap">
-    <div class="teacher-card__photo">
-      <img src="img/teacher-1.jpg" alt="">
+    <h2 class="section__title">
+      НАШИ ПРЕПОДАВАТЕЛИ
+    </h2>
+
+    <div class="teachers-slider">
+
+      <!-- Кнопка НАЗАД -->
+      <button class="teachers-slider__btn teachers-slider__btn--prev" type="button" aria-label="Предыдущие преподаватели">
+        ‹
+      </button>
+
+      <!-- Вьюпорт слайдера -->
+      <div class="teachers-slider__viewport">
+        <div class="teachers teachers-slider__track">
+          <!-- 1 -->
+          <article class="teacher-card">
+            <div class="teacher-card__photo-wrap">
+              <div class="teacher-card__photo">
+                <img src="img/teacher-1.jpg" alt="Лапина Анна">
+              </div>
+              <div class="teacher-card__badge">
+                <img src="img/badge-cae.png" alt="Сертификат CAE">
+              </div>
+            </div>
+            <h3 class="teacher-card__name">Лапина Анна</h3>
+            <p class="teacher-card__subject teacher-card__subject--english">
+              Английский язык
+            </p>
+            <p class="teacher-card__exam">Экзамен CAE-C2</p>
+            <p class="teacher-card__exp">Опыт преподавания: 3 года</p>
+          </article>
+
+          <!-- 2 -->
+          <article class="teacher-card">
+            <div class="teacher-card__photo-wrap">
+              <div class="teacher-card__photo">
+                <img src="img/teacher-2.jpg" alt="Гудкова Елизавета">
+              </div>
+              <div class="teacher-card__badge">
+                <img src="img/badge-hsk.png" alt="Экзамен HSK3">
+              </div>
+            </div>
+            <h3 class="teacher-card__name">Гудкова Елизавета</h3>
+            <p class="teacher-card__subject teacher-card__subject--chines">
+              Китайский язык
+            </p>
+            <p class="teacher-card__exam">Экзамен HSK3</p>
+            <p class="teacher-card__exp">Опыт преподавания: 3 года</p>
+          </article>
+
+          <!-- 3 -->
+          <article class="teacher-card">
+            <div class="teacher-card__photo-wrap">
+              <div class="teacher-card__photo">
+                <img src="img/teacher-3.jpg" alt="Железнякова Ульяна">
+              </div>
+              <div class="teacher-card__badge">
+                <img src="img/badge-dele.png" alt="Экзамен DELE-B2">
+              </div>
+            </div>
+            <h3 class="teacher-card__name">Железнякова Ульяна</h3>
+            <p class="teacher-card__subject teacher-card__subject--spanies">
+              Испанский язык
+            </p>
+            <p class="teacher-card__exam">Экзамен DELE-B2</p>
+            <p class="teacher-card__exp">Опыт преподавания: 3 года</p>
+          </article>
+
+          <!-- Дальше просто добавляешь ещё такие же <article> до 15 штук -->
+        </div>
+      </div>
+
+      <!-- Кнопка ВПЕРЁД -->
+      <button class="teachers-slider__btn teachers-slider__btn--next" type="button" aria-label="Следующие преподаватели">
+        ›
+      </button>
     </div>
-    <div class="teacher-card__badge">
-      <img src="img/badge-cae.png" alt="">
-    </div>
+
+    <!-- ТОЧКИ-ПАГИНАЦИЯ -->
+    <div class="teachers-slider__dots"></div>
+
   </div>
+</section>
 
-  <h3 class="teacher-card__name">Лапина Анна</h3>
-  <p class="teacher-card__subject teacher-card__subject--english">Английский Язык <br> Экзамен CAE-C2</p>
-  <p class="teacher-card__exp"><strong>Опыт преподавания:</strong> 3 года</p>
-</article>
-
- <article class="teacher-card">
-  <div class="teacher-card__photo-wrap">
-    <div class="teacher-card__photo">
-      <img src="img/teacher-2.jpg" alt="">
-    </div>
-    <div class="teacher-card__badge">
-      <img src="img/badge-cae2.png" alt="">
-    </div>
-  </div>
-
-  <h3 class="teacher-card__name">Гудкова Елизавета</h3>
-  <p class="teacher-card__subject teacher-card__subject--chines">Китайский язык <br> Экзамен HSK3</p>
-  <p class="teacher-card__exp"><strong>Опыт преподавания:</strong> 3 года</p>
-</article>
-
-<article class="teacher-card">
-  <div class="teacher-card__photo-wrap">
-    <div class="teacher-card__photo">
-      <img src="img/teacher-3.jpg" alt="">
-    </div>
-    <div class="teacher-card__badge">
-      <img src="img/badge-cae3.png" alt="">
-    </div>
-  </div>
-
-  <h3 class="teacher-card__name">Железнякова Ульяна</h3>
-  <p class="teacher-card__subject teacher-card__subject--spanies">Испанский язык <br> Экзамен DELE-B2</p>
-  <p class="teacher-card__exp"><strong>Опыт преподавания:</strong> 3 года</p>
-</article>
-
-</div>
-
-  </section>
 
   <!-- ПОЧЕМУ ВЫБИРАЮТ НАС -->
 <section class="section section--why" id="why">
@@ -391,6 +427,7 @@
 
 </body>
 </html>
+
 
 
 
