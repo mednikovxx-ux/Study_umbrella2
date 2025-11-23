@@ -381,7 +381,9 @@
   padding: 32px 0;
   background-color: var(--bg-soft);
 }
-
+#about {
+  scroll-margin-top: 120px;
+}
 .section--white {
   background-color: #ffffff;
 }
@@ -889,6 +891,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
