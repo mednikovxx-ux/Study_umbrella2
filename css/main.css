@@ -557,6 +557,8 @@
 }
 /* НАШИ ПРОГРАММЫ И ФОРМАТЫ */
 
+/* НАШИ ПРОГРАММЫ И ФОРМАТЫ */
+
 /* Заголовок по центру для блока "Почему выбирают нас" */
 .section__title--center {
   text-align: center;
@@ -598,7 +600,7 @@
 
 /* Цвета карточек, как и были */
 .format-card--soft {
-  background-color: #ffd7df;   /* можешь подправить под свой розовый */
+  background-color: #ffd7df;
 }
 
 .format-card--peach {
@@ -612,6 +614,39 @@
 .format-card--lilac {
   background-color: var(--accent-lilac);
 }
+/* Фон и шрифт для секции "Почему выбирают нас" */
+.section--why {
+  background-color: #f7f5f5;              /* отдельный фон для всего блока */
+  font-family: "Onest", system-ui, sans-serif;
+  padding: 48px 0;
+}
+
+/* Заголовок блока */
+.section--why .section__title--center {
+  color: #e54545;                         /* как в макете */
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 32px;
+}
+
+/* Немного крупнее текст внутри карточек */
+.section--why .format-card {
+  font-size: 15px;
+}
+
+/* Чтобы сетка нормально сжималась на планшетах/телефонах */
+@media (max-width: 1024px) {
+  .formats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .formats {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* Направления */
 
@@ -949,6 +984,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
