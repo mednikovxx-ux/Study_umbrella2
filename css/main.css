@@ -800,7 +800,7 @@ html {
   font-weight: 800;
 }
 
-/* Сетка: 3 карточки в ряд */
+/* 3 карточки в ряд */
 .tracks {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -808,60 +808,61 @@ html {
   margin-top: 24px;
 }
 
-/* Карточка: фиксированная по высоте, 50/50 картинка/текст */
+/* Карточка: 50% картинка / 50% текст, фиксированная высота */
 .track-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  height: 260px;                    /* ↓ ниже, чем было */
   background-color: #EFEBE6;
   border-radius: 28px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
   overflow: hidden;
   min-width: 0;
-  height: 260px;           /* 🔹 делаем карточку пониже */
 }
 
 /* Левая часть — картинка */
 .track-card__image-wrap {
   width: 100%;
-  height: 100%;             /* высота = высоте карточки */
+  height: 100%;
   overflow: hidden;
 }
 
 .track-card__image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;              /* показать картинку целиком */
   display: block;
 }
 
 /* Правая часть — текст + стрелка */
 .track-card__content {
-  padding: 18px 20px;
+  padding: 16px 20px;               /* меньше отступы → карточка ниже */
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;/* заголовок / текст / стрелка снизу */
   align-items: start;
   min-width: 0;
 }
 
-/* Заголовок и текст — Onest */
+/* Заголовок и текст */
 .track-card__title {
   font-family: "Onest", system-ui, sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.25;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .track-card__text {
   font-family: "Onest", system-ui, sans-serif;
   font-size: 15px;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
-/* Стрелка-кнопка в правом нижнем углу */
+/* Стрелка-кнопка */
 .track-card__arrow {
   justify-self: end;
-  margin-top: 12px;
+  align-self: end;
+  margin-top: 8px;
   width: 36px;
   height: 36px;
   border-radius: 999px;
@@ -874,11 +875,11 @@ html {
 }
 
 .track-card__arrow img {
-  max-width: 100%;
-  height: auto;             /* 🔹 обязательно с единицей, не height: 200; */
+  max-width: 60%;
+  height: auto;
 }
 
-/* Адаптив: планшет — 2 карточки, мобилка — 1 */
+/* Адаптив */
 @media (max-width: 1024px) {
   .tracks {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -891,14 +892,15 @@ html {
   }
 
   .track-card {
-    grid-template-columns: 1fr;  /* картинка сверху, текст снизу */
-    height: auto;                /* на мобиле пусть растягивается по контенту */
+    grid-template-columns: 1fr;   /* картинка сверху, текст снизу */
+    height: auto;                 /* на мобилке пусть растёт по контенту */
   }
 
   .track-card__image-wrap {
     height: 220px;
   }
 }
+
 
 
 
@@ -1215,6 +1217,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
