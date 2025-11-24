@@ -278,17 +278,6 @@
   border-color: #d1d5db;
   background-color: transparent;
 }
-.hero__arrow {
-  position: absolute;
-  width: 70px;       /* маленькая стрелка */
-  left: 40px;        /* сдвиг ближе к тексту */
-  top: 100px;        /* ниже под кнопкой */
-  opacity: 0.9;
-
-    image-rendering: crisp-edges;
-  max-width: 70px;
-  height: auto;
-}
 
 
 
@@ -313,15 +302,21 @@
 }
 
 .hero__content {
-  position: relative; /* чтобы стрелка позиционировалась внутри текста */
+  position: relative; /* стрелка будет привязана к этому блоку */
 }
+
+/* стрелка под текстом */
 .hero__arrow {
   position: absolute;
-  width: 100px;
-  left: 260px; /* отрегулируем после — сейчас это контрольная точка */
-  top: 200px;
+  width: 70px;          /* размер стрелки */
+  height: auto;         /* чтобы не раздувалась */
+  left: 190px;          /* подвинешь под себя */
+  top: 200px;           /* подвинешь под себя */
+  opacity: 0.9;
   pointer-events: none;
+  image-rendering: crisp-edges;
 }
+
 .hero__label {
   font-size: 13px;
   font-weight: 600;
@@ -356,17 +351,6 @@
 
 .hero__btn {
   margin-top: 60px;
-}
-
-/* стрелка под текстом */
-.hero__arrow {
-  position: absolute;
-  width: 100px;      /* размер стрелки */
-  hight: auto
-  left: 190px;      /* сдвиг вправо от текста */
-  top: 200px;       /* сдвиг вниз от верхнего края hero__content */
-  opacity: 0.9;
-  pointer-events: none;
 }
 
 .hero__image-wrap {
@@ -845,16 +829,12 @@
 
 /* АДАПТИВ */
 
-/* ——— 1024px и меньше (планшеты) ——— */
-  .hero__arrow {
-    width: 150px;
-    left: 200px;
-    top: 150px;
-  }
+
 @media (max-width: 1024px) {
   /* СТРЕЛКУ СКРЫВАЕМ НА ВСЁМ, ЧТО МЕНЬШЕ ИЛИ РАВНО 1024px */
   .hero__arrow {
     display: none !important;
+     }
   .hero__inner {
     grid-template-columns: 1fr;
   }
@@ -999,6 +979,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
