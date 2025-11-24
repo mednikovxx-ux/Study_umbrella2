@@ -410,62 +410,73 @@
   </section>
 </section>
 
+<!-- ФОРМА + КОНТАКТЫ -->
+<section class="section section--white section--contacts" id="contacts">
+  <div class="container contact-block">
 
-  <!-- ФОРМА -->
-     <section class="section" id="contacts">
-  <section class="section section--white" id="offers">
-    <div class="container contact-block">
+    <!-- ЛЕВАЯ ЧАСТЬ -->
+    <div class="contact-block__text">
+      <h2 class="contact-title">
+        Запишитесь на вводный
+        <span class="contact-title__accent">бесплатный урок</span>
+      </h2>
 
-      <div class="contact-block__text">
-        <h2 class="section__title section__title--left">
-          Запишитесь на вводный <span class="section__title-accent">бесплатный урок</span>
-        </h2>
+      <p class="contact-block__p">
+        Мы всегда рады пообщаться с вами, ответить на любые ваши вопросы
+        и записать вас на пробный урок!
+      </p>
+      <p class="contact-block__p">
+        Свяжитесь с нами или оставьте заявку в форме обратной связи.
+      </p>
 
-        <p class="contact-block__p">
-          Мы всегда рады пообщаться с вами, ответить на любые ваши вопросы
-          и записать вас на пробный урок!
-        </p>
-        <p class="contact-block__p">
-          Свяжитесь с нами или оставьте заявку в форме обратной связи.
-        </p>
+      <p class="contact-block__subtitle">Свяжитесь с нами!</p>
 
-        <p class="contact-block__subtitle">Свяжитесь с нами!</p>
-
-        <div class="socials">
-          <a href="#" class="socials__item socials__item--vk"></a>
-          <a href="#" class="socials__item socials__item--tg"></a>
-          <a href="#" class="socials__item socials__item--mail"></a>
-        </div>
+      <div class="socials">
+        <a href="#" class="socials__item socials__item--vk"></a>
+        <a href="#" class="socials__item socials__item--tg"></a>
+        <a href="#" class="socials__item socials__item--mail"></a>
       </div>
-
-      <form class="form" id="contacts">
-        <h3 class="form__title">Форма обратной связи</h3>
-
-        <label class="form__field">
-          <span>Ваше имя</span>
-          <input type="text">
-        </label>
-
-        <label class="form__field">
-          <span>Номер телефона</span>
-          <input type="tel">
-        </label>
-
-        <label class="form__field">
-          <span>Комментарий</span>
-          <textarea rows="3"></textarea>
-        </label>
-
-        <label class="form__checkbox">
-          <input type="checkbox">
-          <span>Соглашаюсь с политикой конфиденциальности и даю согласие на обработку персональных данных.</span>
-        </label>
-
-        <button class="btn btn--primary form__submit" type="submit">Отправить</button>
-      </form>
-
     </div>
-  </section>
+
+    <!-- ПРАВАЯ ЧАСТЬ: КАРТОЧКА-ФОРМА -->
+    <div class="contact-card">
+      <!-- Если захочешь человечка как в фигме —
+           сюда просто вставь <img src="img/guard.png" class="contact-card__img"> -->
+      <h3 class="contact-card__title">Форма обратной связи</h3>
+
+      <form class="contact-form">
+        <label class="contact-form__field">
+          <span>Ваше имя</span>
+          <input type="text" name="name">
+        </label>
+
+        <label class="contact-form__field">
+          <span>Номер телефона</span>
+          <input type="tel" name="phone">
+        </label>
+
+        <label class="contact-form__field contact-form__field--textarea">
+          <span>Комментарий</span>
+          <textarea name="comment" rows="3"></textarea>
+        </label>
+
+        <label class="contact-form__checkbox">
+          <input type="checkbox" name="agree">
+          <span>
+            Соглашаюсь с политикой конфиденциальности и даю согласие
+            на обработку персональных данных.
+          </span>
+        </label>
+
+        <button class="contact-form__submit" type="submit">
+          Отправить
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -535,6 +546,7 @@
 
 </body>
 </html>
+
 
 
 
