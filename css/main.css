@@ -1022,15 +1022,13 @@ html {
 /* солдатик в правом верхнем углу */
 .contact-form__guard {
   position: absolute;
-  top: -80px;
+  top: -120px;
   right: 26px;
   width: 80px;
   max-width: 40%;
   height: auto;
 }
  
-  max-width: 80%;
-  height: auto;
 
 /* заголовок формы */
 
@@ -1140,6 +1138,8 @@ html {
 @media (max-width: 640px) {
   .contact-form {
     padding: 24px 20px;
+    margin: 0 auto;        /* ← центрируем */
+    max-width: 420px; 
   }
 
   .contact__title {
@@ -1148,7 +1148,7 @@ html {
 
   .contact-form__guard {
     width: 60px;
-    top: -40px;
+    top: -60px;
     right: 16px;
   }
 }
@@ -1366,6 +1366,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
