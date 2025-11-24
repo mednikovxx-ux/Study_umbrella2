@@ -137,38 +137,23 @@
         </p>
       </div>
 
-     <section class="section section--white" id="teachers">
+     <section class="section" id="teachers">
   <div class="container">
 
-    <h2 class="section__title section__title--left">
-    <section class="section" id="teachers">
-  <div class="container">
-
-    <h2 class="section__title section__title--left">
-    <section class="section" id="teachers">
-  <div class="container">
-
-    <h2 class="section__title section__title--left">
-  <!-- НАШИ ПРЕПОДАВАТЕЛИ -->
-<section class="section section--teachers" id="teachers">
-  <div class="container">
-    <h2 class="section__title section__title--left">
+    <h2 class="section__title">
       НАШИ ПРЕПОДАВАТЕЛИ
     </h2>
 
     <div class="teachers-slider">
 
       <!-- Кнопка НАЗАД -->
-      <button class="teachers-slider__btn teachers-slider__btn--prev"
-              type="button"
-              aria-label="Предыдущие преподаватели">
+      <button class="teachers-slider__btn teachers-slider__btn--prev" type="button" aria-label="Предыдущие преподаватели">
         ‹
       </button>
 
-      <!-- “Окно” слайдера -->
+      <!-- Вьюпорт слайдера -->
       <div class="teachers-slider__viewport">
-        <!-- Лента с учителями -->
-        <div class="teachers-slider__track">
+        <div class="teachers teachers-slider__track">
           <!-- 1 -->
           <article class="teacher-card">
             <div class="teacher-card__photo-wrap">
@@ -223,42 +208,21 @@
             <p class="teacher-card__exp">Опыт преподавания: 3 года</p>
           </article>
 
-          
-          <!-- 4 -->
-          <article class="teacher-card">
-            <div class="teacher-card__photo-wrap">
-              <div class="teacher-card__photo">
-                <img src="img/teacher-3.jpg" alt="Железнякова Ульяна">
-              </div>
-              <div class="teacher-card__badge">
-                <img src="img/badge-dele.png" alt="Экзамен DELE-B2">
-              </div>
-            </div>
-            <h3 class="teacher-card__name">Железнякова Ульяна</h3>
-            <p class="teacher-card__subject teacher-card__subject--spanies">
-              Испанский язык
-            </p>
-            <p class="teacher-card__exam">Экзамен DELE-B2</p>
-            <p class="teacher-card__exp">Опыт преподавания: 3 года</p>
-          </article>
-
-          <!-- дальше просто добавляешь ещё teacher-card -->
+          <!-- Дальше просто добавляешь ещё такие же <article> до 15 штук -->
         </div>
       </div>
 
       <!-- Кнопка ВПЕРЁД -->
-      <button class="teachers-slider__btn teachers-slider__btn--next"
-              type="button"
-              aria-label="Следующие преподаватели">
+      <button class="teachers-slider__btn teachers-slider__btn--next" type="button" aria-label="Следующие преподаватели">
         ›
       </button>
     </div>
 
-    <!-- точки-пагинация -->
+    <!-- ТОЧКИ-ПАГИНАЦИЯ -->
     <div class="teachers-slider__dots"></div>
+
   </div>
 </section>
-
 
 
   <!-- ПОЧЕМУ ВЫБИРАЮТ НАС -->
@@ -457,98 +421,36 @@
   });
 </script>
 
-<script>
-  (function () {
-    const slider = document.querySelector('.teachers-slider');
-    if (!slider) return;
-
-    const viewport = slider.querySelector('.teachers-slider__viewport');
-    const track = slider.querySelector('.teachers-slider__track');
-    const prevBtn = slider.querySelector('.teachers-slider__btn--prev');
-    const nextBtn = slider.querySelector('.teachers-slider__btn--next');
-    const dotsContainer = slider.querySelector('.teachers-slider__dots');
-    const cards = Array.from(track.children);
-
-    let perView = 3; // по умолчанию
-    let page = 0;
-
-    function calcPerView() {
-      const w = window.innerWidth;
-      if (w <= 768) {
-        perView = 2;   // телефоны
-      } else if (w <= 1024) {
-        perView = 4;   // планшеты
-      } else {
-        perView = 3;   // десктоп
-      }
-      track.style.setProperty('--per-view', perView);
-    }
-
-    function pagesCount() {
-      return Math.ceil(cards.length / perView);
-    }
-
-    function buildDots() {
-      dotsContainer.innerHTML = '';
-      const count = pagesCount();
-      for (let i = 0; i < count; i++) {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'teachers-slider__dot' + (i === page ? ' is-active' : '');
-        dot.addEventListener('click', () => goToPage(i));
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      const dots = dotsContainer.querySelectorAll('.teachers-slider__dot');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('is-active', i === page);
-      });
-    }
-
-    function goToPage(newPage) {
-      const count = pagesCount();
-      if (!count) return;
-
-      page = (newPage + count) % count;
-
-      const offset = page * viewport.offsetWidth;
-      track.style.transform = `translateX(-${offset}px)`;
-
-      updateDots();
-    }
-
-    let resizeTimeout;
-    function onResize() {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        const oldPerView = perView;
-        calcPerView();
-        if (perView !== oldPerView) {
-          page = 0;
-          buildDots();
-          goToPage(0);
-        } else {
-          goToPage(page);
-        }
-      }, 150);
-    }
-
-    calcPerView();
-    buildDots();
-    goToPage(0);
-
-    prevBtn.addEventListener('click', () => goToPage(page - 1));
-    nextBtn.addEventListener('click', () => goToPage(page + 1));
-    window.addEventListener('resize', onResize);
-  })();
-</script>
 
 
 
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
