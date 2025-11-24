@@ -1164,7 +1164,7 @@ html {
 /* === FOOTER === */
 
 .footer {
-  background-color: #F9FAF5;
+  background-color: #FFFFFF;
   padding: 32px 0;
   font-family: "Onest", system-ui, sans-serif;
 }
@@ -1217,7 +1217,7 @@ html {
 @media (max-width: 768px) {
   .footer__inner {
     flex-direction: column;
-    text-align: center;
+    text-align: rigt;
     gap: 20px;
   }
 
@@ -1398,6 +1398,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
