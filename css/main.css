@@ -471,167 +471,92 @@
   margin-bottom: 34px;
 }
 
-/* ------------------------------------ */
-/*               ПРЕПОДАВАТЕЛИ          */
-/* ------------------------------------ */
+/* ===== СЕКЦИЯ ПРЕПОДАВАТЕЛЕЙ ===== */
+.section--teachers {
+  background-color: #F9FAF5;
+  padding: 60px 0;
+}
 
-/* Слайдер-обертка */
+/* ===== СЛАЙДЕР ===== */
 .teachers-slider {
+  position: relative;
   width: 100%;
   margin-top: 32px;
 }
 
-/* Сетка (управляется JS) */
-.teachers {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.teachers-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.teachers-slider__track {
+  display: flex;
   gap: 26px;
-  transition: all 0.3s ease;
+  transition: transform 0.45s ease;
+  will-change: transform;
 }
 
-@media (max-width: 1024px) {
-  .teachers {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .teachers {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Карточка одного преподавателя */
+/* карточка — фиксированная ширина через JS */
 .teacher-card {
+  flex: 0 0 auto;
+  width: 320px; /* временно, JS будет менять */
   text-align: center;
 }
 
-/* ---- ФОТО + БЕЙДЖ ---- */
-
-.teacher-card__photo-wrap {
-  position: relative;
-  width: 260px;
-  height: 260px;
-  margin: 0 auto 18px;
-}
-
-.teacher-card__photo {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.teacher-card__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* БЕЙДЖ */
-.teacher-card__badge {
+/* ===== КНОПКИ ===== */
+.teachers-slider__btn {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 95px;
-  height: 95px;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
+  border: none;
+  background: white;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, .18);
+  cursor: pointer;
+  font-size: 26px;
 }
 
-.teacher-card__badge img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.teachers-slider__btn--prev { left: -20px; }
+.teachers-slider__btn--next { right: -20px; }
+
+@media (max-width: 1024px) {
+  .teachers-slider__btn--prev { left: 10px; }
+  .teachers-slider__btn--next { right: 10px; }
 }
 
-/* ---- ТЕКСТ ---- */
-
-.teacher-card__name {
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 4px;
+@media (max-width: 768px) {
+  .teachers-slider__btn {
+    width: 38px; height: 38px; font-size: 20px;
+  }
 }
 
-.teacher-card__subject {
-  margin-bottom: 6px;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  font-family: "Kurale", serif;
-}
-
-/* цвета предметов */
-.teacher-card__subject--english {
-  color: #D65655;
-}
-
-.teacher-card__subject--chines {
-  color: #1a9bb8;
-}
-
-.teacher-card__subject--spanies {
-  color: #FFC144;
-}
-
-.teacher-card__exam,
-.teacher-card__exp {
-  font-size: 12px;
-  color: #6b7280;
-}
-
-/* ---- КОНТРОЛЫ (СТРЕЛКИ + ТОЧКИ) ---- */
-
-.teachers-controls {
-  margin-top: 24px;
+/* ===== ДОТЫ ===== */
+.teachers-slider__dots {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 14px;
-}
-
-.teachers-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-  transition: 0.2s ease;
-}
-
-.teachers-btn:hover {
-  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
-}
-
-.teachers-dots {
-  display: flex;
   gap: 8px;
+  margin-top: 22px;
 }
 
-.teachers-dot {
-  width: 8px;
-  height: 8px;
+.teachers-slider__dot {
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
-  background: #d4d4d8;
   border: none;
-  transition: 0.25s ease;
+  background: #d4d4d8;
+  transition: .25s;
 }
 
-.teachers-dot.is-active {
-  width: 22px;
+.teachers-slider__dot.is-active {
+  width: 26px;
   background: var(--primary);
 }
 
-/* ---- АДАПТИВ КНОПОК ---- */
-@media (max-width: 480px) {
-  .teachers-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 18px;
-  }
-}
+
+
 
 /* НАШИ ПРОГРАММЫ И ФОРМАТЫ */
 
@@ -1065,6 +990,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
