@@ -909,6 +909,14 @@ html {
 .track-card--smallimg {
   grid-template-columns: 40% 60%;
 }
+/* Уменьшаем ширину изображения ТОЛЬКО в третьей карточке */
+.tracks article:nth-child(3) .track-card__image-wrap {
+    width: 35%;  /* было 50% */
+}
+
+.tracks article:nth-child(3) {
+    grid-template-columns: 40% 60%;
+}
 
 
 /* Блок контактов + форма */
@@ -1224,6 +1232,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
