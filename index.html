@@ -410,72 +410,78 @@
   </section>
 </section>
 
-<!-- ФОРМА + КОНТАКТЫ -->
-<section class="section section--white section--contacts" id="contacts">
-  <div class="container contact-block">
+<!-- КОНТАКТЫ / ФОРМА -->
+<section class="section section--contacts" id="contacts">
+  <div class="container contact">
 
-    <!-- ЛЕВАЯ ЧАСТЬ -->
-    <div class="contact-block__text">
-      <h2 class="contact-title">
+    <!-- ЛЕВАЯ ЧАСТЬ: текст + стрелка + соцсети -->
+    <div class="contact__left">
+      <h2 class="contact__title">
         Запишитесь на вводный
-        <span class="contact-title__accent">бесплатный урок</span>
+        <span class="contact__title-accent">бесплатный урок</span>
       </h2>
 
-      <p class="contact-block__p">
+      <p class="contact__text">
         Мы всегда рады пообщаться с вами, ответить на любые ваши вопросы
         и записать вас на пробный урок!
       </p>
-      <p class="contact-block__p">
+      <p class="contact__text">
         Свяжитесь с нами или оставьте заявку в форме обратной связи.
       </p>
 
-      <p class="contact-block__subtitle">Свяжитесь с нами!</p>
+      <!-- стрелка (можешь поменять файл на свой) -->
+      <img src="img/hero-arrow.png" alt="" class="contact__arrow">
 
-      <div class="socials">
-        <a href="#" class="socials__item socials__item--vk"></a>
-        <a href="#" class="socials__item socials__item--tg"></a>
-        <a href="#" class="socials__item socials__item--mail"></a>
+      <h3 class="contact__subtitle">Свяжитесь с нами!</h3>
+
+      <div class="contact__socials">
+        <a href="#" class="contact__social contact__social--vk">
+          <img src="img/social-vk.svg" alt="ВКонтакте">
+        </a>
+        <a href="#" class="contact__social contact__social--tg">
+          <img src="img/social-tg.svg" alt="Telegram">
+        </a>
+        <a href="#" class="contact__social contact__social--mail">
+          <img src="img/social-mail.svg" alt="E-mail">
+        </a>
       </div>
     </div>
 
-    <!-- ПРАВАЯ ЧАСТЬ: КАРТОЧКА-ФОРМА -->
-    <div class="contact-card">
-      <!-- Если захочешь человечка как в фигме —
-           сюда просто вставь <img src="img/guard.png" class="contact-card__img"> -->
-      <h3 class="contact-card__title">Форма обратной связи</h3>
+    <!-- ПРАВАЯ ЧАСТЬ: форма -->
+    <form class="contact-form" id="contactForm">
+      <h3 class="contact-form__title">Форма обратной связи</h3>
 
-      <form class="contact-form">
-        <label class="contact-form__field">
-          <span>Ваше имя</span>
-          <input type="text" name="name">
-        </label>
+      <label class="contact-form__field">
+        <span>Ваше имя</span>
+        <input type="text" name="name" />
+      </label>
 
-        <label class="contact-form__field">
-          <span>Номер телефона</span>
-          <input type="tel" name="phone">
-        </label>
+      <label class="contact-form__field">
+        <span>Номер телефона</span>
+        <input type="tel" name="phone" />
+      </label>
 
-        <label class="contact-form__field contact-form__field--textarea">
-          <span>Комментарий</span>
-          <textarea name="comment" rows="3"></textarea>
-        </label>
+      <label class="contact-form__field">
+        <span>Комментарий</span>
+        <textarea name="comment" rows="3"></textarea>
+      </label>
 
-        <label class="contact-form__checkbox">
-          <input type="checkbox" name="agree">
-          <span>
-            Соглашаюсь с политикой конфиденциальности и даю согласие
-            на обработку персональных данных.
-          </span>
-        </label>
+      <label class="contact-form__checkbox">
+        <input type="checkbox" />
+        <span>
+          Соглашаюсь с политикой конфиденциальности и даю согласие
+          на обработку персональных данных.
+        </span>
+      </label>
 
-        <button class="contact-form__submit" type="submit">
-          Отправить
-        </button>
-      </form>
-    </div>
+      <button class="contact-form__submit" type="submit">
+        Отправить
+      </button>
+    </form>
 
   </div>
 </section>
+
 
 
   <!-- FOOTER -->
@@ -546,6 +552,7 @@
 
 </body>
 </html>
+
 
 
 
