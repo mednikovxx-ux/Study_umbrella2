@@ -487,24 +487,29 @@
 
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer__inner">
+ <footer class="footer">
+  <div class="container footer__inner">
 
-      <div class="footer__logo">
-        <img src="img/logo.png" alt="">
-        <span>Study Umbrella</span>
-      </div>
+    <!-- ЛОГО КАК В HEADER -->
+    <a href="#" class="footer__logo">
+      <img src="img/logo.png" alt="Study Umbrella">
+    </a>
 
-      <nav class="footer__nav">
-        <a href="#about">О нас</a>
-        <a href="#contacts">Контакты</a>
-        <a href="#courses">Начать заниматься</a>
-      </nav>
+    <!-- ЛЕВЫЕ ССЫЛКИ -->
+    <nav class="footer__nav">
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#courses">Начать заниматься</a>
+    </nav>
 
-      <div class="footer__policy">Политика конфиденциальности</div>
+    <!-- ПРАВАЯ ЧАСТЬ -->
+    <a href="policy.pdf" class="footer__policy" target="_blank">
+      Политика конфиденциальности
+    </a>
 
-    </div>
-  </footer>
+  </div>
+</footer>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const dropdown = document.getElementById('mainDropdown');
@@ -554,6 +559,7 @@
 
 </body>
 </html>
+
 
 
 
