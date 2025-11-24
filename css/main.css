@@ -701,7 +701,7 @@
 
 /* Карточка */
 .program-card {
-  background: #FFE2B5;
+  background: #F1EADF;
   border-radius: 20px;
   padding: 24px 26px;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
@@ -1081,6 +1081,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
