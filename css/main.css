@@ -705,22 +705,24 @@ html {
 
 /* Круглая иконка */
 .program-card__icon {
-  width: 56px;
-  height: 56px;
+  width: 80px;           /* ← Увеличиваешь иконки здесь (можно 90–110px) */
+  height: 80px;
   border-radius: 50%;
-  border: 1px solid #d4c9b8;
-  background-color: #f9f5ed;
+  background-color: #fff;
+  border: 2px solid #E5D8C7;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  flex-shrink: 0;        /* ← Важно: запрет сжимать контейнер */
 }
 
 .program-card__icon img {
-  max-width: 60%;
-  height: auto;
-  display: block;
+  width: 70%;            /* ← Управляет размером самой картинки */
+  height: 70%;
+  object-fit: contain;   /* ← Чтобы ничего не растягивалось */
 }
+
 
 /* Текст в карточке */
 .program-card__title {
@@ -1134,6 +1136,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
