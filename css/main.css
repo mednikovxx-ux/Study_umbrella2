@@ -1022,7 +1022,7 @@ html {
 /* солдатик в правом верхнем углу */
 .contact-form__guard {
   position: absolute;
-  top: -60px;
+  top: -40px;
   right: 26px;
   width: 60px;
   height: auto;
@@ -1373,6 +1373,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
