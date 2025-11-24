@@ -901,6 +901,15 @@ html {
     height: 220px;
   }
 }
+/* Уменьшенная картинка специально для третьей карточки */
+.track-card--smallimg .track-card__image-wrap {
+  width: 45%;   /* было 50% — чуть уменьшили */
+}
+
+.track-card--smallimg {
+  grid-template-columns: 40% 60%;
+}
+
 
 /* Блок контактов + форма */
 
@@ -1215,6 +1224,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
