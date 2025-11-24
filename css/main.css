@@ -811,13 +811,18 @@ html {
 /* Карточка 50/50, фиксированной высоты */
 .track-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;       /* 50% / 50% для всех по умолчанию */
   background-color: #EFEBE6;
   border-radius: 28px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
   overflow: hidden;
   min-width: 0;
-  height: 320px; /* высота карточки – можно чутка менять */
+  height: 320px;
+}
+
+/* Специально для третьей – картинка чуть уже, тексту больше места */
+.track-card--narrow {
+  grid-template-columns: 0.4fr 0.6fr;   /* ~40% / 60% */
 }
 
 /* Левая часть — картинка */
@@ -830,7 +835,7 @@ html {
 .track-card__image {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* не тянем, а кропаем аккуратно */
+  object-fit: cover;
   display: block;
 }
 
@@ -850,8 +855,6 @@ html {
   font-weight: 700;
   line-height: 1.25;
   margin-bottom: 8px;
-  word-wrap: break-word;   /* чтобы длинное слово не вываливалось */
-  max-width: 260px;        /* чуть ограничим ширину, чтобы не упиралось в край */
 }
 
 .track-card__text {
@@ -876,7 +879,7 @@ html {
 }
 
 .track-card__arrow img {
-  max-width: 60%;   /* чтобы иконка не прилипала к краю */
+  max-width: 60%;
   height: auto;
 }
 
@@ -892,30 +895,15 @@ html {
     grid-template-columns: 1fr;
   }
 
-  .track-card {
+  .track-card,
+  .track-card--narrow {
     grid-template-columns: 1fr;  /* картинка сверху, текст снизу */
-    height: auto;                /* на мобиле пусть растягивается по контенту */
+    height: auto;
   }
 
   .track-card__image-wrap {
     height: 220px;
   }
-}
-/* Уменьшенная картинка специально для третьей карточки */
-.track-card--smallimg .track-card__image-wrap {
-  width: 45%;   /* было 50% — чуть уменьшили */
-}
-
-.track-card--smallimg {
-  grid-template-columns: 40% 60%;
-}
-/* Уменьшаем ширину изображения ТОЛЬКО в третьей карточке */
-.tracks article:nth-child(3) .track-card__image-wrap {
-    width: 35%;  /* было 50% */
-}
-
-.tracks article:nth-child(3) {
-    grid-template-columns: 40% 60%;
 }
 
 
@@ -1232,6 +1220,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
