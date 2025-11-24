@@ -816,7 +816,7 @@ html {
   border-radius: 28px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
   overflow: hidden;
-  min-width: 0;          /* предотвращает разъезжание */
+  min-width: 300;          /* предотвращает разъезжание */
 }
 
 .track-card__content {
@@ -824,7 +824,7 @@ html {
   display: grid;
   grid-template-rows: auto 1fr auto;
   align-items: start;
-  min-width: 360;         /* не даёт тексту распирать карточку */
+  min-width: 0;         /* не даёт тексту распирать карточку */
 }
 
 .track-card__image-wrap {
@@ -1218,6 +1218,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
