@@ -879,7 +879,7 @@ html {
 }
 
 .track-card__arrow img {
-  max-width: 60%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -1220,6 +1220,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
