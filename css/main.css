@@ -650,7 +650,7 @@ html {
 /* ==== НАШИ ПРОГРАММЫ И ФОРМАТЫ ==== */
 
 .section--programs {
-  background-color: #f3f4f6;          /* тот же серый фон, что и у hero */
+  background-color: #EDEDED;          /* тот же серый фон, что и у hero */
   border-radius: 40px;
 }
 
@@ -1136,6 +1136,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
