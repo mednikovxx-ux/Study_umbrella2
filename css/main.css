@@ -471,132 +471,23 @@
   margin-bottom: 34px;
 }
 
-/* ===== НАШИ ПРЕПОДАВАТЕЛИ (СЛАЙДЕР) ===== */
+/* Преподаватели */
 
-  /* Секция преподавателей — тот же мягкий фон, что и везде */
-.section--teachers {
-  background-color: var(--bg-soft); /* у тебя это как раз #F9FAF5 */
-
+.teachers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
 }
 
-/* обёртка слайдера */
-.teachers-slider {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 32px;
-}
-
-/* окно */
-.teachers-slider__viewport {
-  overflow: hidden;
-  flex: 1 1 auto;
-}
-
-/* лента с карточками */
-.teachers-slider__track {
-  --gap: 26px;
-  --per-view: 3;                /* по умолчанию 3 карточки */
-  display: flex;
-  gap: var(--gap);
-  transition: transform 0.4s ease;
-}
-
-/* ОДНА карточка: ширина зависит от --per-view */
 .teacher-card {
-  flex: 0 0 calc(
-    (100% - var(--gap) * (var(--per-view) - 1)) / var(--per-view)
-  );
   text-align: center;
 }
 
-/* кнопки перелистывания */
-.teachers-slider__btn {
-  border: none;
-  background: #ffffff;
-  border-radius: 999px;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.teachers-slider__btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.22);
-}
-
-.teachers-slider__btn:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.16);
-}
-
-/* точки-пагинация */
-.teachers-slider__dots {
-  margin-top: 18px;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.teachers-slider__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  border: none;
-  background-color: #d4d4d8;
-  cursor: pointer;
-  padding: 0;
-  transition: width 0.2s ease, background-color 0.2s ease;
-}
-
-.teachers-slider__dot.is-active {
-  width: 22px;
-  background-color: var(--primary);
-}
-
-/* адаптив */
-@media (max-width: 1024px) {
-  .teachers-slider__btn {
-    width: 34px;
-    height: 34px;
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .teachers-slider {
-    gap: 8px;
-  }
-
-  .teachers-slider__btn {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    z-index: 2;
-  }
-
-  .teachers-slider__btn--prev {
-    left: 4px;
-  }
-
-  .teachers-slider__btn--next {
-    right: 4px;
-  }
-}
-
-/* ===== СТИЛИ КАРТОЧКИ ПРЕПОДАВАТЕЛЯ (кружки + бейджи) ===== */
+/* ФОТО + БЕЙДЖ */
 
 .teacher-card__photo-wrap {
   position: relative;
-  width: 280px;
+  width: 280px;          /* кружок чуть больше */
   height: 280px;
   margin: 0 auto 24px;
 }
@@ -615,11 +506,11 @@
   display: block;
 }
 
-/* бейдж */
+/* маленький кружок-бейдж */
 .teacher-card__badge {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0px;
   width: 110px;
   height: 110px;
   border-radius: 50%;
@@ -631,6 +522,7 @@
   object-fit: contain;
   display: block;
 }
+
 
 .teacher-card__name {
   font-size: 15px;
@@ -657,21 +549,17 @@
   font-weight: 500;
   margin-top: 2px;
 }
-
 .teacher-card__subject--english {
-  color: #D65655;
+  color: #D65655;        /* красный для Истории */
 }
 
 .teacher-card__subject--chines {
-  color: #1a9bb8;
+  color: #1a9bb8;        /* бирюзовый/синий */
 }
 
 .teacher-card__subject--spanies {
-  color: #FFC144;
+  color: #FFC144;        /* оранжевый */
 }
-
-
-
 /* НАШИ ПРОГРАММЫ И ФОРМАТЫ */
 
 
@@ -949,17 +837,18 @@
   color: #6b7280;
 }
 
- /* АДАПТИВ */
+/* АДАПТИВ */
 
 /* ——— 1024px и меньше (планшеты) ——— */
-@media (max-width: 1024px) {
-  /* Стрелка остаётся только на десктопе/планшете */
   .hero__arrow {
     width: 150px;
     left: 200px;
     top: 150px;
   }
-
+@media (max-width: 1024px) {
+  /* СТРЕЛКУ СКРЫВАЕМ НА ВСЁМ, ЧТО МЕНЬШЕ ИЛИ РАВНО 1024px */
+  .hero__arrow {
+    display: none !important;
   .hero__inner {
     grid-template-columns: 1fr;
   }
@@ -1104,15 +993,6 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
-
-
-
-
-
-
-
-
-
 
 
 
