@@ -793,92 +793,97 @@ html {
   font-family: "Onest", system-ui, sans-serif;
 }
 
-/* Заголовок красный */
+/* Заголовок красный + Onest */
 .section--tracks .section__title {
   color: #FF5A5A;
+  font-family: "Onest", system-ui, sans-serif;
   font-weight: 800;
 }
 
 /* 3 карточки в ряд */
 .tracks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
 }
 
-/* Карточка */
+/* Карточка 50/50, фиксированной высоты */
 .track-card {
   display: grid;
-  grid-template-columns: 45% 55%;   /* как в фигме */
-  background: #EFEBE6;
+  grid-template-columns: 1fr 1fr;
+  background-color: #EFEBE6;
   border-radius: 28px;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.06);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
   overflow: hidden;
-  height: 320px;                     /* фиксируем нормальную высоту */
+  min-width: 0;
+  height: 320px; /* высота карточки – можно чутка менять */
 }
 
-/* Левая часть — изображение */
+/* Левая часть — картинка */
 .track-card__image-wrap {
   width: 100%;
   height: 100%;
-  background: #EFEBE6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
 .track-card__image {
   width: 100%;
   height: 100%;
-  object-fit: contain;                /* ВАЖНО: картинка не обрезается */
+  object-fit: cover;   /* не тянем, а кропаем аккуратно */
+  display: block;
 }
 
-/* Правая часть */
+/* Правая часть — текст + стрелка */
 .track-card__content {
-  padding: 22px 26px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;     /* текст сверху + стрелка снизу */
+  padding: 20px 22px;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* заголовок / текст / стрелка */
+  align-items: start;
+  min-width: 0;
 }
 
-/* Заголовок */
+/* Заголовок и текст — Onest */
 .track-card__title {
-  font-size: 22px;
+  font-family: "Onest", system-ui, sans-serif;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.25;
-  margin: 0 0 10px;
+  margin-bottom: 8px;
+  word-wrap: break-word;   /* чтобы длинное слово не вываливалось */
+  max-width: 260px;        /* чуть ограничим ширину, чтобы не упиралось в край */
 }
 
-/* Текст */
 .track-card__text {
-  font-size: 16px;
+  font-family: "Onest", system-ui, sans-serif;
+  font-size: 15px;
   line-height: 1.45;
-  flex-grow: 1;
 }
 
-/* Стрелка */
+/* Стрелка-кнопка */
 .track-card__arrow {
-  width: 40px;
-  height: 40px;
+  justify-self: end;
+  margin-top: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
   border: 1px solid #111827;
-  background: white;
-  border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
+  cursor: pointer;
 }
 
 .track-card__arrow img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
+  max-width: 60%;   /* чтобы иконка не прилипала к краю */
+  height: auto;
 }
 
-/* Адаптив */
+/* Адаптив: планшет — 2 карточки, мобилка — 1 */
 @media (max-width: 1024px) {
   .tracks {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -888,16 +893,14 @@ html {
   }
 
   .track-card {
-    grid-template-columns: 1fr;
-    height: auto;
+    grid-template-columns: 1fr;  /* картинка сверху, текст снизу */
+    height: auto;                /* на мобиле пусть растягивается по контенту */
   }
 
   .track-card__image-wrap {
-    height: 240px;
+    height: 220px;
   }
 }
-
-
 
 /* Блок контактов + форма */
 
@@ -1212,6 +1215,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
