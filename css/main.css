@@ -949,7 +949,7 @@ html {
 /* стрелка под текстом, указывающая на форму */
 .contact__arrow {
   position: absolute;
-  left: 400px;   /* подстрой, если нужно сместить */
+  left: 450px;   /* подстрой, если нужно сместить */
   top: 210px;
   width: 120px;
   pointer-events: none;
@@ -1329,6 +1329,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
