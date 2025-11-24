@@ -984,7 +984,7 @@ html {
 }
 
 .contact__social img {
-  max-width: 60%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -1022,7 +1022,7 @@ html {
 /* солдатик в правом верхнем углу */
 .contact-form__guard {
   position: absolute;
-  top: -20px;
+  top: 0px;
   right: 26px;
   width: 80px;
 }
@@ -1143,7 +1143,7 @@ html {
 
   .contact-form__guard {
     width: 60px;
-    top: -16px;
+    top: 0px;
     right: 16px;
   }
 }
@@ -1361,6 +1361,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
