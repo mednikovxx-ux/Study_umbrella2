@@ -1009,6 +1009,8 @@ html {
 /* ПРАВАЯ КОЛОНКА — ФОРМА */
 
 .contact-form {
+  transform: scale(0.9);
+  transform-origin: top right; /* чтобы уменьшалась в нужную сторону */
   position: relative;              /* нужно для солдата */
   background-color: #EFEBE6;       /* как в фигме */
   border-radius: 28px;
@@ -1359,6 +1361,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
