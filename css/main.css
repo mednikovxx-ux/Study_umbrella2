@@ -793,9 +793,11 @@ html {
   font-family: "Onest", system-ui, sans-serif;
 }
 
-/* Заголовок красный */
-.section--tracks .section__title--red {
+/* Заголовок красный + Onest */
+.section--tracks .section__title {
   color: #FF5A5A;
+  font-family: "Onest", system-ui, sans-serif;
+  font-weight: 800;
 }
 
 /* Сетка: 3 карточки в ряд */
@@ -806,14 +808,15 @@ html {
   margin-top: 24px;
 }
 
-/* Карточка: 40% картинка + 60% текст */
+/* Карточка: 50% картинка + 50% текст, стала чуть выше */
 .track-card {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 50% 50%;      /* 50/50 */
   background-color: #EFEBE6;
   border-radius: 28px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
   overflow: hidden;
+  min-height: 360px;                   /* ↑ сделали карточку выше */
 }
 
 /* Левая часть — картинка */
@@ -831,39 +834,44 @@ html {
 
 /* Правая часть — текст + стрелка */
 .track-card__content {
-  padding: 18px 20px 18px;
+  padding: 24px 28px 24px;             /* чуть больше воздуха */
   display: grid;
-  grid-template-rows: auto 1fr auto; /* заголовок, текст, стрелка внизу */
+  grid-template-rows: auto 1fr auto;   /* заголовок, текст, стрелка внизу */
   align-items: start;
 }
 
+/* Заголовок и текст — Onest, чуть крупнее */
 .track-card__title {
-  font-size: 18px;
+  font-family: "Onest", system-ui, sans-serif;
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 8px;
+  line-height: 1.25;
+  margin-bottom: 10px;
 }
 
 .track-card__text {
-  font-size: 14px;
-  line-height: 1.4;
+  font-family: "Onest", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
 }
 
 /* Стрелка-кнопка в правом нижнем углу */
 .track-card__arrow {
   justify-self: end;
-  margin-top: 12px;
-  width: 32px;
-  height: 32px;
+  margin-top: 16px;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
   border: 1px solid #111827;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .track-card__arrow img {
-  max-width: 60%;
+  max-width: 65%;
   height: auto;
 }
 
@@ -880,11 +888,11 @@ html {
   }
 
   .track-card {
-    grid-template-columns: 1fr; /* картинка сверху, текст снизу */
+    grid-template-columns: 1fr;        /* картинка сверху, текст снизу */
   }
 
   .track-card__image-wrap {
-    height: 200px;
+    height: 220px;
   }
 }
 
@@ -1202,6 +1210,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
