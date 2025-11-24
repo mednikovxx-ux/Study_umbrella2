@@ -787,103 +787,72 @@ html {
 
 
 /* === ДОСТУПНЫЕ НАПРАВЛЕНИЯ (карточки как в фигме) === */
+/* === Направления === */
 
-.tracks {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 20px;
-  font-family: "Onest", system-ui, sans-serif;
-}
-
-.track-card {
+.directions {
   display: flex;
-  background-color: #EFEBE6;          /* цвет как в фигме */
-  border-radius: 24px;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.direction-card {
+  background: #EFEBE6;
+  border-radius: 32px;
+  display: flex;
   overflow: hidden;
-  min-height: 260px;                  /* карточки повыше */
-  box-shadow: 0 22px 35px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  height: 260px;
 }
 
-/* левая часть 40% — картинка */
-.track-card__image-wrap {
+.direction-card__image {
   flex: 0 0 40%;
-  max-width: 40%;
+  height: 100%;
 }
 
-.track-card__image {
+.direction-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* правая часть 60% — текст + стрелка */
-.track-card__body {
+.direction-card__body {
   flex: 1;
-  padding: 20px 22px 20px 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 32px 36px;
+  position: relative;
+  font-family: "Onest", sans-serif;
 }
 
-.track-card__title {
-  font-size: 18px;
+.direction-card__body h3 {
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.track-card__desc {
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0;
+.direction-card__body p {
+  font-size: 18px;
+  line-height: 1.45;
 }
 
-/* стрелка-картинка внизу справа */
-.track-card__arrow {
-  align-self: flex-end;
-  margin-top: 16px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.direction-card__arrow {
+  width: 36px;      /* ← сюда подставишь свой PNG */
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
   cursor: pointer;
 }
 
-.track-card__arrow img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Ховер по желанию */
-.track-card__arrow:hover {
-  transform: translateY(-1px);
-  transition: transform 0.15s ease;
-}
-@media (max-width: 1024px) {
-  .tracks {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* АДАПТИВ */
+@media(max-width: 900px){
+  .direction-card {
+    flex-direction: column;
+    height: auto;
+  }
+  .direction-card__image {
+    flex: none;
+    height: 220px;
   }
 }
 
-@media (max-width: 768px) {
-  .tracks {
-    grid-template-columns: 1fr; /* по одной карточке */
-  }
-
-  .track-card {
-    flex-direction: column;     /* картинка сверху, текст снизу */
-    min-height: 0;
-  }
-
-  .track-card__image-wrap {
-    flex: 0 0 auto;
-    max-width: 100%;
-  }
-}
 
 /* Блок контактов + форма */
 
