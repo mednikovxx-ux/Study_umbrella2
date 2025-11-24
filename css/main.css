@@ -644,109 +644,141 @@
     grid-template-columns: 1fr;
   }
 }
-/* ============================
-   НАШИ ПРОГРАММЫ И ФОРМАТЫ
-============================ */
+/* ==== НАШИ ПРОГРАММЫ И ФОРМАТЫ ==== */
 
-.section--programs-block {
-  background: #F3F3F3; /* тот же серый что в hero */
-  padding: 60px 0;
-  border-radius: 32px;
+.section--programs {
+  background-color: #f5f5f5;          /* тот же серый фон, что и у hero */
+  border-radius: 40px;
 }
 
-/* Заголовок */
-.programs-title {
-  font-family: "Onest", sans-serif;
-  font-size: 34px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 32px;
-  text-align: left;
+/* Заголовок: "НАШИ ПРОГРАММЫ" синим, "И ФОРМАТЫ" красным */
+.programs-title-main {
+  color: #0d9aa8;
+  display: block;
 }
 
-.programs-title .blue {
-  color: #1CA5A5;
-}
-.programs-title .red {
-  color: #E54545;
+.programs-title-accent {
+  color: #e54545;
+  display: block;
 }
 
-/* Сетка */
+/* Общая сетка */
 .programs-grid {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Верхний ряд: первая карточка + текст справа */
+.programs-grid__top {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-    "wide wide text"
-    "c1 c2 c3";
-  gap: 22px;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr); /* первая карточка ~полторы нижних */
+  gap: 24px;
+  align-items: stretch;
 }
 
-/* Широкая карточка */
-.program-card--wide {
-  grid-area: wide;
-}
-
-/* Правый текст */
-.programs-right-text {
-  grid-area: text;
-  font-size: 15px;
-  line-height: 1.45;
-  font-weight: 500;
-}
-
-.programs-right-text .accent-red {
-  color: #E54545;
-  font-weight: 700;
+/* Нижний ряд: 3 карточки */
+.programs-grid__bottom {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
 /* Карточка */
 .program-card {
-  background: #F1EADF;
-  border-radius: 20px;
-  padding: 24px 26px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  background-color: #f1eadf;         /* F1EADF */
+  border-radius: 24px;
+  padding: 20px 26px 22px;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
 }
 
+/* верхняя просто растягивается по высоте строки */
+.program-card--wide {
+  height: 100%;
+}
+
+/* Круглая иконка */
+.program-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid #d4c9b8;
+  background-color: #f9f5ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.program-card__icon img {
+  max-width: 60%;
+  height: auto;
+  display: block;
+}
+
+/* Текст в карточке */
 .program-card__title {
   font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 10px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .program-card__text {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.45;
-  margin-bottom: 16px;
 }
 
-/* Кнопка */
-.program-btn {
-  display: inline-block;
-  padding: 6px 22px;
-  font-size: 14px;
-  font-weight: 600;
-  background: #fff;
-  border: 1px solid #cfcfcf;
+/* Кнопка "Записаться" */
+.program-card__btn {
+  margin-top: 18px;
+  align-self: flex-start;
+  padding: 8px 26px;
   border-radius: 999px;
+  border: 1px solid #111827;
+  background-color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
 }
 
-.program-btn:hover {
-  background: #fafafa;
+/* Текст справа */
+.programs-info {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* Адаптив */
+.programs-info__accent {
+  color: #e54545;          /* красный кусок текста */
+  font-weight: 700;
+}
+/* ---- Адаптив для блока программ ---- */
+
+/* Планшеты и меньше */
 @media (max-width: 1024px) {
-  .programs-grid {
+  .programs-grid__top {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "wide"
-      "text"
-      "c1"
-      "c2"
-      "c3";
+  }
+
+  /* текст уходит наверх, как в макете */
+  .programs-info {
+    order: -1;
+  }
+
+  .programs-grid__bottom {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Телефоны */
+@media (max-width: 640px) {
+  .programs-grid__bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* Направления */
 
@@ -1081,6 +1113,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
