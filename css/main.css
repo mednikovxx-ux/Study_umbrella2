@@ -644,116 +644,109 @@
     grid-template-columns: 1fr;
   }
 }
-/* === НАШИ ПРОГРАММЫ И ФОРМАТЫ === */
+/* ============================
+   НАШИ ПРОГРАММЫ И ФОРМАТЫ
+============================ */
 
-.section--programs {
-  background-color: var(--bg-soft); /* тот же фон, что и у hero */
-  border-radius: 40px;
+.section--programs-block {
+  background: #F3F3F3; /* тот же серый что в hero */
+  padding: 60px 0;
+  border-radius: 32px;
 }
 
-/* Сетка как в макете:
-   3 колонки: 
-   — верхняя карточка занимает 1–2 столбец
-   — справа текст
-   — ниже три карточки */
-.programs {
+/* Заголовок */
+.programs-title {
+  font-family: "Onest", sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.programs-title .blue {
+  color: #1CA5A5;
+}
+.programs-title .red {
+  color: #E54545;
+}
+
+/* Сетка */
+.programs-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  align-items: flex-start;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "wide wide text"
+    "c1 c2 c3";
+  gap: 22px;
 }
 
-/* Общий вид карточек */
-.program-card {
-  background-color: #f6efe5;        /* тёплый бежевый как в фигме */
-  border-radius: 18px;
-  padding: 18px 20px 16px;
-  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-/* Длинная верхняя карточка */
+/* Широкая карточка */
 .program-card--wide {
-  grid-column: 1 / 3;               /* занимает 1 и 2 колонку */
+  grid-area: wide;
 }
 
-/* Иконка в кружке */
-.program-card__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  background-color: #fdf7f0;
-}
-
-.program-card__icon img {
-  max-width: 60%;
-  max-height: 60%;
-}
-
-/* Заголовок и текст */
-.program-card__title {
+/* Правый текст */
+.programs-right-text {
+  grid-area: text;
   font-size: 15px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.programs-right-text .accent-red {
+  color: #E54545;
   font-weight: 700;
-  margin-bottom: 8px;
+}
+
+/* Карточка */
+.program-card {
+  background: #FFE2B5;
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.program-card__title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
 .program-card__text {
-  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  margin-bottom: 16px;
 }
 
-/* Кнопка "ЗАПИСАТЬСЯ" */
-.program-card__btn {
-  margin-top: 10px;
-  padding: 4px 18px;
-  border-radius: 999px;
-  border: 1px solid #9ca3af;
-  background-color: #ffffff;
-  font-size: 11px;
+/* Кнопка */
+.program-btn {
+  display: inline-block;
+  padding: 6px 22px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  background: #fff;
+  border: 1px solid #cfcfcf;
+  border-radius: 999px;
   cursor: pointer;
 }
 
-/* Правый текстовый блок */
-.program-info {
-  font-size: 12px;
-  line-height: 1.5;
-  color: #111827;
-}
-
-.program-info__accent {
-  color: #e54545; /* красный, как в заголовке "ПОЧЕМУ ВЫБИРАЮТ НАС" */
+.program-btn:hover {
+  background: #fafafa;
 }
 
 /* Адаптив */
-
 @media (max-width: 1024px) {
-  .programs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .program-card--wide {
-    grid-column: 1 / -1;  /* длинная карточка на всю ширину */
-  }
-
-  .program-info {
-    grid-column: 1 / -1;  /* текст под ней, тоже на всю ширину */
-  }
-}
-
-@media (max-width: 640px) {
-  .programs {
+  .programs-grid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "wide"
+      "text"
+      "c1"
+      "c2"
+      "c3";
   }
 }
-
 
 /* Направления */
 
@@ -1088,6 +1081,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
