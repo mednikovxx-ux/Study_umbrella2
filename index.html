@@ -438,95 +438,93 @@
     });
 
 
-    /* ====== СЛАЙДЕР ПРЕПОДАВАТЕЛЕЙ ====== */
+  /* ====== СЛАЙДЕР ПРЕПОДАВАТЕЛЕЙ ====== */
+const slider = document.querySelector('.teachers-slider');
+if (slider) {
+  const viewport = slider.querySelector('.teachers-slider__viewport');
+  const track = slider.querySelector('.teachers-slider__track');
+  const prevBtn = slider.querySelector('.teachers-slider__btn--prev');
+  const nextBtn = slider.querySelector('.teachers-slider__btn--next');
+  const dotsContainer = slider.querySelector('.teachers-slider__dots');
+  const cards = Array.from(track.querySelectorAll('.teacher-card'));
 
-    const slider = document.querySelector('.teachers-slider');
-    if (!slider) return;
+  let currentSlide = 0;
+  let slidesToShow = 3;
 
-    const viewport = slider.querySelector('.teachers-slider__viewport');
-    const track = slider.querySelector('.teachers-slider__track');
-    const prevBtn = slider.querySelector('.teachers-slider__btn--prev');
-    const nextBtn = slider.querySelector('.teachers-slider__btn--next');
-    const dotsContainer = slider.querySelector('.teachers-slider__dots');
-    const cards = Array.from(track.children);
+  function updateSlidesToShow() {
+    const width = window.innerWidth;
+    if (width <= 768) {
+      slidesToShow = 1;
+    } else if (width <= 1024) {
+      slidesToShow = 2;
+    } else {
+      slidesToShow = 3;
+    }
+  }
 
-    let perView = 3;
-    let page = 0;
+  function getTotalSlides() {
+    return Math.ceil(cards.length / slidesToShow);
+  }
 
-    function calcPerView() {
-      const w = window.innerWidth;
-      if (w <= 768) {
-        perView = 2;      // телефоны – по 2 учителя
-      } else if (w <= 1024) {
-        perView = 4;      // планшеты – по 4
-      } else {
-        perView = 3;      // десктоп – по 3
+  function goToSlide(slideIndex) {
+    const totalSlides = getTotalSlides();
+    currentSlide = (slideIndex + totalSlides) % totalSlides;
+    
+    const cardWidth = cards[0].offsetWidth + 26; // width + gap
+    const translateX = -currentSlide * cardWidth * slidesToShow;
+    
+    track.style.transform = `translateX(${translateX}px)`;
+    updateDots();
+  }
+
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    const totalSlides = getTotalSlides();
+    
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'teachers-slider__dot';
+      if (i === currentSlide) dot.classList.add('is-active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.querySelectorAll('.teachers-slider__dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('is-active', index === currentSlide);
+    });
+  }
+
+  function initSlider() {
+    updateSlidesToShow();
+    createDots();
+    goToSlide(0);
+  }
+
+  // Инициализация
+  initSlider();
+
+  // Обработчики событий
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+  // Ресайз
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const oldSlidesToShow = slidesToShow;
+      updateSlidesToShow();
+      
+      if (oldSlidesToShow !== slidesToShow) {
+        createDots();
+        goToSlide(0);
       }
-      track.style.setProperty('--per-view', perView);
-    }
-
-    function getPagesCount() {
-      return Math.max(1, Math.ceil(cards.length / perView));
-    }
-
-    function goToPage(newPage) {
-      const pages = getPagesCount();
-      page = (newPage + pages) % pages;      // кольцевой переход
-
-      const offset = page * viewport.offsetWidth;
-      track.style.transform = `translateX(-${offset}px)`;
-
-      updateDots();
-    }
-
-    function buildDots() {
-      dotsContainer.innerHTML = '';
-      const pages = getPagesCount();
-
-      for (let i = 0; i < pages; i++) {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'teachers-slider__dot';
-        if (i === page) dot.classList.add('is-active');
-        dot.addEventListener('click', () => goToPage(i));
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      const dots = dotsContainer.querySelectorAll('.teachers-slider__dot');
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('is-active', i === page);
-      });
-    }
-
-    // пересчёт при изменении ширины
-    let resizeTimeout;
-    function onResize() {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        const prevPerView = perView;
-        calcPerView();
-        if (perView !== prevPerView) {
-          page = 0;
-          buildDots();
-          goToPage(0);
-        } else {
-          goToPage(page);
-        }
-      }, 150);
-    }
-
-    // стартовая инициализация
-    calcPerView();
-    buildDots();
-    goToPage(0);
-
-    if (prevBtn) prevBtn.addEventListener('click', () => goToPage(page - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goToPage(page + 1));
-
-    window.addEventListener('resize', onResize);
+    }, 250);
   });
+}
 </script>
 
 
@@ -536,6 +534,7 @@
 
 </body>
 </html>
+
 
 
 
