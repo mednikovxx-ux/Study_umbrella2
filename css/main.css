@@ -1022,10 +1022,9 @@ html {
 /* солдатик в правом верхнем углу */
 .contact-form__guard {
   position: absolute;
-  top: -120px;
+  top: -110px;
   right: 26px;
-  width: 80px;
-  max-width: 40%;
+  width: 60px;
   height: auto;
 }
  
@@ -1136,10 +1135,17 @@ html {
 }
 
 @media (max-width: 640px) {
+  .contact {
+    grid-template-columns: 1fr;
+    justify-items: center;    /* грид-элементы по центру */
+  }
+
   .contact-form {
+    transform: none;          /* ❗ отключаем scale на телефонах */
     padding: 24px 20px;
-    margin: 0 auto;        /* ← центрируем */
-    max-width: 420px; 
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;           /* теперь реально центрируется */
   }
 
   .contact__title {
@@ -1152,6 +1158,7 @@ html {
     right: 16px;
   }
 }
+
 
 
 /* FOOTER */
@@ -1366,6 +1373,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
