@@ -816,7 +816,8 @@ html {
   border-radius: 28px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
   overflow: hidden;
-  min-width: 300;          /* предотвращает разъезжание */
+  min-width: 0;  /* предотвращает разъезжание */
+  min-height: 300px; 
 }
 
 .track-card__content {
@@ -1218,6 +1219,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
