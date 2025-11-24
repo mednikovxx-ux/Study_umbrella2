@@ -471,90 +471,202 @@
   margin-bottom: 34px;
 }
 
-/* ===== СЕКЦИЯ ПРЕПОДАВАТЕЛЕЙ ===== */
+/* ===== НАШИ ПРЕПОДАВАТЕЛИ (СЛАЙДЕР) ===== */
+
 .section--teachers {
-  background-color: #F9FAF5;
-  padding: 60px 0;
+  background-color: #F9FAF5; /* тот же мягкий фон, что и у других блоков */
 }
 
-/* ===== СЛАЙДЕР ===== */
+/* обёртка слайдера */
 .teachers-slider {
   position: relative;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-top: 32px;
 }
 
+/* окно */
 .teachers-slider__viewport {
   overflow: hidden;
-  width: 100%;
+  flex: 1 1 auto;
 }
 
+/* лента с карточками */
 .teachers-slider__track {
+  --gap: 26px;
+  --per-view: 3;                /* по умолчанию 3 карточки */
   display: flex;
-  gap: 26px;
-  transition: transform 0.45s ease;
-  will-change: transform;
+  gap: var(--gap);
+  transition: transform 0.4s ease;
 }
 
-/* карточка — фиксированная ширина через JS */
+/* ОДНА карточка: ширина зависит от --per-view */
 .teacher-card {
-  flex: 0 0 auto;
-  width: 320px; /* временно, JS будет менять */
+  flex: 0 0 calc(
+    (100% - var(--gap) * (var(--per-view) - 1)) / var(--per-view)
+  );
   text-align: center;
 }
 
-/* ===== КНОПКИ ===== */
+/* кнопки перелистывания */
 .teachers-slider__btn {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
   border: none;
-  background: white;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, .18);
+  background: #ffffff;
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 26px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.teachers-slider__btn--prev { left: -20px; }
-.teachers-slider__btn--next { right: -20px; }
-
-@media (max-width: 1024px) {
-  .teachers-slider__btn--prev { left: 10px; }
-  .teachers-slider__btn--next { right: 10px; }
+.teachers-slider__btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.22);
 }
 
-@media (max-width: 768px) {
-  .teachers-slider__btn {
-    width: 38px; height: 38px; font-size: 20px;
-  }
+.teachers-slider__btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.16);
 }
 
-/* ===== ДОТЫ ===== */
+/* точки-пагинация */
 .teachers-slider__dots {
+  margin-top: 18px;
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 22px;
 }
 
 .teachers-slider__dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
   border: none;
-  background: #d4d4d8;
-  transition: .25s;
+  background-color: #d4d4d8;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.2s ease, background-color 0.2s ease;
 }
 
 .teachers-slider__dot.is-active {
-  width: 26px;
-  background: var(--primary);
+  width: 22px;
+  background-color: var(--primary);
 }
 
+/* адаптив */
+@media (max-width: 1024px) {
+  .teachers-slider__btn {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teachers-slider {
+    gap: 8px;
+  }
+
+  .teachers-slider__btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .teachers-slider__btn--prev {
+    left: 4px;
+  }
+
+  .teachers-slider__btn--next {
+    right: 4px;
+  }
+}
+
+/* ===== СТИЛИ КАРТОЧКИ ПРЕПОДАВАТЕЛЯ (кружки + бейджи) ===== */
+
+.teacher-card__photo-wrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto 24px;
+}
+
+.teacher-card__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.teacher-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* бейдж */
+.teacher-card__badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+
+.teacher-card__badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.teacher-card__name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.teacher-card__subject {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+  font-family: "Kurale", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.teacher-card__exam {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.teacher-card__exp {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.teacher-card__subject--english {
+  color: #D65655;
+}
+
+.teacher-card__subject--chines {
+  color: #1a9bb8;
+}
+
+.teacher-card__subject--spanies {
+  color: #FFC144;
+}
 
 
 
@@ -990,6 +1102,7 @@
   /* тут можно при необходимости чуть уменьшить шрифты
      или кнопки, но стрелку уже не трогаем — её нет */
 }
+
 
 
 
