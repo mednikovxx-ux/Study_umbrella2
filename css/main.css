@@ -288,8 +288,9 @@ html {
 /* HERO */
 
 .hero {
-  padding: 20 0 0px;
+  padding: 0 0 0px;
   background-color: var(--bg-soft);
+  margin-top: 40px;
 }
 
 .hero__inner {
@@ -1401,6 +1402,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
