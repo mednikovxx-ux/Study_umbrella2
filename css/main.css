@@ -302,6 +302,7 @@ html {
   background-color: #EDEDED;
   border-radius: 32px;
   padding: 24px 56px 40px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .hero__content {
@@ -652,7 +653,8 @@ html {
 .section--programs {
   background-color: #EDEDED;          /* тот же серый фон, что и у hero */
   border-radius: 40px;
-  padding: 24px 56px 40px
+  padding: 24px 56px 40px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 /* Заголовок: "НАШИ ПРОГРАММЫ" синим, "И ФОРМАТЫ" красным */
@@ -1399,6 +1401,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
