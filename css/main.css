@@ -614,8 +614,6 @@ html {
     display: none !important;
   }
 
-  .teachers-slider__track {
-    gap: 16px;              /* ⬅️ МЕНЬШЕ расстояние */
   }
 
   .teacher-card__photo-wrap {
@@ -1249,6 +1247,7 @@ html {
 #contacts {
   scroll-margin-top: 100px;
 }
+
 
 
 
