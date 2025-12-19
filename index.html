@@ -558,7 +558,12 @@
     <a href="policy.pdf" class="footer__policy" target="_blank">
       Политика конфиденциальности
     </a>
-
+   <a href="oferta.pdf" class="footer__policy" target="_blank">
+      Договор оферты
+    </a>
+   <a href="agreement.pdf" class="footer__policy" target="_blank">
+     Согласие на обработку персональных данных 
+    </a>
   </div>
 </footer>
 
@@ -680,8 +685,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // при ресайзе ничего "не улетает" — просто оставляем текущий скролл как есть
 });
 </script>
+  <!-- COOKIE CONSENT -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-banner__content">
+    <p class="cookie-banner__text">
+      Мы используем файлы cookies для корректной работы сайта и улучшения пользовательского опыта.
+      Продолжая пользоваться сайтом, вы соглашаетесь с их использованием.
+      <a href="policy.pdf" target="_blank">Подробнее</a>
+    </p>
+    <button class="cookie-banner__btn" id="cookieAccept">
+      Принять
+    </button>
+  </div>
+</div>
+  
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const banner = document.getElementById('cookieBanner');
+  const btn = document.getElementById('cookieAccept');
+
+  if (!banner || !btn) return;
+
+  if (localStorage.getItem('cookiesAccepted') === 'true') return;
+
+  setTimeout(() => {
+    banner.classList.add('cookie-banner--visible');
+  }, 600);
+
+  btn.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    banner.classList.remove('cookie-banner--visible');
+  });
+});
+</script>
 </body>
 </html>
+
 
 
 
