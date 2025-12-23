@@ -744,7 +744,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
   
- <script>
+<script>
 const GS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxNhucxWq1Qr91tCFACORRjioe57XDiX5AZWX1p9TIUCNjANcIKPSDUDVk3lL61pXxvww/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -753,8 +753,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const page = document.getElementById("form_page");
   const submitBtn = form ? form.querySelector(".contact-form__submit") : null;
 
+  // toast
+  const toast = document.getElementById("formToast");
+
+  function showToast(type = "success") {
+    if (!toast) return;
+
+    toast.textContent =
+      type === "success"
+        ? "✅ Заявка отправлена! Мы свяжемся с вами."
+        : "❌ Не удалось отправить заявку. Попробуйте позже.";
+
+    toast.classList.remove("is-error");
+    if (type === "error") toast.classList.add("is-error");
+
+    toast.classList.add("show");
+
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3500);
+  }
+
   if (!form) return;
 
+  // стартовая метка времени (антибот)
   if (started) started.value = Date.now().toString();
   if (page) page.value = location.href;
 
@@ -767,7 +790,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const company = (fd.get("company") || "").toString().trim();
     if (company) return;
 
-    // антибот: слишком быстро
+    // антибот: слишком быстро отправили
     const startedAt = Number(fd.get("form_started_at") || 0);
     if (startedAt && (Date.now() - startedAt) < 2500) return;
 
@@ -780,8 +803,9 @@ document.addEventListener("DOMContentLoaded", () => {
       form_started_at: startedAt
     };
 
+    // простая клиентская валидация
     if (!payload.name || !payload.phone) {
-      alert("Пожалуйста, заполните имя и телефон.");
+      showToast("error");
       return;
     }
 
@@ -791,7 +815,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.textContent = "Отправляем...";
       }
 
-      // ВАЖНО: no-cors + text/plain => запрос не блокируется CORS и точно уходит
+      // GitHub Pages + Apps Script: самый стабильный вариант
       await fetch(GS_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
@@ -799,14 +823,15 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(payload),
       });
 
+      // ✅ успех
       form.reset();
       if (started) started.value = Date.now().toString();
       if (page) page.value = location.href;
 
-      alert("Спасибо! Заявка отправлена ✅");
+      showToast("success");
     } catch (err) {
       console.error("Form submit error:", err);
-      alert("Не удалось отправить заявку. Попробуйте позже.");
+      showToast("error");
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -820,6 +845,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
