@@ -1173,7 +1173,7 @@ html {
 /* солдатик в правом верхнем углу */
 .contact-form__guard {
   position: absolute;
-  top: -60px;
+  top: 0px;
   right: 26px;
   width: 60px;
   height: auto;
@@ -1655,6 +1655,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
