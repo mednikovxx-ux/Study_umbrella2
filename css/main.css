@@ -285,33 +285,41 @@ html {
 /* HERO */
 
 .hero {
-  padding: 0 0 0px;
+  min-height: 420px;
+  padding: 0;
   background-color: var(--bg-soft);
 }
 
+/* Серая карточка */
 .hero__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
   gap: 32px;
+
   align-items: center;
 
-  /* карточка как в фигме */
   background-color: #EDEDED;
   border-radius: 32px;
-  padding: 24px 56px 40px;
+
+  /* КЛЮЧ: убираем отступы у серого блока */
+  padding: 0;
+
+  min-height: 420px;
 }
 
+/* ЛЕВАЯ КОЛОНКА — отступы остаются ТОЛЬКО тут */
 .hero__content {
-  position: relative; /* стрелка будет привязана к этому блоку */
+  position: relative;
+  padding: 24px 0 40px 56px;
 }
 
 /* стрелка под текстом */
 .hero__arrow {
   position: absolute;
-  width: 70px;          /* размер стрелки */
-  height: auto;         /* чтобы не раздувалась */
-  left: 190px;          /* подвинешь под себя */
-  top: 155px;           /* подвинешь под себя */
+  width: 70px;
+  height: auto;
+  left: 190px;
+  top: 155px;
   opacity: 0.9;
   pointer-events: none;
   image-rendering: crisp-edges;
@@ -353,16 +361,41 @@ html {
   margin-top: 60px;
 }
 
+/* ПРАВАЯ КОЛОНКА — картинка без отступов, серый фон “до краёв” */
 .hero__image-wrap {
+  height: 100%;
   display: flex;
+  align-items: flex-start;
   justify-content: center;
+
+  padding: 0;            /* КЛЮЧ */
+  margin: 0;             /* КЛЮЧ */
 }
 
+/* КАРТИНКУ НЕ МЕНЯЕМ по размеру (как у тебя было раньше) */
 .hero__image {
   width: 100%;
-  max-width: 320px;
+  max-width: 320px;      /* <-- оставь своё значение (если было 320) */
   border-radius: 32px;
   object-fit: contain;
+}
+
+/* МОБИЛКА: картинка от хедера и до заголовка — без лишних пустот */
+@media (max-width: 768px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Картинка без верхних отступов */
+  .hero__image-wrap {
+    justify-content: center;
+  }
+
+  /* Тексту делаем отступы, чтобы был “воздух” */
+  .hero__content {
+    padding: 0 20px 24px;
+  }
 }
 
 /* ОБЩИЕ СЕКЦИИ */
@@ -1606,6 +1639,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
