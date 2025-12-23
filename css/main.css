@@ -741,15 +741,15 @@ html {
 
 /* Внутренняя плашка-заголовок (Современно, Доступно и т.п.) */
 .section--why .format-card__label {
-  display: inline-block;
+  display: block;                 /* было inline-block */
+  width: fit-content;             /* чтобы ширина была по тексту */
   padding: 7px 26px;
   border-radius: 999px;
   border: 1.5px solid rgba(0, 0, 0, 0.8);
-  background: transparent;              /* фон = фон карточки */
+  background: transparent;
   font-size: 15px;
   font-weight: 600;
-  margin-bottom: 14px;
-  margin: 0 auto 14px;
+  margin: 0 auto 14px;            /* центрируем */
 }
 
 /* Текст в карточке */
@@ -1640,6 +1640,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
