@@ -282,14 +282,10 @@ html {
   background-color: transparent;
 }
 
-
-
-
 /* HERO */
 
 .hero {
-  min-height: 420px;
-  padding: 0;
+  padding: 0 0 0px;
   background-color: var(--bg-soft);
 }
 
@@ -297,30 +293,25 @@ html {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
   gap: 32px;
-
-  /* ВАЖНО: возвращаем как было */
   align-items: center;
 
+  /* карточка как в фигме */
   background-color: #EDEDED;
   border-radius: 32px;
-
-  /* ВАЖНО: возвращаем padding как у тебя было */
   padding: 24px 56px 40px;
-
-  min-height: 420px;
 }
 
 .hero__content {
-  position: relative;
+  position: relative; /* стрелка будет привязана к этому блоку */
 }
 
 /* стрелка под текстом */
 .hero__arrow {
   position: absolute;
-  width: 70px;
-  height: auto;
-  left: 190px;
-  top: 155px;
+  width: 70px;          /* размер стрелки */
+  height: auto;         /* чтобы не раздувалась */
+  left: 190px;          /* подвинешь под себя */
+  top: 155px;           /* подвинешь под себя */
   opacity: 0.9;
   pointer-events: none;
   image-rendering: crisp-edges;
@@ -362,21 +353,65 @@ html {
   margin-top: 60px;
 }
 
-/* КАРТИНКА — делаем её больше и прижимаем к верху, но НЕ ломаем сетку */
 .hero__image-wrap {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
 }
 
-/* ключ: увеличиваем высоту картинки, но без обрезки */
 .hero__image {
-  width: auto;
-  height: auto;
-  max-height: 380px;     /* <-- регулируй: 360-420 под макет */
-  max-width: 100%;
+  width: 100%;
+  max-width: 320px;
   border-radius: 32px;
   object-fit: contain;
+}
+
+/* ОБЩИЕ СЕКЦИИ */
+
+.section {
+  padding: 32px 0;
+  background-color: var(--bg-soft);
+}
+#about {
+  scroll-margin-top: 120px;
+}
+.section--white {
+  background-color: #ffffff;
+}
+
+.section--soft {
+  background-color: var(--bg-soft);
+}
+
+.section__title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.section__title--left {
+  text-align: left;
+}
+
+.section__title-accent {
+  color: var(--primary);
+}
+
+.section__title-accent--blue {
+  color: #6ec4d8;
+}
+/* Текстовые блоки под секцией "В ЧЕМ НАША ЦЕЛЬ?" */
+
+.about-line {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 600;
+  max-width: 580px;
+}
+
+.about-line .accent {
+  color: var(--primary) !important;
+  font-weight: 700 !important;
 }
 
 
@@ -1571,6 +1606,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
