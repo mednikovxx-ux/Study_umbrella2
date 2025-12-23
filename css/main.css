@@ -749,6 +749,7 @@ html {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 14px;
+  margin: 0 auto 14px;
 }
 
 /* Текст в карточке */
@@ -1639,6 +1640,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
