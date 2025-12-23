@@ -508,39 +508,46 @@
       </div>
     </div>
 
-    <!-- ПРАВАЯ ЧАСТЬ: форма -->
-    <form class="contact-form" id="contactForm">
-      <img src="img/guard.png" alt="" class="contact-form__guard">
+  <form class="contact-form" id="contactForm">
+  <img src="img/guard.png" alt="" class="contact-form__guard">
 
-      <h3 class="contact-form__title">Форма обратной связи</h3>
+  <h3 class="contact-form__title">Форма обратной связи</h3>
 
-      <label class="contact-form__field">
-        <span>Ваше имя</span>
-        <input type="text" name="name" />
-      </label>
+  <!-- Антибот (honeypot) — скрыто без CSS -->
+  <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
+         style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;">
 
-      <label class="contact-form__field">
-        <span>Номер телефона</span>
-        <input type="tel" name="phone" />
-      </label>
+  <!-- Антибот по времени заполнения -->
+  <input type="hidden" name="form_started_at" id="form_started_at">
 
-      <label class="contact-form__field">
-        <span>Комментарий</span>
-        <textarea name="comment" rows="3"></textarea>
-      </label>
+  <label class="contact-form__field">
+    <span>Ваше имя</span>
+    <input type="text" name="name" required minlength="2" />
+  </label>
 
-      <label class="contact-form__checkbox">
-        <input type="checkbox" />
-        <span>
-          Соглашаюсь с политикой конфиденциальности и даю согласие
-          на обработку персональных данных.
-        </span>
-      </label>
+  <label class="contact-form__field">
+    <span>Номер телефона</span>
+    <input type="tel" name="phone" required />
+  </label>
 
-      <button class="contact-form__submit" type="submit">
-        Отправить
-      </button>
-    </form>
+  <label class="contact-form__field">
+    <span>Комментарий</span>
+    <textarea name="comment" rows="2"></textarea>
+  </label>
+
+  <label class="contact-form__checkbox">
+    <input type="checkbox" name="policy" required />
+    <span>
+      Соглашаюсь с политикой конфиденциальности и даю согласие
+      на обработку персональных данных.
+    </span>
+  </label>
+
+  <button class="contact-form__submit" type="submit">
+    Отправить
+  </button>
+</form>
+
 
   </div>
 </section>
@@ -729,8 +736,64 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+  <script>
+const GS_ENDPOINT = "ВСТАВЬ_СЮДА_URL_ТВОЕГО_GOOGLE_APPS_SCRIPT";
+
+document.addEventListener("DOMContentLoaded", () => {
+  // метка времени для антибота
+  const started = document.getElementById("form_started_at");
+  if (started) started.value = Date.now().toString();
+
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const fd = new FormData(form);
+
+    // антибот: honeypot
+    const company = (fd.get("company") || "").toString().trim();
+    if (company) return;
+
+    // антибот: слишком быстро отправили
+    const startedAt = Number(fd.get("form_started_at") || 0);
+    if (startedAt && (Date.now() - startedAt) < 2500) return;
+
+    const payload = {
+      name: (fd.get("name") || "").toString().trim(),
+      phone: (fd.get("phone") || "").toString().trim(),
+      comment: (fd.get("comment") || "").toString().trim(),
+      page: location.href,
+      company: company,
+      form_started_at: startedAt
+    };
+
+    try {
+      const res = await fetch(GS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+      if (!json.ok) throw new Error("send_failed");
+
+      form.reset();
+      // чтобы антибот-таймер снова работал после reset
+      if (started) started.value = Date.now().toString();
+
+      alert("Спасибо! Заявка отправлена ✅");
+    } catch (err) {
+      alert("Не удалось отправить заявку. Попробуйте позже.");
+    }
+  });
+});
+</script>
+
 </body>
 </html>
+
 
 
 
