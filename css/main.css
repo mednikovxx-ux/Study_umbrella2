@@ -1274,19 +1274,21 @@ html {
   font-family: "Onest", system-ui, sans-serif;
 }
 
-/* 3 колонки: лого | навигация | правые ссылки */
 .footer__inner {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: start;
+  grid-template-columns: auto 1fr auto; /* лого | навигация | правая колонка */
+  grid-template-rows: auto auto;        /* контент | нижняя строка */
   column-gap: 48px;
+  row-gap: 18px;
 
-  /* важно: не растягиваем контент (убираем space-between из flex-версии) */
-  justify-content: normal;
+  align-items: start;
+  align-content: start;     /* КЛЮЧ: не растягивать строки по высоте */
+  justify-content: stretch; /* КЛЮЧ: никаких space-between */
 }
 
+/* ЛОГО */
 .footer__logo img {
-  height: 42px;               /* как в хеддере */
+  height: 42px;
   width: auto;
   display: block;
 }
@@ -1296,7 +1298,6 @@ html {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  justify-self: start;
 }
 
 .footer__nav a {
@@ -1311,44 +1312,55 @@ html {
   opacity: 0.7;
 }
 
-/* ПРАВАЯ ЧАСТЬ: 3 ссылки в столбик справа */
+/* ПРАВАЯ КОЛОНКА (чтобы точно было в столбик и без разъезда) */
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-self: end;
+  text-align: right;
+}
+
+/* ПРАВЫЕ ССЫЛКИ */
 .footer__policy {
-  display: block;
   font-weight: 600;
   font-size: 18px;
   color: #121826;
   text-decoration: none;
-
-  white-space: normal;
-  grid-column: 3;       /* все policy-ссылки в 3 колонку */
-  justify-self: end;    /* прижимаем вправо */
-  text-align: right;    /* текст по правому краю */
-
-  margin-bottom: 12px;  /* расстояние между строками */
-}
-
-.footer__policy:last-of-type {
-  margin-bottom: 0;
+  white-space: normal;  /* разрешаем переносы */
 }
 
 .footer__policy:hover {
   opacity: 0.7;
 }
 
+/* НИЖНЯЯ СТРОКА */
+.footer__legal {
+  grid-column: 1 / -1;      /* на всю ширину футера */
+  font-size: 13px;
+  color: rgba(18, 24, 38, 0.55); /* полупрозрачный */
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 6px;
+}
+
 /* Адаптив */
 @media (max-width: 768px) {
   .footer__inner {
-    grid-template-columns: 1fr;  /* всё в одну колонку */
-    row-gap: 20px;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .footer__right {
+    justify-self: start;
+    text-align: left;
   }
 
   .footer__nav {
     gap: 12px;
   }
 
-  .footer__policy {
-    grid-column: auto;
-    justify-self: start;
+  .footer__legal {
     text-align: left;
   }
 }
@@ -1596,6 +1608,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
