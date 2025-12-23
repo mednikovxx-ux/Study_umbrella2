@@ -1215,6 +1215,9 @@ html {
   font-family: "Poppins", system-ui, sans-serif;
   outline: none;
   background-color: transparent;
+  min-height: 70px;
+  height: 70px;
+  resize: vertical;
 }
 
 .contact-form__field input:focus,
@@ -1652,6 +1655,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
