@@ -288,6 +288,7 @@ html {
 /* HERO */
 
 .hero {
+  min-height: 420px;
   padding: 0 0 0px;
   background-color: var(--bg-soft);
 }
@@ -302,6 +303,8 @@ html {
   background-color: #EDEDED;
   border-radius: 32px;
   padding: 24px 56px 40px;
+
+   min-height: 420px; 
 }
 
 .hero__content {
@@ -357,13 +360,16 @@ html {
 }
 
 .hero__image-wrap {
+  height: 100%;
   display: flex;
-  justify-content: center;
+  align-items: stretch;
 }
 
 .hero__image {
-  width: 100%;
-  max-width: 400px;
+  height: 100%;
+  width: auto;
+
+  max-width: none;
   border-radius: 32px;
   object-fit: contain;
 }
@@ -1608,6 +1614,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
