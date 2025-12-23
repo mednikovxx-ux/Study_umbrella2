@@ -1267,7 +1267,6 @@ html {
 }
 
 
-
 /* === FOOTER === */
 
 .footer {
@@ -1276,15 +1275,17 @@ html {
   font-family: "Onest", system-ui, sans-serif;
 }
 
+/* было flex -> делаем grid, чтобы 3 правые ссылки стали одной колонкой */
 .footer__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* лого | навигация | правые ссылки */
+  align-items: start;
+  column-gap: 48px;
 }
 
+/* ЛОГО */
 .footer__logo img {
-  height: 42px;               /* как в хеддере */
+  height: 42px; /* как в хеддере */
   width: auto;
   display: block;
 }
@@ -1294,6 +1295,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  justify-self: start;
 }
 
 .footer__nav a {
@@ -1308,18 +1310,23 @@ html {
   opacity: 0.7;
 }
 
-/* ПРАВАЯ ЧАСТЬ (ссылки столбиком) */
+/* ПРАВАЯ ЧАСТЬ (в столбик справа) */
 .footer__policy {
-  display: block;             /* ключевое: каждая ссылка с новой строки */
+  display: block;
   font-weight: 600;
   font-size: 18px;
   color: #121826;
   text-decoration: none;
-  white-space: normal;        /* убираем запрет переноса */
-  margin-bottom: 12px;        /* расстояние между ссылками */
+
+  white-space: normal;        /* разрешаем перенос */
+  justify-self: end;          /* прижимаем к правому краю */
+  text-align: right;          /* текст по правому краю */
+
+  grid-column: 3;             /* ВСЕ policy-линки в 3-ю колонку */
+  margin-bottom: 12px;        /* расстояние между строками */
 }
 
-.footer__policy:last-child {
+.footer__policy:last-of-type {
   margin-bottom: 0;
 }
 
@@ -1330,17 +1337,20 @@ html {
 /* Адаптив */
 @media (max-width: 768px) {
   .footer__inner {
-    flex-direction: column;
-    text-align: right;        /* исправлено: было rigt */
-    gap: 20px;
+    grid-template-columns: 1fr;  /* всё в одну колонку */
+    row-gap: 20px;
   }
 
   .footer__nav {
-    flex-direction: column;
     gap: 12px;
   }
-}
 
+  .footer__policy {
+    grid-column: auto;
+    justify-self: start;
+    text-align: left;
+  }
+}
 
 /* АДАПТИВ */
 
@@ -1585,4 +1595,5 @@ html {
     width: 100%;
   }
 }
+
 
