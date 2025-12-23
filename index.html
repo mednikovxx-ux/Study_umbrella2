@@ -736,29 +736,33 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-  <script>
+  
+ <script>
 const GS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzjRFqJ-44pVCcUxs2xYxENWpI10Wq-M9sVJGjNGBvQz-bL6m1nscfaTC-zJmBLzJqG6A/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // метка времени для антибота
-  const started = document.getElementById("form_started_at");
-  if (started) started.value = Date.now().toString();
-
   const form = document.getElementById("contactForm");
+  const started = document.getElementById("form_started_at");
+
   if (!form) return;
+
+  // стартовая метка времени (антибот)
+  if (started) {
+    started.value = Date.now().toString();
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const fd = new FormData(form);
 
-    // антибот: honeypot
+    // honeypot
     const company = (fd.get("company") || "").toString().trim();
     if (company) return;
 
-    // антибот: слишком быстро отправили
+    // антибот по времени
     const startedAt = Number(fd.get("form_started_at") || 0);
-    if (startedAt && (Date.now() - startedAt) < 2500) return;
+    if (startedAt && Date.now() - startedAt < 2500) return;
 
     const payload = {
       name: (fd.get("name") || "").toString().trim(),
@@ -769,30 +773,55 @@ document.addEventListener("DOMContentLoaded", () => {
       form_started_at: startedAt
     };
 
+    // простая клиентская валидация
+    if (!payload.name || !payload.phone) {
+      alert("Пожалуйста, заполните имя и телефон.");
+      return;
+    }
+
     try {
-      const res = await fetch(GS_ENDPOINT, {
+      const response = await fetch(GS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        mode: "cors", // важно оставить cors
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
-      const json = await res.json();
-      if (!json.ok) throw new Error("send_failed");
+      // Google Apps Script ВСЕГДА возвращает text
+      const text = await response.text();
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        throw new Error("invalid_json");
+      }
+
+      if (!data.ok) {
+        throw new Error("server_error");
+      }
 
       form.reset();
-      // чтобы антибот-таймер снова работал после reset
-      if (started) started.value = Date.now().toString();
+      if (started) {
+        started.value = Date.now().toString();
+      }
 
       alert("Спасибо! Заявка отправлена ✅");
-    } catch (err) {
+
+    } catch (error) {
+      console.error("Form submit error:", error);
       alert("Не удалось отправить заявку. Попробуйте позже.");
     }
   });
 });
 </script>
 
+
 </body>
 </html>
+
 
 
 
