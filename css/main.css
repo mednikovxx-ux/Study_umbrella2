@@ -289,6 +289,7 @@ html {
 
 .hero {
   min-height: 420px;
+  padding: 0;
   background-color: var(--bg-soft);
 }
 
@@ -297,36 +298,85 @@ html {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
   gap: 32px;
 
-  align-items: stretch;
+  /* ВАЖНО: возвращаем как было */
+  align-items: center;
 
   background-color: #EDEDED;
   border-radius: 32px;
 
+  /* ВАЖНО: возвращаем padding как у тебя было */
+  padding: 24px 56px 40px;
+
   min-height: 420px;
 }
 
-/* ЛЕВАЯ КОЛОНКА — с отступами */
 .hero__content {
-  padding: 24px 0 40px 56px;
   position: relative;
 }
 
-/* ПРАВАЯ КОЛОНКА — БЕЗ отступов */
-.hero__image-wrap {
-  height: 100%;
-  display: flex;
-  align-items: stretch;
-
-  padding: 0;              /* ← ключ */
+/* стрелка под текстом */
+.hero__arrow {
+  position: absolute;
+  width: 70px;
+  height: auto;
+  left: 190px;
+  top: 155px;
+  opacity: 0.9;
+  pointer-events: none;
+  image-rendering: crisp-edges;
 }
 
-/* КАРТИНКА */
-.hero__image {
-  height: 100%;
-  width: auto;
+.hero__label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00a6b5;
+  margin-bottom: 10px;
+}
 
-  max-width: none;
-  object-fit: contain;     /* ничего не режем */
+.hero__title {
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.hero__title-top {
+  font-size: 46px;
+  color: #00a6b5;
+  font-weight: 800;
+}
+
+.hero__title-main {
+  font-size: 46px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.hero__text {
+  margin-top: 10px;
+  font-size: 15px;
+  max-width: 380px;
+}
+
+.hero__btn {
+  margin-top: 60px;
+}
+
+/* КАРТИНКА — делаем её больше и прижимаем к верху, но НЕ ломаем сетку */
+.hero__image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ключ: увеличиваем высоту картинки, но без обрезки */
+.hero__image {
+  width: auto;
+  height: auto;
+  max-height: 380px;     /* <-- регулируй: 360-420 под макет */
+  max-width: 100%;
+  border-radius: 32px;
+  object-fit: contain;
 }
 
 
@@ -1521,6 +1571,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
