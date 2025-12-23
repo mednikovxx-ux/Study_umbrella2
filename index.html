@@ -513,12 +513,15 @@
 
   <h3 class="contact-form__title">Форма обратной связи</h3>
 
-  <!-- Антибот (honeypot) — скрыто без CSS -->
+  <!-- Антибот (honeypot) -->
   <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true"
          style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;">
 
   <!-- Антибот по времени заполнения -->
   <input type="hidden" name="form_started_at" id="form_started_at">
+
+  <!-- Страница (чтобы всегда приходила) -->
+  <input type="hidden" name="page" id="form_page">
 
   <label class="contact-form__field">
     <span>Ваше имя</span>
@@ -547,6 +550,10 @@
     Отправить
   </button>
 </form>
+
+<!-- можно оставить, не мешает -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
 
 
   </div>
@@ -738,31 +745,31 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
   
  <script>
-const GS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzjRFqJ-44pVCcUxs2xYxENWpI10Wq-M9sVJGjNGBvQz-bL6m1nscfaTC-zJmBLzJqG6A/exec";
+const GS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxNhucxWq1Qr91tCFACORRjioe57XDiX5AZWX1p9TIUCNjANcIKPSDUDVk3lL61pXxvww/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   const started = document.getElementById("form_started_at");
+  const page = document.getElementById("form_page");
+  const submitBtn = form ? form.querySelector(".contact-form__submit") : null;
 
   if (!form) return;
 
-  // стартовая метка времени (антибот)
-  if (started) {
-    started.value = Date.now().toString();
-  }
+  if (started) started.value = Date.now().toString();
+  if (page) page.value = location.href;
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const fd = new FormData(form);
 
-    // honeypot
+    // антибот: honeypot
     const company = (fd.get("company") || "").toString().trim();
     if (company) return;
 
-    // антибот по времени
+    // антибот: слишком быстро
     const startedAt = Number(fd.get("form_started_at") || 0);
-    if (startedAt && Date.now() - startedAt < 2500) return;
+    if (startedAt && (Date.now() - startedAt) < 2500) return;
 
     const payload = {
       name: (fd.get("name") || "").toString().trim(),
@@ -773,46 +780,38 @@ document.addEventListener("DOMContentLoaded", () => {
       form_started_at: startedAt
     };
 
-    // простая клиентская валидация
     if (!payload.name || !payload.phone) {
       alert("Пожалуйста, заполните имя и телефон.");
       return;
     }
 
     try {
-      const response = await fetch(GS_ENDPOINT, {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Отправляем...";
+      }
+
+      // ВАЖНО: no-cors + text/plain => запрос не блокируется CORS и точно уходит
+      await fetch(GS_ENDPOINT, {
         method: "POST",
-        mode: "cors", // важно оставить cors
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
       });
 
-      // Google Apps Script ВСЕГДА возвращает text
-      const text = await response.text();
-
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch (e) {
-        throw new Error("invalid_json");
-      }
-
-      if (!data.ok) {
-        throw new Error("server_error");
-      }
-
       form.reset();
-      if (started) {
-        started.value = Date.now().toString();
-      }
+      if (started) started.value = Date.now().toString();
+      if (page) page.value = location.href;
 
       alert("Спасибо! Заявка отправлена ✅");
-
-    } catch (error) {
-      console.error("Form submit error:", error);
+    } catch (err) {
+      console.error("Form submit error:", err);
       alert("Не удалось отправить заявку. Попробуйте позже.");
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Отправить";
+      }
     }
   });
 });
@@ -821,6 +820,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
