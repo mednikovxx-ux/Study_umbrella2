@@ -1227,7 +1227,7 @@ html {
 }
 
 .contact-form__field textarea {
-  min-height: 100px;
+  min-height: 70px;
   resize: vertical;
 }
 
@@ -1655,6 +1655,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
