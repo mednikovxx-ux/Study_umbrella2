@@ -289,7 +289,6 @@ html {
 
 .hero {
   min-height: 420px;
-  padding: 0 0 0px;
   background-color: var(--bg-soft);
 }
 
@@ -297,131 +296,39 @@ html {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
   gap: 32px;
-  align-items: center;
 
-  /* карточка как в фигме */
+  align-items: stretch;
+
   background-color: #EDEDED;
   border-radius: 32px;
-  padding: 24px 56px 40px;
 
-   min-height: 420px; 
+  min-height: 420px;
 }
 
+/* ЛЕВАЯ КОЛОНКА — с отступами */
 .hero__content {
-  position: relative; /* стрелка будет привязана к этому блоку */
+  padding: 24px 0 40px 56px;
+  position: relative;
 }
 
-/* стрелка под текстом */
-.hero__arrow {
-  position: absolute;
-  width: 70px;          /* размер стрелки */
-  height: auto;         /* чтобы не раздувалась */
-  left: 190px;          /* подвинешь под себя */
-  top: 155px;           /* подвинешь под себя */
-  opacity: 0.9;
-  pointer-events: none;
-  image-rendering: crisp-edges;
-}
-
-.hero__label {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #00a6b5;
-  margin-bottom: 10px;
-}
-
-.hero__title {
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.hero__title-top {
-  font-size: 46px;
-  color: #00a6b5;
-  font-weight: 800;
-}
-
-.hero__title-main {
-  font-size: 46px;
-  color: var(--primary);
-  font-weight: 800;
-}
-
-.hero__text {
-  margin-top: 10px;
-  font-size: 15px;
-  max-width: 380px;
-}
-
-.hero__btn {
-  margin-top: 60px;
-}
-
+/* ПРАВАЯ КОЛОНКА — БЕЗ отступов */
 .hero__image-wrap {
   height: 100%;
   display: flex;
   align-items: stretch;
+
+  padding: 0;              /* ← ключ */
 }
 
+/* КАРТИНКА */
 .hero__image {
   height: 100%;
   width: auto;
 
   max-width: none;
-  border-radius: 32px;
-  object-fit: contain;
+  object-fit: contain;     /* ничего не режем */
 }
 
-/* ОБЩИЕ СЕКЦИИ */
-
-.section {
-  padding: 32px 0;
-  background-color: var(--bg-soft);
-}
-#about {
-  scroll-margin-top: 120px;
-}
-.section--white {
-  background-color: #ffffff;
-}
-
-.section--soft {
-  background-color: var(--bg-soft);
-}
-
-.section__title {
-  font-size: 26px;
-  font-weight: 800;
-  margin-bottom: 24px;
-  text-align: left;
-}
-
-.section__title--left {
-  text-align: left;
-}
-
-.section__title-accent {
-  color: var(--primary);
-}
-
-.section__title-accent--blue {
-  color: #6ec4d8;
-}
-/* Текстовые блоки под секцией "В ЧЕМ НАША ЦЕЛЬ?" */
-
-.about-line {
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 600;
-  max-width: 580px;
-}
-
-.about-line .accent {
-  color: var(--primary) !important;
-  font-weight: 700 !important;
-}
 
 /* Цели */
 
@@ -1614,6 +1521,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
