@@ -318,8 +318,8 @@ html {
   position: absolute;
   width: 70px;
   height: auto;
-  left: 190px;
-  top: 155px;
+  left: 240px;
+  top: 160px;
   opacity: 0.9;
   pointer-events: none;
   image-rendering: crisp-edges;
@@ -1639,6 +1639,7 @@ html {
     width: 100%;
   }
 }
+
 
 
 
