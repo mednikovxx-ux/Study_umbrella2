@@ -550,6 +550,8 @@
     Отправить
   </button>
 </form>
+    <div id="formToast" class="form-toast"></div>
+
 
 <!-- можно оставить, не мешает -->
 <iframe name="hidden_iframe" style="display:none;"></iframe>
@@ -749,35 +751,38 @@ const GS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxNhucxWq1Qr91tCFAC
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
+  if (!form) {
+    console.error("❌ contactForm не найден");
+    return;
+  }
+
   const started = document.getElementById("form_started_at");
   const page = document.getElementById("form_page");
-  const submitBtn = form ? form.querySelector(".contact-form__submit") : null;
+  const submitBtn = form.querySelector(".contact-form__submit");
 
-  // toast
-  const toast = document.getElementById("formToast");
+  // toast: если нет в html — создаём
+  let toast = document.getElementById("formToast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "formToast";
+    toast.className = "form-toast";
+    document.body.appendChild(toast);
+  }
 
-  function showToast(type = "success") {
-    if (!toast) return;
-
-    toast.textContent =
-      type === "success"
-        ? "✅ Заявка отправлена! Мы свяжемся с вами."
-        : "❌ Не удалось отправить заявку. Попробуйте позже.";
-
+  function showToast(type = "success", text = "") {
     toast.classList.remove("is-error");
     if (type === "error") toast.classList.add("is-error");
 
-    toast.classList.add("show");
+    toast.textContent = text || (type === "success"
+      ? "✅ Заявка отправлена! Мы свяжемся с вами."
+      : "❌ Не удалось отправить заявку. Попробуйте позже.");
 
+    toast.classList.add("show");
     clearTimeout(showToast._t);
-    showToast._t = setTimeout(() => {
-      toast.classList.remove("show");
-    }, 3500);
+    showToast._t = setTimeout(() => toast.classList.remove("show"), 3500);
   }
 
-  if (!form) return;
-
-  // стартовая метка времени (антибот)
+  // антибот таймер + страница
   if (started) started.value = Date.now().toString();
   if (page) page.value = location.href;
 
@@ -790,7 +795,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const company = (fd.get("company") || "").toString().trim();
     if (company) return;
 
-    // антибот: слишком быстро отправили
+    // антибот: слишком быстро
     const startedAt = Number(fd.get("form_started_at") || 0);
     if (startedAt && (Date.now() - startedAt) < 2500) return;
 
@@ -799,23 +804,20 @@ document.addEventListener("DOMContentLoaded", () => {
       phone: (fd.get("phone") || "").toString().trim(),
       comment: (fd.get("comment") || "").toString().trim(),
       page: location.href,
-      company: company,
+      company,
       form_started_at: startedAt
     };
 
-    // простая клиентская валидация
     if (!payload.name || !payload.phone) {
-      showToast("error");
+      showToast("error", "❌ Заполните имя и телефон.");
       return;
     }
 
     try {
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Отправляем...";
-      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Отправляем...";
 
-      // GitHub Pages + Apps Script: самый стабильный вариант
+      // GitHub Pages + Apps Script: запрос уходит без CORS-блокировки
       await fetch(GS_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
@@ -823,28 +825,29 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(payload),
       });
 
-      // ✅ успех
+      // UI-успех (по факту: запрос ушёл)
       form.reset();
       if (started) started.value = Date.now().toString();
       if (page) page.value = location.href;
 
       showToast("success");
+      console.log("✅ Запрос отправлен в Apps Script");
     } catch (err) {
-      console.error("Form submit error:", err);
+      console.error("❌ Form submit error:", err);
       showToast("error");
     } finally {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Отправить";
-      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Отправить";
     }
   });
 });
 </script>
 
 
+
 </body>
 </html>
+
 
 
 
