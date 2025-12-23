@@ -1308,13 +1308,19 @@ html {
   opacity: 0.7;
 }
 
-/* ПРАВАЯ ЧАСТЬ */
+/* ПРАВАЯ ЧАСТЬ (ссылки столбиком) */
 .footer__policy {
+  display: block;             /* ключевое: каждая ссылка с новой строки */
   font-weight: 600;
   font-size: 18px;
   color: #121826;
   text-decoration: none;
-  white-space: nowrap;
+  white-space: normal;        /* убираем запрет переноса */
+  margin-bottom: 12px;        /* расстояние между ссылками */
+}
+
+.footer__policy:last-child {
+  margin-bottom: 0;
 }
 
 .footer__policy:hover {
@@ -1325,7 +1331,7 @@ html {
 @media (max-width: 768px) {
   .footer__inner {
     flex-direction: column;
-    text-align: rigt;
+    text-align: right;        /* исправлено: было rigt */
     gap: 20px;
   }
 
@@ -1579,3 +1585,4 @@ html {
     width: 100%;
   }
 }
+
