@@ -60,10 +60,8 @@
 
   /* 🔥 ПОЗИЦИЯ — МЕНЯЕШЬ САМА */
   left: -42px;   /* влево / вправо */
-  top: -22px;    /* вверх / вниз */
+  top: -52px;    /* вверх / вниз */
 
-  /* ПОВОРОТ (как в Figma) */
-  transform: rotate(-18deg);
 
   pointer-events: none;
   z-index: 2;
