@@ -39,3 +39,39 @@
   pointer-events: none;
   z-index: 5;
 }
+
+/* ================================
+   HERO CTA DECOR (FIGMA STYLE)
+   ================================ */
+
+/* контейнер кнопки + декора */
+.page-language .hero__cta {
+  position: relative;
+  display: inline-block;
+}
+
+/* декоративная картинка */
+.page-language .hero__cta-decor {
+  position: absolute;
+
+  /* РАЗМЕР */
+  width: 64px;
+  height: auto;
+
+  /* 🔥 ПОЗИЦИЯ — МЕНЯЕШЬ САМА */
+  left: -42px;   /* влево / вправо */
+  top: -22px;    /* вверх / вниз */
+
+  /* ПОВОРОТ (как в Figma) */
+  transform: rotate(-18deg);
+
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* на мобильных убираем декор */
+@media (max-width: 768px) {
+  .page-language .hero__cta-decor {
+    display: none;
+  }
+}
