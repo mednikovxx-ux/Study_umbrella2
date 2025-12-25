@@ -18,33 +18,22 @@
 /* ================================
    LANGUAGE PAGE – HERO ARROW
    ================================ */
-
-/* делаем контейнер опорной точкой */
-.page-language .hero__content {
-  position: relative;
-}
-
-/* жёлтая стрелка */
+/* жёлтая стрелка — управляемая */
 .page-language .hero__arrow {
   position: absolute;
 
-  /* РАЗМЕР */
   width: 120px;
   height: auto;
 
-  /* ПОЗИЦИЯ — МЕНЯЕШЬ САМА */
-  right: 0px;   /* влево / вправо */
-  bottom: 0px;  /* вверх / вниз */
+  /* ✅ СБРАСЫВАЕМ то, что может мешать */
+  right: auto;
+  bottom: auto;
 
-  /* косметика */
+  /* ✅ ДВИГАЕШЬ ТОЛЬКО ЭТИ ДВЕ */
+  left: 360px;
+  top: 220px;
+
   opacity: 0.9;
-  pointer-events: none; /* чтобы не мешала кликам */
+  pointer-events: none;
+  z-index: 5;
 }
-
-/* мобильная версия — прячем стрелку */
-@media (max-width: 768px) {
-  .page-language .hero__arrow {
-    display: none;
-  }
-}
-
