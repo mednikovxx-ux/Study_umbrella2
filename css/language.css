@@ -73,3 +73,35 @@
     display: none;
   }
 }
+/* ================================
+   WHY – UMBRELLA DECOR
+   ================================ */
+
+.page-language .why-head{
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* зонтик */
+.page-language .why-head__umbrella{
+  position: absolute;
+
+  width: 64px;
+  height: auto;
+
+  /* 👉 ДВИГАЕШЬ САМА */
+  left: 80px;
+  top: -26px;
+
+  transform: rotate(-18deg);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* мобильная версия — убираем */
+@media (max-width: 768px){
+  .page-language .why-head__umbrella{
+    display: none;
+  }
+}
