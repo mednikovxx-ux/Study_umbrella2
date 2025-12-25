@@ -91,7 +91,7 @@
   height: auto;
 
   /* 👉 ДВИГАЕШЬ САМА */
-  left: 160px;
+  left: 0px;
   top: -26px;
 
   transform: rotate(0deg);
