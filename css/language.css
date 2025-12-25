@@ -14,3 +14,37 @@
   border-radius: 0;          /* если картинка вырезана без фона — так чаще выглядит лучше */
 }
 
+
+/* ================================
+   LANGUAGE PAGE – HERO ARROW
+   ================================ */
+
+/* делаем контейнер опорной точкой */
+.page-language .hero__content {
+  position: relative;
+}
+
+/* жёлтая стрелка */
+.page-language .hero__arrow {
+  position: absolute;
+
+  /* РАЗМЕР */
+  width: 120px;
+  height: auto;
+
+  /* ПОЗИЦИЯ — МЕНЯЕШЬ САМА */
+  right: 120px;   /* влево / вправо */
+  bottom: -40px;  /* вверх / вниз */
+
+  /* косметика */
+  opacity: 0.9;
+  pointer-events: none; /* чтобы не мешала кликам */
+}
+
+/* мобильная версия — прячем стрелку */
+@media (max-width: 768px) {
+  .page-language .hero__arrow {
+    display: none;
+  }
+}
+
