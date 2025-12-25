@@ -30,8 +30,10 @@
   bottom: auto;
 
   /* ✅ ДВИГАЕШЬ ТОЛЬКО ЭТИ ДВЕ */
-  left: 360px;
+  left: 160px;
   top: 220px;
+  transform: rotate(-20deg);
+
 
   opacity: 0.9;
   pointer-events: none;
