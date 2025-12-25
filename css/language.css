@@ -87,14 +87,14 @@
 .page-language .why-head__umbrella{
   position: absolute;
 
-  width: 64px;
+  width: 86px;
   height: auto;
 
   /* 👉 ДВИГАЕШЬ САМА */
-  left: 80px;
+  left: 120px;
   top: -26px;
 
-  transform: rotate(-18deg);
+  transform: rotate(0deg);
   pointer-events: none;
   z-index: 2;
 }
