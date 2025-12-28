@@ -1,80 +1,17 @@
-/* ===============================
-   DESKTOP: две пилюли справа
-   =============================== */
+/* inner-switch.css — только логика, без изменения дизайна */
+
+/* Десктоп: две таблетки рядом */
 .header__right{
   display:flex;
   gap:12px;
   align-items:center;
 }
 
-
-.dropdown--pill .btn{
-  padding:10px 14px;
-  border-radius:999px;
-  font-weight:700;
-}
-
-.dropdown--pill .dropdown__menu{
-  min-width:220px;
-}
-
-/* ===============================
-   MOBILE: убираем пилюли из шапки
-   (чтобы не было лишней "Главная" сверху)
-   =============================== */
+/* Мобилка: прячем правые таблетки в шапке (чтобы не было лишней "Главная" сверху) */
 @media (max-width: 900px){
   .header__right{ display:none; }
 }
 
-/* ===============================
-   MOBILE: 2-й уровень внутри "Главная"
-   =============================== */
-.nav-sub-group{
-  margin-top:10px;
-}
-
-.nav-sub-toggle{
-  width:100%;
-  text-align:left;
-
-  padding:12px 14px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,.12);
-  background:#fff;
-
-  font-weight:700;
-  font-size:16px;
-  cursor:pointer;
-}
-
-.nav-sub-submenu{
-  display:none;
-  margin-top:8px;
-
-  background:#fff;
-  border:1px solid rgba(0,0,0,.12);
-  border-radius:14px;
-  padding:8px;
-}
-
-.nav-sub-submenu a{
-  display:block;
-  padding:10px 12px;
-  border-radius:12px;
-  text-decoration:none;
-  color:#111;
-  font-weight:600;
-}
-
-.nav-sub-submenu a:hover{
-  background:rgba(0,0,0,.06);
-}
-
-.nav-sub-group.is-open .nav-sub-submenu{
-  display:block;
-}
-
-.nav-main-link{
-  display:block;
-  margin-top:10px;
-}
+/* Мобилка: 2-й уровень в меню (раскрытие) */
+.nav-sub-submenu{ display:none; }
+.nav-sub-group.is-open .nav-sub-submenu{ display:block; }
