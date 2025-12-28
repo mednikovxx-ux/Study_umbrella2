@@ -1680,138 +1680,8 @@ html {
 .form-toast.is-error{
   background: #b91c1c;
 }
-/* =========================================
-   BURGER WITH TEXT (mobile)
-   ========================================= */
 
-.burger.burger--with-text{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
 
-  /* чтобы не было “обрезано” как на скрине */
-  width:auto;
-  min-width: 118px;        /* хватает под "Главная" */
-  padding: 8px 12px;
-
-  border-radius: 999px;    /* как таблетка */
-  border: 1px solid rgba(0,0,0,0.18);
-  background: #fff;
-}
-
-/* текст */
-.burger__text{
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1;
-  white-space: nowrap;     /* НЕ переносить */
-}
-
-/* иконка */
-.burger__icon{
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-
-.burger__icon span{
-  display:block;
-  width:18px;
-  height:2px;
-  background:#111;
-  border-radius:2px;
-  transition: transform .25s ease, opacity .25s ease;
-}
-
-/* анимация в крестик */
-.burger--open .burger__icon span:nth-child(1){
-  transform: translateY(6px) rotate(45deg);
-}
-.burger--open .burger__icon span:nth-child(2){
-  opacity: 0;
-}
-.burger--open .burger__icon span:nth-child(3){
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-/* на совсем узких экранах можно убрать текст, чтобы ничего не обрезалось */
-@media (max-width: 360px){
-  .burger__text{ display:none; }
-  .burger.burger--with-text{ min-width: auto; }
-}
-/* =========================================
-   MOBILE BURGER: "Главная" + 3 lines
-   (перебивает старый круглый бургер)
-   Добавить В КОНЕЦ main.css
-   ========================================= */
-
-.burger.burger--with-text{
-  /* перебиваем старые размеры/позицию */
-  width: auto !important;
-  height: auto !important;
-  min-width: 118px;
-  padding: 8px 12px !important;
-
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.18);
-  background: #fff;
-
-  position: relative;
-  z-index: 4000; /* выше шапки */
-}
-
-/* текст */
-.burger.burger--with-text .burger__text{
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-/* ВАЖНО: старые стили .burger span могут ломать полоски.
-   Поэтому сбрасываем их для новой иконки. */
-.burger.burger--with-text > span{
-  all: unset;
-}
-
-/* иконка */
-.burger.burger--with-text .burger__icon{
-  display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.burger.burger--with-text .burger__icon span{
-  display:block;
-  width:18px;
-  height:2px;
-  background:#111;
-  border-radius:2px;
-  transition: transform .25s ease, opacity .25s ease;
-}
-
-/* крестик */
-.burger--open .burger__icon span:nth-child(1){
-  transform: translateY(6px) rotate(45deg);
-}
-.burger--open .burger__icon span:nth-child(2){
-  opacity: 0;
-}
-.burger--open .burger__icon span:nth-child(3){
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-/* на очень узких экранах прячем текст, чтобы не обрезало */
-@media (max-width: 360px){
-  .burger.burger--with-text .burger__text{ display:none; }
-  .burger.burger--with-text{ min-width: auto; }
-}
 /* =========================================
    SMOOTH DROPDOWNS + MOBILE MENU ANIMATION
    (добавить в КОНЕЦ inner-switch.css и main.css)
@@ -1845,13 +1715,14 @@ html {
     visibility 0s linear 0s;
 }
 
-/* --- MOBILE: бургер меню (общая шторка навигации) --- */
-/* Важно: это только для мобилки, чтобы на десктопе не ломать меню */
 @media (max-width: 768px){
 
-  /* базовое состояние — спрятано плавно */
   .header .nav{
-    display: block;              /* пусть будет всегда, прячем анимацией */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+
     max-height: 0;
     opacity: 0;
     transform: translateY(-8px);
@@ -1864,6 +1735,22 @@ html {
       transform 220ms ease;
   }
 
+  /* ссылки списком (важно) */
+  .header .nav > a{
+    display: block !important;
+    width: 100% !important;
+    white-space: normal !important;
+  }
+
+  .header.header--mobile-open .nav{
+    max-height: 900px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+
   /* когда открыт бургер */
   .header.header--mobile-open .nav{
     max-height: 900px;
@@ -1872,4 +1759,69 @@ html {
     pointer-events: auto;
   }
 }
+/* =========================================
+   MOBILE BURGER: "Главная" + icon (one version)
+   ========================================= */
+
+.burger.burger--with-text{
+  width: auto !important;
+  height: auto !important;
+  min-width: 118px;
+  padding: 8px 12px !important;
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: space-between !important; /* <<< ВОТ ЭТО ВАЖНО */
+  gap: 10px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: #fff;
+
+  position: relative;
+  z-index: 4000;
+}
+
+/* текст */
+.burger.burger--with-text .burger__text{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* иконка всегда справа */
+.burger.burger--with-text .burger__icon{
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.burger.burger--with-text .burger__icon span{
+  display:block;
+  width:18px;
+  height:2px;
+  background:#111;
+  border-radius:2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* крестик */
+.burger--open .burger__icon span:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+.burger--open .burger__icon span:nth-child(2){
+  opacity: 0;
+}
+.burger--open .burger__icon span:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* на очень узких экранах прячем текст */
+@media (max-width: 360px){
+  .burger.burger--with-text .burger__text{ display:none; }
+  .burger.burger--with-text{ min-width: auto; }
+}
+
 
