@@ -618,12 +618,23 @@
     }
 
     // Бургер (мобилка)
-    if (header && burger) {
-      burger.addEventListener('click', function (e) {
-        e.stopPropagation();
-        header.classList.toggle('header--mobile-open');
-      });
+ // Бургер (мобилка) — с текстом "Главная / Закрыть" и анимацией
+if (header && burger) {
+  const burgerText = burger.querySelector('.burger__text');
+
+  burger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isOpen = header.classList.toggle('header--mobile-open');
+
+    burger.classList.toggle('burger--open', isOpen);
+    if (burgerText) {
+      burgerText.textContent = isOpen ? 'Закрыть' : 'Главная';
     }
+  });
+}
+
 
     // "Главная" внутри мобильного меню
     if (navMainGroup && navMainToggle) {
@@ -852,6 +863,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
