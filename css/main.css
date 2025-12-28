@@ -1680,6 +1680,43 @@ html {
 .form-toast.is-error{
   background: #b91c1c;
 }
+/* ===== БУРГЕР С ТЕКСТОМ "ГЛАВНАЯ" ===== */
+
+.burger--with-text{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+}
+
+/* текст */
+.burger__text{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* иконка с полосками */
+.burger__icon{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.burger__icon span{
+  width: 18px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+}
+
+/* на десктопе можно оставить как есть (если нужно) */
+@media (min-width: 769px){
+  .burger__text{
+    display: none;
+  }
+}
+
 
 
 
