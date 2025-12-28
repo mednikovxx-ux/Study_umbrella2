@@ -905,13 +905,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------- MOBILE burger ----------
-  if (burger && header) {
-    burger.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      header.classList.toggle('header--mobile-open');
-    });
-  }
+ if (header && burger) {
+  const burgerText = burger.querySelector('.burger__text');
+
+  burger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isOpen = header.classList.toggle('header--mobile-open');
+
+    burger.classList.toggle('burger--open', isOpen);
+    if (burgerText) burgerText.textContent = isOpen ? 'Закрыть' : 'Главная';
+  });
+}
+
 
   // ---------- MOBILE "Главная" inside burger ----------
   if (navMainBtn && navMainGroup) {
@@ -958,6 +965,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
