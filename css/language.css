@@ -122,8 +122,8 @@
   height: auto;
 
   /* 🔥 ДВИГАЕШЬ ТОЛЬКО ЭТИ */
-  right: 10px;     /* вправо / влево */
-  bottom: -40px;     /* ниже / выше */
+  right: 0px;     /* вправо / влево */
+  bottom: -50px;     /* ниже / выше */
 
   pointer-events: none;
   z-index: 1;
