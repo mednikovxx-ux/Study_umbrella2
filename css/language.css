@@ -118,12 +118,12 @@
 .page-language .why-teapot {
   position: absolute;
 
-  width: 143px;     /* размер из Figma (143×133) */
+  width: 100px;     /* размер из Figma (143×133) */
   height: auto;
 
   /* 🔥 ДВИГАЕШЬ ТОЛЬКО ЭТИ */
-  right: -20px;     /* вправо / влево */
-  bottom: 24px;     /* ниже / выше */
+  right: 20px;     /* вправо / влево */
+  bottom: 0px;     /* ниже / выше */
 
   pointer-events: none;
   z-index: 1;
