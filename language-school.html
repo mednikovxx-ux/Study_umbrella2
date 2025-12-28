@@ -26,89 +26,72 @@
 <header class="header" id="siteHeader">
   <div class="container header__inner">
 
-    <!-- ЛОГОТИП -->
     <a href="index.html" class="logo">
-      <img src="img/logo.png" class="logo__img" alt="Логотип">
+      <img src="img/logo.png" class="logo__img" alt="Study Umbrella">
     </a>
 
-<!-- МЕНЮ -->
-<nav class="nav">
-  <a href="#about">О нас</a>
-  <a href="#teachers">Наши преподаватели</a>
-  <a href="#offers">Наши предложения</a>
-  <a href="#courses">Наши курсы</a>
-  <a href="#contacts">Контакты</a>
+    <!-- МЕНЮ -->
+    <nav class="nav">
+      <a href="#about">О нас</a>
+      <a href="#teachers">Наши преподаватели</a>
+      <a href="#offers">Наши предложения</a>
+      <a href="#courses">Наши курсы</a>
+      <a href="#contacts">Контакты</a>
 
-  <!-- МОБИЛКА: ГЛАВНАЯ -> 2 уровня -->
-  <div class="nav-main-group">
-    <button class="nav-main-toggle" type="button">
-      Главная ▾
-    </button>
+      <!-- МОБИЛКА: Главная -> 2 уровня -->
+      <div class="nav-main-group">
+        <button class="nav-main-toggle" type="button">Главная ▾</button>
 
-    <div class="nav-main-submenu">
+        <div class="nav-main-submenu">
+          <div class="nav-sub-group">
+            <button class="nav-sub-toggle" type="button">Языковая школа ▾</button>
+            <div class="nav-sub-submenu">
+              <a href="language-school.html">Русский</a>
+              <a href="language-school-en.html">English</a>
+              <a href="language-school-zh.html">中文</a>
+            </div>
+          </div>
 
-      <!-- 2-Й УРОВЕНЬ: ЯЗЫКОВАЯ ШКОЛА -->
-      <div class="nav-sub-group">
-        <button class="nav-sub-toggle" type="button">
-          Языковая школа ▾
-        </button>
+          <div class="nav-sub-group">
+            <button class="nav-sub-toggle" type="button">Гуманитарная школа ▾</button>
+            <div class="nav-sub-submenu">
+              <a href="humanities-history.html">История</a>
+              <a href="humanities-philosophy.html">Философия</a>
+              <a href="humanities-literature.html">Литература</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-        <div class="nav-sub-submenu">
+    <!-- ДЕСКТОП: две таблетки -->
+    <div class="header__right">
+      <div class="dropdown" id="mainDropdown">
+        <button class="btn btn--ghost btn--main" id="mainMenuToggle" type="button">Главная ▾</button>
+        <div class="dropdown__menu" id="mainMenu">
+          <a href="language-school.html">Языковая школа</a>
+          <a href="humanities-school.html">Гуманитарная школа</a>
+        </div>
+      </div>
+
+      <div class="dropdown" id="switchDropdown">
+        <button class="btn btn--ghost btn--main" id="switchToggle" type="button">Языки ▾</button>
+        <div class="dropdown__menu" id="switchMenu">
           <a href="language-school.html">Русский</a>
           <a href="language-school-en.html">English</a>
           <a href="language-school-zh.html">中文</a>
         </div>
       </div>
-
-      <!-- 2-Й УРОВЕНЬ: ГУМАНИТАРНАЯ ШКОЛА -->
-      <div class="nav-sub-group">
-        <button class="nav-sub-toggle" type="button">
-          Гуманитарная школа ▾
-        </button>
-
-        <div class="nav-sub-submenu">
-          <!-- примеры предметов, заменишь на свои -->
-          <a href="humanities-history.html">История</a>
-          <a href="humanities-philosophy.html">Философия</a>
-          <a href="humanities-literature.html">Литература</a>
-        </div>
-      </div>
-
     </div>
-  </div>
-</nav>
 
-
-    <div class="header__right">
-  <!-- 1) Главная -->
-  <div class="dropdown" id="mainDropdown">
-    <button class="btn btn--ghost btn--main" id="mainMenuToggle" type="button">
-      Главная ▾
+    <!-- БУРГЕР (ВАЖНО: id="burgerToggle") -->
+    <button class="burger" id="burgerToggle" type="button" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
     </button>
-
-    <div class="dropdown__menu" id="mainMenu">
-      <a href="language-school.html">Языковая школа</a>
-      <a href="humanities-school.html">Гуманитарная школа</a>
-    </div>
-  </div>
-
-  <!-- 2) Языки (вторая таблетка) -->
-  <div class="dropdown" id="switchDropdown">
-    <button class="btn btn--ghost btn--main" id="switchToggle" type="button">
-      Языки ▾
-    </button>
-
-    <div class="dropdown__menu" id="switchMenu">
-      <a href="language-school.html">Русский</a>
-      <a href="language-school-en.html">English</a>
-      <a href="language-school-zh.html">中文</a>
-    </div>
-  </div>
-</div>
-
 
   </div>
 </header>
+
 
 
 
@@ -919,7 +902,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const navMainGroup = document.querySelector('.nav-main-group');
   const navMainToggle = document.querySelector('.nav-main-toggle');
 
-  // 1) DESKTOP: "Главная"
+  function closeAll() {
+    if (mainDropdown) mainDropdown.classList.remove('dropdown--open');
+    if (switchDropdown) switchDropdown.classList.remove('dropdown--open');
+    if (navMainGroup) navMainGroup.classList.remove('nav-main-group--open');
+    document.querySelectorAll('.nav-sub-group.is-open').forEach(g => g.classList.remove('is-open'));
+  }
+
+  // --- DESKTOP: Главная ---
   if (mainDropdown && mainToggle) {
     mainToggle.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -928,7 +918,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 2) DESKTOP: "Языки"
+  // --- DESKTOP: Языки ---
   if (switchDropdown && switchToggle) {
     switchToggle.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -937,15 +927,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 3) MOBILE: бургер
+  // --- MOBILE: бургер ---
   if (header && burger) {
     burger.addEventListener('click', function (e) {
       e.stopPropagation();
       header.classList.toggle('header--mobile-open');
+      // когда открыли бургер — не закрываем его общим кликом сразу
     });
   }
 
-  // 4) MOBILE: "Главная" внутри бургера
+  // --- MOBILE: "Главная" в меню ---
   if (navMainGroup && navMainToggle) {
     navMainToggle.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -953,7 +944,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 5) MOBILE: 2-й уровень (открываем ЛЮБОЙ .nav-sub-group)
+  // --- MOBILE: 2-й уровень (все группы!) ---
   document.querySelectorAll('.nav-sub-group').forEach((group) => {
     const btn = group.querySelector('.nav-sub-toggle');
     if (!btn) return;
@@ -964,18 +955,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Закрытие по клику вне
+  // --- КЛИК ВНУТРИ HEADER НЕ ДОЛЖЕН ЗАКРЫВАТЬ ---
+  if (header) {
+    header.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  // --- КЛИК ВНЕ HEADER: закрываем dropdowns/подменю ---
   document.addEventListener('click', function () {
-    if (mainDropdown) mainDropdown.classList.remove('dropdown--open');
-    if (switchDropdown) switchDropdown.classList.remove('dropdown--open');
-
+    closeAll();
     if (header) header.classList.remove('header--mobile-open');
-    if (navMainGroup) navMainGroup.classList.remove('nav-main-group--open');
-
-    document.querySelectorAll('.nav-sub-group.is-open').forEach(g => g.classList.remove('is-open'));
   });
 
-  // Закрытие по скроллу (только десктоп-меню)
+  // --- Скролл: закрываем только десктоп dropdown ---
   window.addEventListener('scroll', function () {
     if (mainDropdown) mainDropdown.classList.remove('dropdown--open');
     if (switchDropdown) switchDropdown.classList.remove('dropdown--open');
@@ -984,10 +977,12 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
+
   
 
 </body>
 </html>
+
 
 
 
