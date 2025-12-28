@@ -1683,11 +1683,14 @@ html {
 
 
 /* =========================================
-   SMOOTH DROPDOWNS + MOBILE MENU ANIMATION
-   (добавить в КОНЕЦ inner-switch.css и main.css)
+   SMOOTH DROPDOWNS + MOBILE MENU ANIMATION + BURGER
+   ВСТАВИТЬ В КОНЕЦ main.css (и можно в inner-switch.css, но лучше main.css)
    ========================================= */
 
-/* --- DROPDOWN: убираем display none/block (это не анимируется) --- */
+/* =========================
+   DROPDOWN (анимация)
+   ========================= */
+
 .dropdown__menu{
   /* если где-то есть display:none — перебиваем */
   display: block !important;
@@ -1715,6 +1718,10 @@ html {
     visibility 0s linear 0s;
 }
 
+/* =========================
+   MOBILE NAV (плавно + списком)
+   ========================= */
+
 @media (max-width: 768px){
 
   .header .nav{
@@ -1735,7 +1742,7 @@ html {
       transform 220ms ease;
   }
 
-  /* ссылки списком (важно) */
+  /* ссылки списком */
   .header .nav > a{
     display: block !important;
     width: 100% !important;
@@ -1750,78 +1757,87 @@ html {
   }
 }
 
-
-  /* когда открыт бургер */
-  .header.header--mobile-open .nav{
-    max-height: 900px;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-}
-/* =========================================
-   MOBILE BURGER: "Главная" + icon (one version)
-   ========================================= */
+/* =========================
+   BURGER (Главная/Закрыть + иконка справа)
+   ========================= */
 
 .burger.burger--with-text{
   width: auto !important;
   height: auto !important;
-  min-width: 118px;
+  min-width: 132px !important;
   padding: 8px 12px !important;
 
   display: inline-flex !important;
-  align-items: center;
-  justify-content: space-between !important; /* <<< ВОТ ЭТО ВАЖНО */
-  gap: 10px;
+  align-items: center !important;
+  justify-content: flex-start !important; /* текст слева */
+  gap: 10px !important;
 
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.18);
-  background: #fff;
+  border-radius: 999px !important;
+  border: 1px solid rgba(0,0,0,0.18) !important;
+  background: #fff !important;
 
-  position: relative;
-  z-index: 4000;
+  position: relative !important;
+  z-index: 4000 !important;
 }
 
 /* текст */
 .burger.burger--with-text .burger__text{
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1;
-  white-space: nowrap;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
 }
 
 /* иконка всегда справа */
 .burger.burger--with-text .burger__icon{
-  display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-left: auto;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+
+  margin-left: auto !important;      /* <<< КЛЮЧ: уводим вправо */
+  position: static !important;       /* запрещаем absolute */
 }
 
+/* жёстко запрещаем старым стилям двигать спаны */
+.burger.burger--with-text span{
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+}
+
+/* полоски */
 .burger.burger--with-text .burger__icon span{
-  display:block;
-  width:18px;
-  height:2px;
-  background:#111;
-  border-radius:2px;
-  transition: transform .25s ease, opacity .25s ease;
+  display: block !important;
+  width: 18px !important;
+  height: 2px !important;
+  background: #111 !important;
+  border-radius: 2px !important;
+
+  transition: transform .25s ease, opacity .25s ease !important;
 }
 
 /* крестик */
-.burger--open .burger__icon span:nth-child(1){
-  transform: translateY(6px) rotate(45deg);
+.burger.burger--with-text.burger--open .burger__icon span:nth-child(1){
+  transform: translateY(6px) rotate(45deg) !important;
 }
-.burger--open .burger__icon span:nth-child(2){
-  opacity: 0;
+.burger.burger--with-text.burger--open .burger__icon span:nth-child(2){
+  opacity: 0 !important;
 }
-.burger--open .burger__icon span:nth-child(3){
-  transform: translateY(-6px) rotate(-45deg);
+.burger.burger--with-text.burger--open .burger__icon span:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg) !important;
 }
 
-/* на очень узких экранах прячем текст */
+/* очень узкие экраны — убираем текст */
 @media (max-width: 360px){
-  .burger.burger--with-text .burger__text{ display:none; }
-  .burger.burger--with-text{ min-width: auto; }
+  .burger.burger--with-text{
+    min-width: auto !important;
+  }
+  .burger.burger--with-text .burger__text{
+    display: none !important;
+  }
 }
+
 
 
