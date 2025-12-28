@@ -6,7 +6,6 @@
   top: 0;
   z-index: 3000;
 }
-
 /* правая часть с двумя таблетками */
 .header__right--switch{
   display: flex;
