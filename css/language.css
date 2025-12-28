@@ -105,3 +105,40 @@
     display: none;
   }
 }
+/* ================================
+   FORMAT CARD – RIGHT BOTTOM DECOR
+   ================================ */
+
+.page-language .format-card--with-decor{
+  position: relative;
+  overflow: hidden;
+}
+
+.page-language .format-card__decor{
+  position: absolute;
+
+  width: 70px;   /* 🔧 меняй размер */
+  height: auto;
+
+  /* 👉 ПОЗИЦИЯ — МЕНЯЕШЬ САМА */
+  right: 16px;
+  bottom: 14px;
+
+  transform: rotate(-10deg);
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* чтобы текст был поверх картинки */
+.page-language .format-card--with-decor > *:not(.format-card__decor){
+  position: relative;
+  z-index: 2;
+}
+
+/* мобильная версия — скрываем декор */
+@media (max-width: 768px){
+  .page-language .format-card__decor{
+    display: none;
+  }
+}
