@@ -648,53 +648,6 @@
   </div>
 </footer>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const dropdown = document.getElementById('mainDropdown');
-    const mainToggle = document.getElementById('mainMenuToggle');
-    const header = document.getElementById('siteHeader');
-    const burger = document.getElementById('burgerToggle');
-
-    const navMainGroup = document.querySelector('.nav-main-group');
-    const navMainToggle = document.querySelector('.nav-main-toggle');
-
-    // Справа кнопка "Главная" (десктоп)
-    if (dropdown && mainToggle) {
-      mainToggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        dropdown.classList.toggle('dropdown--open');
-      });
-    }
-
-    // Бургер (мобилка)
-    if (header && burger) {
-      burger.addEventListener('click', function (e) {
-        e.stopPropagation();
-        header.classList.toggle('header--mobile-open');
-      });
-    }
-
-    // "Главная" внутри мобильного меню
-    if (navMainGroup && navMainToggle) {
-      navMainToggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        navMainGroup.classList.toggle('nav-main-group--open');
-      });
-    }
-
-    // Клик вне — закрываем всё
-    document.addEventListener('click', function () {
-      if (dropdown) dropdown.classList.remove('dropdown--open');
-      if (header) header.classList.remove('header--mobile-open');
-      if (navMainGroup) navMainGroup.classList.remove('nav-main-group--open');
-    });
-  });
-</script>
-
-
-
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const viewport = document.querySelector('.teachers-slider__viewport');
@@ -897,82 +850,101 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-  
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.getElementById("siteHeader");
-  const burger = document.getElementById("burgerToggle");
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('siteHeader');
+  const burger = document.getElementById('burgerToggle');
 
-  // ===== БУРГЕР =====
+  const mainDropdown = document.getElementById('mainDropdown');
+  const mainBtn = document.getElementById('mainMenuToggle');
+
+  const switchDropdown = document.getElementById('switchDropdown');
+  const switchBtn = document.getElementById('switchToggle');
+
+  const navMainGroup = document.querySelector('.nav-main-group');
+  const navMainBtn = document.querySelector('.nav-main-toggle');
+
+  const subGroups = document.querySelectorAll('.nav-sub-group');
+
+  // ---------- helpers ----------
+  const closeDesktop = () => {
+    mainDropdown?.classList.remove('dropdown--open');
+    switchDropdown?.classList.remove('dropdown--open');
+  };
+
+  const closeMobileInner = () => {
+    navMainGroup?.classList.remove('nav-main-group--open');
+    subGroups.forEach(g => g.classList.remove('nav-sub-group--open'));
+  };
+
+  // ---------- DESKTOP dropdowns ----------
+  if (mainBtn && mainDropdown) {
+    mainBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const willOpen = !mainDropdown.classList.contains('dropdown--open');
+      closeDesktop();
+      mainDropdown.classList.toggle('dropdown--open', willOpen);
+    });
+  }
+
+  if (switchBtn && switchDropdown) {
+    switchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const willOpen = !switchDropdown.classList.contains('dropdown--open');
+      closeDesktop();
+      switchDropdown.classList.toggle('dropdown--open', willOpen);
+    });
+  }
+
+  // ---------- MOBILE burger ----------
   if (burger && header) {
-    burger.addEventListener("click", (e) => {
+    burger.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      header.classList.toggle("header--mobile-open");
+      header.classList.toggle('header--mobile-open');
     });
   }
 
-  // ===== DESKTOP: DROPDOWNS (две таблетки) =====
-  const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
-
-  function closeAllDropdowns(except = null) {
-    dropdowns.forEach((dd) => {
-      if (dd !== except) dd.classList.remove("dropdown--open");
+  // ---------- MOBILE "Главная" inside burger ----------
+  if (navMainBtn && navMainGroup) {
+    navMainBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navMainGroup.classList.toggle('nav-main-group--open');
     });
   }
 
-  dropdowns.forEach((dd) => {
-    const btn = dd.querySelector(".dropdown__toggle");
-    const menu = dd.querySelector(".dropdown__menu");
+  // ---------- MOBILE 2nd level ----------
+  subGroups.forEach((group) => {
+    const btn = group.querySelector('.nav-sub-toggle');
+    if (!btn) return;
 
-    if (!btn || !menu) return;
-
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      const willOpen = !dd.classList.contains("dropdown--open");
-      closeAllDropdowns(dd);
-      dd.classList.toggle("dropdown--open", willOpen);
-    });
-
-    menu.addEventListener("click", (e) => e.stopPropagation());
-  });
-
-  // ===== MOBILE: 1 уровень (Главная внутри бургера) =====
-  const mainGroup = document.querySelector(".nav-main-group");
-  const mainToggle = document.querySelector(".nav-main-toggle");
-
-  if (mainGroup && mainToggle) {
-    mainToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      mainGroup.classList.toggle("nav-main-group--open");
-    });
-  }
-
-  // ===== MOBILE: 2 уровень (Языковая/Гуманитарная) =====
-  document.querySelectorAll(".nav-sub-toggle").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const group = btn.closest(".nav-sub-group");
-      if (!group) return;
-      group.classList.toggle("nav-sub-group--open");
+      group.classList.toggle('nav-sub-group--open');
     });
   });
 
-  // ===== КЛИК ВНЕ — ЗАКРЫТЬ ТОЛЬКО ДРОПДАУНЫ (не ломаем бургер) =====
-  document.addEventListener("click", () => {
-    closeAllDropdowns();
+  // ---------- IMPORTANT: prevent closing when clicking inside header ----------
+  header?.addEventListener('click', (e) => {
+    e.stopPropagation();
   });
 
-  // Закрывать бургер при выборе ссылки
-  document.querySelectorAll(".nav a").forEach((a) => {
-    a.addEventListener("click", () => {
-      header?.classList.remove("header--mobile-open");
-      mainGroup?.classList.remove("nav-main-group--open");
-      document.querySelectorAll(".nav-sub-group").forEach(g => g.classList.remove("nav-sub-group--open"));
-      closeAllDropdowns();
-    });
+  // ---------- click outside: close desktop dropdowns only ----------
+  document.addEventListener('click', () => {
+    closeDesktop();
+  });
+
+  // ---------- when click a link inside dropdowns -> close ----------
+  document.querySelectorAll('.dropdown__menu a').forEach(a => {
+    a.addEventListener('click', () => closeDesktop());
   });
 });
 </script>
+
 
 
 
@@ -980,6 +952,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
