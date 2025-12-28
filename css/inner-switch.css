@@ -1,17 +1,103 @@
+/* inner-switch.css */
 
-
-/* Десктоп: две таблетки рядом */
-.header__right{
-  display:flex;
-  gap:12px;
-  align-items:center;
+/* чтобы хедер всегда был сверху и кликабельный */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 3000;
 }
 
-/* Мобилка: правые таблетки прячем */
-@media (max-width: 900px){
-  .header__right{ display:none; }
+/* правая часть с двумя таблетками */
+.header__right--switch{
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-/* Мобилка: 2-й уровень скрыт/показ */
-.nav-sub-submenu{ display:none; }
-.nav-sub-group.is-open .nav-sub-submenu{ display:block; }
+/* маленькая 2-я таблетка */
+.btn--switch{
+  padding: 10px 18px;
+  font-size: 16px;
+}
+
+/* dropdown */
+.dropdown{
+  position: relative;
+}
+
+.dropdown__menu{
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 240px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+  display: none;
+  z-index: 3100;
+}
+
+.dropdown__menu a{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown__menu a:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+.dropdown.dropdown--open .dropdown__menu{
+  display: block;
+}
+
+/* ==========================
+   МОБИЛКА: 2-уровневое меню
+   ========================== */
+
+/* прячем таблетки на мобиле (остается бургер + меню) */
+@media (max-width: 768px){
+  .header__right--switch{
+    display: none;
+  }
+}
+
+/* 1-й уровень (Главная) */
+.nav-main-submenu{
+  display: none;
+  margin-top: 10px;
+}
+
+.nav-main-group.nav-main-group--open .nav-main-submenu{
+  display: block;
+}
+
+/* 2-й уровень (Языковая/Гуманитарная) */
+.nav-sub-submenu{
+  display: none;
+  margin-top: 8px;
+  padding-left: 14px;
+}
+
+.nav-sub-group.nav-sub-group--open .nav-sub-submenu{
+  display: block;
+}
+
+.nav-sub-toggle{
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font: inherit;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.nav-sub-submenu a{
+  display: block;
+  padding: 8px 0;
+}
