@@ -117,14 +117,14 @@
 .page-language .format-card__decor{
   position: absolute;
 
-  width: 70px;   /* 🔧 меняй размер */
+  width: 100px;   /* 🔧 меняй размер */
   height: auto;
 
   /* 👉 ПОЗИЦИЯ — МЕНЯЕШЬ САМА */
   right: 16px;
-  bottom: 14px;
+  bottom: 0px;
 
-  transform: rotate(-10deg);
+  transform: rotate(deg);
 
   pointer-events: none;
   z-index: 1;
