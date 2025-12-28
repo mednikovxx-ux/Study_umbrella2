@@ -1740,29 +1740,136 @@ html {
   .burger__text{ display:none; }
   .burger.burger--with-text{ min-width: auto; }
 }
+/* =========================================
+   MOBILE BURGER: "Главная" + 3 lines
+   (перебивает старый круглый бургер)
+   Добавить В КОНЕЦ main.css
+   ========================================= */
 
+.burger.burger--with-text{
+  /* перебиваем старые размеры/позицию */
+  width: auto !important;
+  height: auto !important;
+  min-width: 118px;
+  padding: 8px 12px !important;
 
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: #fff;
 
+  position: relative;
+  z-index: 4000; /* выше шапки */
+}
 
+/* текст */
+.burger.burger--with-text .burger__text{
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
 
+/* ВАЖНО: старые стили .burger span могут ломать полоски.
+   Поэтому сбрасываем их для новой иконки. */
+.burger.burger--with-text > span{
+  all: unset;
+}
 
+/* иконка */
+.burger.burger--with-text .burger__icon{
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
+.burger.burger--with-text .burger__icon span{
+  display:block;
+  width:18px;
+  height:2px;
+  background:#111;
+  border-radius:2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
 
+/* крестик */
+.burger--open .burger__icon span:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+.burger--open .burger__icon span:nth-child(2){
+  opacity: 0;
+}
+.burger--open .burger__icon span:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
 
+/* на очень узких экранах прячем текст, чтобы не обрезало */
+@media (max-width: 360px){
+  .burger.burger--with-text .burger__text{ display:none; }
+  .burger.burger--with-text{ min-width: auto; }
+}
+/* =========================================
+   SMOOTH DROPDOWNS + MOBILE MENU ANIMATION
+   (добавить в КОНЕЦ inner-switch.css и main.css)
+   ========================================= */
 
+/* --- DROPDOWN: убираем display none/block (это не анимируется) --- */
+.dropdown__menu{
+  /* если где-то есть display:none — перебиваем */
+  display: block !important;
 
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  visibility: hidden;
+  pointer-events: none;
 
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 0s linear 180ms;
+}
 
+.dropdown.dropdown--open .dropdown__menu{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+  pointer-events: auto;
 
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 0s linear 0s;
+}
 
+/* --- MOBILE: бургер меню (общая шторка навигации) --- */
+/* Важно: это только для мобилки, чтобы на десктопе не ломать меню */
+@media (max-width: 768px){
 
+  /* базовое состояние — спрятано плавно */
+  .header .nav{
+    display: block;              /* пусть будет всегда, прячем анимацией */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    overflow: hidden;
+    pointer-events: none;
 
+    transition:
+      max-height 260ms ease,
+      opacity 220ms ease,
+      transform 220ms ease;
+  }
 
-
-
-
-
-
-
+  /* когда открыт бургер */
+  .header.header--mobile-open .nav{
+    max-height: 900px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
 
