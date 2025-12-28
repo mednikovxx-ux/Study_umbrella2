@@ -38,27 +38,44 @@
   <a href="#courses">Наши курсы</a>
   <a href="#contacts">Контакты</a>
 
-  <!-- МОБИЛКА: ГЛАВНАЯ -->
+  <!-- МОБИЛКА: ГЛАВНАЯ -> 2 уровня -->
   <div class="nav-main-group">
-    <button class="nav-main-toggle" type="button">Главная ▾</button>
-    <div class="nav-main-submenu">
-      <a href="language-school.html">Языковая школа</a>
-      <a href="humanities-school.html">Гуманитарная школа</a>
-    </div>
-  </div>
+    <button class="nav-main-toggle" type="button">
+      Главная ▾
+    </button>
 
-  <!-- МОБИЛКА: ЯЗЫКИ / (потом на гуманитарной будет "Предметы") -->
-  <div class="nav-switch-group">
-    <button class="nav-switch-toggle" type="button">Языки ▾</button>
-    <div class="nav-switch-submenu">
-      <a href="language-school.html">Русский</a>
-      <a href="language-school-en.html">English</a>
-      <a href="language-school-zh.html">中文</a>
+    <div class="nav-main-submenu">
+
+      <!-- 2-Й УРОВЕНЬ: ЯЗЫКОВАЯ ШКОЛА -->
+      <div class="nav-sub-group">
+        <button class="nav-sub-toggle" type="button">
+          Языковая школа ▾
+        </button>
+
+        <div class="nav-sub-submenu">
+          <a href="language-school.html">Русский</a>
+          <a href="language-school-en.html">English</a>
+          <a href="language-school-zh.html">中文</a>
+        </div>
+      </div>
+
+      <!-- 2-Й УРОВЕНЬ: ГУМАНИТАРНАЯ ШКОЛА -->
+      <div class="nav-sub-group">
+        <button class="nav-sub-toggle" type="button">
+          Гуманитарная школа ▾
+        </button>
+
+        <div class="nav-sub-submenu">
+          <!-- примеры предметов, заменишь на свои -->
+          <a href="humanities-history.html">История</a>
+          <a href="humanities-philosophy.html">Философия</a>
+          <a href="humanities-literature.html">Литература</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </nav>
-
-
 
 
     <!-- ПРАВАЯ ЧАСТЬ: КНОПКА С ВЫПАДАЮЩИМ СПИСКОМ -->
@@ -879,52 +896,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
   
-/* ===========================================
-   SECOND DROPDOWN + MOBILE LANGUAGE GROUP
-   НЕ ломает твой текущий бургер JS
-   =========================================== */
+<script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // DESKTOP: второй dropdown "Языки"
+  /* ---------- DESKTOP: 2-я пилюля "中文 ▾" ---------- */
   const switchDropdown = document.getElementById('switchDropdown');
   const switchToggle = document.getElementById('switchToggle');
 
-  // твой существующий dropdown "Главная"
+  /* твой первый dropdown "Главная" */
   const mainDropdown = document.getElementById('mainDropdown');
 
   if (switchDropdown && switchToggle) {
     switchToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       switchDropdown.classList.toggle('dropdown--open');
-
-      // закрываем "Главная", если оно открыто
       if (mainDropdown) mainDropdown.classList.remove('dropdown--open');
     });
   }
 
-  // MOBILE: раскрытие списка "Языки" внутри бургера
-  const navSwitchGroup = document.querySelector('.nav-switch-group');
-  const navSwitchToggle = document.querySelector('.nav-switch-toggle');
+  /* ---------- MOBILE: 2-й уровень "Языковая школа" ---------- */
+  const subGroup = document.querySelector('.nav-sub-group');
+  const subToggle = document.querySelector('.nav-sub-toggle');
 
-  if (navSwitchGroup && navSwitchToggle) {
-    navSwitchToggle.addEventListener('click', (e) => {
+  if (subGroup && subToggle) {
+    subToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      navSwitchGroup.classList.toggle('is-open');
+      subGroup.classList.toggle('is-open');
     });
   }
 
-  // закрытие по клику вне
+  /* ---------- закрытие по клику вне ---------- */
   document.addEventListener('click', () => {
     if (switchDropdown) switchDropdown.classList.remove('dropdown--open');
-    if (navSwitchGroup) navSwitchGroup.classList.remove('is-open');
+    if (subGroup) subGroup.classList.remove('is-open');
   });
 
-  // при скролле закрываем десктоп-меню
+  /* ---------- закрытие по скроллу ---------- */
   window.addEventListener('scroll', () => {
     if (switchDropdown) switchDropdown.classList.remove('dropdown--open');
   });
+
 });
-  
 </script>
 
 
@@ -932,4 +944,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
