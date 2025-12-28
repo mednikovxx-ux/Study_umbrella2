@@ -1,4 +1,4 @@
-/* inner-switch.css — только логика, без изменения дизайна */
+/* inner-switch.css — логика без редизайна */
 
 /* Десктоп: две таблетки рядом */
 .header__right{
@@ -7,11 +7,11 @@
   align-items:center;
 }
 
-/* Мобилка: прячем правые таблетки в шапке (чтобы не было лишней "Главная" сверху) */
+/* Мобилка: правые таблетки прячем */
 @media (max-width: 900px){
   .header__right{ display:none; }
 }
 
-/* Мобилка: 2-й уровень в меню (раскрытие) */
+/* Мобилка: 2-й уровень скрыт/показ */
 .nav-sub-submenu{ display:none; }
 .nav-sub-group.is-open .nav-sub-submenu{ display:block; }
