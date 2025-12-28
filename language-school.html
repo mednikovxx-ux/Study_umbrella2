@@ -911,7 +911,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== ДЕСКТОПНЫЕ DROPDOWN (2 таблетки) =====
+  // ===== DESKTOP: DROPDOWNS (две таблетки) =====
   const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
 
   function closeAllDropdowns(except = null) {
@@ -924,27 +924,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = dd.querySelector(".dropdown__toggle");
     const menu = dd.querySelector(".dropdown__menu");
 
-    if (btn) {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const willOpen = !dd.classList.contains("dropdown--open");
-        closeAllDropdowns(dd);
-        dd.classList.toggle("dropdown--open", willOpen);
-      });
-    }
+    if (!btn || !menu) return;
 
-    if (menu) {
-      menu.addEventListener("click", (e) => e.stopPropagation());
-    }
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const willOpen = !dd.classList.contains("dropdown--open");
+      closeAllDropdowns(dd);
+      dd.classList.toggle("dropdown--open", willOpen);
+    });
+
+    menu.addEventListener("click", (e) => e.stopPropagation());
   });
 
-  document.addEventListener("click", () => {
-    closeAllDropdowns();
-    // закрываем мобилку кликом мимо (по желанию)
-    // header?.classList.remove("header--mobile-open");
-  });
-
-  // ===== МОБИЛКА: 1 уровень (Главная) =====
+  // ===== MOBILE: 1 уровень (Главная внутри бургера) =====
   const mainGroup = document.querySelector(".nav-main-group");
   const mainToggle = document.querySelector(".nav-main-toggle");
 
@@ -955,7 +947,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== МОБИЛКА: 2 уровень (Языковая/Гуманитарная) =====
+  // ===== MOBILE: 2 уровень (Языковая/Гуманитарная) =====
   document.querySelectorAll(".nav-sub-toggle").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -965,7 +957,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Закрывать моб. меню при клике по ссылке
+  // ===== КЛИК ВНЕ — ЗАКРЫТЬ ТОЛЬКО ДРОПДАУНЫ (не ломаем бургер) =====
+  document.addEventListener("click", () => {
+    closeAllDropdowns();
+  });
+
+  // Закрывать бургер при выборе ссылки
   document.querySelectorAll(".nav a").forEach((a) => {
     a.addEventListener("click", () => {
       header?.classList.remove("header--mobile-open");
@@ -983,6 +980,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
