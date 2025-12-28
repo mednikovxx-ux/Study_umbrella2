@@ -1680,42 +1680,68 @@ html {
 .form-toast.is-error{
   background: #b91c1c;
 }
-/* ===== БУРГЕР С ТЕКСТОМ "ГЛАВНАЯ" ===== */
+/* =========================================
+   BURGER WITH TEXT (mobile)
+   ========================================= */
 
-.burger--with-text{
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.burger.burger--with-text{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  /* чтобы не было “обрезано” как на скрине */
+  width:auto;
+  min-width: 118px;        /* хватает под "Главная" */
   padding: 8px 12px;
+
+  border-radius: 999px;    /* как таблетка */
+  border: 1px solid rgba(0,0,0,0.18);
+  background: #fff;
 }
 
 /* текст */
 .burger__text{
-  font-size: 16px;
   font-weight: 600;
+  font-size: 14px;
   line-height: 1;
+  white-space: nowrap;     /* НЕ переносить */
 }
 
-/* иконка с полосками */
+/* иконка */
 .burger__icon{
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
 }
 
 .burger__icon span{
-  width: 18px;
-  height: 2px;
-  background: #111;
-  border-radius: 2px;
+  display:block;
+  width:18px;
+  height:2px;
+  background:#111;
+  border-radius:2px;
+  transition: transform .25s ease, opacity .25s ease;
 }
 
-/* на десктопе можно оставить как есть (если нужно) */
-@media (min-width: 769px){
-  .burger__text{
-    display: none;
-  }
+/* анимация в крестик */
+.burger--open .burger__icon span:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
 }
+.burger--open .burger__icon span:nth-child(2){
+  opacity: 0;
+}
+.burger--open .burger__icon span:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* на совсем узких экранах можно убрать текст, чтобы ничего не обрезалось */
+@media (max-width: 360px){
+  .burger__text{ display:none; }
+  .burger.burger--with-text{ min-width: auto; }
+}
+
+
 
 
 
