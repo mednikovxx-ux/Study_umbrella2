@@ -123,7 +123,7 @@
 
   /* 🔥 ДВИГАЕШЬ ТОЛЬКО ЭТИ */
   right: 10px;     /* вправо / влево */
-  bottom: -25px;     /* ниже / выше */
+  bottom: -40px;     /* ниже / выше */
 
   pointer-events: none;
   z-index: 1;
