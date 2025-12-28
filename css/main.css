@@ -141,12 +141,21 @@ html {
   margin-right: 12px;
 }
 
-.burger span {
+/* полоски ТОЛЬКО внутри .burger__icon (чтобы не ломать burger__text) */
+.burger .burger__icon span{
   display: block;
   width: 16px;
   height: 2px;
   background-color: #111;
   border-radius: 999px;
+}
+
+/* текст внутри бургера — обычный текст, НЕ полоска */
+.burger .burger__text{
+  width: auto;
+  height: auto;
+  background: transparent;
+  border-radius: 0;
 }
 
 /* "Главная" для мобильного меню — по умолчанию скрыта (только моб) */
@@ -1458,6 +1467,7 @@ html {
 
 /* ——— 768px и меньше (телефоны + бургер) ——— */
 @media (max-width: 768px) {
+
   /* НА МОБИЛЬНЫХ СТРЕЛКУ ПРЯЧЕМ */
   .hero__arrow {
     display: none !important;
@@ -1473,28 +1483,42 @@ html {
     display: flex;
   }
 
-  /* прячем правую часть (кнопка "Главная" в шапке) */
+  /* прячем правую часть (кнопка "Главная" / таблетки на десктопе) */
   .header__right {
     display: none;
   }
 
-  /* меню становится выпадающим под шапкой */
+  /* меню под шапкой, но НЕ через display none/block */
   .nav {
     position: absolute;
-    top: 64px; /* высота хедера */
+    top: 64px;
     left: 0;
     right: 0;
+
     background-color: #ffffff;
+    border-bottom: 1px solid #f0e6e0;
+    padding: 12px 16px 16px;
+    z-index: 25;
+
+    /* ВОТ ГЛАВНОЕ — анимация */
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    padding: 12px 16px 16px;
-    border-bottom: 1px solid #f0e6e0;
-    display: none;  /* по умолчанию скрыто */
-    z-index: 25;
+
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    overflow: hidden;
+    pointer-events: none;
+
+    transition:
+      max-height 260ms ease,
+      opacity 220ms ease,
+      transform 220ms ease;
   }
 
-  /* "Главная" только в мобильном меню, в самом верху списка */
+  /* "Главная" только в мобильном меню — сверху */
   .nav-main-group {
     display: block;
     width: 100%;
@@ -1514,11 +1538,15 @@ html {
     font-size: 14px;
   }
 
-  /* когда шапка в состоянии "открыто" — показываем меню */
+  /* когда шапка открыта */
   .header--mobile-open .nav {
-    display: flex;
+    max-height: 900px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
+
 
 /* ——— 640px и меньше (узкие телефоны) ——— */
 @media (max-width: 640px) {
@@ -1765,11 +1793,12 @@ html {
   width: auto !important;
   height: auto !important;
   min-width: 132px !important;
-  padding: 8px 12px !important;
+  padding: 8px 14px !important;
 
   display: inline-flex !important;
+  flex-direction: row !important;          /* <<< ВАЖНО */
   align-items: center !important;
-  justify-content: flex-start !important; /* текст слева */
+  justify-content: space-between !important;/* <<< ВАЖНО */
   gap: 10px !important;
 
   border-radius: 999px !important;
@@ -1838,6 +1867,7 @@ html {
     display: none !important;
   }
 }
+
 
 
 
