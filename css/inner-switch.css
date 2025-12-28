@@ -100,3 +100,33 @@
   display: block;
   padding: 8px 0;
 }
+
+/* ================================
+   FIX: "Главная" не кликается
+   ================================ */
+
+/* Поднимаем весь правый блок и сами кнопки выше любых оверлеев */
+.header__right--switch{
+  position: relative;
+  z-index: 9999;
+}
+
+/* Поднимаем конкретно dropdown "Главная" */
+#mainDropdown{
+  position: relative;
+  z-index: 10000;
+}
+
+/* Гарантируем, что кнопка ловит клики */
+#mainMenuToggle{
+  position: relative;
+  z-index: 10001;
+  pointer-events: auto;
+}
+
+/* На всякий случай — меню "Главная" тоже */
+#mainMenu{
+  position: absolute;
+  z-index: 10002;
+}
+
