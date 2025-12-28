@@ -106,39 +106,32 @@
   }
 }
 /* ================================
-   FORMAT CARD – RIGHT BOTTOM DECOR
+   WHY — TEAPOT DECOR (ONLY THIS)
    ================================ */
 
-.page-language .format-card--with-decor{
+/* делаем контейнер секции опорной точкой */
+.page-language #why .container {
   position: relative;
-  overflow: hidden;
 }
 
-.page-language .format-card__decor{
+/* сам чайник */
+.page-language .why-teapot {
   position: absolute;
 
-  width: 100px;   /* 🔧 меняй размер */
+  width: 143px;     /* размер из Figma (143×133) */
   height: auto;
 
-  /* 👉 ПОЗИЦИЯ — МЕНЯЕШЬ САМА */
-  right: 16px;
-  bottom: 0px;
-
-  transform: rotate(deg);
+  /* 🔥 ДВИГАЕШЬ ТОЛЬКО ЭТИ */
+  right: -20px;     /* вправо / влево */
+  bottom: 24px;     /* ниже / выше */
 
   pointer-events: none;
   z-index: 1;
 }
 
-/* чтобы текст был поверх картинки */
-.page-language .format-card--with-decor > *:not(.format-card__decor){
-  position: relative;
-  z-index: 2;
-}
-
-/* мобильная версия — скрываем декор */
-@media (max-width: 768px){
-  .page-language .format-card__decor{
+/* на мобилке убираем */
+@media (max-width: 768px) {
+  .page-language .why-teapot {
     display: none;
   }
 }
