@@ -135,3 +135,55 @@
     display: none;
   }
 }
+/* ==================================================
+   OFFERS (#offers) — правки под макет (только language)
+   1) Цвета заголовка
+   2) Опустить "Наша задача..."
+   3) Танцовщица заходит на #why (предыдущую секцию)
+   ================================================== */
+
+/* Поднимаем offers над предыдущей секцией по слою */
+.page-language #offers{
+  position: relative;
+  z-index: 50; /* важно: выше, чем #why */
+}
+
+/* Опорная точка для позиционирования танцовщицы */
+.page-language #offers .container{
+  position: relative;
+}
+
+/* 1) Цвета заголовка как в фигме */
+.page-language #offers .programs-title-main{
+  color: #52B37E; /* зелёный */
+}
+.page-language #offers .programs-title-accent{
+  color: #FFC143; /* оранжевый */
+}
+
+/* 2) Опустить текст "Наша задача..." ниже */
+.page-language #offers .programs-info{
+  margin-top: 26px;   /* увеличь если нужно ещё ниже */
+}
+
+/* 3) Танцовщица: живёт в offers, но залезает вверх на #why */
+.page-language #offers .offers-dancer{
+  position: absolute;
+
+  width: 140px;   /* подгоняй под макет */
+  height: auto;
+
+  /* 🔥 эти 2 значения двигаешь сама */
+  right: 360px;   /* сдвиг по горизонтали */
+  top: -85px;     /* отрицательное значение = заходим на секцию #why */
+
+  z-index: 999;   /* поверх всего */
+  pointer-events: none;
+}
+
+/* На мобильных лучше скрыть */
+@media (max-width: 768px){
+  .page-language #offers .offers-dancer{
+    display: none;
+  }
+}
