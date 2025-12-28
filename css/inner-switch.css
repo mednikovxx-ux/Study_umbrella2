@@ -1,0 +1,76 @@
+/* ==================================================
+   inner-switch.css
+   Вторая пилюля рядом с "Главная" + моб. список в бургере
+   ================================================== */
+
+/* 2 кнопки рядом */
+.header__right{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+/* вторая пилюля чуть компактнее */
+.dropdown--pill .btn{
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+/* чуть уже меню */
+.dropdown--pill .dropdown__menu{
+  min-width:220px;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+/* на мобилке вторую кнопку в шапке прячем (чтобы не тесно) */
+@media (max-width: 900px){
+  #switchDropdown{ display:none; }
+}
+
+/* группа в бургере — показываем только когда бургер открыт */
+.nav-switch-group{ display:none; }
+
+.header--mobile-open .nav-switch-group{
+  display:block;
+  margin-top:10px;
+}
+
+.nav-switch-toggle{
+  width:100%;
+  text-align:left;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.nav-switch-submenu{
+  display:none;
+  margin-top:8px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  padding:8px;
+}
+
+.nav-switch-submenu a{
+  display:block;
+  padding:10px 12px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#111;
+  font-weight:600;
+}
+
+.nav-switch-submenu a:hover{
+  background:rgba(0,0,0,.06);
+}
+
+.nav-switch-group.is-open .nav-switch-submenu{
+  display:block;
+}
