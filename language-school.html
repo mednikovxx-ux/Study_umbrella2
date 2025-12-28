@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/globals.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/language.css">
+  <link rel="stylesheet" href="css/inner-switch.css">
 </head>
 
 <body class="page-language">
@@ -29,7 +30,7 @@
       <img src="img/logo.png" class="logo__img" alt="Логотип">
     </a>
 
-    <!-- МЕНЮ -->
+<!-- МЕНЮ -->
 <nav class="nav">
   <a href="#about">О нас</a>
   <a href="#teachers">Наши преподаватели</a>
@@ -37,17 +38,26 @@
   <a href="#courses">Наши курсы</a>
   <a href="#contacts">Контакты</a>
 
-  <!-- Эта группа нужна ТОЛЬКО для мобильного бургера -->
+  <!-- МОБИЛКА: ГЛАВНАЯ -->
   <div class="nav-main-group">
-    <button class="nav-main-toggle" type="button">
-      Главная ▾
-    </button>
+    <button class="nav-main-toggle" type="button">Главная ▾</button>
     <div class="nav-main-submenu">
       <a href="language-school.html">Языковая школа</a>
       <a href="humanities-school.html">Гуманитарная школа</a>
     </div>
   </div>
+
+  <!-- МОБИЛКА: ЯЗЫКИ / (потом на гуманитарной будет "Предметы") -->
+  <div class="nav-switch-group">
+    <button class="nav-switch-toggle" type="button">Языки ▾</button>
+    <div class="nav-switch-submenu">
+      <a href="language-school.html">Русский</a>
+      <a href="language-school-en.html">English</a>
+      <a href="language-school-zh.html">中文</a>
+    </div>
+  </div>
 </nav>
+
 
 
 
@@ -867,38 +877,55 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+  
+/* ===========================================
+   SECOND DROPDOWN + MOBILE LANGUAGE GROUP
+   НЕ ломает твой текущий бургер JS
+   =========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // DESKTOP: второй dropdown "Языки"
+  const switchDropdown = document.getElementById('switchDropdown');
+  const switchToggle = document.getElementById('switchToggle');
+
+  // твой существующий dropdown "Главная"
+  const mainDropdown = document.getElementById('mainDropdown');
+
+  if (switchDropdown && switchToggle) {
+    switchToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      switchDropdown.classList.toggle('dropdown--open');
+
+      // закрываем "Главная", если оно открыто
+      if (mainDropdown) mainDropdown.classList.remove('dropdown--open');
+    });
+  }
+
+  // MOBILE: раскрытие списка "Языки" внутри бургера
+  const navSwitchGroup = document.querySelector('.nav-switch-group');
+  const navSwitchToggle = document.querySelector('.nav-switch-toggle');
+
+  if (navSwitchGroup && navSwitchToggle) {
+    navSwitchToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navSwitchGroup.classList.toggle('is-open');
+    });
+  }
+
+  // закрытие по клику вне
+  document.addEventListener('click', () => {
+    if (switchDropdown) switchDropdown.classList.remove('dropdown--open');
+    if (navSwitchGroup) navSwitchGroup.classList.remove('is-open');
+  });
+
+  // при скролле закрываем десктоп-меню
+  window.addEventListener('scroll', () => {
+    if (switchDropdown) switchDropdown.classList.remove('dropdown--open');
+  });
+});
+</script>
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
