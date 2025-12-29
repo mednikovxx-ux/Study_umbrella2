@@ -208,3 +208,51 @@
   z-index: 100;         /* можно оставить, но ниже header */
 }
 
+/* ================================
+   HUMANITIES PAGE — HERO TUNING
+   ================================ */
+
+/* 1) цвет STUDY UMBRELLA */
+.page-humanities .hero__title-main{
+  color: #9b84c8; /* фиолетовый как в макете */
+}
+
+/* 2) цвет кнопки */
+.page-humanities .hero .btn--primary{
+  background-color: #b9a7df;
+  color: #000;
+  border-color: #000;          /* если нужна тонкая чёрная обводка */
+  box-shadow: 0 4px 0 #a08dcb; /* тень вниз как у кнопки */
+}
+
+/* 3) уменьшить правую картинку (зонт/люди) */
+.page-humanities .hero__image{
+  max-width: 560px;   /* подгони: 380–460 */
+  width: 100%;
+  height: auto;
+}
+
+.page-humanities .hero__image-wrap{
+  align-items: flex-end;       /* чтобы “сел” вниз как на макете */
+  justify-content: flex-end;   /* прижать вправо */
+  padding-right: 24px;         /* небольшой отступ от края */
+}
+
+/* 4) стрелка — переместить */
+.page-humanities .hero__arrow{
+  position: absolute;
+
+  width: 90px;       /* можно 80–110 */
+  height: auto;
+
+  right: auto;
+  bottom: auto;
+
+  left: 210px;       /* двигай это */
+  top: 150px;        /* и это */
+  transform: rotate(-25deg);
+
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 5;
+}
