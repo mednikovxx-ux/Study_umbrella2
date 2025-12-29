@@ -314,14 +314,17 @@
   position: relative;
 }
 
-/* КНИГА (offers-dancer) — маленькая справа сверху у заголовка */
+/* КНИГА (offers-dancer) — управляемый размер */
 .page-humanities #offers .offers-dancer{
   position: absolute;
   top: 22px;
-  right: 18px;
+  right: 50px;
   left: auto;
-  width: 110px;
+
+  max-width: 140px;   /* 👈 МЕНЯЕШЬ ТОЛЬКО ЭТО */
+  width: 100%;
   height: auto;
+
   z-index: 10;
   pointer-events: none;
 }
