@@ -371,7 +371,7 @@
 /* 1) ФИОЛЕТОВЫЙ ТЕКСТ «бесплатный урок» */
 .page-humanities .form-section .accent,
 .page-humanities .form-section .highlight{
-  color: #A98AB0; /* фиолетовый из Figma */
+  color: #A98AB0;
 }
 
 /* 2) ФИОЛЕТОВАЯ КНОПКА «Отправить» */
@@ -385,33 +385,30 @@
 
 .page-humanities .contact-form__submit:hover,
 .page-humanities .form button[type="submit"]:hover{
-  background-color: #A98AB0; /* чуть темнее при ховере */
+  background-color: #9373a3; /* чуть темнее при ховере */
 }
 
-/* =====================================
-   3) ИЗОБРАЖЕНИЕ В ФОРМЕ — УПРАВЛЯЕМОЕ
-   ===================================== */
-
-/* контейнер формы — опора */
+/* 3) ИЗОБРАЖЕНИЕ island В ФОРМЕ — УПРАВЛЯЕМОЕ */
 .page-humanities .contact-form,
 .page-humanities .form{
   position: relative;
 }
 
-/* само изображение (то, что ты меняешь в HTML) */
-.page-humanities .contact-form img,
-.page-humanities .form img{
+/* двигаем ТОЛЬКО картинку, у которой в src есть "island" */
+.page-humanities .contact-form img[src*="island"],
+.page-humanities .form img[src*="island"]{
   position: absolute;
 
   /* 👇 ЭТИ ПАРАМЕТРЫ ТЫ МЕНЯЕШЬ */
-  top: -20px;      /* вверх / вниз */
-  right: 20px;     /* влево / вправо */
-  width: 90px;     /* размер изображения */
+  top: -20px;
+  right: 20px;
+  width: 90px;
 
   height: auto;
   z-index: 5;
   pointer-events: none;
 }
+
 
 
 
