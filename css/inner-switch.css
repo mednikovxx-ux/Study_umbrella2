@@ -204,15 +204,27 @@ img,
     padding: 10px 0;
   }
 }
-//* ==================================================
+/* ==================================================
    TABLET ONLY (769–1024)
-   Language + Humanities:
-   показываем 2 таблетки ("Главная" + "Языки"),
-   прячем бургер и мобильную вложенную "Главная" в nav
+   Только language + humanities:
+   ОСТАВЛЯЕМ ТОЛЬКО 2 ТАБЛЕТКИ (Главная + Языки)
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* 1) Бургер на планшетах НЕ нужен */
+  /* 0) Хедер на 2 строки: 1) логотип  2) две таблетки по центру */
+  body.page-language .header__inner,
+  body.page-humanities .header__inner{
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+
+  /* 1) Прячем обычное меню-ссылки полностью */
+  body.page-language .nav,
+  body.page-humanities .nav{
+    display: none !important;
+  }
+
+  /* 2) Прячем бургер (он только для мобилки) */
   body.page-language #burgerToggle,
   body.page-humanities #burgerToggle,
   body.page-language .burger,
@@ -220,31 +232,23 @@ img,
     display: none !important;
   }
 
-  /* 2) Показываем правый блок с таблетками */
+  /* 3) Показываем 2 таблетки и ставим их по центру отдельной строкой */
   body.page-language .header__right--switch,
   body.page-humanities .header__right--switch{
     display: flex !important;
-    align-items: center;
-    gap: 18px;            /* расстояние между таблетками как на скрине */
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+    order: 2; /* строка ниже логотипа */
   }
 
-  /* 3) Убеждаемся, что обе таблетки видимы */
-  body.page-language #mainDropdown,
-  body.page-humanities #mainDropdown,
-  body.page-language #switchDropdown,
-  body.page-humanities #switchDropdown{
-    display: block !important;
+  /* 4) Логотип — первая строка */
+  body.page-language .logo,
+  body.page-humanities .logo{
+    order: 1;
   }
 
-  /* 4) Таблетки — чуть компактнее, чтобы влезали красиво */
-  body.page-language .btn--main,
-  body.page-humanities .btn--main{
-    font-size: 15px;
-    padding: 10px 18px;
-  }
-
-  /* 5) Мобильную "Главная" внутри nav на планшете скрываем,
-        чтобы не было третьего дубля */
+  /* 5) Мобильную "Главная ▾" внутри nav (nav-main-group) на планшете не показываем */
   body.page-language .nav-main-group,
   body.page-humanities .nav-main-group{
     display: none !important;
