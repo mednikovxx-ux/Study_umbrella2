@@ -1867,62 +1867,50 @@ html {
     display: none !important;
   }
 }
-/* =========================================
-   SHOW MOBILE BURGER ONLY ON MOBILE
-   ========================================= */
-
-/* по умолчанию (десктоп) — скрываем */
-.burger.burger--with-text{
-  display: none !important;
-}
-
-/* на мобилке — показываем */
-@media (max-width: 768px){
-  .burger.burger--with-text{
-    display: inline-flex !important;
-  }
-}
 /* ===========================
-   TABLET ONLY — HEADER IN ONE LINE
-   (769px – 1024px)
-   Никакой "физики": не трогаем display/flex/grid, только размеры/отступы
+   TABLET ONLY — HEADER ONE LINE (FLUID)
+   769px – 1024px
+   Только размеры/отступы, без смены layout
    =========================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* Хедер ниже по высоте */
-  .header__inner{
-    height: 76px;        /* было 96px */
-    gap: 10px;           /* было 16px */
-  }
-
-  /* Логотип компактнее */
+  /* Логотип — плавно уменьшается */
   .logo__img{
-    height: 34px;        /* подгони 30–36 */
+    height: clamp(28px, 3.2vw, 36px);
     width: auto;
   }
 
-  /* Меню: меньше расстояние и шрифт */
+  /* Меню — плавные размер/отступы/расстояние */
   .nav{
-    gap: 18px;           /* было 32px */
-    font-size: 13px;     /* было 14px */
+    font-size: clamp(12px, 1.35vw, 14px);
+    gap: clamp(10px, 1.8vw, 22px);
   }
 
   .nav a{
-    padding: 0 4px;      /* чуть компактнее кликабельная зона */
-    white-space: nowrap; /* чтобы слова не переносились */
+    padding-left: clamp(2px, 0.6vw, 6px);
+    padding-right: clamp(2px, 0.6vw, 6px);
+    white-space: nowrap;
   }
 
-  /* Правая часть (кнопка Главная) — компактнее */
-  .header__right{
-    gap: 6px;            /* было 8px */
-    margin-right: 10px;  /* было 24px */
-  }
-
+  /* Правая кнопка — плавно уменьшается */
   .btn--main{
-    padding: 8px 14px;   /* было 10px 24px */
-    font-size: 13px;     /* было 14px */
+    font-size: clamp(12px, 1.3vw, 14px);
+    padding: clamp(6px, 0.9vw, 10px) clamp(10px, 1.6vw, 18px);
+    white-space: nowrap;
+  }
+
+  /* Общие небольшие поджимы, тоже плавно */
+  .header__inner{
+    gap: clamp(8px, 1.4vw, 16px);
+  }
+
+  .header__right{
+    gap: clamp(4px, 0.8vw, 10px);
+    margin-right: clamp(8px, 1.6vw, 24px);
   }
 }
+
+
 
 
 
