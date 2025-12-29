@@ -187,52 +187,67 @@
     display: none;
   }
 }
-/* ================================
-   FIX: HEADER НЕ ДОЛЖЕН ПРОПАДАТЬ
-   ================================ */
+/* ===== HUMANITIES: HERO FINAL FIX (one block, clean) ===== */
 
-/* 1) Хеддер всегда выше всех декоров/секций */
-.page-language .header{
-  position: sticky;     /* если у тебя уже fixed/sticky — не страшно */
-  top: 0;
-  z-index: 2000;        /* выше всех */
+/* Цвет STUDY UMBRELLA */
+.page-humanities .hero__title-main{
+  color: #A98AB0;
 }
 
-/* 2) Танцовщица НЕ должна перекрывать хеддер */
-.page-language #offers .offers-dancer{
-  z-index: 500;         /* ниже, чем header (2000) */
+/* Цвет кнопки */
+.page-humanities .hero .btn--primary{
+  background-color: #A98AB0;
+  color: #000;
+  border-color: #000;
+  box-shadow: 0 4px 0 #a08dcb;
 }
 
-/* 3) На всякий случай: весь блок offers ниже хедера */
-.page-language #offers{
-  z-index: 100;         /* можно оставить, но ниже header */
+/* Большая картинка справа (зонт + люди): прижать вправо */
+.page-humanities .hero__image-wrap{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
-/* ===== FIX: humanities hero images sizing ===== */
-
-/* 1) Ограничиваем изменения ТОЛЬКО для большой картинки справа */
 .page-humanities .hero__image-wrap > img.hero__image{
   width: 100%;
-  max-width: 420px;   /* было слишком маленько — сделаем крупнее */
+  max-width: 420px;
   height: auto;
+  margin-right: -60px; /* подгони: -40…-90 */
 }
 
-/* 2) Никакие другие картинки в hero НЕ масштабируем */
-.page-humanities .hero__content img:not(.hero__arrow){
+/* Все картинки в hero — не растягиваем */
+.page-humanities .hero__content img{
   width: auto;
+  height: auto;
   max-width: none;
-  height: auto;
 }
 
-/* 3) Стрелка: вернуть нормальный размер (убираем “уменьшение”) */
-.page-humanities .hero__arrow{
-  width: 160px;       /* подгони: 140–190 */
+/* === СВИТОК: cta-decor2 === */
+.page-humanities img[src*="cta-decor2"]{
+  position: absolute;
+  width: 120px;        /* нормальный размер */
   height: auto;
+  left: 120px;         /* под текстом */
+  top: 140px;          /* подзаголовок → кнопка */
+  z-index: 2;
 }
 
-/* (оставляем позицию, но если у тебя она улетела — правь только эти две) */
-.page-humanities .hero__arrow{
-  left: 260px;
-  top: 180px;
+/* Кнопку отодвигаем, чтобы не налезала на свиток */
+.page-humanities .hero__cta .btn{
+  margin-left: 110px;  /* подгони: 90…130 */
 }
+
+/* Стрелка */
+.page-humanities .hero__arrow{
+  position: absolute;
+  width: 160px;
+  height: auto;
+  left: 210px;
+  top: 145px;
+  transform: rotate(-25deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
 
