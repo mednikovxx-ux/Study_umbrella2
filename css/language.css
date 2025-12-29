@@ -318,10 +318,10 @@
 .page-humanities #offers .offers-dancer{
   position: absolute;
   top: 22px;
-  right: 50px;
+  right: 100px;
   left: auto;
 
-  max-width: 140px;   /* 👈 МЕНЯЕШЬ ТОЛЬКО ЭТО */
+  max-width: 200px;   /* 👈 МЕНЯЕШЬ ТОЛЬКО ЭТО */
   width: 100%;
   height: auto;
 
