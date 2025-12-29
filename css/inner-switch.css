@@ -151,32 +151,58 @@ img,
   font-size: 14px;
   padding: 9px 16px;  /* чуть компактнее */
 }
+
 /* ==================================================
-   TABLET ONLY — HEADER FONT SMALLER
-   (language + humanities pages)
+   TABLET ONLY (language + humanities)
+   Показываем "Главная" + бургер как на мобилке
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
 
-  /* пункты меню */
-  .page-language .nav a,
-  .page-humanities .nav a{
-    font-size: 14px;
+  /* 1) скрываем десктопные две таблетки справа */
+  .page-language .header__right--switch,
+  .page-humanities .header__right--switch{
+    display: none !important;
   }
 
-  /* кнопки "Главная" и "Языки" */
-  .page-language .btn--main,
-  .page-humanities .btn--main{
-    font-size: 14px;
-    padding: 8px 14px;
+  /* 2) показываем "Главная" + бургер (кнопка burger--with-text) */
+  .page-language .burger.burger--with-text,
+  .page-humanities .burger.burger--with-text{
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
   }
 
-  /* dropdown toggles */
-  .page-language #mainMenuToggle,
-  .page-language #switchToggle,
-  .page-humanities #mainMenuToggle,
-  .page-humanities #switchToggle{
-    font-size: 14px;
+  /* 3) по умолчанию меню скрыто (как на мобилке) */
+  .page-language .nav,
+  .page-humanities .nav{
+    display: none;
   }
 
+  /* 4) при открытом бургере (JS добавляет header--mobile-open) меню показываем */
+  .page-language .header.header--mobile-open .nav,
+  .page-humanities .header.header--mobile-open .nav{
+    display: block;
+  }
+
+  /* 5) чтобы меню выглядело “мобильно” на планшете */
+  .page-language .header.header--mobile-open .nav,
+  .page-humanities .header.header--mobile-open .nav{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 14px 16px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    z-index: 3200;
+  }
+
+  /* ссылки в меню столбиком */
+  .page-language .header.header--mobile-open .nav > a,
+  .page-humanities .header.header--mobile-open .nav > a{
+    display: block;
+    padding: 10px 0;
+  }
 }
+
 
