@@ -208,51 +208,31 @@
   z-index: 100;         /* можно оставить, но ниже header */
 }
 
-/* ================================
-   HUMANITIES PAGE — HERO TUNING
-   ================================ */
+/* ===== FIX: humanities hero images sizing ===== */
 
-/* 1) цвет STUDY UMBRELLA */
-.page-humanities .hero__title-main{
-  color: #9b84c8; /* фиолетовый как в макете */
-}
-
-/* 2) цвет кнопки */
-.page-humanities .hero .btn--primary{
-  background-color: #b9a7df;
-  color: #000;
-  border-color: #000;          /* если нужна тонкая чёрная обводка */
-  box-shadow: 0 4px 0 #a08dcb; /* тень вниз как у кнопки */
-}
-
-/* 3) уменьшить правую картинку (зонт/люди) */
-.page-humanities .hero__image{
-  max-width: 560px;   /* подгони: 380–460 */
+/* 1) Ограничиваем изменения ТОЛЬКО для большой картинки справа */
+.page-humanities .hero__image-wrap > img.hero__image{
   width: 100%;
+  max-width: 420px;   /* было слишком маленько — сделаем крупнее */
   height: auto;
 }
 
-.page-humanities .hero__image-wrap{
-  align-items: flex-end;       /* чтобы “сел” вниз как на макете */
-  justify-content: flex-end;   /* прижать вправо */
-  padding-right: 24px;         /* небольшой отступ от края */
+/* 2) Никакие другие картинки в hero НЕ масштабируем */
+.page-humanities .hero__content img:not(.hero__arrow){
+  width: auto;
+  max-width: none;
+  height: auto;
 }
 
-/* 4) стрелка — переместить */
+/* 3) Стрелка: вернуть нормальный размер (убираем “уменьшение”) */
 .page-humanities .hero__arrow{
-  position: absolute;
-
-  width: 90px;       /* можно 80–110 */
+  width: 160px;       /* подгони: 140–190 */
   height: auto;
-
-  right: auto;
-  bottom: auto;
-
-  left: 210px;       /* двигай это */
-  top: 150px;        /* и это */
-  transform: rotate(-25deg);
-
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: 5;
 }
+
+/* (оставляем позицию, но если у тебя она улетела — правь только эти две) */
+.page-humanities .hero__arrow{
+  left: 260px;
+  top: 180px;
+}
+
