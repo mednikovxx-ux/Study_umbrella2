@@ -1953,67 +1953,61 @@ html {
     display: none !important;
   }
 }
-
 /* ==================================================
    TABLET ONLY (769px–1024px)
    HERO — ТЕКСТ И КАРТИНКА РЯДОМ (как на десктопе)
-   + чуть сдвигаем контент ВЛЕВО, не меняя размеры текста
+   + сдвиг текстового блока чуть левее (без изменения размеров текста)
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* 1) hero НЕ должен переноситься на 2 строки */
+  /* 1) ВОЗВРАЩАЕМ "как на десктопе": два столбца в одну строку */
   .hero__inner{
+    display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
+
+    justify-content: space-between !important;
+    align-items: flex-end !important;
+
+    gap: clamp(12px, 2vw, 20px) !important;
   }
 
-  /* 2) обе колонки могут сжиматься */
+  /* 2) Колонки должны сжиматься (иначе всё разъезжается) */
   .hero__content,
   .hero__image-wrap{
     min-width: 0 !important;
+    flex: 1 1 0 !important;
   }
 
-  /* 3) ВОТ ГДЕ ДВИГАЕТСЯ ТЕКСТ/КНОПКА ВЛЕВО
-        (перебиваем базовый padding-left:56px) */
+  /* 3) СДВИГ ТЕКСТА ВЛЕВО — ТУТ КРУТИШЬ
+        (это влияет на заголовок/текст/кнопку вместе) */
   .hero__content{
-    padding-left: clamp(18px, 2.2vw, 32px) !important; /* <-- меняй это */
+    padding-left: clamp(12px, 1.6vw, 22px) !important; /* ← было 56px в базе */
     padding-right: 0 !important;
-    margin-left: 0 !important;
+    margin: 0 !important;
   }
 
-  /* 4) картинка меньше, чтобы влезала рядом */
+  /* 4) Картинка "садится" в серый блок и не улетает */
+  .hero__image-wrap{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-end !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .hero__image{
-    width: clamp(260px, 34vw, 380px) !important;
+    width: clamp(280px, 34vw, 420px) !important;
+    max-width: 100% !important;
     height: auto !important;
+    display: block !important;
   }
 
-  /* 5) заголовок/текст чуть компактнее (как у тебя было) */
+  /* 5) ТЕКСТ НЕ МАСШТАБИРУЕМ — только чтобы не ломать межстрочку */
   .hero__title{
-    font-size: clamp(34px, 4.6vw, 44px) !important;
     line-height: 1.08 !important;
   }
-
-  .hero__text,
-  .hero__description{
-    font-size: clamp(15px, 1.7vw, 17px) !important;
-  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
