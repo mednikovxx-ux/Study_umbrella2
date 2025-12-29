@@ -2008,6 +2008,25 @@ html {
     line-height: 1.08 !important;
   }
 }
+/* ==================================================
+   TABLET ONLY (769px–1024px)
+   "В ЧЕМ НАША ЦЕЛЬ?" — ТОЛЬКО РОЗОВЫЙ БЛОК ПО ЦЕНТРУ
+   ================================================== */
+@media (min-width: 769px) and (max-width: 1024px){
+
+  /* Сетка "Цели" на планшетах = 2 колонки (как и сейчас) */
+  #about .goal-cards{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* ТОЛЬКО розовый блок (у тебя это goal-card--blue) — по центру строки */
+  #about .goal-card.goal-card--blue{
+    grid-column: 1 / -1;          /* занять обе колонки */
+    justify-self: center;         /* центр внутри grid */
+    width: min(520px, 100%);      /* ширина блока (можешь менять 520px) */
+  }
+}
+
 
 
 
