@@ -308,3 +308,7 @@
 .page-chinese .hero-cn{
   overflow: visible;
 }
+/* FORCE: опустить картинку */
+.page-chinese .hero-cn__img{
+  transform: translateY(28px) !important;
+}
