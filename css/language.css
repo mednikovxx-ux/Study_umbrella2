@@ -262,6 +262,39 @@
   pointer-events: none;
   z-index: 5;
 }
+/* ================================
+   HUMANITIES — OFFERS (как в макете)
+   ================================ */
+
+/* опора для абсолютного декора */
+.page-humanities #offers .container{
+  position: relative;
+}
+
+/* уменьшаем пустоту сверху секции */
+.page-humanities #offers{
+  padding-top: 70px;   /* было слишком много — подгони 50–90 */
+}
+
+/* Танцовщица (offers-dancer) — маленькая, справа сверху */
+.page-humanities #offers .offers-dancer{
+  position: absolute;
+  top: 18px;           /* подгони 0–30 */
+  right: 18px;         /* подгони 0–30 */
+  width: 120px;        /* подгони 90–140 */
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* на мобилке обычно убирают/уменьшают */
+@media (max-width: 768px){
+  .page-humanities #offers .offers-dancer{
+    width: 90px;
+    top: 10px;
+    right: 10px;
+  }
+}
 
 
 
