@@ -414,7 +414,7 @@
 @media (min-width: 769px) and (max-width: 1024px) {
 
   .page-language .hero__image {
-    max-width: 680px;   /* ← УВЕЛИЧЕНИЕ КАРТИНКИ */
+    max-width: 800px;   /* ← УВЕЛИЧЕНИЕ КАРТИНКИ */
     width: 100%;
     height: auto;
   }
