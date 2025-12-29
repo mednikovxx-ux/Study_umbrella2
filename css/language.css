@@ -237,7 +237,7 @@
   height: auto;
 
   left: 35px;    /* 👈 двигай */
-  top: 0px;     /* 👈 двигай */
+  top: 200px;     /* 👈 двигай */
 
   z-index: 4;
 }
