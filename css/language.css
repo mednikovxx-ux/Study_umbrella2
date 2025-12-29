@@ -420,6 +420,14 @@
   }
 
 }
+/* ==================================================
+   LANGUAGE — WHY UMBRELLA (TABLET ONLY)
+   ================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .page-language .why-head__umbrella{
+    left: 170px;   /* ← сдвиг левее, подгони при желании */
+  }
+}
 
 
 
