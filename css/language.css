@@ -187,14 +187,16 @@
     display: none;
   }
 }
-/* ===== HUMANITIES: HERO FINAL FIX (one block, clean) ===== */
+/* ================================
+   HUMANITIES PAGE — HERO TUNING (CONTROLLED)
+   ================================ */
 
-/* Цвет STUDY UMBRELLA */
+/* 1) цвет STUDY UMBRELLA */
 .page-humanities .hero__title-main{
   color: #A98AB0;
 }
 
-/* Цвет кнопки */
+/* 2) цвет кнопки (БОЛЬШЕ НИЧЕГО ЕЁ НЕ ТРОГАЕТ) */
 .page-humanities .hero .btn--primary{
   background-color: #A98AB0;
   color: #000;
@@ -202,52 +204,64 @@
   box-shadow: 0 4px 0 #a08dcb;
 }
 
-/* Большая картинка справа (зонт + люди): прижать вправо */
+/* ================================
+   ГЛАВНОЕ ИЗОБРАЖЕНИЕ (зонт + люди)
+   ты можешь:
+   – уменьшать / увеличивать
+   – двигать вправо
+   ================================ */
+
+.page-humanities .hero__image{
+  width: 100%;
+  max-width: 420px;   /* 👈 МЕНЯЕШЬ ТОЛЬКО ЭТО */
+  height: auto;
+}
+
 .page-humanities .hero__image-wrap{
   display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 24px; /* 👈 двигай вправо */
 }
 
-.page-humanities .hero__image-wrap > img.hero__image{
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  margin-right: -60px; /* подгони: -40…-90 */
-}
+/* ================================
+   СВИТОК (cta-decor2)
+   – свободно двигается
+   – свободно масштабируется
+   ================================ */
 
-/* Все картинки в hero — не растягиваем */
-.page-humanities .hero__content img{
-  width: auto;
-  height: auto;
-  max-width: none;
-}
-
-/* === СВИТОК: cta-decor2 === */
 .page-humanities img[src*="cta-decor2"]{
   position: absolute;
-  width: 120px;        /* нормальный размер */
+
+  width: 120px;   /* 👈 размер свитка */
   height: auto;
-  left: 120px;         /* под текстом */
-  top: 140px;          /* подзаголовок → кнопка */
-  z-index: 2;
+
+  left: 160px;    /* 👈 двигай */
+  top: 190px;     /* 👈 двигай */
+
+  z-index: 4;
 }
 
-/* Кнопку отодвигаем, чтобы не налезала на свиток */
-.page-humanities .hero__cta .btn{
-  margin-left: 110px;  /* подгони: 90…130 */
-}
+/* ================================
+   СТРЕЛКА
+   – свободно двигается
+   – свободно масштабируется
+   ================================ */
 
-/* Стрелка */
 .page-humanities .hero__arrow{
   position: absolute;
-  width: 160px;
+
+  width: 90px;    /* 👈 размер стрелки */
   height: auto;
-  left: 210px;
-  top: 145px;
+
+  left: 210px;    /* 👈 двигай */
+  top: 150px;     /* 👈 двигай */
+
   transform: rotate(-25deg);
+  opacity: 0.9;
   pointer-events: none;
-  z-index: 3;
+  z-index: 5;
 }
+
 
 
