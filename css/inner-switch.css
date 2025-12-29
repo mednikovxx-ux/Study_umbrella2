@@ -238,7 +238,7 @@ img,
     display: flex !important;
     width: 100%;
     justify-content: flex-start;
-    padding-left: 24px;  
+    padding-left: 100px;  
     gap: 18px;
     order: 2; /* строка ниже логотипа */
   }
