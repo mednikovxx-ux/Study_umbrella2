@@ -1,12 +1,12 @@
 /* language.css */
 
 /* прижимаем картинку вниз серого блока */
-.hero__image-wrap{
+.page-language .hero__image-wrap{
   align-items: flex-end;     /* было flex-start в main.css */
 }
 
 /* делаем картинку крупнее (перебиваем max-width: 320px из main.css) */
-.hero__image{
+.page-language .hero__image{
   max-width: 560px;          /* подгони: 520–650 */
   width: 100%;
   height: auto;
