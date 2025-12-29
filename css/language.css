@@ -339,6 +339,37 @@
 .page-humanities #offers .programs-grid__top{
   align-items: flex-start;
 }
+/* =====================================
+   HUMANITIES — ДОСТУПНЫЕ НАПРАВЛЕНИЯ
+   ===================================== */
+
+/* 1) Заголовок — фиолетовый */
+.page-humanities #courses .section__title{
+  color: #A98AB0;            /* фиолетовый как в Figma */
+}
+
+/* 2) Контейнер заголовка */
+.page-humanities #courses .section__title{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;                 /* расстояние между текстом и иконкой */
+}
+
+/* 3) Иконка из Figma */
+.page-humanities #courses .section__title::after{
+  content: "";
+  display: inline-block;
+
+  width: 36px;               /* 👈 размер иконки */
+  height: 36px;
+
+  background-image: url("../img/courses-icon.png"); /* 👈 путь к иконке */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 
 
 
