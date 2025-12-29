@@ -458,8 +458,8 @@
     width: 60px !important;   /* размер оставил как у тебя */
     height: auto !important;
 
-    left: 10px !important;    /* ← МЕНЬШЕ = ЛЕВЕЕ */
-    top: 280px !important;    /* ↑ БОЛЬШЕ = НИЖЕ */
+    left: -20px !important;    /* ← МЕНЬШЕ = ЛЕВЕЕ */
+    top: 340px !important;    /* ↑ БОЛЬШЕ = НИЖЕ */
 
     z-index: 4 !important;
     pointer-events: none !important;
