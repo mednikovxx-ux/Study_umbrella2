@@ -36,7 +36,7 @@
 /* общий ряд */
 .page-chinese .hero-cn__row{
   display: grid;
-  grid-template-columns: 1fr 460px; /* правая колонка под картинку */
+  grid-template-columns: 1fr 460px; /* правую колонку НЕ трогаем (как у тебя сейчас) */
   gap: 28px;
   align-items: start;
   position: relative;
@@ -52,7 +52,7 @@
   margin: 0;
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-weight: 900;
-  font-size: 56px;      /* меньше, как в макете */
+  font-size: 56px;
   line-height: 0.96;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -63,38 +63,44 @@
 .page-chinese .hero-cn__title .t--black{ color: var(--cn-text); }
 .page-chinese .hero-cn__title .t--red{ color: var(--cn-accent); }
 
-/* сдвиг второй строки под букву "И" в КИТАЙСКИЙ */
+/* сдвиг второй строки под букву "И" */
 .page-chinese .hero-cn__line2{
   display: inline-block;
-  margin-left: 330px; /* если надо 1–2px — меняешь только это */
+  margin-left: 330px;
 }
 
-/* ✅ “под зонтиком…” справа над карточками/картинкой */
+/* “под зонтиком…” справа + маленький отступ */
 .page-chinese .hero-cn__quote{
   margin-top: 6px;
   font-size: 13px;
   color: var(--cn-text);
   opacity: 0.85;
   width: fit-content;
-  margin-left: auto;     /* толкаем вправо */
-  padding-right: 10px;   /* небольшой отступ от края */
+  margin-left: auto;
+  padding-right: 10px;
   white-space: nowrap;
 }
 
-/* ✅ карточки 1в1 по сетке */
+/* =====================================
+   ✅ КАРТОЧКИ 1в1: шире + выше + текст влезает
+   ===================================== */
+
+/* сетка карточек — делаем шире блок 2×2 */
 .page-chinese .hero-cn__grid{
   margin-top: 14px;
   display: grid;
-  grid-template-columns: 240px 1fr 1fr; /* красная + две колонки */
-  grid-auto-rows: 88px;                 /* 2 ряда = 190px вместе с gap */
-  gap: 14px;
+
+  /* БЫЛО узко — СТАЛО шире: */
+  grid-template-columns: 280px 320px 320px;  /* красная + 2 колонки шире */
+  grid-auto-rows: 132px;                     /* ВЫШЕ, чтобы влезал текст */
+  gap: 16px;
   align-items: stretch;
 }
 
 /* карточка */
 .page-chinese .hero-cn__card{
   border-radius: 18px;
-  padding: 14px 16px;
+  padding: 18px 18px;
   border: none;
   box-shadow: none;
   background: var(--cn-card-1);
@@ -105,13 +111,14 @@
   justify-content: flex-start;
 }
 
-/* большая красная */
+/* большая красная карточка */
 .page-chinese .hero-cn__card--level{
   grid-row: span 2;
   background: var(--cn-card-red);
   color: var(--cn-card-red-text);
   text-decoration: none;
-  justify-content: space-between;
+  justify-content: flex-end; /* как в фигме: текст внизу */
+  padding: 20px;
 }
 
 /* иконка */
@@ -123,6 +130,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: auto; /* держим кружок наверху */
 }
 .page-chinese .hero-cn__icon-dot{
   width: 14px;
@@ -132,32 +140,33 @@
 }
 
 .page-chinese .hero-cn__level-text{
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.12;
   font-weight: 900;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
-/* ✅ вкладка (пилюля) как в Figma: тонкая, полупрозрачная */
+/* ✅ пилюля как в Figma: меньше и тоньше */
 .page-chinese .hero-cn__pill{
   display: inline-flex;
   align-items: center;
   width: fit-content;
   padding: 6px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.35);
-  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(0,0,0,0.28);
+  background: rgba(255,255,255,0.28);
   font-size: 13px;
   font-weight: 700;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
 }
 
-/* текст */
+/* текст в карточках — крупнее и нормальная высота строки */
 .page-chinese .hero-cn__card-text{
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.25;
-  color: rgba(17,17,17,0.72);
+  color: rgba(17,17,17,0.74);
+  max-width: 100%;
 }
 
 /* цвета карточек */
@@ -166,22 +175,28 @@
 .page-chinese .hero-cn__card--c3{ background: var(--cn-card-3); }
 .page-chinese .hero-cn__card--c4{ background: var(--cn-card-4); }
 
-/* ✅ правая картинка — в один ряд по высоте с 2 рядами карточек */
+/* ✅ правая часть — НЕ ТРОГАЕМ картинку, только позицию блока как было */
 .page-chinese .hero-cn__right{
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-top: 118px; /* опускаем на уровень карточек */
+  margin-top: 118px;
 }
 
+/* ⚠️ ВАЖНО: картинку НЕ задаём размерами — оставляем твои */
 .page-chinese .hero-cn__img{
-  width: 460px;     /* уже */
-  height: 190px;    /* 88 + 88 + 14 = 190 */
-  object-fit: cover;
   border-radius: 22px;
+  object-fit: cover;
 }
 
 /* ===== адаптив ===== */
+@media (max-width: 1200px){
+  .page-chinese .hero-cn__grid{
+    grid-template-columns: 260px 1fr 1fr;
+    grid-auto-rows: 128px;
+  }
+}
+
 @media (max-width: 1024px){
   .page-chinese .hero-cn__row{
     grid-template-columns: 1fr;
@@ -197,14 +212,8 @@
     justify-content: center;
   }
 
-  .page-chinese .hero-cn__img{
-    width: 100%;
-    height: auto;
-    max-width: 640px;
-  }
-
   .page-chinese .hero-cn__grid{
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 260px 1fr;
     grid-auto-rows: auto;
   }
 }
