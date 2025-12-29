@@ -151,4 +151,32 @@ img,
   font-size: 14px;
   padding: 9px 16px;  /* чуть компактнее */
 }
+/* ==================================================
+   TABLET ONLY — HEADER FONT SMALLER
+   (language + humanities pages)
+   ================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* пункты меню */
+  .page-language .nav a,
+  .page-humanities .nav a{
+    font-size: 14px;
+  }
+
+  /* кнопки "Главная" и "Языки" */
+  .page-language .btn--main,
+  .page-humanities .btn--main{
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  /* dropdown toggles */
+  .page-language #mainMenuToggle,
+  .page-language #switchToggle,
+  .page-humanities #mainMenuToggle,
+  .page-humanities #switchToggle{
+    font-size: 14px;
+  }
+
+}
 
