@@ -1885,53 +1885,77 @@ html {
 }
 
 /* ==================================================
-   TABLET ONLY — HEADER MUST BE 1 LINE (FLUID)
-   769px–1024px
-   НИЧЕГО НЕ ПЕРЕСТРАИВАЕМ: только уменьшаем размеры/отступы
+   TABLET ONLY (769px–1024px)
+   HEADER — ВСЁ В 1 СТРОЧКУ (без ломания мобилки/десктопа)
+   ВСТАВИТЬ В САМЫЙ КОНЕЦ main.css
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* ✅ БУРГЕР НА ПЛАНШЕТЕ НЕ НУЖЕН (он только до 768px) */
-  .burger{
+  /* 1) Никакого бургера на планшете */
+  #burgerToggle,
+  .burger,
+  .burger.burger--with-text{
     display: none !important;
   }
 
-  /* ✅ Лого меньше */
-  .logo__img{
-    height: clamp(22px, 2.2vw, 30px);
-    width: auto;
+  /* 2) Возвращаем header в ОДНУ строку (перебиваем твой wrap из max-width:1024) */
+  .header__inner{
+    flex-wrap: nowrap !important;
+    height: 96px !important;
+    justify-content: space-between !important;
+    gap: clamp(8px, 1.2vw, 14px) !important;
   }
 
-  /* ✅ Меню сильнее ужимаем, чтобы не ломалось в 2 строки */
+  /* 3) Лого — плавно меньше, но без “жестких” пикселей */
+  .logo__img{
+    width: clamp(110px, 14vw, 150px) !important;
+    height: auto !important;
+  }
+
+  /* 4) Меню — всегда в одну линию */
   .nav{
-    font-size: clamp(10px, 1.05vw, 12px);
-    gap: clamp(6px, 1vw, 14px);
+    position: static !important;     /* на планшете НЕ абсолют */
+    order: 0 !important;
+    width: auto !important;
+
+    flex: 1 1 auto !important;       /* даем сжиматься */
+    min-width: 0 !important;
+
+    display: flex !important;
+    flex-wrap: nowrap !important;    /* КЛЮЧ */
+    justify-content: center !important;
+    gap: clamp(10px, 1.2vw, 22px) !important;
+
+    padding: 0 !important;
+    margin: 0 clamp(6px, 1vw, 12px) !important;
   }
 
   .nav a{
-    padding-left: clamp(0px, 0.35vw, 6px);
-    padding-right: clamp(0px, 0.35vw, 6px);
-    white-space: nowrap;
+    white-space: nowrap !important;  /* КЛЮЧ */
+    font-size: clamp(11px, 1.25vw, 14px) !important;
   }
 
-  /* ✅ Правая часть (dropdown “Главная ▾” и “Языки ▾”) — оставляем, но уменьшаем */
-  .header__right .btn--main{
-    font-size: clamp(10px, 1.05vw, 12px);
-    padding: clamp(6px, 0.9vw, 9px) clamp(10px, 1.2vw, 14px);
-    white-space: nowrap;
-  }
-
-  /* ✅ Общие расстояния в шапке — меньше */
-  .header__inner{
-    gap: clamp(6px, 1vw, 12px);
-    padding-left: clamp(10px, 1.5vw, 18px);
-    padding-right: clamp(10px, 1.5vw, 18px);
-  }
-
+  /* 5) Правая “Главная ▾” — остается, но тоже ужимается плавно */
   .header__right{
-    gap: clamp(6px, 1vw, 12px);
+    display: flex !important;        /* на планшете должна быть */
+    gap: clamp(6px, 1vw, 10px) !important;
+    margin-right: 0 !important;      /* убираем лишние 24px */
+    flex: 0 0 auto !important;
+  }
+
+  .header__right .btn--main{
+    font-size: clamp(11px, 1.2vw, 14px) !important;
+    padding: clamp(7px, 0.9vw, 10px) clamp(12px, 1.4vw, 18px) !important;
+    white-space: nowrap !important;
+  }
+
+  /* 6) Мобильная "Главная" внутри nav — на планшете точно не нужна */
+  .nav-main-group{
+    display: none !important;
   }
 }
+
+
 
 
 
