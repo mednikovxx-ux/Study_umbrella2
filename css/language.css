@@ -369,9 +369,8 @@
    ===================================== */
 
 /* 1) ФИОЛЕТОВЫЙ ТЕКСТ «бесплатный урок» */
-.page-humanities .form-section .accent,
-.page-humanities .form-section .highlight{
-  color: #A98AB0;
+.page-humanities .contact__title-accent{
+  color: #A98AB0; /* фиолетовый как в Figma */
 }
 
 /* 2) ФИОЛЕТОВАЯ КНОПКА «Отправить» */
