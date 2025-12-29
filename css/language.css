@@ -449,12 +449,23 @@
 /* ==================================================
    HUMANITIES — HERO IMAGE MOVE LEFT (TABLET ONLY)
    ================================================== */
+/* ==================================================
+   HUMANITIES — HERO IMAGE POSITION (TABLET ONLY)
+   ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
   .page-humanities .hero__image-wrap{
-    justify-content: flex-start; /* вместо flex-end */
-    padding-right: 0;            /* убираем сдвиг вправо */
-    padding-left: 24px;          /* ← СДВИГ ЛЕВЕЕ (КРУТИ ТОЛЬКО ЭТО) */
+    display: flex;
+    justify-content: flex-start; /* влево */
+    padding-left: 40px;          /* сдвиг левее */
+    padding-right: 0;
+  }
+
+  .page-humanities .hero__image{
+    position: relative;          /* чтобы работал top */
+    top: 40px;                   /* ОПУСКАЕМ ВНИЗ */
+    max-width: 480px;            /* если нужно — можно убрать */
+    height: auto;
   }
 
 }
