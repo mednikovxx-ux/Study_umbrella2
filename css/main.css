@@ -2079,6 +2079,23 @@ html {
   }
 }
 
+/* ==================================================
+   TABLET ONLY — смещаем "Свяжитесь с нами" и иконки вниз
+   ================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* Левый столбец — прижать вниз относительно формы */
+  .contact__inner {
+    align-items: stretch; /* сбрасываем end */
+  }
+
+  .contact__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* КЛЮЧЕВОЕ */
+    padding-bottom: 24px;      /* визуальный отступ от низа секции */
+  }
+}
 
 
 
