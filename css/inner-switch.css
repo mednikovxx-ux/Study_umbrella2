@@ -204,5 +204,80 @@ img,
     padding: 10px 0;
   }
 }
+/* ==================================================
+   TABLET ONLY (769px–1024px)
+   Только для language + humanities:
+   показываем "Главная" (бургер как на телефоне),
+   прячем десктоп-таблетки справа и обычное меню
+   ================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px){
+
+  /* 1) показываем бургер "Главная" (перебиваем main.css) */
+  body.page-language #burgerToggle,
+  body.page-humanities #burgerToggle,
+  body.page-language .burger,
+  body.page-humanities .burger,
+  body.page-language .burger.burger--with-text,
+  body.page-humanities .burger.burger--with-text{
+    display: inline-flex !important;
+  }
+
+  /* 2) скрываем правые "таблетки" (Главная + Языки) */
+  body.page-language .header__right--switch,
+  body.page-humanities .header__right--switch{
+    display: none !important;
+  }
+
+  /* 3) обычные ссылки-меню делаем как мобильное выпадающее */
+  body.page-language .nav,
+  body.page-humanities .nav{
+    position: absolute !important;
+    top: 96px !important;          /* высота хедера на планшете */
+    left: 0 !important;
+    right: 0 !important;
+
+    background: #fff !important;
+    border-bottom: 1px solid #f0e6e0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+
+    padding: 12px 16px 16px !important;
+    z-index: 25 !important;
+
+    /* закрыто по умолчанию */
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: translateY(-8px) !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+
+    transition:
+      max-height 260ms ease,
+      opacity 220ms ease,
+      transform 220ms ease !important;
+  }
+
+  /* 4) когда нажали бургер — показываем меню */
+  body.page-language .header.header--mobile-open .nav,
+  body.page-humanities .header.header--mobile-open .nav{
+    max-height: 900px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+
+  /* 5) "Главная ▾" внутри меню (nav-main-group) — включаем и ставим наверх */
+  body.page-language .nav-main-group,
+  body.page-humanities .nav-main-group{
+    display: block !important;
+    width: 100% !important;
+    order: -1 !important;
+    margin-bottom: 8px !important;
+  }
+}
 
 
