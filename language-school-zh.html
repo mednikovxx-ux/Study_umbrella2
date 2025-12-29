@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/language.css">
   <link rel="stylesheet" href="css/inner-switch.css">
+  <link rel="stylesheet" href="css/chinies.css">
+
 </head>
 
 <body class="page-language">
@@ -114,45 +116,82 @@
 
 
 <!-- HERO -->
-<section class="hero">
-  <div class="container hero__inner">
+<section class="hero hero--chinese"
+  style="
+    --cn-accent:#D65655;
+    --cn-text:#111111;
+    --cn-soft:#6B7280;
 
-    <div class="hero__content">
-     
+    --cn-chip-border:#111111;
 
-      <h1 class="hero__title">
-        <span class="hero__title-top">ЯЗЫКОВАЯ ОНЛАЙН ШКОЛА</span><br>
-        <span class="hero__title-main">STUDY UMBRELLA</span>
-      </h1>
+    --cn-card-red:#D65655;
+    --cn-card-red-text:#ffffff;
 
-      <p class="hero__text">
-        Ваш надежный зонт в мире<br>
-        Языковых барьеров!
-      </p>
-      
-    <div class="hero__cta">
+    --cn-card-1:#ffffff;
+    --cn-card-2:#D7EEF6;   /* голубая */
+    --cn-card-3:#D7EEF6;   /* голубая */
+    --cn-card-4:#F6D9C8;   /* персиковая */
+  "
+>
+  <div class="container">
+    <div class="hero-cn">
+      <!-- фон-стрелка (ты подставишь картинку) -->
+      <img class="hero-cn__bg-arrow" src="img/hero-arrow-bg.png" alt="">
 
-      <a href="#contacts" class="btn btn--primary hero__btn">
-      <strong>Проверь себя уже сейчас!</strong>
-      </a>
+      <!-- левый контент -->
+      <div class="hero-cn__content">
+        <div class="hero-cn__hello">你好!</div>
 
-    <!-- декоративная картинка (веер из Figma) -->
-    <img src="img/cta-decor.png" alt="" class="hero__cta-decor">
+        <h1 class="hero-cn__title">
+          УЧИТЬ <span class="hero-cn__accent">КИТАЙСКИЙ</span><br>
+          <span class="hero-cn__accent">СОВРЕМЕННО</span> И КОМФОРТНО!
+        </h1>
 
-</div>
+        <div class="hero-cn__quote">“под зонтиком лучших преподавателей”</div>
 
+        <div class="hero-cn__grid">
+          <!-- большая красная карточка -->
+          <a class="hero-cn__card hero-cn__card--level" href="#contact">
+            <span class="hero-cn__icon">
+              <!-- иконку можешь заменить на img -->
+              <span class="hero-cn__icon-dot"></span>
+            </span>
+            <span class="hero-cn__level-text">
+              ОПРЕДЕЛИТЬ<br>ВАШ УРОВЕНЬ<br>ЯЗЫКА
+            </span>
+          </a>
 
+          <!-- 4 маленькие карточки -->
+          <div class="hero-cn__card hero-cn__card--c1">
+            <div class="hero-cn__card-title">Современно</div>
+            <div class="hero-cn__card-text">Используем актуальные методики обучения</div>
+          </div>
 
-      <!-- ❗ ОСТАВЛЯЕМ ТОЛЬКО ЭТУ ОДНУ СТРЕЛКУ -->
-      <img src="img/hero-arrow.png" alt="" class="hero__arrow">
+          <div class="hero-cn__card hero-cn__card--c2">
+            <div class="hero-cn__card-title">Доступно</div>
+            <div class="hero-cn__card-text">Простой и понятный путь к языку без стресса</div>
+          </div>
+
+          <div class="hero-cn__card hero-cn__card--c3">
+            <div class="hero-cn__card-title">Легко</div>
+            <div class="hero-cn__card-text">Говорим и практикуем с первых занятий</div>
+          </div>
+
+          <div class="hero-cn__card hero-cn__card--c4">
+            <div class="hero-cn__card-title">Так и мы</div>
+            <div class="hero-cn__card-text">Мы учим так, как хотели бы учиться сами</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- справа картинка -->
+      <div class="hero-cn__media">
+        <img class="hero-cn__img" src="img/hero-chinese.webp" alt="Китайский язык">
+      </div>
     </div>
-
-    <div class="hero__image-wrap">
-      <img src="img/hero-language.webp" alt="Онлайн обучение" class="hero__image">
-    </div>
-
   </div>
 </section>
+
 
   <!-- НАША ЦЕЛЬ -->
   <section class="section" id="about">
@@ -965,6 +1004,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
