@@ -2053,6 +2053,20 @@ html {
     max-width: calc((100% - 24px) / 2);  /* ширина как у 1 карточки (gap у тебя 24px) */
   }
 }
+/* ==================================================
+   TABLET ONLY — форма уже и прижата вправо
+   ================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact__inner {
+    justify-content: flex-end;
+  }
+
+  .contact-form {
+    max-width: 520px;   /* регулируй ширину здесь */
+    width: 100%;
+  }
+}
+
 
 
 
