@@ -1,24 +1,17 @@
-/* ===============================
-   CHINIES.CSS — HERO ONLY
-   =============================== */
-
-/* Poppins должен быть подключён в <head>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
-*/
+/* chinies.css — HERO (структура/позиции). Цвета только из style="" в HTML */
 
 .page-chinese .hero.hero--chinese{
   background: transparent;
   padding: 0;
 }
 
-/* ===== ОБЁРТКА HERO ===== */
 .page-chinese .hero-cn{
   position: relative;
   background: transparent;
   padding: 0;
 }
 
-/* декоративная стрелка */
+/* стрелка */
 .page-chinese .hero-cn__bg-arrow{
   position: absolute;
   left: 250px;
@@ -30,7 +23,7 @@
   z-index: 1;
 }
 
-/* иероглиф — прижат к хеддеру */
+/* 你好 — прижато к хеддеру */
 .page-chinese .hero-cn__hello-img{
   position: relative;
   z-index: 2;
@@ -40,74 +33,65 @@
   margin: -20px 0 6px 0;
 }
 
-/* ===== ОСНОВНОЙ РЯД ===== */
+/* общий ряд */
 .page-chinese .hero-cn__row{
   display: grid;
-  grid-template-columns: 1fr 520px;
+  grid-template-columns: 1fr 460px; /* правая колонка под картинку */
   gap: 28px;
   align-items: start;
   position: relative;
   z-index: 2;
 }
 
-/* ===== ЛЕВАЯ ЧАСТЬ ===== */
 .page-chinese .hero-cn__left{
   min-width: 0;
 }
 
-/* ===== ЗАГОЛОВОК ===== */
+/* заголовок */
 .page-chinese .hero-cn__title{
   margin: 0;
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-weight: 900;
-  font-size: 54px;
-  line-height: 0.95;
+  font-size: 56px;      /* меньше, как в макете */
+  line-height: 0.96;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.page-chinese .hero-cn__title .t{
-  display: inline-block;
-}
+.page-chinese .hero-cn__title .t{ display: inline-block; }
+.page-chinese .hero-cn__title .t--black{ color: var(--cn-text); }
+.page-chinese .hero-cn__title .t--red{ color: var(--cn-accent); }
 
-.page-chinese .hero-cn__title .t--black{
-  color: var(--cn-text);
-}
-
-.page-chinese .hero-cn__title .t--red{
-  color: var(--cn-accent);
-}
-
-/* 🔴 КЛЮЧЕВОЕ:
-   эта строка начинаетcя под буквой "И" в слове КИТАЙСКИЙ */
+/* сдвиг второй строки под букву "И" в КИТАЙСКИЙ */
 .page-chinese .hero-cn__line2{
   display: inline-block;
-  margin-left: 310px; /* ← если надо, меняй ТОЛЬКО ЭТО */
+  margin-left: 330px; /* если надо 1–2px — меняешь только это */
 }
 
-/* подпись под заголовком */
- .page-chinese .hero-cn__quote{
-  margin-top: 8px;
+/* ✅ “под зонтиком…” справа над карточками/картинкой */
+.page-chinese .hero-cn__quote{
+  margin-top: 6px;
   font-size: 13px;
   color: var(--cn-text);
   opacity: 0.85;
-
-  text-align: right;
-  padding-right: 14px; /* небольшой отступ от правого края */
+  width: fit-content;
+  margin-left: auto;     /* толкаем вправо */
+  padding-right: 10px;   /* небольшой отступ от края */
   white-space: nowrap;
 }
 
-
-/* ===== КАРТОЧКИ ===== */
+/* ✅ карточки 1в1 по сетке */
 .page-chinese .hero-cn__grid{
-  margin-top: 18px;
+  margin-top: 14px;
   display: grid;
-  grid-template-columns: 230px 1fr 1fr;
-  grid-auto-rows: 88px; /* 2 ряда = 88 + 88 + gap 14 = 190 */
+  grid-template-columns: 240px 1fr 1fr; /* красная + две колонки */
+  grid-auto-rows: 88px;                 /* 2 ряда = 190px вместе с gap */
   gap: 14px;
+  align-items: stretch;
 }
 
+/* карточка */
 .page-chinese .hero-cn__card{
   border-radius: 18px;
   padding: 14px 16px;
@@ -115,33 +99,19 @@
   box-shadow: none;
   background: var(--cn-card-1);
   color: var(--cn-text);
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-/* вкладка-заголовок как в индексе */
-.page-chinese .hero-cn__pill{
-  display: inline-block;
-  width: fit-content;
-  padding: 7px 18px;
-  border-radius: 999px;
-  border: 1.5px solid rgba(0,0,0,0.55);
-  background: transparent;
-  font-size: 13px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-}
 
-
-/* большая красная карточка */
+/* большая красная */
 .page-chinese .hero-cn__card--level{
   grid-row: span 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
   background: var(--cn-card-red);
   color: var(--cn-card-red-text);
+  text-decoration: none;
+  justify-content: space-between;
 }
 
 /* иконка */
@@ -154,7 +124,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .page-chinese .hero-cn__icon-dot{
   width: 14px;
   height: 14px;
@@ -170,40 +139,49 @@
   text-transform: uppercase;
 }
 
-/* маленькие карточки */
-.page-chinese .hero-cn__card-title{
-  font-size: 16px;
-  font-weight: 900;
-  margin-bottom: 6px;
+/* ✅ вкладка (пилюля) как в Figma: тонкая, полупрозрачная */
+.page-chinese .hero-cn__pill{
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.35);
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
 }
 
+/* текст */
 .page-chinese .hero-cn__card-text{
   font-size: 14px;
   line-height: 1.25;
   color: rgba(17,17,17,0.72);
 }
 
+/* цвета карточек */
 .page-chinese .hero-cn__card--c1{ background: var(--cn-card-1); }
 .page-chinese .hero-cn__card--c2{ background: var(--cn-card-2); }
 .page-chinese .hero-cn__card--c3{ background: var(--cn-card-3); }
 .page-chinese .hero-cn__card--c4{ background: var(--cn-card-4); }
 
-/* ===== ПРАВАЯ ЧАСТЬ (КАРТИНКА) ===== */
+/* ✅ правая картинка — в один ряд по высоте с 2 рядами карточек */
 .page-chinese .hero-cn__right{
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-top: 128px; /* опускаем в уровень карточек */
+  margin-top: 118px; /* опускаем на уровень карточек */
 }
 
 .page-chinese .hero-cn__img{
-  width: 300px;
-  height: 190px;
+  width: 460px;     /* уже */
+  height: 190px;    /* 88 + 88 + 14 = 190 */
   object-fit: cover;
   border-radius: 22px;
 }
 
-/* ===== АДАПТИВ ===== */
+/* ===== адаптив ===== */
 @media (max-width: 1024px){
   .page-chinese .hero-cn__row{
     grid-template-columns: 1fr;
@@ -226,21 +204,13 @@
   }
 
   .page-chinese .hero-cn__grid{
-    grid-template-columns: 230px 1fr;
+    grid-template-columns: 240px 1fr;
     grid-auto-rows: auto;
   }
 }
 
 @media (max-width: 640px){
-  .page-chinese .hero-cn__title{
-    font-size: 40px;
-  }
-
-  .page-chinese .hero-cn__grid{
-    grid-template-columns: 1fr;
-  }
-
-  .page-chinese .hero-cn__bg-arrow{
-    display: none;
-  }
+  .page-chinese .hero-cn__title{ font-size: 40px; }
+  .page-chinese .hero-cn__grid{ grid-template-columns: 1fr; }
+  .page-chinese .hero-cn__bg-arrow{ display: none; }
 }
