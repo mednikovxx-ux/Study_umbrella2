@@ -237,7 +237,7 @@
   height: auto;
 
   left: 30px;    /* 👈 двигай */
-  top: 65px;     /* 👈 двигай */
+  top: 100px;     /* 👈 двигай */
 
   z-index: 4;
 }
@@ -254,8 +254,8 @@
   width: 140px;    /* 👈 размер стрелки */
   height: auto;
 
-  left: 210px;    /* 👈 двигай */
-  top: 200px;     /* 👈 двигай */
+  left: 200px;    /* 👈 двигай */
+  top: 110px;     /* 👈 двигай */
 
   transform: rotate(-25deg);
   opacity: 0.9;
