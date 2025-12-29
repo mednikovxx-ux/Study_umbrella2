@@ -207,23 +207,16 @@ img,
    TABLET ONLY (769–1024)
    Только language + humanities:
    ОСТАВЛЯЕМ ТОЛЬКО 2 ТАБЛЕТКИ (Главная + Языки)
+   и выравниваем их по ПРАВОМУ краю
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* 0) Хедер на 2 строки: 1) логотип  2) две таблетки */
-  body.page-language .header__inner,
-  body.page-humanities .header__inner{
-    flex-wrap: wrap;
-    row-gap: 14px;
-  }
-
-  /* 1) Прячем обычное меню-ссылки полностью */
+  /* 1) Убираем обычное меню и бургер */
   body.page-language .nav,
   body.page-humanities .nav{
     display: none !important;
   }
 
-  /* 2) Прячем бургер (он только для мобилки) */
   body.page-language #burgerToggle,
   body.page-humanities #burgerToggle,
   body.page-language .burger,
@@ -231,47 +224,46 @@ img,
     display: none !important;
   }
 
-  /* 3) Контейнер с 2 таблетками — справа */
+  /* 2) Хедер оставляем в ОДНУ строку, как десктоп (перебиваем tablet из main.css) */
+  body.page-language .header__inner,
+  body.page-humanities .header__inner{
+    flex-wrap: nowrap !important;
+    height: 96px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* 3) ПРАВЫЙ блок с таблетками: показываем и прижимаем вправо */
   body.page-language .header__right--switch,
   body.page-humanities .header__right--switch{
     display: flex !important;
-    width: 100%;
-    justify-content: flex-end;
-    padding-right: 24px;
-    gap: 18px;
-    order: 2;
+    align-items: center !important;
+    gap: 18px !important;
 
-    flex-wrap: nowrap;     /* ✅ НЕ переносить */
-    overflow: visible;     /* ✅ ничего не обрезать */
+    margin-left: auto !important;   /* прижать вправо */
+    margin-right: 24px !important;  /* отступ от правого края */
+    width: auto !important;
+
+    flex-wrap: nowrap !important;
   }
 
-  /* ✅ ВАЖНО: явно показываем ОБЕ таблетки (иначе одна может быть скрыта старым CSS) */
+  /* 4) ЯВНО показываем ОБЕ таблетки (на случай старых display:none) */
   body.page-language #mainDropdown,
   body.page-humanities #mainDropdown,
   body.page-language #switchDropdown,
   body.page-humanities #switchDropdown{
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
-  /* ✅ и сами кнопки в таблетках */
   body.page-language #mainMenuToggle,
   body.page-humanities #mainMenuToggle,
   body.page-language #switchToggle,
   body.page-humanities #switchToggle{
     display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* 4) Логотип — первая строка */
-  body.page-language .logo,
-  body.page-humanities .logo{
-    order: 1;
-  }
-
-  /* 5) Мобильную "Главная ▾" внутри nav (nav-main-group) на планшете не показываем */
-  body.page-language .nav-main-group,
-  body.page-humanities .nav-main-group{
-    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 }
+
