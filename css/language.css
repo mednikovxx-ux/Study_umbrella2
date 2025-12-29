@@ -302,24 +302,40 @@
 }
 .page-humanities .about-line .accent{ color:#A98AB0 !important; }
 
-/* ===== HUMANITIES: offers book left + text lower ===== */
+/* ===== HUMANITIES: OFFERS = как в макете (скрин 2) ===== */
 
-/* опора для абсолютной книги */
-.page-humanities #offers .programs-info{
-  position: relative;
-  padding-left: 150px;   /* место под книгу слева (подгони 120–180) */
-  margin-top: 60px;      /* текст ниже (подгони 40–90) */
+/* секция: немного меньше пустоты сверху */
+.page-humanities #offers{
+  padding-top: 40px;
 }
 
-/* книга (у тебя она сейчас .offers-dancer) */
+/* контейнер — опорная точка для книги */
+.page-humanities #offers .container{
+  position: relative;
+}
+
+/* КНИГА (offers-dancer) — маленькая справа сверху у заголовка */
 .page-humanities #offers .offers-dancer{
   position: absolute;
-  left: 0;               /* слева от текста */
-  top: 10px;             /* вертикально относительно текста (подгони 0–30) */
-  width: 120px;          /* книга больше (подгони 110–150) */
+  top: 22px;
+  right: 18px;
+  left: auto;
+  width: 110px;
   height: auto;
-  z-index: 5;
+  z-index: 10;
   pointer-events: none;
 }
+
+/* ТЕКСТ СПРАВА (programs-info) — ниже, как в макете */
+.page-humanities #offers .programs-info{
+  margin-top: 38px;   /* опускаем */
+  max-width: 520px;   /* чтобы не растягивался */
+}
+
+/* чтобы сетка не разъезжалась и текст реально ушёл ниже */
+.page-humanities #offers .programs-grid__top{
+  align-items: flex-start;
+}
+
 
 
