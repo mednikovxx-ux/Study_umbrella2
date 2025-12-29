@@ -1871,50 +1871,55 @@ html {
 
 
 
-/* ===========================
-   TABLET ONLY — HEADER FIX (ONE LINE + NO DOUBLE "Главная")
-   769px – 1024px
-   Только размеры/отступы/видимость (без смены display/flex/grid)
-   =========================== */
+/* ==================================================
+   TABLET ONLY — HEADER MUST BE 1 LINE (FLUID)
+   769px–1024px
+   НИЧЕГО НЕ ПЕРЕСТРАИВАЕМ: только уменьшаем размеры/отступы
+   ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* 1) Убираем ДУБЛЬ "Главная" справа (оставляем dropdown "Главная ▾") */
-  .header__right .btn--main,
-  .header__right .dropdown,
-  .header__right .dropdown__toggle{
+  /* ✅ БУРГЕР НА ПЛАНШЕТЕ НЕ НУЖЕН (он только до 768px) */
+  .burger{
     display: none !important;
   }
 
-  /* 2) Логотип компактнее */
+  /* ✅ Лого меньше */
   .logo__img{
-    height: clamp(24px, 2.6vw, 32px);
+    height: clamp(22px, 2.2vw, 30px);
     width: auto;
   }
 
-  /* 3) Меню сильнее ужимаем */
+  /* ✅ Меню сильнее ужимаем, чтобы не ломалось в 2 строки */
   .nav{
-    font-size: clamp(11px, 1.15vw, 13px);
-    gap: clamp(8px, 1.2vw, 14px);
+    font-size: clamp(10px, 1.05vw, 12px);
+    gap: clamp(6px, 1vw, 14px);
   }
+
   .nav a{
-    padding-left: clamp(1px, 0.35vw, 4px);
-    padding-right: clamp(1px, 0.35vw, 4px);
+    padding-left: clamp(0px, 0.35vw, 6px);
+    padding-right: clamp(0px, 0.35vw, 6px);
     white-space: nowrap;
   }
 
-  /* 4) Общие отступы внутри шапки — меньше */
-  .header__inner{
-    gap: clamp(6px, 1vw, 12px);
-    padding-left: clamp(10px, 1.6vw, 18px);
-    padding-right: clamp(10px, 1.6vw, 18px);
+  /* ✅ Правая часть (dropdown “Главная ▾” и “Языки ▾”) — оставляем, но уменьшаем */
+  .header__right .btn--main{
+    font-size: clamp(10px, 1.05vw, 12px);
+    padding: clamp(6px, 0.9vw, 9px) clamp(10px, 1.2vw, 14px);
+    white-space: nowrap;
   }
 
-  /* 5) Правая часть: оставляем только бургер, прижимаем */
+  /* ✅ Общие расстояния в шапке — меньше */
+  .header__inner{
+    gap: clamp(6px, 1vw, 12px);
+    padding-left: clamp(10px, 1.5vw, 18px);
+    padding-right: clamp(10px, 1.5vw, 18px);
+  }
+
   .header__right{
-    margin-right: 0;
-    gap: 8px;
+    gap: clamp(6px, 1vw, 12px);
   }
 }
+
 
 
 
