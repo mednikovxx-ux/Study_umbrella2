@@ -447,28 +447,26 @@
 }
 
 /* ==================================================
-   HUMANITIES — HERO IMAGE MOVE LEFT (TABLET ONLY)
-   ================================================== */
-/* ==================================================
-   HUMANITIES — HERO IMAGE POSITION (TABLET ONLY)
+   HUMANITIES — CTA DECOR 2 (TABLET ONLY)
+   двигаем "список" левее/ниже
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  .page-humanities .hero__image-wrap{
-    display: flex;
-    justify-content: flex-start; /* влево */
-    padding-left: -20px;          /* сдвиг левее */
-    padding-right: 0;
-  }
+  .page-humanities img[src*="cta-decor2"]{
+    position: absolute !important;
 
-  .page-humanities .hero__image{
-    position: relative;          /* чтобы работал top */
-    top: -40px;                   /* ОПУСКАЕМ ВНИЗ */
-    max-width: 480px;            /* если нужно — можно убрать */
-    height: auto;
+    width: 60px !important;   /* размер оставил как у тебя */
+    height: auto !important;
+
+    left: 10px !important;    /* ← МЕНЬШЕ = ЛЕВЕЕ */
+    top: 280px !important;    /* ↑ БОЛЬШЕ = НИЖЕ */
+
+    z-index: 4 !important;
+    pointer-events: none !important;
   }
 
 }
+
 
 
 
