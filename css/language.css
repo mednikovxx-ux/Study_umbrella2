@@ -459,7 +459,7 @@
     height: auto !important;
 
     left: -20px !important;    /* ← МЕНЬШЕ = ЛЕВЕЕ */
-    top: 340px !important;    /* ↑ БОЛЬШЕ = НИЖЕ */
+    top: 320px !important;    /* ↑ БОЛЬШЕ = НИЖЕ */
 
     z-index: 4 !important;
     pointer-events: none !important;
