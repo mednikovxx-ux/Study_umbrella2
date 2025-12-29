@@ -90,51 +90,64 @@
   margin-top: 14px;
   display: grid;
 
-  /* БЫЛО узко — СТАЛО шире: */
-  grid-template-columns: 280px 320px 320px;  /* красная + 2 колонки шире */
-  grid-auto-rows: 132px;                     /* ВЫШЕ, чтобы влезал текст */
-  gap: 16px;
+  /* Figma: красная + 2 колонки */
+  grid-template-columns: 270px 260px 260px;
+  grid-auto-rows: 118px;
+  gap: 14px;
+
   align-items: stretch;
 }
 
+
 /* карточка */
-.page-chinese .hero-cn__card{
+ .page-chinese .hero-cn__card{
+  position: relative; /* нужно для иконки в красной карточке */
+
   border-radius: 18px;
-  padding: 18px 18px;
+  padding: 16px 16px 14px;
   border: none;
   box-shadow: none;
-  background: var(--cn-card-1);
+
   color: var(--cn-text);
+  background: var(--cn-card-1);
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
+
 /* большая красная карточка */
-.page-chinese .hero-cn__card--level{
+..page-chinese .hero-cn__card--level{
   grid-row: span 2;
   background: var(--cn-card-red);
   color: var(--cn-card-red-text);
   text-decoration: none;
-  justify-content: flex-end; /* как в фигме: текст внизу */
-  padding: 20px;
+
+  padding: 22px;
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-/* иконка */
 .page-chinese .hero-cn__icon{
-  width: 42px;
-  height: 42px;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: auto; /* держим кружок наверху */
 }
+
 .page-chinese .hero-cn__icon-dot{
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #fff;
 }
@@ -152,22 +165,27 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  padding: 6px 14px;
+
+  padding: 5px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.28);
-  background: rgba(255,255,255,0.28);
-  font-size: 13px;
-  font-weight: 700;
-  margin: 0 0 10px 0;
+
+  border: 1px solid rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.22);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  margin: 0 0 8px 0;
 }
+
 
 /* текст в карточках — крупнее и нормальная высота строки */
 .page-chinese .hero-cn__card-text{
-  font-size: 15px;
+  font-size: 12.5px;
   line-height: 1.25;
-  color: rgba(17,17,17,0.74);
-  max-width: 100%;
+  color: rgba(17,17,17,0.78);
 }
+
 
 /* цвета карточек */
 .page-chinese .hero-cn__card--c1{ background: var(--cn-card-1); }
@@ -185,9 +203,12 @@
 
 /* ⚠️ ВАЖНО: картинку НЕ задаём размерами — оставляем твои */
 .page-chinese .hero-cn__img{
-  border-radius: 22px;
+  width: 420px;
+  height: 250px; /* 118 + 118 + gap14 = 250 */
   object-fit: cover;
+  border-radius: 22px;
 }
+
 
 /* ===== адаптив ===== */
 @media (max-width: 1200px){
@@ -207,10 +228,14 @@
     white-space: normal;
   }
 
-  .page-chinese .hero-cn__right{
-    margin-top: 16px;
-    justify-content: center;
-  }
+.page-chinese .hero-cn__right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  margin-top: 122px; /* ровно под заголовок как в твоём скрине */
+}
+
 
   .page-chinese .hero-cn__grid{
     grid-template-columns: 260px 1fr;
