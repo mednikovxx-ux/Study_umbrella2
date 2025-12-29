@@ -1954,6 +1954,43 @@ html {
   }
 }
 
+/* ==================================================
+   TABLET ONLY (769px–1024px)
+   HERO — IMAGE + TEXT IN ONE ROW (DESKTOP-LIKE)
+   НЕ МЕНЯЕМ ФИЗИКУ, ТОЛЬКО РАЗМЕРЫ
+   ================================================== */
+@media (min-width: 769px) and (max-width: 1024px){
+
+  /* 1) Картинка в hero — уменьшаем пропорционально */
+  .hero__image{
+    width: clamp(300px, 38vw, 420px) !important;
+    height: auto !important;
+  }
+
+  /* если картинка обёрнута */
+  .hero__image-wrap{
+    max-width: clamp(300px, 38vw, 420px) !important;
+  }
+
+  /* 2) Заголовок — чуть меньше */
+  .hero__title{
+    font-size: clamp(32px, 4.2vw, 42px) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* 3) Подзаголовок / описание */
+  .hero__text,
+  .hero__description{
+    font-size: clamp(14px, 1.6vw, 16px) !important;
+  }
+
+  /* 4) Кнопка — немного компактнее */
+  .hero .btn{
+    font-size: clamp(14px, 1.6vw, 16px) !important;
+    padding: clamp(10px, 1.4vw, 12px) clamp(18px, 2vw, 22px) !important;
+  }
+}
+
 
 
 
