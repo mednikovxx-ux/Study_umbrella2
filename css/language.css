@@ -302,5 +302,24 @@
 }
 .page-humanities .about-line .accent{ color:#A98AB0 !important; }
 
+/* ===== HUMANITIES: offers book left + text lower ===== */
+
+/* опора для абсолютной книги */
+.page-humanities #offers .programs-info{
+  position: relative;
+  padding-left: 150px;   /* место под книгу слева (подгони 120–180) */
+  margin-top: 60px;      /* текст ниже (подгони 40–90) */
+}
+
+/* книга (у тебя она сейчас .offers-dancer) */
+.page-humanities #offers .offers-dancer{
+  position: absolute;
+  left: 0;               /* слева от текста */
+  top: 10px;             /* вертикально относительно текста (подгони 0–30) */
+  width: 120px;          /* книга больше (подгони 110–150) */
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+}
 
 
