@@ -1867,46 +1867,52 @@ html {
     display: none !important;
   }
 }
+
+
+
+
 /* ===========================
-   TABLET ONLY — HEADER ONE LINE (FLUID)
+   TABLET ONLY — HEADER FIX (ONE LINE + NO DOUBLE "Главная")
    769px – 1024px
-   Только размеры/отступы, без смены layout
+   Только размеры/отступы/видимость (без смены display/flex/grid)
    =========================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* Логотип — плавно уменьшается */
+  /* 1) Убираем ДУБЛЬ "Главная" справа (оставляем dropdown "Главная ▾") */
+  .header__right .btn--main,
+  .header__right .dropdown,
+  .header__right .dropdown__toggle{
+    display: none !important;
+  }
+
+  /* 2) Логотип компактнее */
   .logo__img{
-    height: clamp(28px, 3.2vw, 36px);
+    height: clamp(24px, 2.6vw, 32px);
     width: auto;
   }
 
-  /* Меню — плавные размер/отступы/расстояние */
+  /* 3) Меню сильнее ужимаем */
   .nav{
-    font-size: clamp(12px, 1.35vw, 14px);
-    gap: clamp(10px, 1.8vw, 22px);
+    font-size: clamp(11px, 1.15vw, 13px);
+    gap: clamp(8px, 1.2vw, 14px);
   }
-
   .nav a{
-    padding-left: clamp(2px, 0.6vw, 6px);
-    padding-right: clamp(2px, 0.6vw, 6px);
+    padding-left: clamp(1px, 0.35vw, 4px);
+    padding-right: clamp(1px, 0.35vw, 4px);
     white-space: nowrap;
   }
 
-  /* Правая кнопка — плавно уменьшается */
-  .btn--main{
-    font-size: clamp(12px, 1.3vw, 14px);
-    padding: clamp(6px, 0.9vw, 10px) clamp(10px, 1.6vw, 18px);
-    white-space: nowrap;
-  }
-
-  /* Общие небольшие поджимы, тоже плавно */
+  /* 4) Общие отступы внутри шапки — меньше */
   .header__inner{
-    gap: clamp(8px, 1.4vw, 16px);
+    gap: clamp(6px, 1vw, 12px);
+    padding-left: clamp(10px, 1.6vw, 18px);
+    padding-right: clamp(10px, 1.6vw, 18px);
   }
 
+  /* 5) Правая часть: оставляем только бургер, прижимаем */
   .header__right{
-    gap: clamp(4px, 0.8vw, 10px);
-    margin-right: clamp(8px, 1.6vw, 24px);
+    margin-right: 0;
+    gap: 8px;
   }
 }
 
