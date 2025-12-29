@@ -262,13 +262,7 @@
   pointer-events: none;
   z-index: 5;
 }
-/* ===== HUMANITIES: purple accent text ===== */
 
-.page-humanities .accent,
-.page-humanities .text-accent,
-.page-humanities span.accent{
-  color: #A98AB0; /* фиолетовый как в макете */
-}
 
 
 
