@@ -317,8 +317,8 @@
 /* КНИГА (offers-dancer) — управляемый размер */
 .page-humanities #offers .offers-dancer{
   position: absolute;
-  top: 22px;
-  right: 100px;
+  top: 0px;
+  right: 200px;
   left: auto;
 
   max-width: 200px;   /* 👈 МЕНЯЕШЬ ТОЛЬКО ЭТО */
