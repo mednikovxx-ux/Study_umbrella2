@@ -237,7 +237,8 @@ img,
   body.page-humanities .header__right--switch{
     display: flex !important;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 24px;  
     gap: 18px;
     order: 2; /* строка ниже логотипа */
   }
