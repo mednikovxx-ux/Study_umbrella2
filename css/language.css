@@ -237,7 +237,7 @@
   height: auto;
 
   left: 35px;    /* 👈 двигай */
-  top: 100px;     /* 👈 двигай */
+  top: 0px;     /* 👈 двигай */
 
   z-index: 4;
 }
@@ -255,7 +255,7 @@
   height: auto;
 
   left: 200px;    /* 👈 двигай */
-  top: 0px;     /* 👈 двигай */
+  top: 160px;     /* 👈 двигай */
 
   transform: rotate(-25deg);
   opacity: 0.9;
