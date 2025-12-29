@@ -221,7 +221,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-right: 24px; /* 👈 двигай вправо */
+  padding-right: 30px; /* 👈 двигай вправо */
 }
 
 /* ================================
@@ -233,10 +233,10 @@
 .page-humanities img[src*="cta-decor2"]{
   position: absolute;
 
-  width: 120px;   /* 👈 размер свитка */
+  width: 60px;   /* 👈 размер свитка */
   height: auto;
 
-  left: 160px;    /* 👈 двигай */
+  left: 100px;    /* 👈 двигай */
   top: 190px;     /* 👈 двигай */
 
   z-index: 4;
@@ -251,7 +251,7 @@
 .page-humanities .hero__arrow{
   position: absolute;
 
-  width: 90px;    /* 👈 размер стрелки */
+  width: 140px;    /* 👈 размер стрелки */
   height: auto;
 
   left: 210px;    /* 👈 двигай */
