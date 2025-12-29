@@ -1,5 +1,9 @@
-/* chinies.css — HERO (структура/позиции). Цвета только из style="" в HTML */
+/* =========================
+   chinies.css (HERO ONLY)
+   ПИКСЕЛЬНО под Figma (скрин 2)
+   ========================= */
 
+/* ===== БАЗА HERO ===== */
 .page-chinese .hero.hero--chinese{
   background: transparent;
   padding: 0;
@@ -7,11 +11,11 @@
 
 .page-chinese .hero-cn{
   position: relative;
-  background: transparent;
   padding: 0;
+  background: transparent;
 }
 
-/* стрелка */
+/* декоративная стрелка (фон) */
 .page-chinese .hero-cn__bg-arrow{
   position: absolute;
   left: 250px;
@@ -23,7 +27,7 @@
   z-index: 1;
 }
 
-/* 你好 — прижато к хеддеру */
+/* 你好 (картинка) — прижата к хеддеру */
 .page-chinese .hero-cn__hello-img{
   position: relative;
   z-index: 2;
@@ -33,21 +37,20 @@
   margin: -20px 0 6px 0;
 }
 
-/* общий ряд */
+/* общий ряд: слева контент + справа картинка */
 .page-chinese .hero-cn__row{
-  display: grid;
-  grid-template-columns: 1fr 460px; /* правую колонку НЕ трогаем (как у тебя сейчас) */
-  gap: 28px;
-  align-items: start;
   position: relative;
   z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr 440px; /* правая колонка под картинку */
+  gap: 28px;
+  align-items: start;
 }
 
-.page-chinese .hero-cn__left{
-  min-width: 0;
-}
+.page-chinese .hero-cn__left{ min-width: 0; }
 
-/* заголовок */
+/* ===== ЗАГОЛОВОК (оставляем как у тебя) ===== */
 .page-chinese .hero-cn__title{
   margin: 0;
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
@@ -63,47 +66,46 @@
 .page-chinese .hero-cn__title .t--black{ color: var(--cn-text); }
 .page-chinese .hero-cn__title .t--red{ color: var(--cn-accent); }
 
-/* сдвиг второй строки под букву "И" */
+/* строка 2 под букву "И" — трогай только это, если надо на 1–3px */
 .page-chinese .hero-cn__line2{
   display: inline-block;
   margin-left: 330px;
 }
 
-/* “под зонтиком…” справа + маленький отступ */
+/* “под зонтиком…” — справа, как в Figma */
 .page-chinese .hero-cn__quote{
   margin-top: 6px;
   font-size: 13px;
   color: var(--cn-text);
   opacity: 0.85;
+
   width: fit-content;
   margin-left: auto;
-  padding-right: 10px;
+  padding-right: 12px;
   white-space: nowrap;
 }
 
-/* =====================================
-   ✅ КАРТОЧКИ 1в1: шире + выше + текст влезает
-   ===================================== */
-
-/* сетка карточек — делаем шире блок 2×2 */
+/* =====================================================
+   ✅ СЕТКА КАРТОЧЕК 1в1 (Figma)
+   красная + 2×2 карточки
+   ===================================================== */
 .page-chinese .hero-cn__grid{
   margin-top: 14px;
   display: grid;
 
-  /* Figma: красная + 2 колонки */
-  grid-template-columns: 270px 260px 260px;
-  grid-auto-rows: 118px;
+  /* красная слева + 2 колонки справа */
+  grid-template-columns: 260px 280px 280px;
+  grid-auto-rows: 122px;   /* высота одной маленькой карточки */
   gap: 14px;
 
   align-items: stretch;
 }
 
+/* общая карточка */
+.page-chinese .hero-cn__card{
+  position: relative;
 
-/* карточка */
- .page-chinese .hero-cn__card{
-  position: relative; /* нужно для иконки в красной карточке */
-
-  border-radius: 18px;
+  border-radius: 22px;
   padding: 16px 16px 14px;
   border: none;
   box-shadow: none;
@@ -116,10 +118,10 @@
   justify-content: flex-start;
 }
 
-
-/* большая красная карточка */
-..page-chinese .hero-cn__card--level{
+/* ===== КРАСНАЯ (левая) ===== */
+.page-chinese .hero-cn__card--level{
   grid-row: span 2;
+
   background: var(--cn-card-red);
   color: var(--cn-card-red-text);
   text-decoration: none;
@@ -129,30 +131,52 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
 }
 
+/* иконка-стрелка сверху справа (как в Figma) */
 .page-chinese .hero-cn__icon{
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
+
   width: 34px;
   height: 34px;
-  border-radius: 50%;
+  border-radius: 999px;
+
   background: rgba(255,255,255,0.18);
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .page-chinese .hero-cn__icon-dot{
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fff;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: transparent;
+  position: relative;
 }
 
+/* рисуем “стрелку” CSS-ом, чтобы было похоже на круг со стрелкой */
+.page-chinese .hero-cn__icon-dot::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  border-left: 0;
+  border-bottom: 0;
+  transform: rotate(45deg);
+  width: 9px;
+  height: 9px;
+  left: 2px;
+  top: 2px;
+}
+
+/* текст красной карточки снизу, как в Figma */
 .page-chinese .hero-cn__level-text{
+  margin-top: auto;
+
   font-size: 16px;
   line-height: 1.12;
   font-weight: 900;
@@ -160,7 +184,15 @@
   text-transform: uppercase;
 }
 
-/* ✅ пилюля как в Figma: меньше и тоньше */
+/* подчёркнутые строки (ВАШ УРОВЕНЬ) как в Figma */
+.page-chinese .hero-cn__level-text u{
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+/* =====================================================
+   ✅ ПИЛЮЛЯ (вкладка) — тонкая, маленькая
+   ===================================================== */
 .page-chinese .hero-cn__pill{
   display: inline-flex;
   align-items: center;
@@ -169,55 +201,49 @@
   padding: 5px 12px;
   border-radius: 999px;
 
-  border: 1px solid rgba(0,0,0,0.35);
-  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(0,0,0,0.38);
+  background: rgba(255,255,255,0.18);
 
   font-size: 12px;
   font-weight: 600;
 
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
 }
 
-
-/* текст в карточках — крупнее и нормальная высота строки */
+/* текст в карточках */
 .page-chinese .hero-cn__card-text{
   font-size: 12.5px;
   line-height: 1.25;
   color: rgba(17,17,17,0.78);
 }
 
-
-/* цвета карточек */
+/* цвета маленьких карточек */
 .page-chinese .hero-cn__card--c1{ background: var(--cn-card-1); }
 .page-chinese .hero-cn__card--c2{ background: var(--cn-card-2); }
 .page-chinese .hero-cn__card--c3{ background: var(--cn-card-3); }
 .page-chinese .hero-cn__card--c4{ background: var(--cn-card-4); }
 
-/* ✅ правая часть — НЕ ТРОГАЕМ картинку, только позицию блока как было */
+/* =====================================================
+   ✅ КАРТИНКА справа = высота 2 рядов карточек
+   122 + 122 + gap14 = 258px
+   ===================================================== */
 .page-chinese .hero-cn__right{
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-top: 118px;
+
+  /* опускаем на уровень карточек (как в Figma) */
+  margin-top: 120px;
 }
 
-/* ⚠️ ВАЖНО: картинку НЕ задаём размерами — оставляем твои */
 .page-chinese .hero-cn__img{
-  width: 420px;
-  height: 250px; /* 118 + 118 + gap14 = 250 */
+  width: 440px;
+  height: 258px; /* 2 ряда карточек */
   object-fit: cover;
   border-radius: 22px;
 }
 
-
-/* ===== адаптив ===== */
-@media (max-width: 1200px){
-  .page-chinese .hero-cn__grid{
-    grid-template-columns: 260px 1fr 1fr;
-    grid-auto-rows: 128px;
-  }
-}
-
+/* ===== АДАПТИВ ===== */
 @media (max-width: 1024px){
   .page-chinese .hero-cn__row{
     grid-template-columns: 1fr;
@@ -228,14 +254,16 @@
     white-space: normal;
   }
 
-.page-chinese .hero-cn__right{
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  .page-chinese .hero-cn__right{
+    margin-top: 16px;
+    justify-content: center;
+  }
 
-  margin-top: 122px; /* ровно под заголовок как в твоём скрине */
-}
-
+  .page-chinese .hero-cn__img{
+    width: 100%;
+    height: auto;
+    max-width: 640px;
+  }
 
   .page-chinese .hero-cn__grid{
     grid-template-columns: 260px 1fr;
