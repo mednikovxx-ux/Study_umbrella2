@@ -122,8 +122,6 @@
     --cn-text:#111111;
     --cn-soft:#6B7280;
 
-    --cn-chip-border:#111111;
-
     --cn-card-red:#D65655;
     --cn-card-red-text:#ffffff;
 
@@ -140,20 +138,26 @@
 
       <!-- левый контент -->
       <div class="hero-cn__content">
-        <div class="hero-cn__hello">你好!</div>
+        <!-- 你好! как КАРТИНКА -->
+        <img class="hero-cn__hello-img" src="img/nihao.png" alt="你好!">
 
+        <!-- заголовок 1в1 по макету (poppins mixed) -->
         <h1 class="hero-cn__title">
-          УЧИТЬ <span class="hero-cn__accent">КИТАЙСКИЙ</span><br>
-          <span class="hero-cn__accent">СОВРЕМЕННО</span> И КОМФОРТНО!
+          <span class="hero-cn__t hero-cn__t--black">УЧИТЬ</span>
+          <span class="hero-cn__t hero-cn__t--red">КИТАЙСКИЙ</span>
+          <br>
+          <span class="hero-cn__t hero-cn__t--red">СОВРЕМЕННО</span>
+          <span class="hero-cn__t hero-cn__t--black">И</span>
+          <br>
+          <span class="hero-cn__t hero-cn__t--black">КОМФОРТНО!</span>
         </h1>
 
-        <div class="hero-cn__quote">“под зонтиком лучших преподавателей”</div>
+        <div class="hero-cn__quote">*под зонтиком лучших преподавателей!</div>
 
         <div class="hero-cn__grid">
           <!-- большая красная карточка -->
-          <a class="hero-cn__card hero-cn__card--level" href="#contact">
+          <a class="hero-cn__card hero-cn__card--level" href="#contacts">
             <span class="hero-cn__icon">
-              <!-- иконку можешь заменить на img -->
               <span class="hero-cn__icon-dot"></span>
             </span>
             <span class="hero-cn__level-text">
@@ -1004,6 +1008,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
