@@ -232,16 +232,16 @@ img,
     display: none !important;
   }
 
-  /* 3) Показываем 2 таблетки и ставим их по центру отдельной строкой */
-  body.page-language .header__right--switch,
-  body.page-humanities .header__right--switch{
-    display: flex !important;
-    width: 100%;
-    justify-content: flex-start;
-    padding-right: 0px;  
-    gap: 18px;
-    order: 2; /* строка ниже логотипа */
-  }
+ /* 3) Показываем 2 таблетки и выравниваем по ПРАВОМУ краю */
+body.page-language .header__right--switch,
+body.page-humanities .header__right--switch{
+  display: flex !important;
+  width: 100%;
+  justify-content: flex-end; /* ← ВОТ ЭТО ГЛАВНОЕ */
+  padding-right: 24px;       /* ← отступ от правого края, крути ТОЛЬКО ЭТО */
+  gap: 18px;
+  order: 2;
+}
 
   /* 4) Логотип — первая строка */
   body.page-language .logo,
