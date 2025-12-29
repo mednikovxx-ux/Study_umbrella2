@@ -213,7 +213,7 @@
 
 .page-humanities .hero__image{
   width: 100%;
-  max-width: 420px;   /* 👈 МЕНЯЕШЬ ТОЛЬКО ЭТО */
+  max-width: 460px;   /* 👈 МЕНЯЕШЬ ТОЛЬКО ЭТО */
   height: auto;
 }
 
@@ -221,7 +221,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-right: 30px; /* 👈 двигай вправо */
+  padding-right: 0px; /* 👈 двигай вправо */
 }
 
 /* ================================
@@ -236,8 +236,8 @@
   width: 60px;   /* 👈 размер свитка */
   height: auto;
 
-  left: 100px;    /* 👈 двигай */
-  top: 190px;     /* 👈 двигай */
+  left: 30px;    /* 👈 двигай */
+  top: 65px;     /* 👈 двигай */
 
   z-index: 4;
 }
@@ -255,7 +255,7 @@
   height: auto;
 
   left: 210px;    /* 👈 двигай */
-  top: 150px;     /* 👈 двигай */
+  top: 200px;     /* 👈 двигай */
 
   transform: rotate(-25deg);
   opacity: 0.9;
