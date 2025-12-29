@@ -1867,6 +1867,22 @@ html {
     display: none !important;
   }
 }
+/* =========================================
+   SHOW MOBILE BURGER ONLY ON MOBILE
+   ========================================= */
+
+/* по умолчанию (десктоп) — скрываем */
+.burger.burger--with-text{
+  display: none !important;
+}
+
+/* на мобилке — показываем */
+@media (max-width: 768px){
+  .burger.burger--with-text{
+    display: inline-flex !important;
+  }
+}
+
 
 
 
