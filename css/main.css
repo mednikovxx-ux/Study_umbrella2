@@ -1957,51 +1957,56 @@ html {
 /* ==================================================
    TABLET ONLY (769px–1024px)
    HERO — КАК НА DESKTOP
-   КАРТИНКА ВПИСАНА В СЕРЫЙ БЛОК
+   КАРТИНКА И ТЕКСТ РЯДОМ + ТЕКСТ ЧУТЬ ЛЕВЕЕ
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* 1) HERO — одна строка */
   .hero__inner{
     display: flex !important;
     flex-direction: row !important;
-    align-items: flex-end !important; /* ⬅ КЛЮЧ: опускаем картинку вниз */
-    justify-content: space-between !important;
     flex-wrap: nowrap !important;
-    gap: clamp(12px, 2vw, 20px) !important;
+
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+
+    /* было слишком широко — из-за этого текст “уезжал” вправо */
+    gap: clamp(8px, 1.2vw, 14px) !important;
   }
 
-  /* 2) Контент слева — как есть, НЕ трогаем размеры текста */
+  /* ВОТ ЗДЕСЬ ГЛАВНОЕ:
+     двигаем текст влево НЕ margin’ом, а уменьшением padding-left */
   .hero__content{
     min-width: 0 !important;
-    margin-left: -24px !important;
+
+    /* заменяем базовые 56px на более маленький и “резиновый” */
+    padding-left: clamp(18px, 2.4vw, 34px) !important;
+
+    /* остальные твои значения оставляем как в базе */
+    padding-top: 24px !important;
+    padding-right: 0 !important;
+    padding-bottom: 40px !important;
   }
 
-  /* 3) Обёртка картинки — опускаем внутрь серого блока */
   .hero__image-wrap{
+    min-width: 0 !important;
+
     display: flex !important;
-    align-items: flex-end !important; /* ⬅ КЛЮЧ */
+    align-items: flex-end !important;
     justify-content: flex-start !important;
 
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* 4) Картинка — уменьшаем ТОЛЬКО по ширине */
   .hero__image{
     width: clamp(280px, 34vw, 420px) !important;
     max-width: 100% !important;
     height: auto !important;
-    display: block;
-  }
-
-  /* 5) Никаких лишних внешних отступов у hero */
-  .hero{
-    padding-bottom: clamp(32px, 4vw, 48px) !important;
+    display: block !important;
   }
 }
+
+
 
 
 
