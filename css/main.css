@@ -1882,6 +1882,20 @@ html {
     display: inline-flex !important;
   }
 }
+/* ===========================
+   TABLET ONLY — HEADER FIX
+   (769px – 1024px)
+   =========================== */
+@media (min-width: 769px) and (max-width: 1024px){
+
+  /* логотип — чуть меньше */
+  .header__logo img{
+    max-height: 34px;   /* было больше */
+    width: auto;
+  }
+
+  /* пункты меню — компактнее */
+
 
 
 
