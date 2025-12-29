@@ -1956,40 +1956,40 @@ html {
 
 /* ==================================================
    TABLET ONLY (769px–1024px)
-   HERO — IMAGE + TEXT IN ONE ROW (DESKTOP-LIKE)
-   НЕ МЕНЯЕМ ФИЗИКУ, ТОЛЬКО РАЗМЕРЫ
+   HERO — ТЕКСТ И КАРТИНКА РЯДОМ (как на десктопе)
+   Минимально: убираем перенос + уменьшаем, чтобы влезало
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* 1) Картинка в hero — уменьшаем пропорционально */
+  /* 1) hero НЕ должен переноситься на 2 строки */
+  .hero__inner{
+    flex-wrap: nowrap !important;
+  }
+
+  /* 2) обе колонки могут сжиматься (иначе текст выталкивает картинку вниз) */
+  .hero__content,
+  .hero__image-wrap{
+    min-width: 0 !important;
+  }
+
+  /* 3) картинка меньше, чтобы точно влезала рядом */
   .hero__image{
-    width: clamp(300px, 38vw, 420px) !important;
+    width: clamp(260px, 34vw, 380px) !important;
     height: auto !important;
   }
 
-  /* если картинка обёрнута */
-  .hero__image-wrap{
-    max-width: clamp(300px, 38vw, 420px) !important;
-  }
-
-  /* 2) Заголовок — чуть меньше */
+  /* 4) заголовок/текст чуть компактнее (не мелко) */
   .hero__title{
-    font-size: clamp(32px, 4.2vw, 42px) !important;
-    line-height: 1.1 !important;
+    font-size: clamp(34px, 4.6vw, 44px) !important;
+    line-height: 1.08 !important;
   }
 
-  /* 3) Подзаголовок / описание */
   .hero__text,
   .hero__description{
-    font-size: clamp(14px, 1.6vw, 16px) !important;
-  }
-
-  /* 4) Кнопка — немного компактнее */
-  .hero .btn{
-    font-size: clamp(14px, 1.6vw, 16px) !important;
-    padding: clamp(10px, 1.4vw, 12px) clamp(18px, 2vw, 22px) !important;
+    font-size: clamp(15px, 1.7vw, 17px) !important;
   }
 }
+
 
 
 
