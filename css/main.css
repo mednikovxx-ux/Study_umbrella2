@@ -1974,6 +1974,7 @@ html {
   /* 2) Контент слева — как есть, НЕ трогаем размеры текста */
   .hero__content{
     min-width: 0 !important;
+    margin-left: -24px !important;
   }
 
   /* 3) Обёртка картинки — опускаем внутрь серого блока */
@@ -2001,6 +2002,7 @@ html {
     padding-bottom: clamp(32px, 4vw, 48px) !important;
   }
 }
+
 
 
 
