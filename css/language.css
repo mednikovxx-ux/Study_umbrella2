@@ -360,7 +360,7 @@
   top: -30px;                /* 👈 выше заголовка (подгони) */
   right: -85px;              /* 👈 справа от текста (подгони) */
 
-  background-image: url("../img/courses-figure.png"); /* 👈 твой файл из Figma */
+  background-image: url("../img/courses-icon.png"); /* 👈 твой файл из Figma */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
