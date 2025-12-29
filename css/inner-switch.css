@@ -203,7 +203,6 @@ img,
     display: block;
     padding: 10px 0;
   }
-}
 /* ==================================================
    TABLET ONLY (769–1024)
    Только language + humanities:
@@ -211,7 +210,7 @@ img,
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* 0) Хедер на 2 строки: 1) логотип  2) две таблетки по центру */
+  /* 0) Хедер на 2 строки: 1) логотип  2) две таблетки */
   body.page-language .header__inner,
   body.page-humanities .header__inner{
     flex-wrap: wrap;
@@ -232,16 +231,37 @@ img,
     display: none !important;
   }
 
- /* 3) Показываем 2 таблетки и выравниваем по ПРАВОМУ краю */
-body.page-language .header__right--switch,
-body.page-humanities .header__right--switch{
-  display: flex !important;
-  width: 100%;
-  justify-content: flex-end; /* ← ВОТ ЭТО ГЛАВНОЕ */
-  padding-right: 24px;       /* ← отступ от правого края, крути ТОЛЬКО ЭТО */
-  gap: 18px;
-  order: 2;
-}
+  /* 3) Контейнер с 2 таблетками — справа */
+  body.page-language .header__right--switch,
+  body.page-humanities .header__right--switch{
+    display: flex !important;
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 24px;
+    gap: 18px;
+    order: 2;
+
+    flex-wrap: nowrap;     /* ✅ НЕ переносить */
+    overflow: visible;     /* ✅ ничего не обрезать */
+  }
+
+  /* ✅ ВАЖНО: явно показываем ОБЕ таблетки (иначе одна может быть скрыта старым CSS) */
+  body.page-language #mainDropdown,
+  body.page-humanities #mainDropdown,
+  body.page-language #switchDropdown,
+  body.page-humanities #switchDropdown{
+    display: block !important;
+  }
+
+  /* ✅ и сами кнопки в таблетках */
+  body.page-language #mainMenuToggle,
+  body.page-humanities #mainMenuToggle,
+  body.page-language #switchToggle,
+  body.page-humanities #switchToggle{
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
 
   /* 4) Логотип — первая строка */
   body.page-language .logo,
