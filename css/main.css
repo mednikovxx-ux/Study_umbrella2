@@ -2043,16 +2043,18 @@ html {
 }
 
 /* ==================================================
-   TABLET ONLY — центрируем "Дополнительные курсы"
+   TABLET ONLY — центрируем "Дополнительные курсы" (track-card--narrow)
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .directions__grid > :nth-child(3) {
-    grid-column: 1 / 3;                 /* даём область строки */
-    justify-self: center;               /* центрируем карточку */
+  .tracks .track-card--narrow {
+    grid-column: 1 / -1;                 /* даём место на всю строку */
+    justify-self: center;                /* ставим карточку по центру */
     width: 100%;
-    max-width: calc((100% - 24px) / 2); /* ширина ОДНОЙ карточки */
+    max-width: calc((100% - 24px) / 2);  /* ширина как у 1 карточки (gap у тебя 24px) */
   }
 }
+
+
 
 
 
