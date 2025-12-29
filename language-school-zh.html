@@ -113,7 +113,7 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO (REPLACE WHOLE OLD HERO WITH THIS) -->
 <section class="hero hero--chinese"
   style="
     --cn-accent:#D65655;
@@ -133,60 +133,63 @@
     <div class="hero-cn">
       <img class="hero-cn__bg-arrow" src="img/hero-arrow-bg.png" alt="">
 
-      <div class="hero-cn__content">
-        <img class="hero-cn__hello-img" src="img/nihao.png" alt="你好!">
+      <!-- 你好 прижато к хеддеру -->
+      <img class="hero-cn__hello-img" src="img/nihao.png" alt="你好!">
 
-        <!-- заголовок по сетке как в Figma:
-             СОВРЕМЕННО стартует под КИТАЙСКИЙ и начинается с буквы "И" -->
-        <h1 class="hero-cn__title">
-          <span class="hero-cn__w hero-cn__w--black hero-cn__w--teach">УЧИТЬ</span>
-          <span class="hero-cn__w hero-cn__w--red hero-cn__w--lang">КИТАЙСКИЙ</span>
+      <div class="hero-cn__row">
+        <!-- LEFT -->
+        <div class="hero-cn__left">
+          <!-- ЗАГОЛОВОК как на скрине 4: одна строка, перенос только перед "СОВРЕМЕННО" -->
+          <h1 class="hero-cn__title">
+            <span class="t t--black">УЧИТЬ</span>
+            <span class="t t--red">КИТАЙСКИЙ</span>
+            <br>
+            <span class="t t--red">СОВРЕМЕННО</span>
+            <span class="t t--black">И</span>
+            <span class="t t--black">КОМФОРТНО!</span>
+          </h1>
 
-          <span class="hero-cn__w hero-cn__w--red hero-cn__w--modern">СОВРЕМЕННО</span>
-          <span class="hero-cn__w hero-cn__w--black hero-cn__w--and">И</span>
+          <div class="hero-cn__quote">*под зонтиком лучших преподавателей!</div>
 
-          <span class="hero-cn__w hero-cn__w--black hero-cn__w--comfort">КОМФОРТНО!</span>
-        </h1>
+          <div class="hero-cn__grid">
+            <a class="hero-cn__card hero-cn__card--level" href="#contacts">
+              <span class="hero-cn__icon"><span class="hero-cn__icon-dot"></span></span>
+              <span class="hero-cn__level-text">
+                ОПРЕДЕЛИТЬ<br>ВАШ УРОВЕНЬ<br>ЯЗЫКА
+              </span>
+            </a>
 
-        <!-- подпись: чернее, больше, как в макете -->
-        <div class="hero-cn__quote">*под зонтиком лучших преподавателей!</div>
+            <div class="hero-cn__card hero-cn__card--c1">
+              <div class="hero-cn__card-title">Современно</div>
+              <div class="hero-cn__card-text">Используем актуальные методики обучения</div>
+            </div>
 
-        <div class="hero-cn__grid">
-          <a class="hero-cn__card hero-cn__card--level" href="#contacts">
-            <span class="hero-cn__icon"><span class="hero-cn__icon-dot"></span></span>
-            <span class="hero-cn__level-text">
-              ОПРЕДЕЛИТЬ<br>ВАШ УРОВЕНЬ<br>ЯЗЫКА
-            </span>
-          </a>
+            <div class="hero-cn__card hero-cn__card--c2">
+              <div class="hero-cn__card-title">Доступно</div>
+              <div class="hero-cn__card-text">Простой и понятный путь к языку без стресса</div>
+            </div>
 
-          <div class="hero-cn__card hero-cn__card--c1">
-            <div class="hero-cn__card-title">Современно</div>
-            <div class="hero-cn__card-text">Используем актуальные методики обучения</div>
-          </div>
+            <div class="hero-cn__card hero-cn__card--c3">
+              <div class="hero-cn__card-title">Легко</div>
+              <div class="hero-cn__card-text">Говорим и практикуем с первых занятий</div>
+            </div>
 
-          <div class="hero-cn__card hero-cn__card--c2">
-            <div class="hero-cn__card-title">Доступно</div>
-            <div class="hero-cn__card-text">Простой и понятный путь к языку без стресса</div>
-          </div>
-
-          <div class="hero-cn__card hero-cn__card--c3">
-            <div class="hero-cn__card-title">Легко</div>
-            <div class="hero-cn__card-text">Говорим и практикуем с первых занятий</div>
-          </div>
-
-          <div class="hero-cn__card hero-cn__card--c4">
-            <div class="hero-cn__card-title">Так и мы</div>
-            <div class="hero-cn__card-text">Мы учим так, как хотели бы учиться сами</div>
+            <div class="hero-cn__card hero-cn__card--c4">
+              <div class="hero-cn__card-title">Так и мы</div>
+              <div class="hero-cn__card-text">Мы учим так, как хотели бы учиться сами</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="hero-cn__media">
-        <img class="hero-cn__img" src="img/hero-chinese.webp" alt="Китайский язык">
+        <!-- RIGHT: картинка ОПУЩЕНА в один ряд с карточками (как скрин 2) -->
+        <div class="hero-cn__right">
+          <img class="hero-cn__img" src="img/hero-chinese.webp" alt="Китайский язык">
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 
   <!-- НАША ЦЕЛЬ -->
@@ -1000,6 +1003,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
