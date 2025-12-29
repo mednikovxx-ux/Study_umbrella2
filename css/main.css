@@ -1883,18 +1883,47 @@ html {
   }
 }
 /* ===========================
-   TABLET ONLY — HEADER FIX
+   TABLET ONLY — HEADER IN ONE LINE
    (769px – 1024px)
+   Никакой "физики": не трогаем display/flex/grid, только размеры/отступы
    =========================== */
 @media (min-width: 769px) and (max-width: 1024px){
 
-  /* логотип — чуть меньше */
-  .header__logo img{
-    max-height: 34px;   /* было больше */
+  /* Хедер ниже по высоте */
+  .header__inner{
+    height: 76px;        /* было 96px */
+    gap: 10px;           /* было 16px */
+  }
+
+  /* Логотип компактнее */
+  .logo__img{
+    height: 34px;        /* подгони 30–36 */
     width: auto;
   }
 
-  /* пункты меню — компактнее */
+  /* Меню: меньше расстояние и шрифт */
+  .nav{
+    gap: 18px;           /* было 32px */
+    font-size: 13px;     /* было 14px */
+  }
+
+  .nav a{
+    padding: 0 4px;      /* чуть компактнее кликабельная зона */
+    white-space: nowrap; /* чтобы слова не переносились */
+  }
+
+  /* Правая часть (кнопка Главная) — компактнее */
+  .header__right{
+    gap: 6px;            /* было 8px */
+    margin-right: 10px;  /* было 24px */
+  }
+
+  .btn--main{
+    padding: 8px 14px;   /* было 10px 24px */
+    font-size: 13px;     /* было 14px */
+  }
+}
+
 
 
 
