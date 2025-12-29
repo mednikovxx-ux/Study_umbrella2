@@ -2054,18 +2054,31 @@ html {
   }
 }
 /* ==================================================
-   TABLET ONLY — форма уже и прижата вправо
+   TABLET ONLY — "Свяжитесь с нами" снизу слева, форма справа
    ================================================== */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .contact__inner {
-    justify-content: flex-end;
+
+  /* 2 колонки: слева инфо, справа форма */
+  .contact__inner{
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(380px, 520px);
+    gap: 24px;
+    align-items: end;              /* ключ: прижимаем содержимое вниз */
   }
 
-  .contact-form {
-    max-width: 520px;   /* регулируй ширину здесь */
+  /* Левый блок (заголовок + иконки) — вниз */
+  .contact__inner :is(.contact__info, .contact__content, .contact__left){
+    align-self: end;
+  }
+
+  /* Форма справа */
+  .contact-form{
+    justify-self: end;
     width: 100%;
+    max-width: 520px;              /* твоя “идеальная” ширина */
   }
 }
+
 
 
 
