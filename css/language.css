@@ -262,6 +262,11 @@
   pointer-events: none;
   z-index: 5;
 }
+/* HUMANITIES — фиолетовый акцент вместо красного */
+.page-humanities .about-text .accent{
+  color: #A98AB0; /* фиолетовый как в макете */
+}
+
 /* ================================
    HUMANITIES — OFFERS (как в макете)
    ================================ */
