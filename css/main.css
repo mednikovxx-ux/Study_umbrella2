@@ -1317,7 +1317,7 @@ html {
 
   .contact-form__guard {
     width: 60px;
-    top: 0px;
+    top: -10px;
     right: 16px;
   }
 }
@@ -2096,6 +2096,7 @@ html {
     padding-bottom: 24px;      /* визуальный отступ от низа секции */
   }
 }
+
 
 
 
