@@ -1,5 +1,4 @@
 /* language.css */
-
 /* прижимаем картинку вниз серого блока */
 .page-language .hero__image-wrap{
   align-items: flex-end;     /* было flex-start в main.css */
