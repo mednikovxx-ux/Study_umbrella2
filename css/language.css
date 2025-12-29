@@ -365,6 +365,54 @@
   background-size: contain;
   background-position: center;
 }
+/* =====================================
+   HUMANITIES — ФОРМА ОБРАТНОЙ СВЯЗИ
+   ===================================== */
+
+/* 1) ФИОЛЕТОВЫЙ ТЕКСТ «бесплатный урок» */
+.page-humanities .form-section .accent,
+.page-humanities .form-section .highlight{
+  color: #A98AB0; /* фиолетовый из Figma */
+}
+
+/* 2) ФИОЛЕТОВАЯ КНОПКА «Отправить» */
+.page-humanities .contact-form__submit,
+.page-humanities .form button[type="submit"]{
+  background-color: #A98AB0;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+}
+
+.page-humanities .contact-form__submit:hover,
+.page-humanities .form button[type="submit"]:hover{
+  background-color: #A98AB0; /* чуть темнее при ховере */
+}
+
+/* =====================================
+   3) ИЗОБРАЖЕНИЕ В ФОРМЕ — УПРАВЛЯЕМОЕ
+   ===================================== */
+
+/* контейнер формы — опора */
+.page-humanities .contact-form,
+.page-humanities .form{
+  position: relative;
+}
+
+/* само изображение (то, что ты меняешь в HTML) */
+.page-humanities .contact-form img,
+.page-humanities .form img{
+  position: absolute;
+
+  /* 👇 ЭТИ ПАРАМЕТРЫ ТЫ МЕНЯЕШЬ */
+  top: -20px;      /* вверх / вниз */
+  right: 20px;     /* влево / вправо */
+  width: 90px;     /* размер изображения */
+
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+}
 
 
 
