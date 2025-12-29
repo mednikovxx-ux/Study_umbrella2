@@ -457,13 +457,13 @@
   .page-humanities .hero__image-wrap{
     display: flex;
     justify-content: flex-start; /* влево */
-    padding-left: 0px;          /* сдвиг левее */
+    padding-left: -20px;          /* сдвиг левее */
     padding-right: 0;
   }
 
   .page-humanities .hero__image{
     position: relative;          /* чтобы работал top */
-    top: 0px;                   /* ОПУСКАЕМ ВНИЗ */
+    top: -40px;                   /* ОПУСКАЕМ ВНИЗ */
     max-width: 480px;            /* если нужно — можно убрать */
     height: auto;
   }
