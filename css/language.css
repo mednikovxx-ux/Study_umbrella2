@@ -340,31 +340,27 @@
   align-items: flex-start;
 }
 /* =====================================
-   HUMANITIES — ДОСТУПНЫЕ НАПРАВЛЕНИЯ
+   HUMANITIES — ДОСТУПНЫЕ КУРСЫ (как в Figma)
    ===================================== */
 
-/* 1) Заголовок — фиолетовый */
 .page-humanities #courses .section__title{
   color: #A98AB0;            /* фиолетовый как в Figma */
+  position: relative;        /* опора для картинки */
+  display: inline-block;     /* чтобы absolute считался от заголовка */
 }
 
-/* 2) Контейнер заголовка */
-.page-humanities #courses .section__title{
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;                 /* расстояние между текстом и иконкой */
-}
-
-/* 3) Иконка из Figma */
+/* Полноценное изображение справа сверху (НЕ inline иконка) */
 .page-humanities #courses .section__title::after{
   content: "";
-  display: inline-block;
+  position: absolute;
 
-  width: 36px;               /* 👈 размер иконки */
-  height: 36px;
+  width: 56px;               /* 👈 размер картинки (подгони) */
+  height: 56px;
 
-  background-image: url("../img/courses-icon.png"); /* 👈 путь к иконке */
+  top: -30px;                /* 👈 выше заголовка (подгони) */
+  right: -85px;              /* 👈 справа от текста (подгони) */
+
+  background-image: url("../img/courses-figure.png"); /* 👈 твой файл из Figma */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
