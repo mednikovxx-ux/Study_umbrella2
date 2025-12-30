@@ -302,7 +302,7 @@
    ========================= */
 
 .page-chinese .hero-cn__row{
-  transform: scale(0.7);
+  transform: scale(0.75);
   transform-origin: top center;
 
   /* компенсация ширины, чтобы блок остался по центру и не "сжался" */
@@ -318,3 +318,28 @@
 .page-chinese .hero-cn__img{
   transform: translateY(160px) !important;
 }
+/* === TITLE BIGGER === */
+.page-chinese .hero-cn__title{
+  font-size: 64px !important;
+  line-height: 0.98 !important;
+}
+
+/* === QUOTE RIGHT === */
+.page-chinese .hero-cn__quote{
+  position: relative !important;
+
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+  opacity: 0.9 !important;
+
+  width: fit-content !important;
+  margin-left: auto !important;
+
+  /* сдвиги */
+  margin-top: 10px !important;    /* вниз */
+  margin-right: 18px !important;  /* вправо */
+
+  white-space: nowrap !important;
+  padding-right: 0 !important;
+}
+
