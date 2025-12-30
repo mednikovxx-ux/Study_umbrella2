@@ -352,8 +352,8 @@
 
 /* 1) 你好 прижать к хеддеру (убираем лишний top) */
 .page-chinese .hero-cn__hello-img{
-  top: -40 !important;          /* было 0/плюс — оставляем 0 */
-  margin-top: -40 !important;   /* если где-то был margin */
+  top: -40px !important;          /* было 0/плюс — оставляем 0 */
+  margin-top: -40px !important;   /* если где-то был margin */
 }
 
 /* 2) Отступ между 你好 и заголовком (делаем через padding-top у row-wrap) */
