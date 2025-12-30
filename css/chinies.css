@@ -296,7 +296,7 @@
    ========================= */
 
 .page-chinese .hero-cn__row{
-  transform: scale(0.75);
+  transform: scale(0.7);
   transform-origin: top center;
 
   /* компенсация ширины, чтобы блок остался по центру и не "сжался" */
