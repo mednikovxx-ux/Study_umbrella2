@@ -278,7 +278,7 @@
   border-radius: 30px;
   object-fit: cover;
 
-  margin-top: 18px;       /* регулируй вверх/вниз (12–24) */
+  margin-top: 100px;       /* регулируй вверх/вниз (12–24) */
 }
 
 /* =========================
@@ -315,11 +315,23 @@
     width: auto;
   }
 
-  .page-chinese .hero-cn__quote{
-    white-space: normal;
-    text-align: left;
-    padding-right: 0;
-  }
+ .page-chinese .hero-cn__quote{
+  /* ширина всего макета hero (911 + 26 + 557 = 1494) */
+  width: 1494px;
+  max-width: 100%;
+  margin: 8px auto 0;     /* центрируем блок и чуть опускаем */
+
+  text-align: right;       /* вправо */
+  padding-right: 8px;      /* микро-отступ от правого края */
+
+  font-size: 16px;         /* нормальный размер */
+  line-height: 1.25;
+  color: var(--cn-text);
+  opacity: 0.85;
+
+  white-space: nowrap;
+}
+
 
   .page-chinese .hero-cn__bg-arrow{ display: none; }
 
