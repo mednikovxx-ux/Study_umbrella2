@@ -352,14 +352,14 @@
 
 /* 1) 你好 прижать к хеддеру (убираем лишний top) */
 .page-chinese .hero-cn__hello-img{
-  top: 0 !important;          /* было 0/плюс — оставляем 0 */
-  margin-top: 0 !important;   /* если где-то был margin */
+  top: -1-10 !important;          /* было 0/плюс — оставляем 0 */
+  margin-top: -10 !important;   /* если где-то был margin */
 }
 
 /* 2) Отступ между 你好 и заголовком (делаем через padding-top у row-wrap) */
 /* Меняешь ОДНО число — и всё красиво */
 .page-chinese .hero-cn__row-wrap{
-  padding-top: 100px !important;  /* ↑ больше — заголовок ниже от 你好 */
+  padding-top: 80px !important;  /* ↑ больше — заголовок ниже от 你好 */
 }
 
 /* 3) Как подвинуть "СОВРЕМЕННО И КОМФОРТНО" (2-я строка заголовка) */
@@ -378,4 +378,24 @@
 /* 5) Опустить картинку ниже */
 .page-chinese .hero-cn__img{
   margin-top: 200px !important;   /* ↓ больше — картинка ниже */
+}
+/* ===== FORCE: "*под зонтиком..." вправо (железно) ===== */
+
+/* якорь для абсолютного позиционирования */
+.page-chinese .hero-cn__left{
+  position: relative !important;
+}
+
+/* сама фраза */
+.page-chinese .hero-cn__quote{
+  position: absolute !important;
+  top: 146px !important;      /* ↑/↓ вертикаль (если надо — меняй) */
+  right: 0 !important;        /* ВПРАВО ДО УПОРА */
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: right !important;
+  white-space: nowrap !important;
+  z-index: 5 !important;
 }
