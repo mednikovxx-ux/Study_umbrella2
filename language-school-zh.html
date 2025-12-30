@@ -114,89 +114,132 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero hero--chinese"
+<!-- HERO: CHINESE -->
+<section
+  class="hero hero--chinese"
   style="
-    /* ВСЕ ЦВЕТА — ТОЛЬКО ТУТ (RGB триплеты) */
-    --cn-accent: 214 86 85;     /* красный акцент */
-    --cn-text:   17 17 17;      /* почти чёрный */
-    --cn-white:  255 255 255;   /* белый */
-    --cn-border: 17 17 17;      /* обводки */
+    /* ===== БАЗА ===== */
+    --cn-text: 17 17 17;
+    --cn-white: 255 255 255;
+    --cn-border: 17 17 17;
 
-    /* карточки */
+    /* ===== ЗАГОЛОВОК ===== */
+    --cn-title-kitajskiy: 214 86 85;     /* КИТАЙСКИЙ */
+    --cn-title-sovremenno: 214 86 85;    /* СОВРЕМЕННО */
+
+    /* ===== КАРТОЧКИ ===== */
     --cn-card-red: 214 86 85;
     --cn-card-red-text: 255 255 255;
 
-    --cn-card-1: 255 255 255;   /* белая */
-    --cn-card-2: 239 180 180;   /* розовая (как в Figma) */
-    --cn-card-3: 211 232 255;   /* голубая */
-    --cn-card-4: 249 205 173;   /* персиковая */
+    --cn-card-1: 255 255 255;
+    --cn-card-2: 239 180 180;
+    --cn-card-3: 211 232 255;
+    --cn-card-4: 249 205 173;
   "
 >
-
   <div class="container">
     <div class="hero-cn">
-      <img class="hero-cn__bg-arrow" src="img/hero-arrow-bg.png" alt="">
 
-      <!-- 你好! -->
-      <img class="hero-cn__hello-img" src="img/nihao.png" alt="你好!">
+      <!-- фон-стрелка -->
+      <img
+        class="hero-cn__bg-arrow"
+        src="img/hero-arrow-bg.png"
+        alt=""
+      >
 
-      <!-- ВАЖНО: обёртка для нормального центрирования при scale -->
+      <!-- 你好 -->
+      <img
+        class="hero-cn__hello-img"
+        src="img/nihao.png"
+        alt="你好"
+      >
+
+      <!-- ОБЁРТКА ДЛЯ SCALE -->
       <div class="hero-cn__row-wrap">
         <div class="hero-cn__row">
+
           <!-- LEFT -->
           <div class="hero-cn__left">
+
+            <!-- TITLE -->
             <h1 class="hero-cn__title">
               <span class="t t--black">УЧИТЬ</span>
-              <span class="t t--red">КИТАЙСКИЙ</span><br>
+              <span class="t t--kitajskiy">КИТАЙСКИЙ</span><br>
+
               <span class="hero-cn__line2">
-                <span class="t t--red">СОВРЕМЕННО</span>
+                <span class="t t--sovremenno">СОВРЕМЕННО</span>
                 <span class="t t--black">И</span>
                 <span class="t t--black">КОМФОРТНО!</span>
               </span>
             </h1>
 
-            <div class="hero-cn__quote">*под зонтиком лучших преподавателей!</div>
+            <!-- QUOTE -->
+            <div class="hero-cn__quote">
+              *под зонтиком лучших преподавателей!
+            </div>
 
+            <!-- CARDS -->
             <div class="hero-cn__grid">
-              <!-- большая красная карточка -->
-              <a class="hero-cn__card hero-cn__card--level" href="#contacts">
-                <span class="hero-cn__icon"><span class="hero-cn__icon-dot"></span></span>
+
+              <!-- BIG RED -->
+              <a href="#test" class="hero-cn__card hero-cn__card--level">
+                <span class="hero-cn__icon">
+                  <span class="hero-cn__icon-dot"></span>
+                </span>
+
                 <span class="hero-cn__level-text">
-                  ОПРЕДЕЛИТЬ<br>ВАШ УРОВЕНЬ<br>ЯЗЫКА
+                  ОПРЕДЕЛИТЬ<br>
+                  ВАШ УРОВЕНЬ<br>
+                  ЯЗЫКА
                 </span>
               </a>
 
+              <!-- CARD 1 -->
               <div class="hero-cn__card hero-cn__card--c1">
                 <div class="hero-cn__pill">Современно</div>
-                <div class="hero-cn__card-text">Используем актуальные методики обучения</div>
+                <div class="hero-cn__card-text">
+                  Используем актуальные методики обучения
+                </div>
               </div>
 
+              <!-- CARD 2 -->
               <div class="hero-cn__card hero-cn__card--c2">
                 <div class="hero-cn__pill">Доступно</div>
                 <div class="hero-cn__card-text">
-                  Пробный урок с нашими преподавателями вы можете пройти <strong>абсолютно бесплатно!</strong>
+                  Пробный урок с нашими преподавателями вы можете пройти
+                  <strong>абсолютно бесплатно!</strong>
                 </div>
               </div>
 
+              <!-- CARD 3 -->
               <div class="hero-cn__card hero-cn__card--c3">
                 <div class="hero-cn__pill">Легко</div>
-                <div class="hero-cn__card-text">Говорим и практикуем с первых занятий</div>
+                <div class="hero-cn__card-text">
+                  Говорим и практикуем с первых занятий
+                </div>
               </div>
 
+              <!-- CARD 4 -->
               <div class="hero-cn__card hero-cn__card--c4">
                 <div class="hero-cn__pill">Так и мы</div>
                 <div class="hero-cn__card-text">
-                  Вы можете пройти 10 минутный тест и узнать свой уровень языка <strong>уже сейчас!</strong>
+                  Вы можете пройти 10 минутный тест и узнать свой уровень языка
+                  <strong>уже сейчас!</strong>
                 </div>
               </div>
+
             </div>
           </div>
 
           <!-- RIGHT -->
           <div class="hero-cn__right">
-            <img class="hero-cn__img" src="img/hero-chinese.webp" alt="Китайский язык">
+            <img
+              class="hero-cn__img"
+              src="img/hero-chinese.webp"
+              alt="Китайский язык"
+            >
           </div>
+
         </div>
       </div>
     </div>
@@ -1017,6 +1060,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
