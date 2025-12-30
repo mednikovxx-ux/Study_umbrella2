@@ -374,7 +374,7 @@
   text-align: right;
   white-space: nowrap;
 
-  transform: translateX(120px); /* ← МЕНЯЕШЬ ЭТО ЧИСЛО */
+  transform: translateX(220px); /* ← МЕНЯЕШЬ ЭТО ЧИСЛО */
 }
 
 
