@@ -311,5 +311,5 @@
 }
 /* FORCE: опустить картинку */
 .page-chinese .hero-cn__img{
-  transform: translateY(140px) !important;
+  transform: translateY(144px) !important;
 }
