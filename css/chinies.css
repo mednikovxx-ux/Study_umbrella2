@@ -1,6 +1,6 @@
 /* =========================
-   chinies.css — HERO (pixel)
-   размеры взяты из твоего Anima-кода
+   chinies.css — HERO (CLEAN, без дублей)
+   pixel-геометрия из твоего Anima + твои актуальные правки
    ========================= */
 
 .page-chinese .hero.hero--chinese{
@@ -12,6 +12,7 @@
   position: relative;
   padding: 0;
   background: transparent;
+  overflow: visible;
 }
 
 /* (если используешь стрелку-фон) */
@@ -26,7 +27,7 @@
   z-index: 1;
 }
 
-/* 你好 */
+/* 你好 (картинка) */
 .page-chinese .hero-cn__hello-img{
   position: relative;
   z-index: 3;
@@ -36,25 +37,20 @@
   margin: -20px 0 6px 0;
 }
 
-/* ряд: слева весь блок карточек + справа картинка 557×403 */
-.page-chinese .hero-cn__row{
-  position: relative;
-  z-index: 2;
+/* =========================
+   TITLE + QUOTE
+   ========================= */
 
-  display: grid;
-  grid-template-columns: 911px 557px; /* 329+20+213+20+329 = 911 */
-  gap: 26px;                          /* как в Anima между группой и картинкой */
-  align-items: start;
-}
-
-.page-chinese .hero-cn__left{ min-width: 0; }
-
-/* заголовок (оставляю как у тебя) */
+/* Заголовок по центру */
 .page-chinese .hero-cn__title{
-  margin: 0;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  text-align: center;
+
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-weight: 900;
-  font-size: 60px;
+  font-size: 64px;
   line-height: 0.98;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -65,48 +61,70 @@
 .page-chinese .hero-cn__title .t--black{ color: var(--cn-text); }
 .page-chinese .hero-cn__title .t--red{ color: var(--cn-accent); }
 
+/* если ты используешь отдельный span для второй строки */
 .page-chinese .hero-cn__line2{
   display: inline-block;
-  margin-left: 330px; /* микро-подгон 1–3px если надо */
+  margin-left: 330px; /* микро-подгон */
 }
 
 /* “под зонтиком…” — справа */
 .page-chinese .hero-cn__quote{
-  position: relative !important;
-  top: 10px !important;      /* вниз */
-  right: -28px !important;   /* вправо (да, минус-минус) */
+  display: block;
+  width: 100%;
+  text-align: right;
+  padding-right: 26px;
+  margin-top: 10px;
 
-  font-size: 20px !important;
-  line-height: 1.35 !important;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--cn-text);
+  opacity: 0.9;
 
-  color: var(--cn-text) !important;
-  opacity: 0.9 !important;
-
-  width: fit-content !important;
-  margin-left: auto !important;
-  white-space: nowrap !important;
-  padding-right: 0 !important;
+  white-space: nowrap;
 }
 
-
 /* =========================
-   КАРТОЧКИ — PIXEL GRID
+   ROW: карточки + картинка
    ========================= */
 
-/* декор под карточками (твоя картинка Group 19.png) */
+.page-chinese .hero-cn__row{
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 911px 557px; /* 329+20+213+20+329 = 911 */
+  gap: 26px;
+  align-items: start;
+
+  /* SCALE -25% (как ты хотела) */
+  transform: scale(0.75);
+  transform-origin: top center;
+
+  /* твоя компенсация, чтобы не сжималось */
+  width: calc(100% / 0.75);
+  margin-left: calc((100% - (100% / 0.75)) / 2);
+}
+
+.page-chinese .hero-cn__left{ min-width: 0; }
+
+/* =========================
+   CARDS — PIXEL GRID
+   ========================= */
+
+/* декор под карточками (Group 19.png) */
 .page-chinese .hero-cn__cards-decor{
   position: absolute;
-  left: 254px;     /* близко к Anima 253.67 */
-  top: 176px;      /* близко к Anima 176.05 */
-  width: 510px;    /* 509.89 */
-  height: 254px;   /* 254.16 */
+  left: 254px;
+  top: 176px;
+  width: 510px;
+  height: 254px;
   object-fit: contain;
   z-index: 0;
   pointer-events: none;
   opacity: 1;
 }
 
-/* сетка: 3 колонки, 2 ряда, как Anima */
+/* сетка: 3 колонки, 2 ряда */
 .page-chinese .hero-cn__grid{
   position: relative;
   z-index: 2;
@@ -114,8 +132,8 @@
   margin-top: 14px;
   display: grid;
 
-  grid-template-columns: 329px 213px 329px; /* red / left small / right big */
-  grid-template-rows: 190px 230px;          /* top row / bottom row */
+  grid-template-columns: 329px 213px 329px;
+  grid-template-rows: 190px 230px;
   column-gap: 20px;
   row-gap: 13px;
 
@@ -124,7 +142,7 @@
 
 /* общие карточки */
 .page-chinese .hero-cn__card{
-  border-radius: 30px;      /* в Anima у карточек 30 */
+  border-radius: 30px;
   border: none;
   box-shadow: none;
 
@@ -139,7 +157,8 @@
 /* большая красная */
 .page-chinese .hero-cn__card--level{
   grid-column: 1;
-  grid-row: 1 / span 2;        /* 433px (190+13+230) */
+  grid-row: 1 / span 2;
+
   background: var(--cn-card-red);
   color: var(--cn-card-red-text);
   text-decoration: none;
@@ -149,7 +168,7 @@
   position: relative;
 }
 
-/* круг с “стрелкой” сверху справа */
+/* круг со стрелкой */
 .page-chinese .hero-cn__icon{
   position: absolute;
   top: 17px;
@@ -186,7 +205,7 @@
   transform: rotate(45deg);
 }
 
-/* текст в красной карточке (как Anima: 36px, underline) */
+/* текст в красной карточке */
 .page-chinese .hero-cn__level-text{
   margin-top: auto;
   width: 305px;
@@ -203,14 +222,14 @@
   text-transform: uppercase;
 }
 
-/* маленькие карточки — позиционирование в сетке */
+/* позиции маленьких карточек */
 .page-chinese .hero-cn__card--c1{ grid-column: 2; grid-row: 1; background: rgba(214, 86, 85, 0.53); }
 .page-chinese .hero-cn__card--c3{ grid-column: 2; grid-row: 2; background: rgba(129, 171, 245, 0.24); }
 
 .page-chinese .hero-cn__card--c2{ grid-column: 3; grid-row: 1; background: rgba(129, 171, 245, 0.24); }
 .page-chinese .hero-cn__card--c4{ grid-column: 3; grid-row: 2; background: rgba(245, 109, 33, 0.37); }
 
-/* пилюля (вкладка) — 45px высота, radius 20, border 1px */
+/* пилюля */
 .page-chinese .hero-cn__pill{
   height: 45px;
   display: inline-flex;
@@ -229,7 +248,7 @@
   margin: 0 0 14px 0;
 }
 
-/* текст карточек — Onest 20 */
+/* текст карточек */
 .page-chinese .hero-cn__card-text{
   font-family: "Onest", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-size: 20px;
@@ -243,29 +262,34 @@
 }
 
 /* =========================
-   ПРАВАЯ КАРТИНКА — 557×403
+   RIGHT IMAGE
    ========================= */
 
 .page-chinese .hero-cn__right{
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-top: -28px; /* в Anima картинка на 0 по Y */
+  margin-top: 0;
 }
 
 .page-chinese .hero-cn__img{
   width: 557px;
-  height: 440px;
+  height: 440px;          /* ты хотела чуть выше */
   border-radius: 30px;
   object-fit: cover;
-  margin-top: 28px;
+
+  margin-top: 18px;       /* регулируй вверх/вниз (12–24) */
 }
 
 /* =========================
-   АДАПТИВ (чтобы не ломалось)
+   RESPONSIVE
    ========================= */
 @media (max-width: 1200px){
   .page-chinese .hero-cn__row{
+    transform: none;
+    width: auto;
+    margin-left: 0;
+
     grid-template-columns: 1fr;
     gap: 18px;
   }
@@ -278,12 +302,25 @@
     width: 100%;
     max-width: 557px;
     height: auto;
+    margin-top: 0;
   }
 }
 
 @media (max-width: 640px){
-  .page-chinese .hero-cn__title{ font-size: 40px; white-space: normal; }
-  .page-chinese .hero-cn__quote{ white-space: normal; }
+  .page-chinese .hero-cn__title{
+    font-size: 40px;
+    white-space: normal;
+    text-align: left;
+    margin: 0;
+    width: auto;
+  }
+
+  .page-chinese .hero-cn__quote{
+    white-space: normal;
+    text-align: left;
+    padding-right: 0;
+  }
+
   .page-chinese .hero-cn__bg-arrow{ display: none; }
 
   .page-chinese .hero-cn__grid{
@@ -297,49 +334,3 @@
     width: 100%;
   }
 }
-/* =========================
-   SCALE -25% ТОЛЬКО ДЛЯ БЛОКА КАРТОЧЕК+КАРТИНКА
-   ========================= */
-
-.page-chinese .hero-cn__row{
-  transform: scale(0.75);
-  transform-origin: top center;
-
-  /* компенсация ширины, чтобы блок остался по центру и не "сжался" */
-  width: calc(100% / 0.75);
-  margin-left: calc((100% - (100% / 0.75)) / 2);
-}
-
-/* на всякий случай, чтобы ничего не обрезалось */
-.page-chinese .hero-cn{
-  overflow: visible;
-}
-/* FORCE: опустить картинку */
-.page-chinese .hero-cn__img{
-  transform: translateY(160px) !important;
-}
-/* === TITLE BIGGER === */
-.page-chinese .hero-cn__title{
-  font-size: 64px !important;
-  line-height: 0.98 !important;
-}
-
-/* === QUOTE RIGHT === */
-.page-chinese .hero-cn__quote{
-  position: relative !important;
-
-  font-size: 18px !important;
-  line-height: 1.3 !important;
-  opacity: 0.9 !important;
-
-  width: fit-content !important;
-  margin-left: auto !important;
-
-  /* сдвиги */
-  margin-top: 10px !important;    /* вниз */
-  margin-right: 18px !important;  /* вправо */
-
-  white-space: nowrap !important;
-  padding-right: 0 !important;
-}
-
