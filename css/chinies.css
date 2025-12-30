@@ -72,17 +72,17 @@
 
 /* “под зонтиком…” — справа */
 .page-chinese .hero-cn__quote{
-  margin-top: 1px;
-  margin-right: 28px;
-  font-size: 15px;
+  margin-top: 6px;
+  font-size: 20px;
   color: var(--cn-text);
-  opacity: 0.85;
+  opacity: 0.9;
 
   width: fit-content;
   margin-left: auto;
-  padding-right: 12px;
+  margin-right: 26px;   /* двигает вправо/влево реально, в отличие от padding */
   white-space: nowrap;
 }
+
 
 /* =========================
    КАРТОЧКИ — PIXEL GRID
