@@ -345,3 +345,37 @@
     font-size: 28px;
   }
 }
+/* =========================================================
+   CHINESE HERO — QUICK TUNING (5 fixes)
+   вставь В КОНЕЦ файла, чтобы перебило предыдущие правила
+   ========================================================= */
+
+/* 1) 你好 прижать к хеддеру (убираем лишний top) */
+.page-chinese .hero-cn__hello-img{
+  top: 0 !important;          /* было 0/плюс — оставляем 0 */
+  margin-top: 0 !important;   /* если где-то был margin */
+}
+
+/* 2) Отступ между 你好 и заголовком (делаем через padding-top у row-wrap) */
+/* Меняешь ОДНО число — и всё красиво */
+.page-chinese .hero-cn__row-wrap{
+  padding-top: 44px !important;  /* ↑ больше — заголовок ниже от 你好 */
+}
+
+/* 3) Как подвинуть "СОВРЕМЕННО И КОМФОРТНО" (2-я строка заголовка) */
+.page-chinese .hero-cn__line2{
+  transform: translateX(235px) !important; /* → вправо больше, ← меньше/минус */
+}
+
+/* 4) "*под зонтиком..." максимально вправо */
+.page-chinese .hero-cn__quote{
+  width: 911px !important;        /* держим ширину левой колонки */
+  text-align: right !important;
+  padding-right: 0 !important;    /* убираем внутренний отступ */
+  margin-right: -40px !important; /* ← ВОТ ЭТО двигает вправо "максимально" */
+}
+
+/* 5) Опустить картинку ниже */
+.page-chinese .hero-cn__img{
+  margin-top: 135px !important;   /* ↓ больше — картинка ниже */
+}
