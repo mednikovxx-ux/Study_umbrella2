@@ -368,12 +368,15 @@
 }
 
 /* 4) "*под зонтиком..." максимально вправо */
+/* ===== "*под зонтиком..." — РЕАЛЬНО двигаем ===== */
 .page-chinese .hero-cn__quote{
-  width: 911px !important;        /* держим ширину левой колонки */
-  text-align: right !important;
-  padding-right: -100 !important;    /* убираем внутренний отступ */
-  margin-right: -100px !important; /* ← ВОТ ЭТО двигает вправо "максимально" */
+  width: 911px;
+  text-align: right;
+  white-space: nowrap;
+
+  transform: translateX(120px); /* ← МЕНЯЕШЬ ЭТО ЧИСЛО */
 }
+
 
 /* 5) Опустить картинку ниже */
 .page-chinese .hero-cn__img{
