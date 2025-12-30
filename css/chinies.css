@@ -72,15 +72,20 @@
 
 /* “под зонтиком…” — справа */
 .page-chinese .hero-cn__quote{
-  margin-top: 6px;
-  font-size: 20px;
-  color: var(--cn-text);
-  opacity: 0.9;
+  position: relative !important;
+  top: 10px !important;      /* вниз */
+  right: -28px !important;   /* вправо (да, минус-минус) */
 
-  width: fit-content;
-  margin-left: auto;
-  margin-right: 26px;   /* двигает вправо/влево реально, в отличие от padding */
-  white-space: nowrap;
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+
+  color: var(--cn-text) !important;
+  opacity: 0.9 !important;
+
+  width: fit-content !important;
+  margin-left: auto !important;
+  white-space: nowrap !important;
+  padding-right: 0 !important;
 }
 
 
@@ -311,5 +316,5 @@
 }
 /* FORCE: опустить картинку */
 .page-chinese .hero-cn__img{
-  transform: translateY(155px) !important;
+  transform: translateY(160px) !important;
 }
