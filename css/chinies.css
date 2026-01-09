@@ -290,123 +290,166 @@
 }
 
 /* =========================================================
-   ADAPTIVE
-   На планшете/мобиле scale отключаем и складываем в колонку
+   HERO CN — ADAPTIVE (append only)  ✅ FIXED MINIMAL
+   Основа: твой предыдущий вариант, исправления только по делу
    ========================================================= */
 
-@media (max-width: 1200px){
+/* =========================
+   TABLET
+   ========================= */
+@media (max-width: 1024px){
+
+  /* декоративные стрелки скрываем */
+  .page-chinese .hero-cn__bg-arrow,
+  .page-chinese .hero-cn__grid-arrow{
+    display: none;
+  }
+
+  /* ✅ УБИРАЕМ ОГРОМНЫЙ ЗАЗОР между 你好 и заголовком */
+  .page-chinese .hero-cn__row-wrap{
+    padding-top: 8px;       /* было много — уменьшаем */
+  }
+
   .page-chinese .hero-cn__hello-img{
     position: relative;
-    left: auto;
-    top: auto;
-    margin: 0 0 10px 0;
+    top: 0;
+    left: 0;
+    width: 96px;
+    margin: 0 0 4px 0;      /* было 10px — делаем меньше */
   }
 
-  .page-chinese .hero-cn__row-wrap{
-    width: 100%;
-    padding-top: 0;
-  }
-
+  /* убираем scale, делаем одну колонку */
   .page-chinese .hero-cn__row{
-    width: 100%;
     transform: none;
+    width: 100%;
+    max-width: 100%;
     grid-template-columns: 1fr;
     gap: 18px;
   }
 
-  .page-chinese .hero-cn__title,
-  .page-chinese .hero-cn__quote,
-  .page-chinese .hero-cn__grid{
-    width: 100%;
-  }
-
+  /* ✅ ГЛАВНОЕ: заголовок должен ВЛЕЗАТЬ */
   .page-chinese .hero-cn__title{
-    white-space: normal;
-    text-align: left;
-    font-size: 48px;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;        /* чтобы переносился */
+    overflow-wrap: anywhere;    /* чтобы не распирал */
+    font-size: 44px;            /* чуть меньше — чтобы не вылезал */
+    line-height: 1.05;
   }
 
+  /* сдвиги убираем */
   .page-chinese .hero-cn__line2{
     transform: none;
   }
 
+  /* подпись справа */
   .page-chinese .hero-cn__quote{
-    text-align: left;
+    width: 100%;
+    max-width: 100%;
     white-space: normal;
-    padding-right: 0;
+    text-align: right;
   }
 
+  /* картинку справа скрываем */
   .page-chinese .hero-cn__right{
+    display: none;
+  }
+
+  /* ✅ НЕ ЛОМАЕМ карточки: оставляем как у тебя было (2 колонки) */
+  .page-chinese .hero-cn__grid{
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 16px;
+    row-gap: 16px;
+  }
+
+  /* красная карточка на всю строку */
+  .page-chinese .hero-cn__card--level{
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 640px){
+
+  /* декор скрываем */
+  .page-chinese .hero-cn__bg-arrow,
+  .page-chinese .hero-cn__grid-arrow{
+    display: none;
+  }
+
+  /* ✅ УБИРАЕМ ЗАЗОР 你好 ↔ заголовок */
+  .page-chinese .hero-cn__row-wrap{
+    padding-top: 6px;
+  }
+
+  .page-chinese .hero-cn__hello-img{
+    width: 84px;
+    margin: 0 0 2px 0;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .page-chinese .hero-cn__row{
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* ✅ заголовок на телефоне — чтобы не вылезал */
+  .page-chinese .hero-cn__title{
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: 30px;
+    line-height: 1.08;
+  }
+
+  .page-chinese .hero-cn__line2{ transform: none; }
+
+  .page-chinese .hero-cn__quote{
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    text-align: right;
+    white-space: normal;
+  }
+
+  /* ✅ КАК В ПРИМЕРЕ (скрин 3): карточки ПО ОДНОЙ */
+  .page-chinese .hero-cn__grid{
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 14px;
+  }
+
+  /* ✅ чтобы карточки не “налезали” друг на друга */
+  .page-chinese .hero-cn__card{
+    min-width: 0;
+  }
+
+  /* картинку возвращаем и ставим ВНИЗ */
+  .page-chinese .hero-cn__right{
+    display: flex;
     justify-content: center;
   }
 
   .page-chinese .hero-cn__img{
     width: 100%;
-    max-width: 560px;
+    max-width: 100%;
     height: auto;
-    margin-top: 0;
+    margin-top: 10px;
   }
-}
-
-@media (max-width: 720px){
-  .page-chinese .hero-cn__bg-arrow{ display: none; }
-
-  .page-chinese .hero-cn__grid{
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-
-  .page-chinese .hero-cn__card--level{
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .page-chinese .hero-cn__level-text{
-    width: auto;
-    font-size: 28px;
-  }
-}
-/* =========================================================
-   CHINESE HERO — QUICK TUNING (5 fixes)
-   вставь В КОНЕЦ файла, чтобы перебило предыдущие правила
-   ========================================================= */
-
-/* 1) 你好 прижать к хеддеру (убираем лишний top) */
-.page-chinese .hero-cn__hello-img{
-  top: -10px !important;          /* было 0/плюс — оставляем 0 */
-  margin-top: -10px !important;   /* если где-то был margin */
-}
-
-/* 2) Отступ между 你好 и заголовком (делаем через padding-top у row-wrap) */
-/* Меняешь ОДНО число — и всё красиво */
-.page-chinese .hero-cn__row-wrap{
-  padding-top: 60px !important;  /* ↑ больше — заголовок ниже от 你好 */
-}
-
-/* 3) Как подвинуть "СОВРЕМЕННО И КОМФОРТНО" (2-я строка заголовка) */
-.page-chinese .hero-cn__line2{
-  transform: translateX(335px) !important; /* → вправо больше, ← меньше/минус */
-}
-
-/* 4) "*под зонтиком..." максимально вправо */
-/* ===== "*под зонтиком..." — РЕАЛЬНО двигаем ===== */
-.page-chinese .hero-cn__quote{
-  width: 911px;
-  text-align: right;
-  white-space: nowrap;
-
-  transform: translateX(420px); /* ← МЕНЯЕШЬ ЭТО ЧИСЛО */
-}
-
-
-/* 5) Опустить картинку ниже */
-.page-chinese .hero-cn__img{
-  margin-top: 180px !important;   /* ↓ больше — картинка ниже */
-}
-/* ===== FORCE: "*под зонтиком..." вправо (железно) ===== */
-
-/* якорь для абсолютного позиционирования */
-.page-chinese .hero-cn__left{
-  position: relative !important;
 }
 
