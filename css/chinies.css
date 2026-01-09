@@ -409,4 +409,127 @@
 .page-chinese .hero-cn__left{
   position: relative !important;
 }
+/* =========================================================
+   HERO CN — ADAPTIVE (append only)
+   ========================================================= */
+
+/* =========================
+   TABLET
+   ========================= */
+@media (max-width: 1024px){
+
+  /* декоративные стрелки скрываем */
+  .page-chinese .hero-cn__bg-arrow,
+  .page-chinese .hero-cn__grid-arrow{
+    display: none;
+  }
+
+  /* 你好 остаётся, аккуратный размер */
+  .page-chinese .hero-cn__hello-img{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 96px;
+    margin-bottom: 10px;
+  }
+
+  /* убираем scale, делаем одну колонку */
+  .page-chinese .hero-cn__row{
+    transform: none;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* заголовок — без nowrap */
+  .page-chinese .hero-cn__title{
+    width: 100%;
+    white-space: normal;
+    font-size: 48px;
+    line-height: 1.05;
+  }
+
+  /* сдвиги убираем */
+  .page-chinese .hero-cn__line2{
+    transform: none;
+  }
+
+  /* подпись остаётся справа */
+  .page-chinese .hero-cn__quote{
+    width: 100%;
+    white-space: normal;
+    text-align: right;
+  }
+
+  /* картинку справа скрываем */
+  .page-chinese .hero-cn__right{
+    display: none;
+  }
+
+  /* карточки — под ширину устройства */
+  .page-chinese .hero-cn__grid{
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* красная карточка на всю строку */
+  .page-chinese .hero-cn__card--level{
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 640px){
+
+  /* декор скрываем */
+  .page-chinese .hero-cn__bg-arrow,
+  .page-chinese .hero-cn__grid-arrow{
+    display: none;
+  }
+
+  /* 你好 компактно */
+  .page-chinese .hero-cn__hello-img{
+    width: 84px;
+    margin-bottom: 8px;
+  }
+
+  .page-chinese .hero-cn__row{
+    transform: none;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .page-chinese .hero-cn__title{
+    font-size: 34px;
+    line-height: 1.08;
+  }
+
+  .page-chinese .hero-cn__quote{
+    font-size: 15px;
+    text-align: right;
+  }
+
+  /* карточки — одна колонка */
+  .page-chinese .hero-cn__grid{
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  /* картинку возвращаем и ставим ВНИЗ */
+  .page-chinese .hero-cn__right{
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-chinese .hero-cn__img{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+}
 
