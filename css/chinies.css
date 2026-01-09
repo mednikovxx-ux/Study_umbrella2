@@ -233,20 +233,29 @@
 .page-chinese .hero-cn__card--c4{ grid-column: 3; grid-row: 2; background: rgb(var(--cn-card-4)); }
 
 /* pill */
+/* ===== Pills (как "В чем наша цель") ===== */
 .page-chinese .hero-cn__pill{
-  height: 45px;
-  padding: 0 16px;
-  margin-bottom: 14px;
-
   display: inline-flex;
   align-items: center;
 
-  border-radius: 22px;
-  background: rgb(var(--cn-white));
-  border: 1px solid rgb(var(--cn-border));
+  padding: 6px 16px;          /* размер по тексту */
+  margin-bottom: 12px;
 
-  font-size: 21px;
+  width: auto;                /* НЕ растягивается */
+  max-width: max-content;
+
+  background: transparent;    /* ❌ убрали белый фон */
+  border: 1.5px solid rgb(var(--cn-border));
+  border-radius: 999px;
+
+  font-family: "Onest", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: rgb(var(--cn-text));
 }
+
 
 /* текст карточек */
 .page-chinese .hero-cn__card-text{
@@ -352,8 +361,8 @@
 
 /* 1) 你好 прижать к хеддеру (убираем лишний top) */
 .page-chinese .hero-cn__hello-img{
-  top: -40px !important;          /* было 0/плюс — оставляем 0 */
-  margin-top: -40px !important;   /* если где-то был margin */
+  top: 0px !important;          /* было 0/плюс — оставляем 0 */
+  margin-top: 0px !important;   /* если где-то был margin */
 }
 
 /* 2) Отступ между 你好 и заголовком (делаем через padding-top у row-wrap) */
