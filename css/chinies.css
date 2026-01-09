@@ -238,8 +238,8 @@
   display: inline-flex;
   align-items: center;
 
-  padding: 6px 16px;          /* размер по тексту */
-  margin-bottom: 12px;
+  padding: 10px 22px;          /* размер по тексту */
+  margin-bottom: 21px;
 
   width: auto;                /* НЕ растягивается */
   max-width: max-content;
