@@ -290,14 +290,24 @@
 }
 
 /* =========================================================
-   HERO CN — ADAPTIVE (append only)  ✅ FIXED MINIMAL
-   Основа: твой предыдущий вариант, исправления только по делу
+   HERO CN — ADAPTIVE (NO HORIZONTAL SCROLL) ✅ FINAL
+   TABLET: трогаем только заголовок (влезает + line2 не уезжает)
+   MOBILE: карточки списком по одной + заголовок по центру
    ========================================================= */
 
 /* =========================
-   TABLET
+   TABLET (≤1024)
    ========================= */
 @media (max-width: 1024px){
+
+  /* убираем любой горизонтальный вылет внутри hero */
+  .page-chinese .hero-cn,
+  .page-chinese .hero-cn__row-wrap,
+  .page-chinese .hero-cn__row,
+  .page-chinese .hero-cn__left{
+    max-width: 100%;
+    overflow-x: clip;
+  }
 
   /* декоративные стрелки скрываем */
   .page-chinese .hero-cn__bg-arrow,
@@ -305,44 +315,44 @@
     display: none;
   }
 
-  /* ✅ УБИРАЕМ ОГРОМНЫЙ ЗАЗОР между 你好 и заголовком */
+  /* уменьшаем расстояние между 你好 и заголовком */
   .page-chinese .hero-cn__row-wrap{
-    padding-top: 8px;       /* было много — уменьшаем */
+    padding-top: 8px;
   }
 
   .page-chinese .hero-cn__hello-img{
     position: relative;
     top: 0;
     left: 0;
-    width: 96px;
-    margin: 0 0 4px 0;      /* было 10px — делаем меньше */
+    width: 84px;
+    margin: 0 0 2px 0;
   }
 
-  /* убираем scale, делаем одну колонку */
+  /* layout: одна колонка, без scale, без фикс ширин */
   .page-chinese .hero-cn__row{
     transform: none;
     width: 100%;
-    max-width: 100%;
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
   }
 
-  /* ✅ ГЛАВНОЕ: заголовок должен ВЛЕЗАТЬ */
+  /* ✅ ТОЛЬКО ЗАГОЛОВОК: чтобы влезал */
   .page-chinese .hero-cn__title{
     width: 100%;
     max-width: 100%;
-    white-space: normal;        /* чтобы переносился */
-    overflow-wrap: anywhere;    /* чтобы не распирал */
-    font-size: 44px;            /* чуть меньше — чтобы не вылезал */
+    white-space: normal;
+    overflow-wrap: anywhere;
+
+    font-size: 40px;      /* было 44 — уменьшаем, чтобы влез */
     line-height: 1.05;
   }
 
-  /* сдвиги убираем */
+  /* ✅ убираем сдвиг второй строки (он из margin-left в базовых стилях) */
   .page-chinese .hero-cn__line2{
     transform: none;
+    margin-left: 0 !important;
   }
 
-  /* подпись справа */
   .page-chinese .hero-cn__quote{
     width: 100%;
     max-width: 100%;
@@ -350,33 +360,48 @@
     text-align: right;
   }
 
-  /* картинку справа скрываем */
+  /* картинку справа скрываем на планшете */
   .page-chinese .hero-cn__right{
     display: none;
   }
 
-  /* ✅ НЕ ЛОМАЕМ карточки: оставляем как у тебя было (2 колонки) */
+  /* ✅ карточки: твоя логика как на компе, но адаптивно (без фикс px) */
   .page-chinese .hero-cn__grid{
     width: 100%;
     max-width: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+
+    grid-template-columns: minmax(220px, 1.55fr) minmax(160px, 1fr) minmax(220px, 1.55fr);
+    grid-template-rows: auto auto;
     column-gap: 16px;
     row-gap: 16px;
   }
 
-  /* красная карточка на всю строку */
+  /* красная карточка — слева на два ряда */
   .page-chinese .hero-cn__card--level{
-    grid-column: 1 / -1;
-    grid-row: auto;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  /* чтобы контент не выталкивал карточки */
+  .page-chinese .hero-cn__card{
+    min-width: 0;
   }
 }
 
 
 /* =========================
-   MOBILE
+   MOBILE (≤640)
    ========================= */
 @media (max-width: 640px){
+
+  /* стоп горизонтальный скролл */
+  .page-chinese .hero-cn,
+  .page-chinese .hero-cn__row-wrap,
+  .page-chinese .hero-cn__row,
+  .page-chinese .hero-cn__left{
+    max-width: 100%;
+    overflow-x: clip;
+  }
 
   /* декор скрываем */
   .page-chinese .hero-cn__bg-arrow,
@@ -384,38 +409,44 @@
     display: none;
   }
 
-  /* ✅ УБИРАЕМ ЗАЗОР 你好 ↔ заголовок */
+  /* расстояние 你好 → заголовок */
   .page-chinese .hero-cn__row-wrap{
     padding-top: 6px;
   }
 
   .page-chinese .hero-cn__hello-img{
-    width: 84px;
-    margin: 0 0 2px 0;
     position: relative;
     top: 0;
     left: 0;
+    width: 76px;
+    margin: 0 0 2px 0;
   }
 
   .page-chinese .hero-cn__row{
     transform: none;
     width: 100%;
-    max-width: 100%;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
-  /* ✅ заголовок на телефоне — чтобы не вылезал */
+  /* ✅ заголовок по центру */
   .page-chinese .hero-cn__title{
     width: 100%;
     max-width: 100%;
     white-space: normal;
     overflow-wrap: anywhere;
+
     font-size: 30px;
     line-height: 1.08;
+
+    text-align: center;
   }
 
-  .page-chinese .hero-cn__line2{ transform: none; }
+  /* ✅ вторая строка не уезжает вправо */
+  .page-chinese .hero-cn__line2{
+    transform: none;
+    margin-left: 0 !important;
+  }
 
   .page-chinese .hero-cn__quote{
     width: 100%;
@@ -425,21 +456,27 @@
     white-space: normal;
   }
 
-  /* ✅ КАК В ПРИМЕРЕ (скрин 3): карточки ПО ОДНОЙ */
+  /* ✅ КАРТОЧКИ СПИСКОМ ПО ОДНОЙ (на всю ширину) */
   .page-chinese .hero-cn__grid{
     width: 100%;
     max-width: 100%;
+
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    row-gap: 14px;
+    row-gap: 12px;
   }
 
-  /* ✅ чтобы карточки не “налезали” друг на друга */
+  /* красная карточка — обычная строка (но будет 100% ширины) */
+  .page-chinese .hero-cn__card--level{
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   .page-chinese .hero-cn__card{
     min-width: 0;
   }
 
-  /* картинку возвращаем и ставим ВНИЗ */
+  /* картинку показываем снизу */
   .page-chinese .hero-cn__right{
     display: flex;
     justify-content: center;
@@ -450,6 +487,7 @@
     max-width: 100%;
     height: auto;
     margin-top: 10px;
+    border-radius: 24px;
   }
 }
 
