@@ -481,6 +481,114 @@
     width: 100%;
     max-width: 100%;
 
-    grid-template-columns: m
+    grid-template-columns: minmax(220px, 1.55fr) minmax(160px, 1fr) minmax(220px, 1.55fr);
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    row-gap: 16px;
+  }
 
+  /* красная карточка — слева на два ряда */
+  .page-chinese .hero-cn__card--level{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  /* чтобы контент не выталкивал карточки */
+  .page-chinese .hero-cn__card{
+    min-width: 0;
+  }
+}
+
+
+/* =========================
+   MOBILE (≤640)
+   ========================= */
+@media (max-width: 640px){
+
+  /* стоп горизонтальный скролл */
+  .page-chinese .hero-cn,
+  .page-chinese .hero-cn__row-wrap,
+  .page-chinese .hero-cn__row,
+  .page-chinese .hero-cn__left{
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* декор скрываем */
+  .page-chinese .hero-cn__bg-arrow,
+  .page-chinese .hero-cn__grid-arrow{
+    display: none;
+  }
+
+  /* расстояние 你好 → заголовок ещё меньше */
+  .page-chinese .hero-cn__row-wrap{
+    padding-top: 6px;
+  }
+  .page-chinese .hero-cn__hello-img{
+    position: relative;
+    width: 76px;
+    margin: 0 0 0 0; /* почти вплотную */
+  }
+
+  .page-chinese .hero-cn__row{
+    transform: none;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .page-chinese .hero-cn__title{
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    font-size: 32px;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+  .page-chinese .hero-cn__line2{ transform: none; }
+
+  .page-chinese .hero-cn__quote{
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    text-align: right;
+    white-space: normal;
+  }
+
+  /* ✅ "стена" карточек — 2 колонки, но без вылезания */
+  .page-chinese .hero-cn__grid{
+    width: 100%;
+    max-width: 100%;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+
+  /* красная — на всю ширину сверху */
+  .page-chinese .hero-cn__card--level{
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  /* выравниваем высоту карточек, чтобы выглядело аккуратно */
+  .page-chinese .hero-cn__card{
+    min-width: 0;
+    min-height: 150px;
+  }
+
+  /* картинку показываем снизу */
+  .page-chinese .hero-cn__right{
+    display: flex;
+    justify-content: center;
+  }
+  .page-chinese .hero-cn__img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 24px;
+  }
+}
 
