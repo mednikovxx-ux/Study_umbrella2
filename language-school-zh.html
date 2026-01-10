@@ -255,43 +255,80 @@
 
 
 
-  <!-- НАША ЦЕЛЬ -->
-  <section class="section" id="about">
-    <div class="container">
+ <!-- WHY START (REPLACE "НАША ЦЕЛЬ") -->
+<section class="section start-why" id="about"
+  style="
+    --sw-accent: 214 86 85;      /* цвет красного заголовка */
+    --sw-text: 17 17 17;
+    --sw-line: 17 17 17;
+  "
+>
+  <div class="container">
 
-      <h2 class="section__title">
-        В ЧЕМ <span class="section__title-accent">НАША ЦЕЛЬ?</span>
-      </h2>
+    <h2 class="start-why__title">
+      <span class="start-why__accent">ПОЧЕМУ МЫ –</span><br>
+      <span class="start-why__accent">ВАШ ЛЕГКИЙ СТАРТ?</span>
+    </h2>
 
-      <div class="goal-cards">
+    <div class="start-why__wrap">
 
-        <article class="goal-card goal-card--peach">
-          <h3>Поддержать студентов</h3>
-          <p>Наши учителя оказывают всеобъемлющую поддержку нашим ученикам на каждом этапе обучения.</p>
-        </article>
+      <!-- LEFT: points -->
+      <div class="start-why__left">
 
-        <article class="goal-card goal-card--mint">
-          <h3>Разделить уникальный опыт</h3>
-          <p>Наша главная цель - разделить уникальный опыт наших преподавателей с учениками.</p>
-        </article>
+        <div class="start-why__item">
+          <div class="start-why__num">01</div>
+          <div class="start-why__body">
+            <p>Мы не ругаем за ошибки,<br>мы поддерживаем всех учеников.</p>
+          </div>
+          <span class="start-why__vline"></span>
+          <span class="start-why__hline"></span>
+        </div>
 
-        <article class="goal-card goal-card--blue">
-          <h3>Расширить мировоззрение</h3>
-          <p>Мы не "зубрим", мы расширяем мировозрение наших учеников за счет изучения новых предметов.</p>
-        </article>
+        <div class="start-why__item">
+          <div class="start-why__num">02</div>
+          <div class="start-why__body">
+            <p>Методика наших преподавателей<br>строится на индивидуальном<br>подходе и подборе программы для<br>каждого ученика.</p>
+          </div>
+          <span class="start-why__vline"></span>
+          <span class="start-why__hline"></span>
+        </div>
+
+        <div class="start-why__item start-why__item--last">
+          <div class="start-why__num">03</div>
+          <div class="start-why__body">
+            <p>Наши преподаватели –<br>сертифицированные специалисты,<br>помогающие студенту понять все<br>сложности языка в кратчайший срок.</p>
+          </div>
+          <span class="start-why__vline"></span>
+          <span class="start-why__hline"></span>
+        </div>
 
       </div>
 
-      <div class="about-text">
-        <p class="about-line">
-         <strong> Изучайте самые актуальные языки мира легко и эффективно</strong>
-          <span class="accent">с лучшими преподавателями.</span>
-        </p>
-        <p>
-          Мы предлагаем комфортные занятия и максимальную эффективность, а также
-          свободный график и интересные домашние задания.
-        </p>
+      <!-- RIGHT: images + decor -->
+      <div class="start-why__right">
+
+        <!-- pills image (КАРТИНКА!) -->
+        <img class="start-why__pills" src="img/sw-pills.png" alt="">
+
+        <!-- top photo -->
+        <div class="start-why__photo start-why__photo--top">
+          <img src="img/sw-photo-1.jpg" alt="">
+        </div>
+
+        <!-- круглая фотка -->
+        <div class="start-why__photo start-why__photo--circle">
+          <img src="img/sw-photo-2.jpg" alt="">
+        </div>
+
+        <!-- stars (КАРТИНКА!) -->
+        <img class="start-why__stars" src="img/sw-stars.png" alt="">
+
       </div>
+
+    </div>
+
+  </div>
+</section>
 
     <section class="section" id="teachers">
   <div class="container">
@@ -1066,6 +1103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
