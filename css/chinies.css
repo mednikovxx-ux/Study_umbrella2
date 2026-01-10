@@ -1,3 +1,11 @@
+@font-face{
+  font-family: "KyivTypeSerifBold2";
+  src: url("../fonts/KyivTypeSerif-Bold2.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* =========================================================
    chinies.css — HERO CHINESE (FINAL FIX, Figma-like)
    - безопасно: только .page-chinese .hero--chinese
