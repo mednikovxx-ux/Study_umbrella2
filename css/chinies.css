@@ -741,7 +741,7 @@
   top: 16px;
   bottom: 16px;
   width: 1px;
-  background: rgba(var(--sw-line), 0.35);
+  background: rgba(var(--sw-line), 0.65);
 }
 
 /* горизонтальная линия под пунктом (кроме последнего) */
@@ -752,7 +752,7 @@
   right: 0;
   bottom: 0;
   height: 1px;
-  background: rgba(var(--sw-line), 0.35);
+  background: rgba(var(--sw-line), 0.65);
 }
 /* ===== START-WHY: numbers 01 / 02 / 03 ===== */
 
