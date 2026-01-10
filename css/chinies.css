@@ -606,14 +606,15 @@
    WHY START (colors via HTML vars) — FINAL (DIVIDERS LIKE FIGMA)
    ========================================================= */
 
-/* FIX: фон + отступы */
+/* секция */
 .page-chinese .start-why{
-  background: transparent;
+  background: rgb(var(--sw-bg)); /* важно: фон из HTML, не transparent */
   padding-top: 0 !important;
   padding-bottom: 56px;
   margin-top: -50px;
 }
 
+/* контейнер */
 .page-chinese .start-why__container{
   position: relative;
   overflow: visible;
@@ -659,7 +660,7 @@
 .page-chinese .start-why__left{
   display: flex;
   flex-direction: column;
-  gap: 0; /* ❗ важно: иначе линии визуально "рвутся" */
+  gap: 0; /* важно: иначе линии визуально рвутся */
 }
 
 /* Пункты */
@@ -669,14 +670,20 @@
   grid-template-columns: 80px 1fr;
   column-gap: 20px;
   align-items: start;
-
-  padding: 22px 0; /* расстояние между пунктами как в макете */
+  padding: 22px 0;
 }
 
-/* Горизонтальная линия под пунктом (кроме последнего) */
-.page-chinese .start-why__item:not(:last-child)::after{
+/* ЛИНИИ — кладём на самый нижний слой внутри item */
+.page-chinese .start-why__item::before,
+.page-chinese .start-why__item::after{
   content: "";
   position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Горизонтальная линия (кроме последнего) */
+.page-chinese .start-why__item:not(:last-child)::after{
   left: 0;
   right: 0;
   bottom: 0;
@@ -686,16 +693,21 @@
 
 /* Вертикальная линия между номером и текстом */
 .page-chinese .start-why__item::before{
-  content: "";
-  position: absolute;
-  left: 80px;            /* ровно после колонки номера */
+  left: 80px;           /* граница после колонки номера */
   top: 18px;
   bottom: 18px;
   width: 1px;
   background: rgba(var(--sw-line), 0.55);
 }
 
-/* Номера — KyivTypeSerifBold2 */
+/* КОНТЕНТ ВЫШЕ ЛИНИЙ (чтобы линии не "прятались") */
+.page-chinese .start-why__num,
+.page-chinese .start-why__item p{
+  position: relative;
+  z-index: 1;
+}
+
+/* Номера */
 .page-chinese .start-why__num{
   font-family: "KyivTypeSerifBold2", serif;
   font-weight: 700;
@@ -713,7 +725,6 @@
   font-size: 16px;
   line-height: 1.4;
   color: rgb(var(--sw-text));
-
   padding-left: 22px; /* отступ от вертикальной линии */
 }
 
@@ -722,6 +733,7 @@
   position: relative;
   width: 520px;
   height: 420px;
+  z-index: 2; /* правую часть держим выше фона, но это не мешает линиям слева */
 }
 
 .page-chinese .start-why__photo-rect{
@@ -767,6 +779,7 @@
 
   .page-chinese .start-why__right{
     margin-top: 24px;
+    width: 100%;
   }
 }
 
@@ -818,5 +831,6 @@
     height: 180px;
   }
 }
+
 
 
