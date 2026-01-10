@@ -65,7 +65,7 @@
   width: 1121px;
   max-width: 100%;
   margin: 0 auto;
-  padding-top: 48px; /* место под 你好 */
+  padding-top: 58px; /* место под 你好 */
 }
 
 .page-chinese .hero-cn__row{
@@ -286,7 +286,7 @@
   border-radius: 30px;
   object-fit: cover;
 
-  margin-top: 100px; /* если в фигме выше/ниже — двигаешь тут */
+  margin-top: 120px; /* если в фигме выше/ниже — двигаешь тут */
 }
 
 /* =========================================================
