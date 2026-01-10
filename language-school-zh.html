@@ -255,80 +255,59 @@
 
 
 
- <!-- WHY START (REPLACE "НАША ЦЕЛЬ") -->
-<section class="section start-why" id="about"
+<!-- WHY START -->
+<section class="section start-why" id="why-start"
   style="
-    --sw-accent: 214 86 85;      /* цвет красного заголовка */
-    --sw-text: 17 17 17;
-    --sw-line: 17 17 17;
+    --sw-bg: 248 247 242;        /* фон секции */
+    --sw-accent: 214 86 85;      /* красный заголовка */
+    --sw-text: 17 17 17;         /* основной текст */
+    --sw-line: 17 17 17;         /* линии/разделители */
   "
 >
-  <div class="container">
+  <div class="container start-why__container">
 
+    <!-- таблетки (КАРТИНКА) -->
+    <img class="start-why__pills" src="img/why-pills.png" alt="">
+
+    <!-- заголовок -->
     <h2 class="start-why__title">
-      <span class="start-why__accent">ПОЧЕМУ МЫ –</span><br>
-      <span class="start-why__accent">ВАШ ЛЕГКИЙ СТАРТ?</span>
+      <span class="start-why__line1">ПОЧЕМУ МЫ –</span><br>
+      <span class="start-why__line2">ВАШ ЛЕГКИЙ СТАРТ?</span>
     </h2>
 
-    <div class="start-why__wrap">
+    <div class="start-why__content">
 
-      <!-- LEFT: points -->
+      <!-- LEFT -->
       <div class="start-why__left">
 
         <div class="start-why__item">
           <div class="start-why__num">01</div>
-          <div class="start-why__body">
-            <p>Мы не ругаем за ошибки,<br>мы поддерживаем всех учеников.</p>
-          </div>
-          <span class="start-why__vline"></span>
-          <span class="start-why__hline"></span>
+          <p>Мы не ругаем за ошибки,<br>мы поддерживаем всех учеников.</p>
         </div>
 
         <div class="start-why__item">
           <div class="start-why__num">02</div>
-          <div class="start-why__body">
-            <p>Методика наших преподавателей<br>строится на индивидуальном<br>подходе и подборе программы для<br>каждого ученика.</p>
-          </div>
-          <span class="start-why__vline"></span>
-          <span class="start-why__hline"></span>
+          <p>Методика наших преподавателей строится на индивидуальном подходе и подборе программы для каждого ученика.</p>
         </div>
 
-        <div class="start-why__item start-why__item--last">
+        <div class="start-why__item">
           <div class="start-why__num">03</div>
-          <div class="start-why__body">
-            <p>Наши преподаватели –<br>сертифицированные специалисты,<br>помогающие студенту понять все<br>сложности языка в кратчайший срок.</p>
-          </div>
-          <span class="start-why__vline"></span>
-          <span class="start-why__hline"></span>
+          <p>Наши преподаватели — сертифицированные специалисты, помогающие студенту понять язык в кратчайшие сроки.</p>
         </div>
 
       </div>
 
-      <!-- RIGHT: images + decor -->
+      <!-- RIGHT -->
       <div class="start-why__right">
-
-        <!-- pills image (КАРТИНКА!) -->
-        <img class="start-why__pills" src="img/sw-pills.png" alt="">
-
-        <!-- top photo -->
-        <div class="start-why__photo start-why__photo--top">
-          <img src="img/sw-photo-1.png" alt="">
-        </div>
-
-        <!-- круглая фотка -->
-        <div class="start-why__photo start-why__photo--circle">
-          <img src="img/sw-photo-2.png" alt="">
-        </div>
-
-        <!-- stars (КАРТИНКА!) -->
-        <img class="start-why__stars" src="img/sw-stars.png" alt="">
-
+        <img class="start-why__photo-rect" src="img/why-photo-1.jpg" alt="">
+        <img class="start-why__photo-circle" src="img/why-photo-2.jpg" alt="">
+        <img class="start-why__stars" src="img/why-stars.png" alt="">
       </div>
 
     </div>
-
   </div>
 </section>
+
 
     <section class="section" id="teachers">
   <div class="container">
@@ -1103,6 +1082,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
