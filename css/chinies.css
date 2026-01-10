@@ -613,7 +613,7 @@
 /* таблетки */
 .page-chinese .start-why__pills{
   position: absolute;
-  top: -70px;
+  top: -90px;
   left: 700px;
   width: 320px;
   z-index: 5;
@@ -698,7 +698,7 @@
 
 .page-chinese .start-why__photo-circle{
   position: absolute;
-  bottom: 70px;
+  bottom: 100px;
   left: 40px;
   width: 170px;
   height: 170px;
@@ -708,7 +708,7 @@
 
 .page-chinese .start-why__stars{
   position: absolute;
-  right: 0px;
+  right: 20px;
   bottom: 70px;
   width: 130px;
   pointer-events: none;
