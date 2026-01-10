@@ -768,7 +768,12 @@
 /* =========================
    TABLET
    ========================= */
-@media (max-width: 1024px){
+@media (max-width: 1024px) and (min-width: 641px){
+  .page-chinese .start-why{
+    margin-top: 0 !important;      /* убираем десктопный -50px */
+    padding-top: 56px !important;  /* опускаем блок ниже */
+  }
+}
   .page-chinese .start-why__content{
     grid-template-columns: 1fr;
   }
@@ -781,7 +786,10 @@
     margin-top: 24px;
     width: 100%;
   }
-}
+ .page-chinese .start-why__photo-rect,
+  .page-chinese .start-why__photo-circle{
+    display: none;
+  }
 
 /* =========================
    MOBILE
