@@ -489,19 +489,81 @@
 
 /* =========================
    DESKTOP GUARD (≥1025)
-   ЖЁСТКО возвращает десктоп как был, чтобы адаптив НИЧЕГО не ломал
+   ЖЁСТКО возвращает ДЕСКТОП как в фигме
    ========================= */
 @media (min-width: 1025px){
 
-  .page-chinese .hero-cn__row{
-    transform: scale(0.75);
-    width: 1494px;
-    grid-template-columns: 911px 557px;
-    gap: 26px;
+  /* базовая обёртка + место под 你好 */
+  .page-chinese .hero-cn{
+    overflow: visible;
   }
 
-  .page-chinese .hero-cn__left{ width: 911px; }
+  .page-chinese .hero-cn__row-wrap{
+    width: 1121px;         /* 1494 * 0.75 */
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 48px;     /* место под 你好 */
+  }
 
+  /* 你好 в абсолюте, с нормальным отступом */
+  .page-chinese .hero-cn__hello-img{
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 120px;
+    height: auto;
+    margin: 0;
+    z-index: 3;
+  }
+
+  /* раскладка десктопа */
+  .page-chinese .hero-cn__row{
+    width: 1494px;
+    display: grid;
+    grid-template-columns: 911px 557px;
+    gap: 26px;
+    align-items: start;
+
+    transform: scale(0.75);
+    transform-origin: top left;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-chinese .hero-cn__left{
+    width: 911px;
+    min-width: 0;
+  }
+
+  .page-chinese .hero-cn__right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  /* заголовок + сдвиг строки 2 как в фигме */
+  .page-chinese .hero-cn__title{
+    width: 911px;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .page-chinese .hero-cn__line2{
+    transform: translateX(235px); /* твой десктопный сдвиг */
+    margin-left: 0 !important;
+  }
+
+  /* *под зонтиком строго справа под заголовком */
+  .page-chinese .hero-cn__quote{
+    width: 911px;
+    margin-top: 10px;
+    text-align: right;
+    white-space: nowrap;
+    transform: none;       /* на всякий случай, если где-то было */
+  }
+
+  /* сетка карточек — как в макете */
   .page-chinese .hero-cn__grid{
     width: 911px;
     display: grid;
@@ -516,20 +578,19 @@
     grid-row: 1 / span 2;
   }
 
-  .page-chinese .hero-cn__right{
-    display: flex;
-  }
-
+  /* правая картинка — фикс как в макете (чтобы “стена” не уезжала) */
   .page-chinese .hero-cn__img{
     width: 557px;
     max-width: 557px;
-    height: auto;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 30px;
+    margin-top: 100px;   /* твоя настройка по фигме */
   }
 
+  /* декор на десктопе включаем */
   .page-chinese .hero-cn__bg-arrow,
   .page-chinese .hero-cn__grid-arrow{
     display: block;
   }
 }
-
-
