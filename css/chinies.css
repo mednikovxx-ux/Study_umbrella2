@@ -560,7 +560,7 @@
   margin-left: auto;
   text-align: right;
   white-space: nowrap;
-  transform: translateX(0px); /* можно менять */
+  transform: translateX(100px); /* можно менять */
 }
 
   /* сетка карточек — как в макете */
