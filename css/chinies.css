@@ -771,7 +771,7 @@
 @media (max-width: 1024px) and (min-width: 641px){
 
   .page-chinese .start-why{
-    margin-top: 20 !important;       /* убираем десктопный -50px */
+    margin-top: -20!important;       /* убираем десктопный -50px */
     padding-top: 56px !important;   /* опускаем блок ниже */
   }
 
