@@ -603,7 +603,7 @@
   background: transparent;
   padding-top: 0 !important;
   padding-bottom: 56px;
-  margin-top: -30px; /* подвинь: -10/-30 если надо */
+  margin-top: -40px; /* подвинь: -10/-30 если надо */
 }
 
 .page-chinese .start-why__container{
@@ -614,7 +614,7 @@
 .page-chinese .start-why__pills{
   position: absolute;
   top: -40px;
-  left: 400;
+  left: 400px;
   width: 320px;
   z-index: 5;
   pointer-events: none;
@@ -637,7 +637,7 @@
 
 .page-chinese .start-why__line2{
   display: inline-block;
-  margin-left: 140px; /* сдвигается ТОЛЬКО эта строка */
+  margin-left: 240px; /* сдвигается ТОЛЬКО эта строка */
 }
 
 /* контент */
@@ -709,8 +709,8 @@
 .page-chinese .start-why__stars{
   position: absolute;
   right: -20px;
-  bottom: -20px;
-  width: 180px;
+  bottom: 50px;
+  width: 130px;
   pointer-events: none;
 }
 
