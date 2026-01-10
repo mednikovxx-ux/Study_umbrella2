@@ -598,9 +598,12 @@
    WHY START (colors via HTML vars)
    ========================================================= */
 
+/* FIX: фон + отступы */
 .page-chinese .start-why{
-  padding: 72px 0;
-  background: rgb(var(--sw-bg));
+  background: transparent;
+  padding-top: 0 !important;
+  padding-bottom: 56px;
+  margin-top: -20px; /* подвинь: -10/-30 если надо */
 }
 
 .page-chinese .start-why__container{
