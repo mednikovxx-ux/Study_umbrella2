@@ -698,7 +698,7 @@
 
 .page-chinese .start-why__photo-circle{
   position: absolute;
-  bottom: 100px;
+  bottom: 120px;
   left: 40px;
   width: 170px;
   height: 170px;
@@ -708,9 +708,9 @@
 
 .page-chinese .start-why__stars{
   position: absolute;
-  right: 20px;
-  bottom: 70px;
-  width: 130px;
+  right: 40px;
+  bottom: 90px;
+  width: 150px;
   pointer-events: none;
 }
 
