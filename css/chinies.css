@@ -713,7 +713,50 @@
   width: 150px;
   pointer-events: none;
 }
+/* ===== START-WHY: dividers like Figma ===== */
 
+.page-chinese .start-why__item{
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  column-gap: 24px;
+  align-items: start;
+
+  padding: 18px 0; /* вертикальный воздух как в макете */
+}
+
+/* вертикальная линия между номером и текстом */
+.page-chinese .start-why__item::before{
+  content: "";
+  position: absolute;
+  left: 80px;          /* ровно после колонки номера */
+  top: 16px;
+  bottom: 16px;
+  width: 1px;
+  background: rgba(var(--sw-line), 0.35);
+}
+
+/* горизонтальная линия под пунктом (кроме последнего) */
+.page-chinese .start-why__item:not(:last-child)::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(var(--sw-line), 0.35);
+}
+/* ===== START-WHY: numbers 01 / 02 / 03 ===== */
+
+.page-chinese .start-why__num{
+  font-family: "KyivTypeSerifBold2", serif; /* нужный шрифт */
+  font-weight: 700;
+  font-size: 48px;        /* как в макете */
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  color: rgb(var(--sw-text));
+}
 /* =========================
    TABLET
    ========================= */
