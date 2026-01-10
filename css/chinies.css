@@ -848,6 +848,14 @@
     height: 180px;
   }
 }
+/* =========================
+   DESKTOP — remove extra empty space under WHY
+   ========================= */
+@media (min-width: 1025px){
+  .page-chinese .start-why__right{
+    height: 300px; /* было 420px — уменьшаем */
+  }
+}
 
 
 
