@@ -502,7 +502,7 @@
     width: 1121px;         /* 1494 * 0.75 */
     max-width: 100%;
     margin: 0 auto;
-    padding-top: 48px;     /* место под 你好 */
+    padding-top: 58px;     /* место под 你好 */
   }
 
   /* 你好 в абсолюте, с нормальным отступом */
@@ -554,14 +554,14 @@
     margin-left: 0 !important;
   }
 
-  /* *под зонтиком строго справа под заголовком */
   .page-chinese .hero-cn__quote{
-    width: 911px;
-    margin-top: 10px;
-    text-align: right;
-    white-space: nowrap;
-    transform: none;       /* на всякий случай, если где-то было */
-  }
+  width: max-content;
+  margin-top: 10px;
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+  transform: translateX(20px); /* можно менять */
+}
 
   /* сетка карточек — как в макете */
   .page-chinese .hero-cn__grid{
