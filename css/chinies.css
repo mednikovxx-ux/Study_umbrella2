@@ -290,17 +290,26 @@
 }
 
 /* =========================================================
-   HERO CN — ADAPTIVE (NO HORIZONTAL SCROLL) ✅ FINAL
-   TABLET: трогаем только заголовок (влезает + line2 не уезжает)
-   MOBILE: карточки списком по одной + заголовок по центру
+   HERO CN — RESPONSIVE FINAL
+   Desktop protected + Tablet minimal title fix + Mobile list
+   ВСТАВИТЬ В КОНЕЦ chinies.css (и удалить старые hero-cn @media)
    ========================================================= */
+
+/* ---------- GLOBAL SAFETY (чтобы не было горизонтального скролла на мобилках) ---------- */
+@media (max-width: 1024px){
+  .page-chinese{
+    overflow-x: clip;
+  }
+}
 
 /* =========================
    TABLET (≤1024)
+   Оставляем как у тебя (идеально),
+   правим ТОЛЬКО заголовок (чтобы влез) и line2 (чтобы не уезжала вправо)
    ========================= */
 @media (max-width: 1024px){
 
-  /* убираем любой горизонтальный вылет внутри hero */
+  /* не даём вылетать ширине */
   .page-chinese .hero-cn,
   .page-chinese .hero-cn__row-wrap,
   .page-chinese .hero-cn__row,
@@ -315,10 +324,8 @@
     display: none;
   }
 
-  /* уменьшаем расстояние между 你好 и заголовком */
-  .page-chinese .hero-cn__row-wrap{
-    padding-top: 8px;
-  }
+  /* расстояние 你好 → заголовок (как у тебя было ок) */
+  .page-chinese .hero-cn__row-wrap{ padding-top: 8px; }
 
   .page-chinese .hero-cn__hello-img{
     position: relative;
@@ -328,7 +335,7 @@
     margin: 0 0 2px 0;
   }
 
-  /* layout: одна колонка, без scale, без фикс ширин */
+  /* layout: одна колонка */
   .page-chinese .hero-cn__row{
     transform: none;
     width: 100%;
@@ -342,12 +349,11 @@
     max-width: 100%;
     white-space: normal;
     overflow-wrap: anywhere;
-
-    font-size: 40px;      /* было 44 — уменьшаем, чтобы влез */
+    font-size: 40px;     /* было 44 — уменьшаем */
     line-height: 1.05;
   }
 
-  /* ✅ убираем сдвиг второй строки (он из margin-left в базовых стилях) */
+  /* ✅ убираем сдвиг второй строки (из десктопного margin-left clamp) */
   .page-chinese .hero-cn__line2{
     transform: none;
     margin-left: 0 !important;
@@ -361,36 +367,30 @@
   }
 
   /* картинку справа скрываем на планшете */
-  .page-chinese .hero-cn__right{
-    display: none;
-  }
+  .page-chinese .hero-cn__right{ display: none; }
 
-  /* ✅ карточки: твоя логика как на компе, но адаптивно (без фикс px) */
+  /* карточки — твоя “как на компе логика”, адаптивная */
   .page-chinese .hero-cn__grid{
     width: 100%;
     max-width: 100%;
-
     grid-template-columns: minmax(220px, 1.55fr) minmax(160px, 1fr) minmax(220px, 1.55fr);
     grid-template-rows: auto auto;
     column-gap: 16px;
     row-gap: 16px;
   }
 
-  /* красная карточка — слева на два ряда */
   .page-chinese .hero-cn__card--level{
     grid-column: 1;
     grid-row: 1 / span 2;
   }
 
-  /* чтобы контент не выталкивал карточки */
-  .page-chinese .hero-cn__card{
-    min-width: 0;
-  }
+  .page-chinese .hero-cn__card{ min-width: 0; }
 }
 
 
 /* =========================
    MOBILE (≤640)
+   Карточки списком по одной (на всю ширину) + заголовок по центру
    ========================= */
 @media (max-width: 640px){
 
@@ -409,10 +409,8 @@
     display: none;
   }
 
-  /* расстояние 你好 → заголовок */
-  .page-chinese .hero-cn__row-wrap{
-    padding-top: 6px;
-  }
+  /* 你好 → заголовок */
+  .page-chinese .hero-cn__row-wrap{ padding-top: 6px; }
 
   .page-chinese .hero-cn__hello-img{
     position: relative;
@@ -435,14 +433,12 @@
     max-width: 100%;
     white-space: normal;
     overflow-wrap: anywhere;
-
     font-size: 30px;
     line-height: 1.08;
-
     text-align: center;
   }
 
-  /* ✅ вторая строка не уезжает вправо */
+  /* ✅ убираем сдвиг “СОВРЕМЕННО…” */
   .page-chinese .hero-cn__line2{
     transform: none;
     margin-left: 0 !important;
@@ -456,24 +452,23 @@
     white-space: normal;
   }
 
-  /* ✅ КАРТОЧКИ СПИСКОМ ПО ОДНОЙ (на всю ширину) */
+  /* ✅ ГЛАВНОЕ: превращаем сетку карточек в СПИСОК
+     Это гарантированно перебивает любые grid-row/column с десктопа */
   .page-chinese .hero-cn__grid{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     width: 100%;
     max-width: 100%;
-
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    row-gap: 12px;
   }
 
-  /* красная карточка — обычная строка (но будет 100% ширины) */
+  /* сброс позиционирования карточек (если где-то задано) */
+  .page-chinese .hero-cn__card,
   .page-chinese .hero-cn__card--level{
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .page-chinese .hero-cn__card{
-    min-width: 0;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100%;
+    max-width: 100%;
   }
 
   /* картинку показываем снизу */
@@ -490,4 +485,51 @@
     border-radius: 24px;
   }
 }
+
+
+/* =========================
+   DESKTOP GUARD (≥1025)
+   ЖЁСТКО возвращает десктоп как был, чтобы адаптив НИЧЕГО не ломал
+   ========================= */
+@media (min-width: 1025px){
+
+  .page-chinese .hero-cn__row{
+    transform: scale(0.75);
+    width: 1494px;
+    grid-template-columns: 911px 557px;
+    gap: 26px;
+  }
+
+  .page-chinese .hero-cn__left{ width: 911px; }
+
+  .page-chinese .hero-cn__grid{
+    width: 911px;
+    display: grid;
+    grid-template-columns: 329px 213px 329px;
+    grid-template-rows: 190px 230px;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .page-chinese .hero-cn__card--level{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .page-chinese .hero-cn__right{
+    display: flex;
+  }
+
+  .page-chinese .hero-cn__img{
+    width: 557px;
+    max-width: 557px;
+    height: auto;
+  }
+
+  .page-chinese .hero-cn__bg-arrow,
+  .page-chinese .hero-cn__grid-arrow{
+    display: block;
+  }
+}
+
 
