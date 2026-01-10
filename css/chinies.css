@@ -603,7 +603,7 @@
   }
 }
 /* =========================================================
-   WHY START (colors via HTML vars)
+   WHY START (colors via HTML vars) — FIXED
    ========================================================= */
 
 /* FIX: фон + отступы */
@@ -611,11 +611,12 @@
   background: transparent;
   padding-top: 0 !important;
   padding-bottom: 56px;
-  margin-top: -50px; /* подвинь: -10/-30 если надо */
+  margin-top: -50px; /* твоя настройка */
 }
 
 .page-chinese .start-why__container{
   position: relative;
+  overflow: visible;
 }
 
 /* таблетки */
@@ -639,13 +640,11 @@
   color: rgb(var(--sw-accent));
 }
 
-.page-chinese .start-why__line1{
-  display: inline-block;
-}
+.page-chinese .start-why__line1{ display: inline-block; }
 
 .page-chinese .start-why__line2{
   display: inline-block;
-  margin-left: 340px; /* сдвигается ТОЛЬКО эта строка */
+  margin-left: 340px; /* твой сдвиг только второй строки */
 }
 
 /* контент */
@@ -663,21 +662,32 @@
   gap: 22px;
 }
 
+/* ✅ пункты */
 .page-chinese .start-why__item{
   display: grid;
   grid-template-columns: 80px 1fr;
   column-gap: 20px;
   align-items: start;
+
+  padding: 18px 0; /* воздух как в макете */
 }
 
+/* ✅ горизонтальная линия под пунктом */
+.page-chinese .start-why__item:not(:last-child){
+  border-bottom: 1px solid rgba(var(--sw-line), 0.55);
+}
+
+/* ✅ номера — KyivTypeSerifBold2 */
 .page-chinese .start-why__num{
-  font-family: "Onest", system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 42px;
+  font-family: "KyivTypeSerifBold2", serif;
+  font-weight: 700;
+  font-size: 48px;
   line-height: 1;
+  letter-spacing: 0.02em;
   color: rgb(var(--sw-text));
 }
 
+/* ✅ текст + вертикальная линия слева */
 .page-chinese .start-why__item p{
   margin: 4px 0 0;
   font-family: "Onest", system-ui, sans-serif;
@@ -685,6 +695,9 @@
   font-size: 16px;
   line-height: 1.4;
   color: rgb(var(--sw-text));
+
+  border-left: 1px solid rgba(var(--sw-line), 0.55);
+  padding-left: 22px;
 }
 
 /* RIGHT */
@@ -720,20 +733,9 @@
   bottom: 90px;
   width: 150px;
   pointer-events: none;
+  z-index: 10;
 }
-background: rgba(var(--sw-line), 0.35);
-}
-/* ===== START-WHY: numbers 01 / 02 / 03 ===== */
 
-.page-chinese .start-why__num{
-  font-family: "KyivTypeSerifBold2", serif; /* нужный шрифт */
-  font-weight: 700;
-  font-size: 48px;        /* как в макете */
-  line-height: 1;
-  letter-spacing: 0.02em;
-
-  color: rgb(var(--sw-text));
-}
 /* =========================
    TABLET
    ========================= */
@@ -757,6 +759,7 @@ background: rgba(var(--sw-line), 0.35);
 @media (max-width: 640px){
   .page-chinese .start-why{
     padding: 48px 0;
+    margin-top: 0;
   }
 
   .page-chinese .start-why__title{
