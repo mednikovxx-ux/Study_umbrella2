@@ -603,7 +603,7 @@
   }
 }
 /* =========================================================
-   WHY START (colors via HTML vars) — FIXED
+   WHY START (colors via HTML vars) — FINAL (DIVIDERS LIKE FIGMA)
    ========================================================= */
 
 /* FIX: фон + отступы */
@@ -611,7 +611,7 @@
   background: transparent;
   padding-top: 0 !important;
   padding-bottom: 56px;
-  margin-top: -50px; /* твоя настройка */
+  margin-top: -50px;
 }
 
 .page-chinese .start-why__container{
@@ -644,7 +644,7 @@
 
 .page-chinese .start-why__line2{
   display: inline-block;
-  margin-left: 340px; /* твой сдвиг только второй строки */
+  margin-left: 340px;
 }
 
 /* контент */
@@ -659,25 +659,43 @@
 .page-chinese .start-why__left{
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 0; /* ❗ важно: иначе линии визуально "рвутся" */
 }
 
-/* ✅ пункты */
+/* Пункты */
 .page-chinese .start-why__item{
+  position: relative;
   display: grid;
   grid-template-columns: 80px 1fr;
   column-gap: 20px;
   align-items: start;
 
-  padding: 18px 0; /* воздух как в макете */
+  padding: 22px 0; /* расстояние между пунктами как в макете */
 }
 
-/* ✅ горизонтальная линия под пунктом */
-.page-chinese .start-why__item:not(:last-child){
-  border-bottom: 1px solid rgba(var(--sw-line), 0.55);
+/* Горизонтальная линия под пунктом (кроме последнего) */
+.page-chinese .start-why__item:not(:last-child)::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(var(--sw-line), 0.55);
 }
 
-/* ✅ номера — KyivTypeSerifBold2 */
+/* Вертикальная линия между номером и текстом */
+.page-chinese .start-why__item::before{
+  content: "";
+  position: absolute;
+  left: 80px;            /* ровно после колонки номера */
+  top: 18px;
+  bottom: 18px;
+  width: 1px;
+  background: rgba(var(--sw-line), 0.55);
+}
+
+/* Номера — KyivTypeSerifBold2 */
 .page-chinese .start-why__num{
   font-family: "KyivTypeSerifBold2", serif;
   font-weight: 700;
@@ -687,7 +705,7 @@
   color: rgb(var(--sw-text));
 }
 
-/* ✅ текст + вертикальная линия слева */
+/* Текст */
 .page-chinese .start-why__item p{
   margin: 4px 0 0;
   font-family: "Onest", system-ui, sans-serif;
@@ -696,8 +714,7 @@
   line-height: 1.4;
   color: rgb(var(--sw-text));
 
-  border-left: 1px solid rgba(var(--sw-line), 0.55);
-  padding-left: 22px;
+  padding-left: 22px; /* отступ от вертикальной линии */
 }
 
 /* RIGHT */
