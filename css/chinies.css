@@ -610,7 +610,7 @@
 .page-chinese .start-why{
   background: rgb(var(--sw-bg)); /* важно: фон из HTML, не transparent */
   padding-top: 0 !important;
-  padding-bottom: 56px;
+  padding-bottom: 26px;
   margin-top: -50px;
 }
 
