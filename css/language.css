@@ -377,7 +377,7 @@
 .page-humanities .contact-form__submit,
 .page-humanities .form button[type="submit"]{
   background-color: #A98AB0;
-  color: #fff;
+  color: #121826; /* было #fff = 3.02:1, ниже WCAG AA — тёмный текст даёт 5.87:1 */
   border: none;
   box-shadow: none;
 }

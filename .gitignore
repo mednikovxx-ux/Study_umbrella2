@@ -1,0 +1,11 @@
+# Локально установленные AI-skill пакеты (npx skills add / impeccable) —
+# инструменты разработки, не часть сайта, не нужны в репозитории.
+.agents/
+.claude/
+.codex/
+.impeccable/
+skills-lock.json
+
+# Системный мусор
+.DS_Store
+Thumbs.db

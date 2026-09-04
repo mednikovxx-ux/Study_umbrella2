@@ -19,40 +19,8 @@
   font-size: 16px;
 }
 
-/* dropdown */
-.dropdown{
-  position: relative;
-}
-
-.dropdown__menu{
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  min-width: 240px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 18px;
-  padding: 10px;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-  display: none;
-  z-index: 3100;
-}
-
-.dropdown__menu a{
-  display: block;
-  padding: 10px 12px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.dropdown__menu a:hover{
-  background: rgba(0,0,0,0.05);
-}
-
-.dropdown.dropdown--open .dropdown__menu{
-  display: block;
-}
+/* dropdown: оформление/анимация — см. css/main.css (единственное место,
+   раньше дублировалось тут с чуть другими значениями) */
 
 /* ==========================
    МОБИЛКА: 2-уровневое меню
@@ -65,29 +33,51 @@
   }
 }
 
-/* 1-й уровень (Главная) */
+/* 1-й уровень (Главная) — аккордеон на grid-template-rows (0fr/1fr), а не
+   max-height: не трогает layout каждый кадр, только компоновку строки грида */
 .nav-main-submenu{
-  display: none;
-  margin-top: 10px;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 260ms var(--ease-out), opacity 200ms var(--ease-out);
+}
+
+.nav-main-submenu__inner{
+  overflow: hidden;
+  min-height: 0;
+  padding-top: 10px;
 }
 
 .nav-main-group.nav-main-group--open .nav-main-submenu{
-  display: block;
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 /* 2-й уровень (Языковая/Гуманитарная) */
 .nav-sub-submenu{
-  display: none;
-  margin-top: 8px;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
   padding-left: 14px;
+  transition: grid-template-rows 220ms var(--ease-out), opacity 180ms var(--ease-out);
+}
+
+.nav-sub-submenu__inner{
+  overflow: hidden;
+  min-height: 0;
+  padding-top: 8px;
 }
 
 .nav-sub-group.nav-sub-group--open .nav-sub-submenu{
-  display: block;
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 .nav-sub-toggle{
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: left;
   background: transparent;
   border: none;
@@ -97,8 +87,20 @@
 }
 
 .nav-sub-submenu a{
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 8px 0;
+}
+
+/* та же цветная точка по предмету, что и в десктопном дропдауне */
+.nav-sub-submenu a::before{
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(var(--link-accent, 44 44 44));
 }
 
 /* ================================
@@ -152,57 +154,6 @@ img,
   padding: 9px 16px;  /* чуть компактнее */
 }
 
-/* ==================================================
-   TABLET ONLY (language + humanities)
-   Показываем "Главная" + бургер как на мобилке
-   ================================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  /* 1) скрываем десктопные две таблетки справа */
-  .page-language .header__right--switch,
-  .page-humanities .header__right--switch{
-    display: none !important;
-  }
-
-  /* 2) показываем "Главная" + бургер (кнопка burger--with-text) */
-  .page-language .burger.burger--with-text,
-  .page-humanities .burger.burger--with-text{
-    display: inline-flex !important;
-    align-items: center;
-    gap: 10px;
-  }
-
-  /* 3) по умолчанию меню скрыто (как на мобилке) */
-  .page-language .nav,
-  .page-humanities .nav{
-    display: none;
-  }
-
-  /* 4) при открытом бургере (JS добавляет header--mobile-open) меню показываем */
-  .page-language .header.header--mobile-open .nav,
-  .page-humanities .header.header--mobile-open .nav{
-    display: block;
-  }
-
-  /* 5) чтобы меню выглядело “мобильно” на планшете */
-  .page-language .header.header--mobile-open .nav,
-  .page-humanities .header.header--mobile-open .nav{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 14px 16px;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    z-index: 3200;
-  }
-
-  /* ссылки в меню столбиком */
-  .page-language .header.header--mobile-open .nav > a,
-  .page-humanities .header.header--mobile-open .nav > a{
-    display: block;
-    padding: 10px 0;
-  }
 /* ==================================================
    TABLET ONLY (769–1024)
    Только language + humanities:

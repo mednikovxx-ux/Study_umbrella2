@@ -1,0 +1,677 @@
+/* =========================================================
+   subject-hero.css — общий "hero с карточками" для всех
+   предметных страниц (English/Español/中文/История/Обществознание/
+   Русский язык). Раньше жил только в chinies.css под .page-chinese —
+   вынесено и обобщено, чтобы не дублировать ~500 строк на страницу.
+
+   Каждая страница задаёт всего одну переменную на секции hero:
+     style="--subj-accent: var(--en-accent);"  (или --es-accent и т.д.)
+   ========================================================= */
+
+.hero.hero--subject{
+  background: transparent;
+  padding: 0;
+  color: #111;
+}
+
+.hero-subj{
+  position: relative;
+  background: transparent;
+  overflow: visible;
+}
+
+/* фон-стрелка (декор) */
+.hero-subj__bg-arrow{
+  position: absolute;
+  left: 250px;
+  top: 0;
+  width: 300px;
+  height: auto;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* необязательный элемент-приветствие (сейчас используется только на китайской странице) */
+.hero-subj__hello-img{
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 120px;
+  height: auto;
+  z-index: 3;
+}
+
+.hero-subj__row-wrap{
+  width: 1121px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: 58px;
+}
+
+.hero-subj__row{
+  width: 1494px;
+  display: grid;
+  grid-template-columns: 911px 557px;
+  gap: 26px;
+  align-items: start;
+
+  transform: scale(0.75);
+  transform-origin: top left;
+
+  position: relative;
+  z-index: 2;
+}
+
+.hero-subj__left{ min-width: 0; }
+
+.hero-subj__right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.hero-subj__title{
+  margin: 0;
+  padding: 0;
+  width: 911px;
+  text-align: left;
+
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.hero-subj__title .t{ display: inline-block; }
+.hero-subj__title .t--black{ color: #111; }
+.hero-subj__title .t--accent{ color: rgb(var(--subj-accent)); }
+
+.hero-subj__line2{
+  display: inline-block;
+}
+
+.hero-subj__quote{
+  width: 911px;
+  margin-top: 10px;
+  text-align: right;
+
+  font-size: 18px;
+  line-height: 1.3;
+  color: #111;
+  opacity: 0.85;
+}
+
+.hero-subj__grid{
+  margin-top: 18px;
+  width: 911px;
+
+  display: grid;
+  grid-template-columns: 329px 213px 329px;
+  grid-template-rows: 190px 230px;
+  column-gap: 20px;
+  row-gap: 20px;
+  position: relative;
+}
+
+.hero-subj__grid-arrow{
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  left: 240px;
+  top: 170px;
+  width: 520px;
+  height: auto;
+}
+
+.hero-subj__card{
+  border-radius: var(--radius-card);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  color: #111;
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-subj__card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.hero-subj__card--level:active {
+  transform: scale(0.98);
+}
+
+/* большая акцентная карточка "определить уровень" */
+.hero-subj__card--level{
+  grid-column: 1;
+  grid-row: 1 / span 2;
+
+  background: rgb(var(--subj-accent));
+  /* было #fff на всех — проходит контраст WCAG AA только для English (5.10:1);
+     остальные 5 акцентов проваливали (испанский — 1.89:1). Каждая страница
+     задаёт свой --subj-on-accent на <body>, тут просто безопасный дефолт. */
+  color: var(--subj-on-accent, #121826);
+  text-decoration: none;
+
+  padding: 24px;
+  position: relative;
+}
+
+.hero-subj__icon{
+  position: absolute;
+  top: 18px;
+  right: 20px;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--subj-on-accent, #121826);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-subj__icon-dot::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--subj-on-accent, #121826);
+  border-left: 0;
+  border-bottom: 0;
+  transform: rotate(45deg);
+  display: block;
+}
+
+.hero-subj__level-text{
+  margin-top: auto;
+  width: 305px;
+
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.12;
+  text-transform: uppercase;
+
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+}
+
+/* 3 маленькие карточки — фиксированная нейтральная палитра, одинаковая на всех предметах */
+.hero-subj__card--c1{ grid-column: 2; grid-row: 1; background: rgb(239 180 180); }
+.hero-subj__card--c2{ grid-column: 3; grid-row: 1; background: rgb(211 232 255); }
+.hero-subj__card--c3{ grid-column: 2; grid-row: 2; background: rgb(211 232 255); }
+.hero-subj__card--c4{ grid-column: 3; grid-row: 2; background: rgb(249 205 173); }
+
+.hero-subj__pill{
+  display: inline-flex;
+  align-items: center;
+
+  padding: 10px 22px;
+  margin-bottom: 21px;
+
+  width: auto;
+  max-width: max-content;
+
+  background: transparent;
+  border: 1.5px solid #111;
+  border-radius: 999px;
+
+  font-family: var(--font-sans);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1;
+
+  color: #111;
+}
+
+.hero-subj__card-text{
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.hero-subj__img{
+  width: 557px;
+  height: 440px;
+  border-radius: var(--radius-card);
+  object-fit: cover;
+  margin-top: 120px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px){
+  .hero-subj,
+  .hero-subj__row-wrap,
+  .hero-subj__row,
+  .hero-subj__left{
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .hero-subj__bg-arrow,
+  .hero-subj__grid-arrow{
+    display: none;
+  }
+
+  .hero-subj__row-wrap{ padding-top: 8px; }
+
+  .hero-subj__hello-img{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 84px;
+    margin: 0 0 2px 0;
+  }
+
+  .hero-subj__row{
+    transform: none;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hero-subj__title{
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 40px;
+    line-height: 1.05;
+  }
+
+  .hero-subj__quote{
+    width: 100%;
+    max-width: 100%;
+    text-align: right;
+  }
+
+  .hero-subj__right{ display: none; }
+
+  .hero-subj__grid{
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: minmax(220px, 1.55fr) minmax(160px, 1fr) minmax(220px, 1.55fr);
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    row-gap: 16px;
+  }
+
+  .hero-subj__card--level{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .hero-subj__card{ min-width: 0; }
+}
+
+@media (max-width: 640px){
+  .hero-subj__row-wrap{ padding-top: 6px; }
+
+  .hero-subj__hello-img{
+    width: 76px;
+  }
+
+  .hero-subj__title{
+    font-size: 30px;
+    line-height: 1.08;
+    text-align: center;
+  }
+
+  .hero-subj__quote{
+    font-size: 14px;
+    text-align: right;
+  }
+
+  .hero-subj__grid{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-subj__card,
+  .hero-subj__card--level{
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-subj__right{
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-subj__img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+    border-radius: 24px;
+  }
+}
+
+@media (min-width: 1025px){
+  .hero-subj{ overflow: visible; }
+
+  .hero-subj__row-wrap{
+    width: 1121px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 58px;
+  }
+
+  .hero-subj__hello-img{
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 120px;
+    height: auto;
+    margin: 0;
+    z-index: 3;
+  }
+
+  .hero-subj__row{
+    width: 1494px;
+    display: grid;
+    grid-template-columns: 911px 557px;
+    gap: 26px;
+    align-items: start;
+    transform: scale(0.75);
+    transform-origin: top left;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-subj__left{ width: 911px; min-width: 0; }
+
+  .hero-subj__right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .hero-subj__title{ width: 911px; text-align: left; }
+
+  .hero-subj__quote{
+    width: max-content;
+    margin-top: 10px;
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .hero-subj__grid{
+    width: 911px;
+    display: grid;
+    grid-template-columns: 329px 213px 329px;
+    grid-template-rows: 190px 230px;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .hero-subj__card--level{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .hero-subj__img{
+    width: 557px;
+    max-width: 557px;
+    height: 440px;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    margin-top: 180px;
+  }
+
+  .hero-subj__bg-arrow,
+  .hero-subj__grid-arrow{
+    display: block;
+  }
+}
+
+/* =========================================================
+   "ПОЧЕМУ МЫ — ВАШ ЛЕГКИЙ СТАРТ" — тоже общий для всех предметных страниц
+   ========================================================= */
+
+.start-why{
+  background: #F9FAF5; /* Warm Paper — было отдельное близкое значение rgb(248 247 242) */
+  padding-top: 0 !important;
+  padding-bottom: 16px;
+  margin-top: -50px;
+}
+
+.start-why__container{
+  position: relative;
+  overflow: visible;
+}
+
+.start-why__pills{
+  position: absolute;
+  top: -90px;
+  left: 700px;
+  width: 320px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.start-why__title{
+  margin: 0 0 36px 0;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: rgb(var(--subj-accent));
+}
+
+.start-why__line1{ display: inline-block; }
+.start-why__line2{
+  display: inline-block;
+  margin-left: 340px;
+}
+
+.start-why__content{
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 48px;
+  align-items: start;
+}
+
+.start-why__left{
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.start-why__item{
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  column-gap: 20px;
+  align-items: start;
+  padding: 22px 0;
+
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+
+.start-why__left.is-visible > .start-why__item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.start-why__left > .start-why__item:nth-child(2) { transition-delay: 80ms; }
+.start-why__left > .start-why__item:nth-child(3) { transition-delay: 160ms; }
+
+.start-why__item::before,
+.start-why__item::after{
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.start-why__item:not(:last-child)::after{
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(17,17,17,0.55);
+}
+
+.start-why__item::before{
+  left: 80px;
+  top: 18px;
+  bottom: 18px;
+  width: 1px;
+  background: rgba(17,17,17,0.55);
+}
+
+.start-why__num,
+.start-why__item p{
+  position: relative;
+  z-index: 1;
+}
+
+.start-why__num{
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #111;
+}
+
+.start-why__item p{
+  margin: 4px 0 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #111;
+  padding-left: 22px;
+}
+
+.start-why__right{
+  position: relative;
+  width: 520px;
+  height: 420px;
+  z-index: 2;
+}
+
+.start-why__photo-rect{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 370px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.start-why__photo-circle{
+  position: absolute;
+  bottom: 120px;
+  left: 40px;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.start-why__stars{
+  position: absolute;
+  right: 40px;
+  bottom: 90px;
+  width: 150px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (max-width: 1024px){
+  .hero-subj, .hero-subj__row-wrap, .hero-subj__row, .hero-subj__left{
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 641px){
+  .start-why{
+    margin-top: -20px !important;
+    padding-top: 56px !important;
+  }
+
+  .start-why__content{
+    grid-template-columns: 1fr;
+  }
+
+  .start-why__line2{
+    margin-left: 80px;
+  }
+
+  .start-why__right{
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .start-why__photo-rect,
+  .start-why__photo-circle{
+    display: none;
+  }
+
+  .start-why__stars{
+    display: block;
+  }
+}
+
+@media (max-width: 640px){
+  .start-why{
+    padding: 48px 0;
+    margin-top: 0;
+  }
+
+  .start-why__title{
+    font-size: 34px;
+    text-align: center;
+  }
+
+  .start-why__line2{
+    margin-left: 0;
+  }
+
+  .start-why__pills{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 280px;
+    margin: 0 auto 16px;
+    display: block;
+  }
+
+  .start-why__content{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .start-why__right{
+    width: 100%;
+    height: 360px;
+  }
+
+  .start-why__photo-rect{
+    width: 100%;
+    height: 200px;
+  }
+
+  .start-why__photo-circle{
+    left: 16px;
+    width: 180px;
+    height: 180px;
+  }
+}

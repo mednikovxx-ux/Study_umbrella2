@@ -1,4 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+/* Шрифты подключены через <link preconnect/preload> в partials/head-meta.php,
+   не через @import — @import задерживает построение CSSOM (браузер должен
+   сначала скачать этот файл целиком, прежде чем узнает про шрифты). */
+
+/*
+  Единая шкала брейкпоинтов для НОВОГО кода (main.css/language.css
+  пока используют старые вперемешку — не трогаем их в этом заходе во избежание
+  регрессий без тест-покрытия, но все новые файлы должны использовать только эти:
+    480px  — маленькие телефоны
+    640px  — телефоны
+    768px  — планшеты (портрет)
+    1024px — планшеты (альбом) / малый десктоп
+*/
+
+/*
+  Шрифтовая система сайта — 2 шрифта, оба реально подключены выше через
+  Google Fonts (раньше Poppins/Onest/Kurale упоминались в CSS, но нигде не
+  грузились — реально везде рендерился системный фолбэк):
+    --font-serif — крупные заголовки (h1/h2, hero, цифры "01/02/03")
+    --font-sans  — весь остальной UI/текст (кнопки, формы, карточки, футер)
+*/
+:root {
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; /* Hedvig Letters Serif из референса не поддерживает кириллицу — заменён на Playfair Display (тоже указан в DESIGN.md как substitute) */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --radius-card: 24px;    /* контентные карточки (hero-панели, tracks, programs, форма) */
+  --radius-control: 16px; /* компактный UI: выпадающие меню, cookie-banner */
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);     /* усиленный ease-out для входа/наведения */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* для scroll-reveal */
+}
+
+/*
+  Цветовые токены по предметам — единый источник правды, потребляется через
+  rgb(var(--x-accent)) везде (hero предметных страниц, бейджи преподавателей
+  на главной и т.д.). Значения ПРИБЛИЗИТЕЛЬНЫЕ (сняты со скриншотов Figma) —
+  уточнить точные HEX через Figma Dev Mode при появлении доступа.
+*/
+:root {
+  --en-accent: 30 122 122;      /* тёмно-бирюзовый — English */
+  --es-accent: 232 181 68;      /* жёлтый — Español */
+  --hist-accent: 169 138 176;   /* сиреневый — История (совпадает с текущим гуманитарным фиолетовым) */
+  --soc-accent: 66 145 160;     /* бирюзово-синий — Обществознание */
+  --rus-accent: 214 130 74;     /* оранжевый — Русский язык */
+  --zh-accent: 214 86 85;       /* красный — 中文 */
+}
 
 /* Сброс + базовые настройки */
 
@@ -15,8 +60,7 @@ body {
 }
 
 body {
-  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   color: #2c2c2c;
   background-color: #f9faf5; /* мягкий бежевый фон как в макете */
 }
@@ -28,6 +72,12 @@ h3,
 h4,
 p {
   margin: 0;
+}
+
+/* Крупные заголовки — серифный акцент бренда, остальной текст остаётся на --font-sans */
+h1,
+h2 {
+  font-family: var(--font-serif);
 }
 
 /* Ссылки без подчёркивания */
@@ -44,10 +94,52 @@ button {
   font: inherit;
 }
 
+/* Клавиатурный фокус — брендированное кольцо вместо стандартного синего/дефолтного */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 /* Базовый контейнер */
 .container {
   width: 100%;
   max-width: 1200px;
   padding: 0 16px;
   margin: 0 auto;
+}
+
+/* Вход hero-элементов при первой отрисовке страницы (не scroll-triggered) */
+.hero-enter {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroEnter 600ms var(--ease-out) forwards;
+}
+
+.hero-enter[data-delay="1"] { animation-delay: 90ms; }
+.hero-enter[data-delay="2"] { animation-delay: 180ms; }
+.hero-enter[data-delay="3"] { animation-delay: 270ms; }
+
+@keyframes heroEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion — мягче, не ноль: оставляем прозрачность, убираем сдвиги/масштаб */
+@media (prefers-reduced-motion: reduce) {
+  .goal-cards > .goal-card,
+  .section--why .formats > .format-card,
+  .programs-grid__bottom > .program-card,
+  .tracks > .track-card,
+  .teachers-slider__track > .teacher-card,
+  .start-why__left > .start-why__item,
+  .hero-enter {
+    transition-duration: 200ms !important;
+    animation-duration: 1ms !important;
+    transform: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
 }
